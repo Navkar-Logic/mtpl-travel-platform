@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo:8
+    container_name: mtpl-mongodb
+    restart: unless-stopped
+    # Bind to localhost (127.0.0.1) only — NEVER expose publicly on 0.0.0.0
+    ports:
+      - "127.0.0.1:27017:27017"
+    environment:
+      # NOTE: MONGO_INITDB_* variables are consumed by mongo's entrypoint ONLY during initial
+      # volume creation. For an already-initialized volume, MongoDB preserves existing credentials.
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-mtpl_admin}
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ROOT_PASSWORD:?Error - MONGO_ROOT_PASSWORD is required. Define it in .env or pass --env-file}"
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-mtpl_dev}
+    volumes:
+      - mtpl_mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  mtpl_mongodb_data:
+    # Exact Docker volume name verified via 'docker inspect mtpl-mongodb'.
+    # Preserves existing initialized data without creating an accidental empty volume.
+    name: mtpl-travel-platform_mtpl_mongodb_data

@@ -1,0 +1,1361 @@
+{
+  "version": 1,
+  "sourceArchive": "Test.zip",
+  "totalImages": 29,
+  "testimonials": [
+    {
+      "id": "testimonial-001",
+      "image": "/assets/testimonials/testimonial-001.png",
+      "originalFilename": "Test/Deven Chauahan Testimonial.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1405,
+        "height": 538
+      },
+      "type": "email_testimonial",
+      "customerName": "Deven Chauhan",
+      "customerEntity": "Chitra, Deven and Shaurya",
+      "recipient": "TUSHAR MTPL, Prachi Mtpl, Punam Mtpl, Ticketing | Prajakta MTPL",
+      "text": "Dear Tushar , Prachi and team at MTPL\n\nVacations are always looked forward to...What makes them pleasurable is an assurance that assistance is just a call away( importantly at a foreign land)..to begin with i must say thats what makes MTPL different then other service providers..infact prompt response is MTPLs' “USP”...\n\nThis was probably the longest trip that was planned by Tushar for us..never did we felt any difficulty either in the choice of hotels, locations of the sights for our tours all was remarkable and spot on..We felt the planning was fantastic and importantly keeping us in loop all the time and most importantly our budget, making it cost effective, though we always felt that planning UK will be a very costly affair..But You guys proved us wrong, making it pocket friendly and without compromising on quality..\n\nVisiting an unknown land always gets a bit of insecurity and anxiety..this however was not the issue being planned our trip with MTPL..\n\nlike all, though this trip has also reached closure, but with happy memories and rejuvenated mind awaiting for planning the next one..\n\nWell Done Tushar and team\n\nlots of regards\n\nChitra and Deven and off course Shaurya\n\nSent from my iPhone",
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "Email (iOS Mail client screenshot)",
+      "date": "2019-05-29",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Full customer names visible (Deven Chauhan, Chitra, Shaurya)",
+        "Internal staff email names visible (Tushar, Prachi, Punam, Prajakta)"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-002",
+      "image": "/assets/testimonials/testimonial-002.png",
+      "originalFilename": "Test/IMG_20150518_114400.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 720
+      },
+      "type": "whatsapp",
+      "customerName": "Dr Tapre",
+      "customerLocation": "Akola",
+      "recipient": "MTPL",
+      "text": "Yes done today..enjoyed a lot..tired completely...your local agent is good...albert hotel is also good..",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": ":) universal studios?",
+          "time": "yesterday at 16:07"
+        },
+        {
+          "sender": "Dr Tapre Akola",
+          "text": "Yes done today..enjoyed a lot..tired completely...your local agent is good...albert hotel is also good..",
+          "time": "yesterday at 16:25"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😊",
+          "time": "yesterday at 16:28"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer profile photo visible in header",
+        "Customer title and location visible ('Dr Tapre Akola')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-003",
+      "image": "/assets/testimonials/testimonial-003.png",
+      "originalFilename": "Test/IMG_20150530_052657.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 720
+      },
+      "type": "blackberry_messenger",
+      "customerName": "Aniket Thakur",
+      "recipient": "MTPL",
+      "text": "It was a pleasure.... Many thanks!",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "...been a part of it and look forward to taking you on many more to come! Please share your memories on www.mishrikotkartravels.com. Happy Holidays making!!"
+        },
+        {
+          "sender": "Aniket Thakur",
+          "text": "It was a pleasure.... Many thanks!",
+          "time": "13 May 20:26"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "BlackBerry Messenger (BBM)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer contact label visible ('Aniket Thakur (Work)')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-004",
+      "image": "/assets/testimonials/testimonial-004.png",
+      "originalFilename": "Test/IMG_20150616_074822.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 720
+      },
+      "type": "blackberry_messenger",
+      "customerName": "Kumawat",
+      "recipient": "MTPL",
+      "text": "Just awesome tour no problem at all",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "taking you on many more to come! Please share your memories on www.mishrikotkartravels.com"
+        },
+        {
+          "sender": "KUMAWAT",
+          "subject": "Great",
+          "text": "Just awesome tour no problem at all",
+          "time": "07:32"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "BlackBerry Messenger (BBM)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer contact label visible ('KUMAWAT (Mobile)')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-005",
+      "image": "/assets/testimonials/testimonial-005.png",
+      "originalFilename": "Test/IMG_20160102_120545.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 720
+      },
+      "type": "blackberry_messenger",
+      "customerName": "Dr Rahul Pingle",
+      "recipient": "MTPL",
+      "text": "Thanks for excellent arrangements.",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "Welcome home. Hope you enjoyed your holiday. We're happy to have been a part of it and look forward to taking you on many more to come! Please share your memories on www.mishrikotkartravels.com"
+        },
+        {
+          "sender": "Dr Rahul Pingle",
+          "text": "Thanks for excellent arrangements.",
+          "time": "Wed 20:23"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "BlackBerry Messenger (BBM)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer contact name visible ('Dr Rahul Pingle (Work)')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-006",
+      "image": "/assets/testimonials/testimonial-006.png",
+      "originalFilename": "Test/IMG_20160816_203448.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 720
+      },
+      "type": "blackberry_messenger",
+      "customerName": "Shomit Bagchi",
+      "recipient": "MTPL",
+      "text": "As always... I should be following your choice.. it's very good. Will enjoy it at night now.",
+      "conversationContext": [
+        {
+          "sender": "Shomit Bagchi",
+          "text": "As always... I should be following your choice.. it's very good. Will enjoy it at night now.",
+          "time": "14:38"
+        },
+        {
+          "sender": "Me",
+          "text": "😊",
+          "time": "15:14"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "BlackBerry Messenger (BBM)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer contact name visible ('Shomit Bagchi (Work)')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-007",
+      "image": "/assets/testimonials/testimonial-007.png",
+      "originalFilename": "Test/Loya.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "whatsapp",
+      "customerName": "Dr sanjay Loya",
+      "recipient": "Prachi (MTPL)",
+      "text": "Hi Prachi, reached Ngp safely. You have taken extra efforts for our visa process n nice follow up👍🏻👍🏻keep in touch 🙏🏻🙏🏻",
+      "conversationContext": [
+        {
+          "sender": "Dr sanjay Loya",
+          "text": "Hi Prachi, reached Ngp safely. You have taken extra efforts for our visa process n nice follow up👍🏻👍🏻keep in touch 🙏🏻🙏🏻",
+          "time": "22:47"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😊",
+          "time": "22:48"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Assuring our best services at all times.",
+          "time": "22:50"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Dr sanjay Loya')",
+        "Customer profile photo visible in chat header",
+        "Staff personal name mentioned in chat ('Hi Prachi')",
+        "Personal travel and visa details discussed"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-008",
+      "image": "/assets/testimonials/testimonial-008.png",
+      "originalFilename": "Test/Screenshot_2015-06-04-10-31-41(1).png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "whatsapp",
+      "customerName": "Shirish Chaware",
+      "recipient": "MTPL",
+      "text": "Thanks a lot for nice, hassle free arrangements!",
+      "conversationContext": [
+        {
+          "sender": "Shirish Chaware",
+          "text": "Arrival @ 1 pm Mangalore air port Coorg night stay 30/05/15 31,1,2 coorg Start from coorg on 02/06/15 afternoon to Shravanbelgol Leave shravanbelgol on 03/06/14 evening for Bangalore and stay air port hotel at night Flight early morning on 04/06/15",
+          "time": "20:32"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Ok",
+          "time": "22:03"
+        },
+        {
+          "sender": "Shirish Chaware",
+          "text": "Thanks a lot for nice, hassle free arrangements!",
+          "time": "JUNE 4, 2015 09:45"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😊",
+          "time": "10:30"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": "2015-06-04",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Shirish Chaware')",
+        "Customer avatar visible in header",
+        "Detailed personal travel itinerary and dates visible in message history"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-009",
+      "image": "/assets/testimonials/testimonial-009.png",
+      "originalFilename": "Test/Screenshot_2015-08-12-23-33-19.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "sms",
+      "customerName": "Vishnu Tambi",
+      "recipient": "Tushar (MTPL)",
+      "text": "Yes recieved. Thank you very much tushar. This is why I tell everyone to use Mishrikotkar Travels. I have told more 100 people. -Vishnu Tambi",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "Have u got d WhatsApp sir ?",
+          "time": "23:18"
+        },
+        {
+          "sender": "Vishnu Tambi",
+          "text": "Nope. I was watching for it. -Vishnu Tambi",
+          "time": "23:19"
+        },
+        {
+          "sender": "Vishnu Tambi",
+          "text": "Yes recieved. Thank you very much tushar. This is why I tell everyone to use Mishrikotkar Travels. I have told more 100 people. -Vishnu Tambi",
+          "time": "23:32"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Pleasure sir :)",
+          "time": "23:32"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "SMS / Messaging app",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full phone number prominently displayed in header ('093 72 118234')",
+        "Customer full name displayed ('VISHNU TAMBI')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-010",
+      "image": "/assets/testimonials/testimonial-010.png",
+      "originalFilename": "Test/Screenshot_20160813-075504.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "sms",
+      "customerName": "Shailesh Jain",
+      "recipient": "Tushar (MTPL)",
+      "text": "Ya Tushar, & thx a lot for make us fentastic journey & Tour.gn",
+      "conversationContext": [
+        {
+          "sender": "Shailesh Jain",
+          "text": "Ya Tushar, & thx a lot for make us fentastic journey & Tour.gn",
+          "time": "RELIANCE 4G - 12 Aug"
+        },
+        {
+          "sender": "MTPL",
+          "text": ":)",
+          "time": "RELIANCE 4G - 12 Aug"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "SMS (Android Messenger)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full mobile number visible in header ('098222 98342')",
+        "Customer full name visible ('Shailesh Jain')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-011",
+      "image": "/assets/testimonials/testimonial-011.png",
+      "originalFilename": "Test/Screenshot_20160813-075510.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "sms",
+      "customerName": "Prasad Pujari",
+      "recipient": "MTPL",
+      "text": "Ya.. enoyed allot... great tour.. thanks for everything",
+      "conversationContext": [
+        {
+          "sender": "Prasad Pujari",
+          "text": "Ya.. enoyed allot... great tour.. thanks for everything",
+          "time": "RELIANCE 4G - 12 Aug"
+        },
+        {
+          "sender": "MTPL",
+          "text": ":)",
+          "time": "RELIANCE 4G - 12 Aug"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "SMS (Android Messenger)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full mobile number visible in header ('98222 26205')",
+        "Customer full name visible ('Prasad Pujari')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-012",
+      "image": "/assets/testimonials/testimonial-012.png",
+      "originalFilename": "Test/Screenshot_20161207-232918.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Iyer Subhash",
+      "recipient": "MTPL",
+      "text": "V good",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "All good sir?",
+          "time": "4 DECEMBER 2016 14:13"
+        },
+        {
+          "sender": "Iyer Subhash Ref...",
+          "text": "V good",
+          "time": "14:17"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": "2016-12-04",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name and reference visible in header ('Iyer Subhash Ref...')",
+        "Family group photo visible as profile photo"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-013",
+      "image": "/assets/testimonials/testimonial-013.png",
+      "originalFilename": "Test/Screenshot_20161216-092432.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Anuj Mudholkar",
+      "recipient": "MTPL",
+      "text": "Sorry for late reply.....\n\nThnx for very wonderful arrangements...\n\nAmazing tour..... and hotels are also very good and amazing. ..... nice views from  every hotel..",
+      "conversationContext": [
+        {
+          "sender": "Anuj Mudholkar",
+          "text": "Sorry for late reply.....\n\nThnx for very wonderful arrangements...\n\nAmazing tour..... and hotels are also very good and amazing. ..... nice views from  every hotel..",
+          "time": "07:32"
+        },
+        {
+          "sender": "MTPL",
+          "text": "🤘",
+          "time": "07:34"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Anuj Mudholkar')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-014",
+      "image": "/assets/testimonials/testimonial-014.png",
+      "originalFilename": "Test/Screenshot_20170521-173033.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "whatsapp",
+      "customerName": "Dr Sonkuwar",
+      "recipient": "MTPL",
+      "text": "Thanx a lot !\nJust reached Nagpur.\nIt was very well planned and executed tour by Mishrikotkar.\nOne of your executive met at Bangalore Airport today before departure to Nagpur.\nKeep doing good work 👍",
+      "conversationContext": [
+        {
+          "sender": "Dr Sonkuwar",
+          "text": "At Abbey waterfall [with image]",
+          "time": "2:09 PM"
+        },
+        {
+          "sender": "Dr Sonkuwar",
+          "text": "Today 👆",
+          "time": "2:10 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "👌 thanks",
+          "time": "2:10 PM"
+        },
+        {
+          "sender": "Dr Sonkuwar",
+          "text": "Thanx a lot !\nJust reached Nagpur.\nIt was very well planned and executed tour by Mishrikotkar.\nOne of your executive met at Bangalore Airport today before departure to Nagpur.\nKeep doing good work 👍",
+          "time": "4:49 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Welcome back sir",
+          "time": "4:58 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Thanks",
+          "time": "4:58 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer title and surname visible ('Dr Sonkuwar')",
+        "Customer profile photo visible in header",
+        "Personal family holiday photo thumbnail visible in chat stream"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-015",
+      "image": "/assets/testimonials/testimonial-015.png",
+      "originalFilename": "Test/Screenshot_20170704-115234.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Sunil B Banubakode",
+      "recipient": "MTPL",
+      "text": "Yes. It was a great tour. We have thoroughly enjoyed. Thanks to you and your team.",
+      "conversationContext": [
+        {
+          "sender": "Sunil B Banuba...",
+          "text": "Glimpses of Switzerland. [photo thumbnail]",
+          "time": "2:13 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "👍😃",
+          "time": "7:53 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Hope you enjoyed the tour.. :)",
+          "time": "8:45 AM"
+        },
+        {
+          "sender": "Sunil B Banuba...",
+          "text": "Yes. It was a great tour. We have thoroughly enjoyed. Thanks to you and your team.",
+          "time": "11:50 AM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer partial/full name visible ('Sunil B Banuba...')",
+        "Customer profile photo visible in header",
+        "Personal holiday photo thumbnail visible in chat"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-016",
+      "image": "/assets/testimonials/testimonial-016.png",
+      "originalFilename": "Test/Screenshot_20170706-184852.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Darshan Rathi",
+      "recipient": "MTPL",
+      "text": "U booked the cake\nThank u so much",
+      "conversationContext": [
+        {
+          "sender": "Darshan Rathi",
+          "text": "All fine",
+          "time": "5:30 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "all good ?",
+          "time": "2:58 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Yess",
+          "time": "6:46 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "All goid",
+          "time": "6:46 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Good",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "did hotel provide u cake last night ?",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Yesss",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": ":)",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "U booked the cake\nThank u so much",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "🤘",
+          "time": "6:48 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Darshan Rathi')",
+        "Customer profile photo (couple photo) visible in header",
+        "Duplicate of testimonial-022.jpg (same screenshot content saved across different resolutions/formats)"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-017",
+      "image": "/assets/testimonials/testimonial-017.jpg",
+      "originalFilename": "Test/Screenshot_20171221-121913.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "sms",
+      "customerName": "M h Patel",
+      "recipient": "Tushar (MTPL)",
+      "text": "Thanku tusarji ...really we enjoyed",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "Welcome home! Hope you enjoyed your holiday. We're happy to have been a part of it and look forward to taking you on many more to come! Please share your memories on www.mishrikotkartravels.com",
+          "time": "Yesterday 23:24"
+        },
+        {
+          "sender": "M h Patel",
+          "text": "Thanku tusarji ...really we enjoyed",
+          "time": "Today 01:30"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "SMS (Android Messenger)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full phone number prominently visible ('9881245457')",
+        "Customer name visible ('M h Patel')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-018",
+      "image": "/assets/testimonials/testimonial-018.jpg",
+      "originalFilename": "Test/Screenshot_20171231-140616.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Milind Bandhao",
+      "recipient": "MTPL",
+      "text": "🙏🙏 Thnx a lot for nice arrangement. Our tour was excellent. Happy and prosperous New Year. May your business grow manifold in coming years",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "true sir.. thank you very much for the feedback..",
+          "time": "11:08"
+        },
+        {
+          "sender": "Milind Bandhao...",
+          "text": "👍👍",
+          "time": "11:08"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Welcome home! Hope you enjoyed your holiday. We're happy to have been a part of it and look forward to taking you on many more to come! Please share your memories on www.mishrikotkartravels.com",
+          "time": "TODAY 08:38"
+        },
+        {
+          "sender": "Milind Bandhao...",
+          "text": "🙏🙏 Thnx a lot for nice arrangement. Our tour was excellent. Happy and prosperous New Year. May your business grow manifold in coming years",
+          "time": "13:04"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Milind Bandhao...')",
+        "Customer profile photo (couple photo) visible in header"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-019",
+      "image": "/assets/testimonials/testimonial-019.jpg",
+      "originalFilename": "Test/Screenshot_20180129-094212.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Shridhar Dhanagare",
+      "recipient": "MTPL",
+      "text": "Thanks.\n\nI had a great tour..\nAnother successful one from MTPL\n\nThat makes it 7\nOoty\nKashmir\nManali\nDubai (partly)\nKerala\nMauritius\nAnd now Pondicherry\n\nFrom 2009 to 2018\nand 2018 has just started",
+      "conversationContext": [
+        {
+          "sender": "Shridhar Dhana...",
+          "text": "Thanks. I had a great tour.. Another successful one from MTPL",
+          "time": "09:04"
+        },
+        {
+          "sender": "Shridhar Dhana...",
+          "text": "🙏👍",
+          "time": "09:04"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😃✌️",
+          "time": "09:04"
+        },
+        {
+          "sender": "Shridhar Dhana...",
+          "text": "That makes it 7\nOoty\nKashmir\nManali\nDubai (partly)\nKerala\nMauritius\nAnd now Pondicherry",
+          "time": "09:09"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Glad sir.. 🤗",
+          "time": "09:09"
+        },
+        {
+          "sender": "Shridhar Dhana...",
+          "text": "From 2009 to 2018",
+          "time": "09:09"
+        },
+        {
+          "sender": "Shridhar Dhana...",
+          "text": "and 2018 has just started",
+          "time": "09:10"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Shridhar Dhana...')",
+        "Customer profile photo visible in header",
+        "Comprehensive client travel history across 7 distinct holidays enumerated"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-020",
+      "image": "/assets/testimonials/testimonial-020.png",
+      "originalFilename": "Test/Shantanu Mahcyo Testimonial.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1171,
+        "height": 359
+      },
+      "type": "email_testimonial",
+      "customerName": "Santanu Bhattacharya",
+      "customerEntity": "Sr. Executive- Product Development, MAHYCO, Kolkata",
+      "recipient": "accounts1@mishrikotkartravels.com, TUSHAR - MTPL, Prachi Mtpl",
+      "text": "Dear Team,\n\nThank you the receipt. I am really delighted to receive the wonderful service from you.\n\nThank You,\n\nSincere Regards,\nSantanu Bhattacharya\nSr. Executive- Product Development\nMAHYCO, Kolkata.\nCont No. 9775579203",
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "Email (Gmail interface screenshot)",
+      "date": "2019-12-28",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full mobile number exposed in email signature ('Cont No. 9775579203')",
+        "Customer employer and job title visible ('MAHYCO, Kolkata / Sr. Executive- Product Development')",
+        "Internal MTPL email addresses visible"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-021",
+      "image": "/assets/testimonials/testimonial-021.jpg",
+      "originalFilename": "Test/WhatsApp Image 2020-02-03 at 11.20.17.jpeg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1054
+      },
+      "type": "platform_review",
+      "customerName": "Amit Jain",
+      "recipient": "Team MTPL",
+      "text": "★★★★★ outstanding service and very very genuine and understanding.too good.",
+      "rating": 5,
+      "ratingStatus": "verified",
+      "platform": "Google Review / Business Review interface ('Edit response' view)",
+      "date": "2020-02-03",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Amit Jain')",
+        "Customer profile avatar displayed"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-022",
+      "image": "/assets/testimonials/testimonial-022.jpg",
+      "originalFilename": "Test/darshan rathi testimonial.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "whatsapp",
+      "customerName": "Darshan Rathi",
+      "recipient": "MTPL",
+      "text": "U booked the cake\nThank u so much",
+      "conversationContext": [
+        {
+          "sender": "Darshan Rathi",
+          "text": "All fine",
+          "time": "5:30 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "all good ?",
+          "time": "2:58 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Yess",
+          "time": "6:46 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "All goid",
+          "time": "6:46 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Good",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "did hotel provide u cake last night ?",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "Yesss",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": ":)",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "Darshan Rathi",
+          "text": "U booked the cake\nThank u so much",
+          "time": "6:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "🤘",
+          "time": "6:48 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Darshan Rathi')",
+        "Customer profile photo (couple photo) visible in header",
+        "Duplicate of testimonial-016.png (identical screenshot downscaled to 720x1280 JPEG)"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-023",
+      "image": "/assets/testimonials/testimonial-023.png",
+      "originalFilename": "Test/fursule.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Sunil Farsule",
+      "recipient": "MTPL",
+      "text": "🙏🙏 Thanks to Mishrikotkar team. We have safely reached Nagpur after completing our successful pleasure trip of Leh. We enjoyed  the trip with pleasant snow fall.",
+      "conversationContext": [
+        {
+          "sender": "Farsule Sunil",
+          "text": "🙏🙏 Thanks to Mishrikotkar team. We have safely reached Nagpur after completing our successful pleasure trip of Leh. We enjoyed  the trip with pleasant snow fall.",
+          "time": "JUNE 12, 2017 9:03 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😃👍",
+          "time": "9:04 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": "2017-06-12",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Farsule Sunil')",
+        "Customer portrait photo visible in header"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-024",
+      "image": "/assets/testimonials/testimonial-024.jpg",
+      "originalFilename": "Test/gaurav wa.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 2280
+      },
+      "type": "whatsapp",
+      "customerName": "Gaurav Jain",
+      "recipient": "MTPL",
+      "text": "Superb...dollers and Mauritius rupee bacha hai",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "All good Gaurav bhaiya ?",
+          "time": "JULY 15, 2018 23:29"
+        },
+        {
+          "sender": "Gaurav Jain",
+          "text": "All good👍",
+          "time": "JULY 16, 2018 11:01"
+        },
+        {
+          "sender": "MTPL",
+          "text": "bhaiya, dont be too late for bom nag flight.. pls reach by 5 pm",
+          "time": "TODAY 15:12"
+        },
+        {
+          "sender": "Gaurav Jain",
+          "text": "👍",
+          "time": "15:13"
+        },
+        {
+          "sender": "MTPL",
+          "text": "tour was good ?",
+          "time": "15:13"
+        },
+        {
+          "sender": "Gaurav Jain",
+          "text": "Superb...dollers and Mauritius rupee bacha hai",
+          "time": "15:14"
+        },
+        {
+          "sender": "MTPL",
+          "text": "ok..",
+          "time": "15:23"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "hinglish",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Gaurav Jain')",
+        "Customer profile photo (group photo) visible in header",
+        "Flight logistics and currency details discussed"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-025",
+      "image": "/assets/testimonials/testimonial-025.png",
+      "originalFilename": "Test/khandelwal testimonial.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp_group",
+      "customerName": "Dr Anita Khandelwal",
+      "recipient": "Khandelwal Mam Andaman (WhatsApp Group)",
+      "text": "Landing nagpur. Poor network connectivity helped me to enjoy the fantastic vacation fully.\n\nPerfectly organised tour 👌. Thanks a lot to team mishrikotkar.\n\nEverything was very good....👍🏼🧕 travel , stay n place",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "all good ?",
+          "time": "6:02 PM"
+        },
+        {
+          "sender": "Dr Anita Khandelwal",
+          "text": "Landing nagpur. Poor network connectivity helped me to enjoy the fantastic vacation fully.",
+          "time": "7:45 PM"
+        },
+        {
+          "sender": "Dr Anita Khandelwal",
+          "text": "Perfectly organised tour 👌. Thanks a lot to team mishrikotkar.",
+          "time": "7:46 PM"
+        },
+        {
+          "sender": "Dr Anita Khandelwal",
+          "text": "Everything was very good....👍🏼🧕 travel , stay n place",
+          "time": "7:47 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "😁👍",
+          "time": "7:55 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp Group",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name and title visible ('Dr Anita Khandelwal')",
+        "Group title and internal members visible ('Khandelwal Mam Andaman / Dr Anita, PRACHI, SUPPORT, VISHNU...')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-026",
+      "image": "/assets/testimonials/testimonial-026.png",
+      "originalFilename": "Test/likhite testimonial.png",
+      "format": "PNG",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "type": "whatsapp",
+      "customerName": "Samir Likhite",
+      "recipient": "MTPL",
+      "text": "Yes my dear\nThanx for arranging such a nice tour. ...call u tomorrow. ...gn",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "Welcome back.. hope you enjoyed the tour sir..",
+          "time": "7:51 PM"
+        },
+        {
+          "sender": "Samir Likhite",
+          "text": "Yes my dear",
+          "time": "8:11 PM"
+        },
+        {
+          "sender": "Samir Likhite",
+          "text": "Thanx for arranging such a nice tour. ...call u tomorrow. ...gn",
+          "time": "8:12 PM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "👍",
+          "time": "8:29 PM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Samir Likhite')",
+        "Customer profile photo (lion with quote) visible in header"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-027",
+      "image": "/assets/testimonials/testimonial-027.png",
+      "originalFilename": "Test/mantri testimonial.PNG",
+      "format": "PNG",
+      "dimensions": {
+        "width": 750,
+        "height": 1334
+      },
+      "type": "whatsapp",
+      "customerName": "Pankaj Mantri",
+      "recipient": "Tushar (MTPL)",
+      "text": "Thanks Tushar for the tour.\n\nJust got down at Mumbai airport.",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "👍",
+          "time": "8:20 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "Welcome back sir. Hope you enjoyed the tour :)",
+          "time": "Yesterday 11:59 PM"
+        },
+        {
+          "sender": "Pankaj Mantri",
+          "text": "Thanks Tushar for the tour.",
+          "time": "Today 12:49 AM"
+        },
+        {
+          "sender": "MTPL",
+          "text": "✌️",
+          "time": "12:49 AM"
+        },
+        {
+          "sender": "Pankaj Mantri",
+          "text": "Just got down at Mumbai airport.",
+          "time": "12:50 AM"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp (iOS client)",
+      "date": null,
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible in header ('Pankaj Mantri')",
+        "Customer profile photo (couple photo) visible in header",
+        "Personal travel photo thumbnail visible in message history"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-028",
+      "image": "/assets/testimonials/testimonial-028.jpg",
+      "originalFilename": "Test/rajesh sethi testimonial.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "type": "whatsapp",
+      "customerName": "Rajesh Sethi",
+      "recipient": "MTPL",
+      "text": "Reached !!!\nEverything is fine\n\nPerfect",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "If the guest wishes to recommend the same, he can make a call to our Dubai office or to Mr. Abdulrauf( Branch Manger-Dubai).-00 971527477420/ 00971 4 2977792",
+          "time": "18:45"
+        },
+        {
+          "sender": "Rajesh Sethi",
+          "text": "Ok",
+          "time": "19:37"
+        },
+        {
+          "sender": "Rajesh Sethi",
+          "text": "Reached !!!\nEverything is fine",
+          "time": "15 MAY 2016 14:20"
+        },
+        {
+          "sender": "MTPL",
+          "text": "✌️",
+          "time": "15:01"
+        },
+        {
+          "sender": "MTPL",
+          "text": "All good ?",
+          "time": "TODAY 04:48"
+        },
+        {
+          "sender": "Rajesh Sethi",
+          "text": "Perfect",
+          "time": "09:51"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp",
+      "date": "2016-05-15",
+      "language": "en",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Customer full name visible ('Rajesh Sethi')",
+        "Branch manager phone numbers visible in chat history ('00 971527477420 / 00971 4 2977792')"
+      ],
+      "publicationStatus": "needs_review"
+    },
+    {
+      "id": "testimonial-029",
+      "image": "/assets/testimonials/testimonial-029.jpg",
+      "originalFilename": "Test/suraj jain.jpg",
+      "format": "JPEG",
+      "dimensions": {
+        "width": 1080,
+        "height": 2340
+      },
+      "type": "whatsapp_group",
+      "customerName": "Nitin Jinturkar & Suraj Jain",
+      "recipient": "ANDAMAN-SURAJ JAI... (WhatsApp Group)",
+      "text": "Yes tour vyasthit zala.Thanks for a nice arrangements\n\n😁😁 Ekdam zakas Tushar.😁 Thanks Poonam.",
+      "conversationContext": [
+        {
+          "sender": "MTPL",
+          "text": "All good ? @Suraj Jain @+91 94222 06791 @Nitin Jinturkar\nTour vyavasthit suru ahe ka ?",
+          "time": "YESTERDAY 18:50"
+        },
+        {
+          "sender": "Nitin Jinturkar (+91 96043 84564)",
+          "text": "Yes tour vyasthit zala.Thanks for a nice arrangements",
+          "time": "TODAY 12:11"
+        },
+        {
+          "sender": "Suraj Jain / Group participant",
+          "text": "😁😁 Ekdam zakas Tushar.😁 Thanks Poonam.",
+          "time": "12:12"
+        },
+        {
+          "sender": "MTPL",
+          "text": "✌️",
+          "time": "12:47"
+        },
+        {
+          "sender": "Nitin Jinturkar (+91 96043 84564)",
+          "text": "✌️✌️✌️",
+          "time": "12:48"
+        },
+        {
+          "sender": "Participant",
+          "text": "😁",
+          "time": "12:48"
+        }
+      ],
+      "rating": null,
+      "ratingStatus": "not_present",
+      "platform": "WhatsApp Group",
+      "date": null,
+      "language": "mr",
+      "extractionConfidence": "high",
+      "uncertainText": [],
+      "privacyFlags": [
+        "Multiple customer mobile numbers exposed ('+91 94222 06791', '+91 96043 84564')",
+        "Customer full names exposed ('Suraj Jain', 'Nitin Jinturkar')",
+        "Internal staff names mentioned ('Tushar', 'Poonam')"
+      ],
+      "publicationStatus": "needs_review"
+    }
+  ]
+}

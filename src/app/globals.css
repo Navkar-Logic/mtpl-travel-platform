@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #17201C; /* Main text */
+  --muted: #F7F9F8; /* Pale background */
+  --muted-foreground: #66736D; /* Secondary text */
+  
+  /* Brand Green Palette */
+  --brand-light: #A7F3C0; /* Light green */
+  --brand-medium: #4ADE80; /* Medium green */
+  --brand: #16A765; /* Deeper brand green */
+  --brand-foreground: #ffffff; /* Readable white text on deeper brand green */
+  --brand-dark: #063D2A; /* Deep-green footer & hero surfaces */
+  --brand-pale: #EEF8F3; /* Soft background tint */
+  --border: #DCE7E1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #17201C;
+    --muted: #F7F9F8;
+    --muted-foreground: #66736D;
+    --brand-light: #A7F3C0;
+    --brand-medium: #4ADE80;
+    --brand: #16A765;
+    --brand-foreground: #ffffff;
+    --brand-dark: #063D2A;
+    --brand-pale: #EEF8F3;
+    --border: #DCE7E1;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-light: var(--brand-light);
+  --color-brand-medium: var(--brand-medium);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-pale: var(--brand-pale);
+  --color-border: var(--border);
+  --font-sans: var(--font-sans-family), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-sans-family), system-ui, sans-serif;
+  --font-display: var(--font-display-family), var(--font-sans-family), sans-serif;
+  --font-mono: var(--font-mono-family), monospace;
+  
+  /* Custom Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-slow-zoom: slow-zoom 20s linear infinite alternate;
+  --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Centralized Gradient & Surface Utility Classes */
+.bg-gradient-brand {
+  background-image: linear-gradient(135deg, #16A765 0%, #4ADE80 100%);
+}
+
+.bg-gradient-brand-subtle {
+  background-image: linear-gradient(135deg, rgba(167, 243, 192, 0.22) 0%, rgba(74, 222, 128, 0.1) 100%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #16A765 0%, #4ADE80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.05em 0.25em 0.18em 0.14em;
+  margin: -0.05em -0.2em -0.15em -0.12em;
+  line-height: 1.25;
+  overflow: visible;
+}
+
+.text-gradient-brand-light {
+  background: linear-gradient(135deg, #4ADE80 0%, #A7F3C0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding: 0.08em 0.32em 0.2em 0.16em;
+  margin: -0.05em -0.25em -0.18em -0.14em;
+  line-height: 1.25;
+  overflow: visible;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Editorial Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-8deg); }
+  50% { transform: translateY(-15px) rotate(-6deg); }
+  100% { transform: translateY(0px) rotate(-8deg); }
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
