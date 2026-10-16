@@ -58,8 +58,8 @@ export const teamMembers: TeamMember[] = [
     name: "Ms. Razina Soloman",
     role: "Travel Operations Executive – Ticketing & Hotel Reservations",
     department: "Ticketing & Stays",
+    image: "/assets/team/razina-soloman.jpeg",
     alt: "Ms. Razina Soloman - Travel Operations Executive – Ticketing & Hotel Reservations",
-    initials: "RS",
     description: "Supports ticketing and hotel booking operations.",
     bio: "Coordinates seamless flight bookings, worldwide hotel accommodations, and stay confirmations tailored to corporate and leisure itinerary requirements.",
     responsibilities: [
