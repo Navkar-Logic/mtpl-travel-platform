@@ -16,8 +16,10 @@ const travelTypeOptions = [
   { value: "", label: "Select Travel Type (Optional)" },
   { value: "domestic", label: "Domestic Travel" },
   { value: "international", label: "International Travel" },
+  { value: "cruises", label: "Luxury Cruise Vacations" },
   { value: "corporate", label: "Corporate / Business Travel" },
   { value: "holidays-visas", label: "Holidays & Visa Services" },
+  { value: "forex-insurance", label: "Forex & Travel Insurance" },
   { value: "group-custom", label: "Custom / Group Tour (FIT & GIT)" },
   { value: "other", label: "Other Travel Inquiries" },
 ]

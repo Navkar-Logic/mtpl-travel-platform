@@ -21,8 +21,8 @@ const services = [
     id: "02", 
     name: "Hotel Bookings", 
     desc: "Accommodation planning based on your precise requirements.", 
-    image: "/assets/services/hotel-bookings.jpg",
-    alt: "Luxury oceanfront hotel suite and private balcony",
+    image: "/assets/office/operations/mtpl-hotel-booking.jpeg",
+    alt: "MTPL Hotel booking desk and customer assistance",
     tag: "Curated Stays",
   },
   { 
@@ -37,8 +37,8 @@ const services = [
     id: "04", 
     name: "Visa Assistance", 
     desc: "Hassle-free processing and travel documentation support.", 
-    image: "/assets/services/visa-assistance.jpg",
-    alt: "Passport with travel visa stamps and boarding passes",
+    image: "/assets/office/operations/mtpl-visa-assistance.jpeg",
+    alt: "MTPL Visa assistance documentation and processing desk",
     tag: "Documentation Desk",
   },
   { 
@@ -72,49 +72,47 @@ export function ServicesSection() {
               Exceptional Services For Your Journey
             </h2>
             
-            {/* Image Reveal Box */}
+            {/* Image Reveal Box - All 5 images preloaded simultaneously for instant transitions */}
             <div className="hidden lg:block relative aspect-[4/5] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-2xl mb-8 border border-slate-800">
-              <AnimatePresence mode="wait">
-                {services.map((service) => (
-                  service.id === hoveredService && (
-                    <motion.div
-                      key={service.id}
-                      initial={{ opacity: 0, scale: 1.05 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ duration: 0.45, ease: "easeOut" }}
-                      className="absolute inset-0"
-                    >
-                      <Image
-                        src={service.image}
-                        alt={service.alt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 42vw"
-                        className="object-cover"
-                        priority={service.id === "01" || service.id === "02"}
-                      />
-                      
-                      {/* Gradient overlay for contrast and legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-10" />
+              {services.map((service) => {
+                const isActive = hoveredService === service.id
+                return (
+                  <div
+                    key={service.id}
+                    className={`absolute inset-0 transition-opacity duration-300 ease-out ${
+                      isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+                    }`}
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      unoptimized
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-cover"
+                    />
+                    
+                    {/* Gradient overlay for contrast and legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-10" />
 
-                      {/* Top floating pill badge */}
-                      <div className="absolute top-5 left-5 z-20">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/95 text-[var(--brand-dark)] backdrop-blur-md shadow-md">
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-                          {service.tag}
-                        </span>
-                      </div>
+                    {/* Top floating pill badge */}
+                    <div className="absolute top-5 left-5 z-20">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/95 text-[var(--brand-dark)] backdrop-blur-md shadow-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+                        {service.tag}
+                      </span>
+                    </div>
 
-                      {/* Bottom Info Title */}
-                      <div className="absolute bottom-6 left-6 right-6 z-20">
-                         <span className="text-white/70 text-xs font-bold tracking-widest uppercase mb-1 block">Service {service.id}</span>
-                         <span className="text-white font-sans text-2xl font-bold leading-snug block">{service.name}</span>
-                         <p className="text-white/80 text-sm font-light mt-1.5 line-clamp-2">{service.desc}</p>
-                      </div>
-                    </motion.div>
-                  )
-                ))}
-              </AnimatePresence>
+                    {/* Bottom Info Title */}
+                    <div className="absolute bottom-6 left-6 right-6 z-20">
+                      <span className="text-white/70 text-xs font-bold tracking-widest uppercase mb-1 block">Service {service.id}</span>
+                      <span className="text-white font-sans text-2xl font-bold leading-snug block">{service.name}</span>
+                      <p className="text-white/80 text-sm font-light mt-1.5 line-clamp-2">{service.desc}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
 
             <Link 
@@ -183,6 +181,8 @@ export function ServicesSection() {
                                   src={service.image}
                                   alt={service.alt}
                                   fill
+                                  unoptimized
+                                  priority
                                   sizes="100vw"
                                   className="object-cover"
                                 />

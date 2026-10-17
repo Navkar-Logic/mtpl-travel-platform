@@ -44,7 +44,9 @@ export function ServicesHero() {
             <span className="text-white/30">•</span>
             <span>Verified Hotel Stays</span>
             <span className="text-white/30">•</span>
-            <span>Holidays</span>
+            <span>Holiday Planning</span>
+            <span className="text-white/30">•</span>
+            <span>Luxury Cruises</span>
             <span className="text-white/30">•</span>
             <span>Visa &amp; Passport Support</span>
             <span className="text-white/30">•</span>
@@ -53,8 +55,6 @@ export function ServicesHero() {
             <span>Travel Insurance</span>
             <span className="text-white/30">•</span>
             <span>Corporate Travel</span>
-            <span className="text-white/30">•</span>
-            <span>Ground Transfers</span>
           </div>
           
         </div>

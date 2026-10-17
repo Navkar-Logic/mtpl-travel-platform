@@ -17,10 +17,10 @@ export function TestimonialCard({ testimonial, index, onOpenLightbox }: Testimon
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+      viewport={{ once: true, margin: "100px" }}
+      transition={{ duration: 0.4, delay: (index % 3) * 0.05 }}
       className="group relative flex flex-col bg-white rounded-3xl border border-[var(--border)] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(6,61,42,0.08)] hover:border-brand/40 transition-all duration-300"
     >
       {/* Top Media Preview Section (Preserves natural aspect ratio & text readability) */}
@@ -44,6 +44,8 @@ export function TestimonialCard({ testimonial, index, onOpenLightbox }: Testimon
             width={testimonial.dimensions.width}
             height={testimonial.dimensions.height}
             className="w-auto h-auto max-h-[340px] max-w-full object-contain transition-transform duration-500 group-hover/image:scale-[1.02]"
+            unoptimized
+            loading={index < 12 ? "eager" : "lazy"}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
 

@@ -32,12 +32,14 @@ const navigation = {
     { name: "Contact", href: "/contact" },
   ],
   services: [
-    { name: "Flight Assistance", href: "/services#flight-assistance" },
-    { name: "Hotel Bookings", href: "/services#hotel-bookings" },
-    { name: "Holiday Packages", href: "/packages" },
-    { name: "Visa Assistance", href: "/services#visa-assistance" },
-    { name: "Corporate Travel", href: "/services#corporate-travel" },
-    { name: "Transfers & Experiences", href: "/services#transfers" },
+    { name: "Flight Assistance", href: "/services#flights" },
+    { name: "Hotel Bookings", href: "/services#hotels" },
+    { name: "Holiday Planning", href: "/services#holidays" },
+    { name: "Cruise Vacations", href: "/services#cruises" },
+    { name: "Visa & Passport Support", href: "/services#visa" },
+    { name: "Foreign Exchange (Forex)", href: "/services#forex" },
+    { name: "Travel Insurance", href: "/services#insurance" },
+    { name: "Corporate & Group Travel", href: "/services#corporate" },
   ],
 }
 

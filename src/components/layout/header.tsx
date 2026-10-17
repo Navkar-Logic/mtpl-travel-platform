@@ -7,42 +7,12 @@ import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { officeImages } from "@/config/office-images"
 import { motion, AnimatePresence, useScroll } from "framer-motion"
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight } from "lucide-react"
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { 
-    name: "Services", 
-    href: "/services",
-    dropdown: [
-      {
-        title: "Travel Services",
-        items: [
-          { name: "Flight Assistance", href: "/services#flight-assistance" },
-          { name: "Hotel Bookings", href: "/services#hotel-bookings" },
-          { name: "Holiday Planning", href: "/services#holiday-planning" },
-        ]
-      },
-      {
-        title: "Travel Assistance",
-        items: [
-          { name: "Visa Assistance", href: "/services#visa-assistance" },
-          { name: "Passport Assistance", href: "/services#passport-assistance" },
-          { name: "Forex Assistance", href: "/services#forex-assistance" },
-          { name: "Travel Insurance", href: "/services#travel-insurance" },
-        ]
-      },
-      {
-        title: "Ground & Business",
-        items: [
-          { name: "Transfers & Car Rental", href: "/services#transfers" },
-          { name: "Corporate Travel", href: "/services#corporate-travel" },
-          { name: "FIT / GIT", href: "/services#group-travel" },
-        ]
-      }
-    ]
-  },
+  { name: "Services", href: "/services" },
   { 
     name: "Holidays", 
     href: "/packages",
@@ -56,8 +26,6 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
-  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
-  const [mobileAccordion, setMobileAccordion] = React.useState<string | null>(null)
   const [isScrolled, setIsScrolled] = React.useState(false)
   
   const pathname = usePathname()
@@ -69,21 +37,17 @@ export function Header() {
     })
   }, [scrollY])
 
-
-
   const [prevPathname, setPrevPathname] = React.useState(pathname)
   
   if (pathname !== prevPathname) {
     setPrevPathname(pathname)
     setMobileMenuOpen(false)
-    setActiveDropdown(null)
   }
 
   // Handle escape key
   React.useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setActiveDropdown(null)
         setMobileMenuOpen(false)
       }
     }
@@ -107,34 +71,39 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center outline-none" aria-label="MTPL Home">
+              {/* Mobile device logo */}
               <Image 
                 src="/assets/mtpl-logo.png" 
                 alt="MTPL Logo" 
-                width={220} 
-                height={60} 
-                className="h-8 md:h-9.5 lg:h-10 w-auto object-contain flex-shrink-0" 
+                width={170} 
+                height={46} 
+                className="h-8 sm:h-8.5 w-auto object-contain block md:hidden flex-shrink-0" 
+                priority
+                unoptimized
+              />
+              {/* Tablet, Laptop and Desktop PC logo */}
+              <Image 
+                src="/assets/mtpl-desktop-logo.png" 
+                alt="MTPL Desktop Logo" 
+                width={140} 
+                height={150} 
+                className="h-10 md:h-11 lg:h-12 w-auto object-contain hidden md:block flex-shrink-0" 
                 priority
                 unoptimized
               />
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered and full width balance */}
-          <nav className="hidden lg:flex flex-1 items-center justify-center gap-1 xl:gap-2 2xl:gap-3 px-4" aria-label="Desktop Navigation">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex flex-1 items-center justify-center gap-1 xl:gap-2 px-4" aria-label="Desktop Navigation">
             {navigation.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href))
-              const hasDropdown = !!item.dropdown
 
               return (
-                <div 
-                  key={item.name} 
-                  className="relative flex items-center"
-                  onMouseEnter={() => hasDropdown && setActiveDropdown(item.name)}
-                  onMouseLeave={() => hasDropdown && setActiveDropdown(null)}
-                >
+                <div key={item.name} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className={`group flex items-center gap-1 px-3 py-2 outline-none rounded-lg text-sm xl:text-[15px] font-semibold whitespace-nowrap transition-colors relative z-10 ${
+                    className={`group flex items-center gap-1 px-3.5 py-2 outline-none rounded-lg text-sm xl:text-[15px] font-semibold whitespace-nowrap transition-colors relative z-10 ${
                       isActive 
                         ? 'text-brand font-bold' 
                         : 'text-slate-800 hover:text-brand hover:bg-slate-50'
@@ -142,15 +111,6 @@ export function Header() {
                     aria-current={isActive ? "page" : undefined}
                   >
                     <span>{item.name}</span>
-                    {hasDropdown && (
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                        activeDropdown === item.name 
-                          ? 'rotate-180 text-brand' 
-                          : isActive 
-                            ? 'text-brand' 
-                            : 'text-slate-400 group-hover:text-brand'
-                      }`} />
-                    )}
                     
                     {/* Active Indicator */}
                     {isActive && (
@@ -161,76 +121,6 @@ export function Header() {
                       />
                     )}
                   </Link>
-
-                  {/* Desktop Dropdown */}
-                  {hasDropdown && (
-                    <AnimatePresence>
-                      {activeDropdown === item.name && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                          transition={{ duration: 0.18, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 pt-2 pointer-events-auto z-50 min-w-max"
-                        >
-                          <div className="bg-white/98 backdrop-blur-2xl border border-slate-200/90 shadow-2xl rounded-2xl p-2.5 flex gap-4 overflow-hidden relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-brand/5 pointer-events-none" />
-                            
-                            {item.dropdown?.map((col) => (
-                              <div key={col.title} className="p-3 min-w-[200px] relative z-10">
-                                <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3 px-3">{col.title}</h4>
-                                <ul className="space-y-1">
-                                  {col.items.map((subItem) => (
-                                    <li key={subItem.name}>
-                                      <Link 
-                                        href={subItem.href}
-                                        className="block px-3 py-2 text-sm font-medium text-slate-700 rounded-lg hover:bg-brand/10 hover:text-brand transition-all"
-                                        onClick={() => setActiveDropdown(null)}
-                                      >
-                                        {subItem.name}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-
-                            {/* Contextual Operations Card in Services Dropdown */}
-                            {item.name === "Services" && (
-                              <div className="p-3 w-56 relative z-10 border-l border-slate-100 flex flex-col justify-between bg-slate-50/50 rounded-r-xl">
-                                <div>
-                                  <div className="relative w-full h-28 rounded-xl overflow-hidden mb-2.5 shadow-xs border border-slate-200/60">
-                                    <Image
-                                      src={officeImages.consultantsFloor.src}
-                                      alt={officeImages.consultantsFloor.alt}
-                                      fill
-                                      sizes="224px"
-                                      className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                    <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider text-white bg-brand/85 px-2 py-0.5 rounded-full backdrop-blur-xs">
-                                      Operations HQ
-                                    </span>
-                                  </div>
-                                  <h5 className="text-xs font-bold text-slate-800">Nagpur Travel Desk</h5>
-                                  <p className="text-[11px] text-slate-500 font-light mt-0.5 line-clamp-2">
-                                    IATA-certified specialists managing flights, visas & tours.
-                                  </p>
-                                </div>
-                                <Link
-                                  href="/about"
-                                  onClick={() => setActiveDropdown(null)}
-                                  className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-brand hover:underline"
-                                >
-                                  About Our Team &rarr;
-                                </Link>
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
                 </div>
               )
             })}
@@ -287,62 +177,18 @@ export function Header() {
             <nav className="flex flex-col gap-2 max-w-md mx-auto">
               {navigation.map((item) => {
                 const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href))
-                const hasDropdown = !!item.dropdown
-                const isAccordionOpen = mobileAccordion === item.name
 
                 return (
-                  <div key={item.name} className="flex flex-col">
-                    {hasDropdown ? (
-                      <button
-                        onClick={() => setMobileAccordion(isAccordionOpen ? null : item.name)}
-                        className={`flex items-center justify-between px-4 py-4 rounded-xl text-lg font-semibold transition-colors outline-none ${isActive ? "text-brand" : "text-foreground"}`}
-                      >
-                        {item.name}
-                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isAccordionOpen ? "rotate-180 text-brand" : "text-muted-foreground"}`} />
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className={`flex items-center px-4 py-4 rounded-xl text-lg font-semibold transition-colors outline-none ${isActive ? "bg-brand/10 text-brand" : "text-foreground"}`}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-
-                    {/* Mobile Accordion */}
-                    {hasDropdown && (
-                      <AnimatePresence>
-                        {isAccordionOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-6 pr-4 pb-4 space-y-6">
-                              {item.dropdown?.map((col) => (
-                                <div key={col.title}>
-                                  <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">{col.title}</h4>
-                                  <ul className="space-y-1 border-l-2 border-border pl-4">
-                                    {col.items.map((subItem) => (
-                                      <li key={subItem.name}>
-                                        <Link 
-                                          href={subItem.href}
-                                          className="block py-2 text-base font-medium text-foreground hover:text-brand transition-colors"
-                                        >
-                                          {subItem.name}
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    )}
-                  </div>
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center px-4 py-3.5 rounded-xl text-lg font-semibold transition-colors outline-none ${
+                      isActive ? "bg-brand/10 text-brand" : "text-foreground hover:bg-slate-50"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
                 )
               })}
 

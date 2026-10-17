@@ -130,6 +130,7 @@ export function TestimonialLightbox({
                 height={current.dimensions.height}
                 className="max-h-[75vh] w-auto max-w-full object-contain rounded-lg shadow-2xl border border-white/10"
                 priority
+                unoptimized
               />
             </div>
             
