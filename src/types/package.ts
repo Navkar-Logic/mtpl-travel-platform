@@ -32,3 +32,20 @@ export type Package = {
   itinerary?: ItineraryDay[];
   whatsAppHref: string;
 };
+
+export type AccommodationData = {
+  headers: string[];
+  rows: string[][];
+};
+
+export type PackageCostTable = {
+  title?: string;
+  currency?: string;
+  headers: string[];
+  rows: string[][];
+};
+
+export type PackageTableData = {
+  accommodations: AccommodationData | null;
+  costTables: PackageCostTable[];
+};

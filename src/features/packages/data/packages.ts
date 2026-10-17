@@ -1,4 +1,5 @@
-import { Package } from "@/types/package";
+import { Package, PackageTableData } from "@/types/package";
+import packageTablesData from "./package-tables.json";
 
 // AUTHORITATIVE MTPL HOLIDAY PACKAGES
 // Compiled from 100% verified client PDF inventory (77 verified packages after approved deduplication)
@@ -5977,3 +5978,9 @@ export function getPackagesByDestination(destination: string): Package[] {
     p => p.destination.toLowerCase() === destination.toLowerCase()
   );
 }
+
+export function getPackageTables(slug: string): PackageTableData | null {
+  const data = (packageTablesData as Record<string, PackageTableData>)[slug];
+  return data || null;
+}
+

@@ -1,0 +1,6426 @@
+{
+  "mtpl-amazing-andaman-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Port Blair",
+          "2",
+          "Hotel Lemon Tree / Similar",
+          "Hotel Zone Connect by THE PARK / Hotel Mansha Regency / Similar",
+          "Hotel Sand Heaven / Hotel Mansha Palace / Similar",
+          "Breakfast"
+        ],
+        [
+          "Havelock",
+          "2",
+          "Hotel CGH Earth / Similar",
+          "Sandyy Wavess Beach Resort / Hotel Sea Shell Samssara / Similar",
+          "Sandyy Wavess Beach Resort / Ocean Tree Beach Resort / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹50,061",
+            "₹37,011",
+            "₹33,127"
+          ],
+          [
+            "4 Pax",
+            "₹48,223",
+            "₹35,172",
+            "₹31,288"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed (5 and above)",
+            "₹23,055",
+            "₹21,775",
+            "₹21,775"
+          ],
+          [
+            "Cost for Child without Bed (5-11 yrs)",
+            "₹21,836",
+            "₹20,598",
+            "₹17,820"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-amazing-andaman-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Port Blair",
+          "3",
+          "Hotel Lemon Tree / Similar",
+          "Hotel Zone Connect by THE PARK / Hotel Mansha Regency / Similar",
+          "Hotel Sand Heaven / Hotel Mansha Palace / Similar",
+          "Breakfast"
+        ],
+        [
+          "Havelock",
+          "2",
+          "Hotel CGH Earth / Similar",
+          "Sandyy Wavess Beach Resort / Hotel Sea Shell Samssara / Similar",
+          "Sandyy Wavess Beach Resort / Ocean Tree Beach Resort / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹60,772",
+            "₹46,574",
+            "₹42,484"
+          ],
+          [
+            "4 Pax",
+            "₹57,845",
+            "₹43,647",
+            "₹39,557"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed (5 and abov",
+            "e) 29646",
+            "₹27,895",
+            "₹27,895"
+          ],
+          [
+            "Cost for Child without Bed (5-11 yrs)",
+            "₹28,427",
+            "₹26,129",
+            "₹23,352"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-amazing-andaman-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Port Blair",
+          "3",
+          "Hotel Lemon Tree or similar",
+          "Hotel Zone Connect by THE PARK / Hotel Mansha Regency / Similar",
+          "Hotel Sand Heaven / Hotel Mansha Palace / Similar",
+          "Breakfast"
+        ],
+        [
+          "Havelock",
+          "2",
+          "Hotel CGH Earth or similar",
+          "Sandyy Wavess Beach Resort / Hotel Sea Shell Samssara / Similar",
+          "Sandyy Wavess Beach Resort / Ocean Tree Beach Resort / Similar",
+          "Breakfast"
+        ],
+        [
+          "Neil Island",
+          "1",
+          "Hotel Sea Shell or Similar",
+          "Symphony Summer Sands / Similar",
+          "Aquays Hotels & Resorts / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹69,564",
+            "₹53,630",
+            "₹47,839"
+          ],
+          [
+            "4 Pax",
+            "₹66,755",
+            "₹50,821",
+            "₹45,028"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed (5 and abov",
+            "e) 33118",
+            "₹32,061",
+            "₹30,367"
+          ],
+          [
+            "Cost for Child without Bed (5-11 yrs)",
+            "₹31,899",
+            "₹28,907",
+            "₹25,205"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-3-sisters-of-the-north-east-11n-12d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shillong",
+          "2",
+          "Polo Towers / Centre Point / M Crown / Hotel Heiga / Windermere Hotel",
+          "Nirvana Orchid / Indiana Hills / Hotel Green Haven / Ladybird / Blueberry Inn / Hotel Poinisuk",
+          "Hotel Eee Cee / The Saiom Hotel / Landmark Hills / Travellers Inn",
+          "Breakfast"
+        ],
+        [
+          "Tezpur",
+          "1",
+          "Cygnett Inn Imperial/The Greenwood Hotel",
+          "KRC Palace / Cygnett Inn Imperial",
+          "Hotel Dibakar / Royal Regency",
+          "Breakfast"
+        ],
+        [
+          "Dirang",
+          "1",
+          "Hotel Rigsel / Pemaling Hotel / Hotel Alpine",
+          "Pemaling Hotel / The Mandala Hotel / Hotel Alpine",
+          "Rivero Resort / Hotel Center Point",
+          "Breakfast"
+        ],
+        [
+          "Tawang",
+          "2",
+          "Hotel Yangzom / Hotel Tawang Heights / Hotel Taktsang",
+          "Hotel Tawang Heights / Hotel Taktsang",
+          "Hotel Vajra / Hotel Dekhang / Hotel Norling",
+          "Breakfast"
+        ],
+        [
+          "Bomdila",
+          "1",
+          "Hotel Pham Inn / Hotel Tsepal Yangzom / Bomdila Embassy",
+          "Hotel Tsepal Yangzom / Hotel Grand / Kameng Residency",
+          "Hotel Grand / Kameng Residency",
+          "Breakfast"
+        ],
+        [
+          "Kaziranga",
+          "2",
+          "Royale De Casa Resort / Borgos Resort / IORA / Infinity resort / Red River Retreat",
+          "Hotel Garnet / Foxtail Orchid Resort / Finn’s Weaver / Hongthor Resort / Bon Villa Retreat / Summit Green Lake Tea Resort",
+          "Landmark Woods / Dhanshree Resort / Hotel Kaziranga Holiday",
+          "Breakfast"
+        ],
+        [
+          "Guwahati",
+          "2",
+          "Royale De Casa Hotel / Dynasty / The Greenwood / Ratnamouli Palace",
+          "Mayflower Hotel / IRIS the Boutique Hotel / Hotel Nirvana / Daaysco Hotel",
+          "Swagatam Inn / Hotel Hashtag Inn / Aarian Atithya",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹80,886",
+            "₹69,764",
+            "₹61,113"
+          ],
+          [
+            "4 Pax",
+            "₹70,752",
+            "₹59,568",
+            "₹50,917"
+          ],
+          [
+            "Cost fot Extra person / Child with Bed",
+            "₹29,846",
+            "₹22,492",
+            "₹17,920"
+          ],
+          [
+            "Cost for Child Without Bed",
+            "₹18,043",
+            "₹14,212",
+            "₹12,606"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-heavenly-khasi-hills-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shillong",
+          "2",
+          "Polo Towers / Centre Point / M Crown / Hotel Heiga / Windermere Hotel",
+          "Nirvana Orchid / Indiana Hills / Hotel Green Haven / Ladybird / Blueberry Inn / Hotel Poinisuk",
+          "Hotel Eee Cee / The Saiom Hotel / Landmark Hills / Travellers Inn",
+          "Breakfast"
+        ],
+        [
+          "Guwahati",
+          "2",
+          "Royale De Casa Hotel / Dynasty / The Greenwood / Ratnamouli Palace",
+          "Mayflower Hotel / IRIS the Boutique Hotel / Hotel Nirvana / Daaysco Hotel",
+          "Swagatam Inn / Hotel Hashtag Inn / Aarian Atithya",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹29,228",
+            "₹23,975",
+            "₹20,206"
+          ],
+          [
+            "4 Pax",
+            "₹26,509",
+            "₹21,257",
+            "₹17,487"
+          ],
+          [
+            "Cost for Extra person / Child with Bed",
+            "₹11,123",
+            "₹8,157",
+            "₹5,932"
+          ],
+          [
+            "Cost for Child Without Bed",
+            "₹6,426",
+            "₹4,449",
+            "₹4,202"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-north-east-marvels-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shillong",
+          "3",
+          "Polo Towers / Centre Point / M Crown / Hotel Heiga / Windermere Hotel",
+          "Nirvana Orchid / Indiana Hills / Hotel Green Haven / Ladybird / Blueberry Inn / Hotel Poinisuk",
+          "Hotel Eee Cee / The Saiom Hotel / Landmark Hills / Travellers Inn",
+          "Breakfast"
+        ],
+        [
+          "Kaziranga",
+          "2",
+          "Royale De Casa Resort / Borgos Resort / IORA / Infinity resort / Red River Retreat",
+          "Hotel Garnet / Foxtail Orchid Resort / Finn’s Weaver / Hongthor Resort / Bon Villa Retreat / Summit Green Lake Tea Resort",
+          "Landmark Woods / Dhanshree Resort / Hotel Kaziranga Holiday",
+          "Breakfast"
+        ],
+        [
+          "Guwahati",
+          "1",
+          "Royale De Casa Hotel / Dynasty / The Greenwood / Ratnamouli Palace",
+          "Mayflower Hotel / IRIS the Boutique Hotel / Hotel Nirvana / Daaysco Hotel",
+          "Swagatam Inn / Hotel Hashtag Inn / Aarian Atithya",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹49,743",
+            "₹41,092",
+            "₹35,840"
+          ],
+          [
+            "4 Pax",
+            "₹44,429",
+            "₹35,778",
+            "₹30,587"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed",
+            "₹19,774",
+            "₹15,077",
+            "₹10,628"
+          ],
+          [
+            "Cost for Child Without Bed",
+            "₹12,976",
+            "₹9,269",
+            "₹8,280"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-bhutan-tour-via-bagdogra-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Thimphu",
+          "2",
+          "Le Meridien",
+          "Capital Hotel / Hotel Ariya / Similar",
+          "Hotel Thimphu Central / Drukgyal Twin Tower / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Paro",
+          "2",
+          "Le Meridien Riverfront",
+          "Tashi Namgay Resort / Kaachi Grand / Similar",
+          "Lhayhuel Resort / Metta Resort / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹90,629",
+            "₹47,080",
+            "₹40,960"
+          ],
+          [
+            "4 Pax",
+            "₹83,567",
+            "₹40,018",
+            "₹33,545"
+          ],
+          [
+            "Cost for Extra Adult",
+            "₹52,377",
+            "₹25,306",
+            "₹18,244"
+          ],
+          [
+            "Cost for Child with Bed",
+            "₹33,545",
+            "₹22,363",
+            "₹15,301"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-bhutan-tour-via-bagdogra-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Thimphu",
+          "2",
+          "Le Meridien",
+          "Capital Hotel / Hotel Ariya / Similar",
+          "Hotel Thimphu Central / Drukgyal Twin Tower / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Paro",
+          "2",
+          "Le Meridien Riverfront",
+          "Tashi Namgay Resort / Kaachi Grand / Similar",
+          "Lhayhuel Resort / Metta Resort / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Punakha",
+          "2",
+          "Dhensa Boutique",
+          "Lobesa Boutique / Zhingkham Resort / Similar",
+          "Hotel Lobesa / River Valley / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹1,27,116",
+            "₹65,912",
+            "₹56,496"
+          ],
+          [
+            "4 Pax",
+            "₹1,17,112",
+            "₹55,319",
+            "₹45,903"
+          ],
+          [
+            "Cost for Extra Adult",
+            "₹71,797",
+            "₹36,487",
+            "₹24,717"
+          ],
+          [
+            "Cost for Child with Bed",
+            "₹63,558",
+            "₹30,602",
+            "₹21,186"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-bhutan-tour-via-bagdogra-8n-9d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Phuentsholing",
+          "2",
+          "Hotel Druk / Similar",
+          "Hotel Druk / Similar",
+          "Tara Phendeyling / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Thimphu",
+          "2",
+          "Le Meridien",
+          "Capital Hotel / Hotel Ariya / Similar",
+          "Hotel Thimphu Central / Drukgyal Twin Tower / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Paro",
+          "2",
+          "Le Meridian Riverfront",
+          "Tashi Namgay Resort / Kaachi Grand / Similar",
+          "Lhayhuel Resort / Metta Resort / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Punakha",
+          "2",
+          "Dhensa Boutique",
+          "Lobesa Boutique / Zhingkham Resort / Similar",
+          "Hotel Lobesa / River Valley / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹1,48,302",
+            "₹88,275",
+            "₹75,917"
+          ],
+          [
+            "4 Pax",
+            "₹1,38,298",
+            "₹78,271",
+            "₹65,912"
+          ],
+          [
+            "Cost for Extra Adult",
+            "₹83,567",
+            "₹45,903",
+            "₹31,191"
+          ],
+          [
+            "Cost for Child with Bed",
+            "₹70,620",
+            "₹40,018",
+            "₹25,306"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-amazing-himachal-ex-amritsar-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Dharamshala",
+          "2",
+          "Indraprastha Spa Resort",
+          "Best Western Plus Revanta",
+          "Asia Health Resort",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Dalhousie",
+          "2",
+          "Hotel JK Clarks Exotica",
+          "Indraprastha Resort",
+          "Mastiff Hotel",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Amritsar",
+          "1",
+          "Radisson Blu",
+          "Golden Sarovar",
+          "SureStay Heritage walk By Best Western",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹35,740",
+            "₹32,500",
+            "₹26,733"
+          ],
+          [
+            "4 Pax",
+            "₹31,646",
+            "₹28,406",
+            "₹22,639"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹14,830",
+            "₹10,828",
+            "₹9,953"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹13,653",
+            "₹9,181",
+            "₹8,839"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-himachal-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Manali",
+          "4",
+          "Snow Flakes Resort",
+          "Mastiff Grand",
+          "Manali Heights",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Chandigarh",
+          "1",
+          "Lemon Tree Hotel",
+          "Sunday Hotel, Zirakpur",
+          "Best Western Maryland",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹31,093",
+            "₹26,694",
+            "₹22,893"
+          ],
+          [
+            "4 Pax",
+            "₹27,309",
+            "₹22,910",
+            "₹19,108"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹10,805",
+            "₹8,971",
+            "₹6,827"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹8,197",
+            "₹7,912",
+            "₹4,002"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-himachal-9n-10d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shimla",
+          "2",
+          "The Orchid Hotel",
+          "8 Fold By Larisa Resort",
+          "Fairmont",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Manali",
+          "3",
+          "Snow Flakes Resort",
+          "Mastiff Grand",
+          "Manali Heights",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Dharamshala",
+          "1",
+          "Indraprastha Spa Resort",
+          "Best Western Plus Revanta",
+          "Asia Helath Resort",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Dalhousie",
+          "2",
+          "Hotel JK Clarks Exotica",
+          "Indraprastha Resort",
+          "Mastiff Hotel",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Amritsar",
+          "1",
+          "Radisson Blu",
+          "Golden Sarovar",
+          "SureStay Heritage walk By Best Western",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹59,554",
+            "₹50,429",
+            "₹41,966"
+          ],
+          [
+            "4 Pax",
+            "₹53,838",
+            "₹44,713",
+            "₹36,250"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹25,200",
+            "₹19,137",
+            "₹15,002"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹21,080",
+            "₹16,695",
+            "₹10,593"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-scenic-shimla-manali-ex-ixc-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shimla",
+          "2",
+          "The Orchid Hotel",
+          "8 Fold By Larisa Resort",
+          "Fairmont",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Manali",
+          "3",
+          "Snow Flakes Resort",
+          "Mastiff Grand",
+          "Manali Heights",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Chandigarh",
+          "1",
+          "Lemon Tree Hotel",
+          "Sunday Hotel, Zirakpur",
+          "Best Western Maryland",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹40,431",
+            "₹32,347",
+            "₹27,159"
+          ],
+          [
+            "4 Pax",
+            "₹36,538",
+            "₹28,455",
+            "₹23,266"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹14,701",
+            "₹12,134",
+            "₹8,945"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹12,170",
+            "₹11,339",
+            "₹5,650"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-3-jewels-of-south-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ],
+        [
+          "Ooty",
+          "2",
+          "WelcomHeritage Fernhills Royal Palace,",
+          "Sterling Elk Hill",
+          "Sinclairs Retreat",
+          "Breakfast"
+        ],
+        [
+          "Kodaikanal",
+          "2",
+          "The Carlton",
+          "Sterling Kodai Valley",
+          "Poppys Pleasant Stay",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹49,566",
+            "₹36,626",
+            "₹32,998"
+          ],
+          [
+            "4 Pax",
+            "₹42,933",
+            "₹29,993",
+            "₹26,365"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹22,292",
+            "₹10,804",
+            "₹9,498"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹19,931",
+            "₹8,593",
+            "₹7,651"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-blissful-south-india-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bengaluru",
+          "1",
+          "The Chancery Pavilion",
+          "Goldfinch Hotel",
+          "Ramanashree Richmond Circle",
+          "Breakfast"
+        ],
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ],
+        [
+          "Ooty",
+          "2",
+          "WelcomHeritage Fernhills Royal Palace,",
+          "Sterling Elk Hill",
+          "Sinclairs Retreat",
+          "Breakfast"
+        ],
+        [
+          "Kodaikanal",
+          "2",
+          "The Carlton",
+          "Sterling Kodai Valley",
+          "Poppys Pleasant Stay",
+          "Breakfast"
+        ],
+        [
+          "Madurai",
+          "1",
+          "The Residency Signature",
+          "GRT Regency",
+          "Astoria by Sparsa",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹63,025",
+            "₹48,811",
+            "₹41,773"
+          ],
+          [
+            "4 Pax",
+            "₹55,301",
+            "₹41,087",
+            "₹34,049"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹27,153",
+            "₹13,741",
+            "₹12,158"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹24,792",
+            "₹10,530",
+            "₹9,816"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-coffee-destinations-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Chikkamagaluru",
+          "2",
+          "The Grand Retreat",
+          "The Blossom Resort",
+          "The Blossom Resort",
+          "Breakfast"
+        ],
+        [
+          "Coorg",
+          "3",
+          "Astralis Resort By Seventhwave",
+          "Gokulam Grand Resort & Spa",
+          "Woodstock Resorts",
+          "Breakfast"
+        ],
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹50,605",
+            "₹37,393",
+            "₹35,973"
+          ],
+          [
+            "4 Pax",
+            "₹44,395",
+            "₹31,183",
+            "₹29,763"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹12,688",
+            "₹11,982",
+            "₹11,264"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,246",
+            "₹10,805",
+            "₹8,674"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-discover-karnataka-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Coorg",
+          "3",
+          "Astralis Resort By Seventhwave",
+          "Gokulam Grand Resort & Spa",
+          "Woodstock Resort",
+          "Breakfast"
+        ],
+        [
+          "Kabini",
+          "2",
+          "Red Earth",
+          "Regenta Kabini Springs Resort",
+          "Regenta Kabini Springs Resort",
+          "All Meals"
+        ],
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹64,847",
+            "₹55,295",
+            "₹52,875"
+          ],
+          [
+            "4 Pax",
+            "₹58,306",
+            "₹48,754",
+            "₹46,334"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹22,575",
+            "₹19,562",
+            "₹18,844"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹20,278",
+            "₹19,562",
+            "₹17,431"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-magical-south-india-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ],
+        [
+          "Ooty",
+          "2",
+          "WelcomHeritage Fernhills Royal Palace,",
+          "Sterling Elk Hill",
+          "Sinclairs Retreat",
+          "Breakfast"
+        ],
+        [
+          "Kodaikanal",
+          "2",
+          "The Carlton",
+          "Sterling Kodai Valley",
+          "Poppys Pleasant Stay",
+          "Breakfast"
+        ],
+        [
+          "Madurai",
+          "1",
+          "The Residency Signature",
+          "GRT Regency",
+          "Astoria by Sparsa",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹55,487",
+            "₹42,200",
+            "₹35,735"
+          ],
+          [
+            "4 Pax",
+            "₹48,813",
+            "₹35,526",
+            "₹29,061"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹25,070",
+            "₹11,887",
+            "₹10,675"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹22,709",
+            "₹9,676",
+            "₹8,828"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-scenic-south-india-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ],
+        [
+          "Coorg",
+          "2",
+          "Astralis Resort By Seventhwave",
+          "Gokulam Grand Resort & Spa",
+          "Woodstock Resort",
+          "Breakfast"
+        ],
+        [
+          "Wayanad",
+          "2",
+          "The Hive",
+          "The Woods Resorts",
+          "Abad Brookside Lakkidi",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹42,240",
+            "₹34,795",
+            "₹32,845"
+          ],
+          [
+            "4 Pax",
+            "₹36,656",
+            "₹29,212",
+            "₹27,262"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹12,641",
+            "₹11,629",
+            "₹11,146"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹8,780",
+            "₹8,333",
+            "₹7,497"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-serene-coorg-and-wayanad-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Coorg",
+          "2",
+          "Astralis Resort By Seventhwave",
+          "Gokulam Grand Resort & Spa",
+          "Woodstock Resort",
+          "Breakfast"
+        ],
+        [
+          "Wayanad",
+          "2",
+          "The Hive",
+          "The Woods Resorts",
+          "Abad Brookside Lakkidi",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹35,442",
+            "₹28,616",
+            "₹27,203"
+          ],
+          [
+            "4 Pax",
+            "₹30,940",
+            "₹24,114",
+            "₹22,701"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,252",
+            "₹10,240",
+            "₹9,063"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹7,392",
+            "₹6,944",
+            "₹5,414"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-short-trip-to-south-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bengaluru",
+          "1",
+          "The Chancery Pavilion",
+          "Goldfinch Hotel",
+          "Ramanashree Richmond Circle",
+          "Breakfast"
+        ],
+        [
+          "Mysore",
+          "1",
+          "Grand Mercure",
+          "ibis Styles",
+          "Regenta Central Herald",
+          "Breakfast"
+        ],
+        [
+          "Ooty",
+          "3",
+          "WelcomHeritage Fernhills Royal Palace,",
+          "Sterling Elk Hill",
+          "Sinclairs Retreat",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹39,009",
+            "₹34,882",
+            "₹32,380"
+          ],
+          [
+            "4 Pax",
+            "₹32,860",
+            "₹28,734",
+            "₹26,232"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,805",
+            "₹10,804",
+            "₹9,128"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,805",
+            "₹9,396",
+            "₹8,633"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wonders-of-coorg-and-kabini-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Coorg",
+          "2",
+          "Astralis Resort By Seventhwave",
+          "Gokulam Grand Resort & Spa",
+          "Woodstock Resort",
+          "Breakfast"
+        ],
+        [
+          "Kabini",
+          "2",
+          "Red Earth",
+          "Regenta Kabini Springs Resort",
+          "Regenta Kabini Springs Resort",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹49,587",
+            "₹43,596",
+            "₹42,007"
+          ],
+          [
+            "4 Pax",
+            "₹44,798",
+            "₹38,807",
+            "₹37,218"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹18,832",
+            "₹15,819",
+            "₹14,877"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹16,324",
+            "₹15,819",
+            "₹13,936"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-amazing-kashmir-with-katra-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Katra",
+          "2",
+          "Welcom Hotel by ITC / Similar",
+          "Hotel Fern Residency / Hotel Lemon Tree / Hotel KC Residency / Similar",
+          "Hotel Asia Vaishnodevi / Hotel Grand Sharan / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Pahalgam",
+          "2",
+          "Hotel Radisson Golf Resort / Similar",
+          "Hotel The Hermitage / Hotel Eden Resort & Spa / Hotel Hillside Resort & Spa / Similar",
+          "Hotel White Water Resort / Hotel Pahalgam Dayz / Hotel Riviera / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Gulmarg",
+          "1",
+          "Hotel Highlands Park (CP) / Similar",
+          "Hotel Rose Wood / Hotel Royal Castle / Similar",
+          "Hotel Lupin / Hotel Royal Park / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Srinagar",
+          "2",
+          "Hotel Radisson / Hotel Sarovar Premier / Similar",
+          "Hotel Meerz / Hotel Snowland / Hotel The Kabo / Similar",
+          "Hotel Palm Spring / Hotel Olive Tree / Hotel Ginger / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹90,511",
+            "₹60,851",
+            "₹48,492"
+          ],
+          [
+            "4 Pax",
+            "₹78,977",
+            "₹49,434",
+            "₹37,076"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹34,015",
+            "₹29,896",
+            "₹21,657"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹21,657",
+            "₹19,185",
+            "₹15,890"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-charismatic-kashmir-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Srinagar HB",
+          "1",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Pahalgam",
+          "2",
+          "Hotel Radisson Golf Resort / Similar",
+          "Hotel The Hermitage / Hotel Eden Resort & Spa / Hotel Hillside Resort & Spa / Similar",
+          "Hotel White Water Resort / Hotel Pahalgam Dayz / Hotel Riviera / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Gulmarg",
+          "2",
+          "Hotel Highlands Park (CP) / Similar",
+          "Hotel Rose Wood / Hotel Royal Castle / Similar",
+          "Hotel Lupin / Hotel Royal Park / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Srinagar",
+          "2",
+          "Hotel Radisson / Hotel Sarovar Premier / Similar",
+          "Hotel Meerz / Hotel Snowland / Hotel The Kabo / Similar",
+          "Hotel Palm Spring / Hotel Olive Tree / Hotel Ginger / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹92,865",
+            "₹59,674",
+            "₹46,492"
+          ],
+          [
+            "4 Pax",
+            "₹83,920",
+            "₹50,729",
+            "₹36,840"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹34,015",
+            "₹29,896",
+            "₹21,657"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹21,657",
+            "₹19,185",
+            "₹15,890"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-glimpses-of-kashmir-valley-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Srinagar HB",
+          "1",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Pahalgam",
+          "2",
+          "Hotel Radisson Golf Resort / Similar",
+          "Hotel The Hermitage / Hotel Eden Resort & Spa / Hotel Hillside Resort & Spa / Similar",
+          "Hotel White Water Resort / Hotel Pahalgam Dayz / Hotel Riviera / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Gulmarg",
+          "1",
+          "Hotel Highlands Park (CP) / Similar",
+          "Hotel Rose Wood / Hotel Royal Castle / Similar",
+          "Hotel Lupin / Hotel Royal Park / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹54,613",
+            "₹34,015",
+            "₹28,130"
+          ],
+          [
+            "4 Pax",
+            "₹48,963",
+            "₹28,248",
+            "₹22,363"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹20,833",
+            "₹17,537",
+            "₹10,475"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹12,829",
+            "₹10,475",
+            "₹8,121"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-heaven-on-earth-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Srinagar HB",
+          "1",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Pahalgam",
+          "2",
+          "Hotel Radisson Golf Resort / Similar",
+          "Hotel The Hermitage / Hotel Eden Resort & Spa / Hotel Hillside Resort & Spa / Similar",
+          "Hotel White Water Resort / Hotel Pahalgam Dayz / Hotel Riviera / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Gulmarg",
+          "1",
+          "Hotel Highlands Park (CP) /",
+          "Hotel Rose Wood / Hotel Royal Castle /",
+          "Hotel Lupin / Hotel Royal Park / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Similar",
+          "Similar",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Srinagar",
+          "1",
+          "Hotel Radisson / Hotel Sarovar Premier / Similar",
+          "Hotel Meerz / Hotel Snowland / Hotel The Kabo / Similar",
+          "Hotel Palm Spring / Hotel Olive Tree / Hotel Ginger / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹65,206",
+            "₹41,548",
+            "₹33,309"
+          ],
+          [
+            "4 Pax",
+            "₹58,497",
+            "₹34,839",
+            "₹26,600"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹26,129",
+            "₹21,657",
+            "₹15,772"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹18,126",
+            "₹14,595",
+            "₹11,652"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-kashmir-unplugged-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Srinagar HB",
+          "1",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Deluxe Houseboat",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Pahalgam",
+          "1",
+          "Hotel Radisson Golf Resort / Similar",
+          "Hotel The Hermitage / Hotel Eden Resort & Spa / Hotel Hillside Resort & Spa / Similar",
+          "Hotel White Water Resort / Hotel Pahalgam Dayz / Hotel Riviera / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Gulmarg",
+          "2",
+          "Hotel Highlands Park (CP) / Similar",
+          "Hotel Rose Wood / Hotel Royal Castle / Similar",
+          "Hotel Lupin / Hotel Royal Park / Similar",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Srinagar",
+          "2",
+          "Hotel Radisson / Hotel Sarovar Premier / Similar",
+          "Hotel Meerz / Hotel Snowland / Hotel The Kabo / Similar",
+          "Hotel Palm Spring / Hotel Olive Tree / Hotel Ginger / Similar",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹77,800",
+            "₹51,670",
+            "₹40,489"
+          ],
+          [
+            "4 Pax",
+            "₹70,149",
+            "₹44,020",
+            "₹32,838"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹30,484",
+            "₹28,130",
+            "₹18,126"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹19,421",
+            "₹17,067",
+            "₹13,536"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-kerala-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Munnar",
+          "2",
+          "Blanket Hotel & Spa",
+          "Tea County KTDC",
+          "Eastend",
+          "Breakfast"
+        ],
+        [
+          "Thekkady",
+          "1",
+          "Greenwoods Resorts",
+          "Mountain courtyard",
+          "Peppervine",
+          "Breakfast"
+        ],
+        [
+          "Kumarkom",
+          "1",
+          "Gokulam Grand Resort & Spa",
+          "Eastend Lake Song",
+          "Renai Green Fields",
+          "Breakfast"
+        ],
+        [
+          "Kochi",
+          "1",
+          "Radisson Blu",
+          "Olive Downtown",
+          "Continental Inn International",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹37,034",
+            "₹26,864",
+            "₹22,119"
+          ],
+          [
+            "4 Pax",
+            "₹33,397",
+            "₹23,227",
+            "₹18,482"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹15,019",
+            "₹10,152",
+            "₹6,940"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹10,899",
+            "₹5,181",
+            "₹4,586"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-karismatic-kerala-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Munnar",
+          "2",
+          "Blanket Hotel & Spa",
+          "Tea County KTDC",
+          "Eastend",
+          "Breakfast"
+        ],
+        [
+          "Thekkady",
+          "1",
+          "Greenwoods Resorts",
+          "Mountain courtyard",
+          "Peppervine",
+          "Breakfast"
+        ],
+        [
+          "Kumarakom",
+          "1",
+          "Gokulam Grand Resort & Spa",
+          "Eastend Lake Song",
+          "Renai Green Fields",
+          "Breakfast"
+        ],
+        [
+          "Alleppey",
+          "1",
+          "Lakes & Lagoons Deluxe",
+          "RKV Houseboat",
+          "Waves Shore Houseboat",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹40,309",
+            "₹29,459",
+            "₹24,709"
+          ],
+          [
+            "4 Pax",
+            "₹36,023",
+            "₹25,482",
+            "₹20,497"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹16,625",
+            "₹10,522",
+            "₹6,940"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹10,961",
+            "₹6,417",
+            "₹4,880"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-kolorful-kerala-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kochi",
+          "1",
+          "Radisson Blu",
+          "Olive Downtown",
+          "Continental Inn International",
+          "Breakfast"
+        ],
+        [
+          "Munnar",
+          "2",
+          "Blanket Hotel & Spa",
+          "Tea County KTDC",
+          "Eastend",
+          "Breakfast"
+        ],
+        [
+          "Thekkady",
+          "1",
+          "Greenwoods Resorts",
+          "Mountain courtyard",
+          "Peppervine",
+          "Breakfast"
+        ],
+        [
+          "Kumarkom",
+          "1",
+          "Gokulam Grand Resort & Spa",
+          "Eastend Lake Song",
+          "Renai Green Fields",
+          "Breakfast"
+        ],
+        [
+          "Kovalam",
+          "2",
+          "Gokulam Grand Turtle on the Beach",
+          "Travancore Heritage",
+          "Sagara Beach Resort",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹56,036",
+            "₹41,747",
+            "₹32,883"
+          ],
+          [
+            "4 Pax",
+            "₹51,102",
+            "₹36,812",
+            "₹27,948"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹22,081",
+            "₹14,271",
+            "₹10,471"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹15,607",
+            "₹9,241",
+            "₹8,117"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-splendid-wayanad-and-bekal-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bekal",
+          "2",
+          "Gateway",
+          "Malabar Ocean Front Resort & Spa",
+          "Hotel Bekal Palace",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Wayanad",
+          "2",
+          "The Hive",
+          "The Woods Resorts",
+          "Abad Brookside Lakkidi",
+          "Breakfast & Dinner"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹39,923",
+            "₹35,060",
+            "₹26,003"
+          ],
+          [
+            "4 Pax",
+            "₹35,443",
+            "₹30,580",
+            "₹21,523"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹16,822",
+            "₹18,008",
+            "₹8,634"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹12,249",
+            "₹11,652",
+            "₹5,927"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-unexplored-kerala-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kochi",
+          "1",
+          "Radisson Blu",
+          "Olive Downtown",
+          "Continental Inn International",
+          "Breakfast"
+        ],
+        [
+          "Kumarakom",
+          "1",
+          "Gokulam Grand Resort & Spa",
+          "Eastend Lake Song",
+          "Renai Green Fields",
+          "Breakfast"
+        ],
+        [
+          "Athirappilly",
+          "2",
+          "Niraamaya Retreats Samroha",
+          "Casa Rio",
+          "Riverine Suites",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹32,599",
+            "₹22,915",
+            "₹17,567"
+          ],
+          [
+            "4 Pax",
+            "₹30,498",
+            "₹20,814",
+            "₹15,466"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹14,524",
+            "₹8,539",
+            "₹4,590"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹13,135",
+            "₹4,727",
+            "₹2,472"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Chatrapati Sambha Nagar (Aurangaba",
+          "ji 3 d)",
+          "Lemon Tree Hotel",
+          "Amarpreet",
+          "7 Apple",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹23,674",
+            "₹14,608",
+            "₹12,198"
+          ],
+          [
+            "4 Pax",
+            "₹21,821",
+            "₹12,755",
+            "₹10,345"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹5,167",
+            "₹4,636",
+            "₹3,708"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹5,167",
+            "₹4,636",
+            "₹3,708"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-shirdi-with-shani-shingnapur-2n-3d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shirdi",
+          "2",
+          "Sun N Sand",
+          "St Laurn The Spiritual Resort",
+          "Starlit Suites",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹15,490",
+            "₹13,385",
+            "₹12,709"
+          ],
+          [
+            "4 Pax",
+            "₹13,440",
+            "₹11,336",
+            "₹10,659"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹4,967",
+            "₹4,708",
+            "₹2,472"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹3,822",
+            "₹3,531",
+            "₹2,472"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Shirdi",
+          "2",
+          "Sun N Sand",
+          "St Laurn The Spiritual Resort",
+          "Starlit Suites",
+          "Breakfast"
+        ],
+        [
+          "Mumbai",
+          "1",
+          "Fariyas",
+          "Krishna Palace",
+          "Hotel Garden",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹25,964",
+            "₹22,091",
+            "₹20,861"
+          ],
+          [
+            "4 Pax",
+            "₹21,095",
+            "₹17,222",
+            "₹15,992"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹8,197",
+            "₹7,651",
+            "₹4,138"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹6,964",
+            "₹6,474",
+            "₹3,861"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-unlimited-maharashtra-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mumbai",
+          "2",
+          "Fariyas",
+          "Krishna Palace",
+          "Hotel Garden",
+          "Breakfast"
+        ],
+        [
+          "Shirdi",
+          "1",
+          "Sun N Sand",
+          "St Laurn The Spiritual Resort",
+          "Starlit Suites",
+          "Breakfast"
+        ],
+        [
+          "Aurangabad",
+          "2",
+          "Lemon Tree Hotel",
+          "Amarpreet",
+          "7 Apple",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹53,046",
+            "₹42,413",
+            "₹39,362"
+          ],
+          [
+            "4 Pax",
+            "₹42,294",
+            "₹31,661",
+            "₹28,610"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,722",
+            "₹11,330",
+            "₹7,041"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹10,972",
+            "₹10,741",
+            "₹6,485"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-heritage-tour-of-central-india-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Khajuraho",
+          "2",
+          "Radisson Jass Hotel",
+          "Ramada",
+          "Clarks",
+          "Breakfast"
+        ],
+        [
+          "Orchha / Jhansi",
+          "1",
+          "Lemon Tree Hotel",
+          "Nataraj Sarovar Portico",
+          "Nataraj Sarovar Portico",
+          "Breakfast"
+        ],
+        [
+          "Gwalior",
+          "2",
+          "Deo Bagh",
+          "Clarks Inn Suites",
+          "Clarks Inn Suites",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹40,265",
+            "₹31,514",
+            "₹30,649"
+          ],
+          [
+            "4 Pax",
+            "₹35,476",
+            "₹26,725",
+            "₹25,860"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,913",
+            "₹11,576",
+            "₹9,728"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,513",
+            "₹10,187",
+            "₹9,728"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jungles-of-kanha-and-pench-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kanha",
+          "2",
+          "Tathastu Kanha",
+          "Chitvan Jungle Lodge",
+          "Infinity Kanha Wilderness",
+          "All Meals"
+        ],
+        [
+          "Pench",
+          "2",
+          "Tathastu Pench - Luxury Wildlife Resort",
+          "Pench Jungle Camp",
+          "WH Jungle Home",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹53,392",
+            "₹49,272",
+            "₹43,240"
+          ],
+          [
+            "4 Pax",
+            "₹41,342",
+            "₹37,223",
+            "₹31,191"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹22,777",
+            "₹17,655",
+            "₹10,087"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹15,889",
+            "₹15,301",
+            "₹8,792"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bandhavgarh",
+          "2",
+          "Lemon Tree Wildlife Resort",
+          "Tathastu, Bandhavgarh",
+          "Infinity Resort Wilderness",
+          "All Meals"
+        ],
+        [
+          "Kanha",
+          "2",
+          "Tathastu Kanha",
+          "Chitvan Jungle Lodge",
+          "Infinity Kanha Wilderness",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹59,995",
+            "₹49,861",
+            "₹39,856"
+          ],
+          [
+            "4 Pax",
+            "₹47,945",
+            "₹37,811",
+            "₹27,807"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹28,888",
+            "₹18,451",
+            "₹8,651"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹24,444",
+            "₹14,006",
+            "₹6,179"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wilderness-of-madhya-pradesh-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bandhavgarh",
+          "2",
+          "Lemon Tree Wildlife Resort",
+          "Tathastu, Bandhavgarh",
+          "Infinity Resort Wilderness",
+          "All Meals"
+        ],
+        [
+          "Kanha",
+          "2",
+          "Tathastu Kanha",
+          "Chitvan Jungle Lodge",
+          "Infinity Kanha Wilderness",
+          "All Meals"
+        ],
+        [
+          "Pench",
+          "2",
+          "Tathastu Pench - Luxury Wildlife Resort",
+          "Pench Jungle Camp",
+          "WH Jungle Home",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹86,630",
+            "₹74,731",
+            "₹62,225"
+          ],
+          [
+            "4 Pax",
+            "₹70,873",
+            "₹58,974",
+            "₹46,468"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹40,277",
+            "₹29,044",
+            "₹14,206"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹31,388",
+            "₹22,245",
+            "₹11,735"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-nepal-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kathmandu",
+          "2",
+          "Hyatt Centric",
+          "Best Western Plus",
+          "Hotel Kailash Kutee",
+          "Breakfast"
+        ],
+        [
+          "Nagarkote",
+          "1",
+          "Mystic Mountain",
+          "Fort Resort",
+          "Himalayan Villa",
+          "Breakfast"
+        ],
+        [
+          "Pokhara",
+          "2",
+          "Bar Peepal Resort",
+          "Majestic Lakefront Hotel & Suites",
+          "Hotel White Pearl",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost for Single Pax Travelling",
+            "₹81,566",
+            "₹71,797",
+            "₹62,970"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹43,431",
+            "₹37,664",
+            "₹32,956"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "₹38,017",
+            "₹32,250",
+            "₹27,542"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed",
+            "₹14,124",
+            "₹11,005",
+            "₹8,062"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-glimpse-of-nepal-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kathmandu",
+          "3",
+          "Hyatt Centric",
+          "Best Western Plus",
+          "Hotel Kailash Kuti",
+          "Breakfast"
+        ],
+        [
+          "Pokhara",
+          "2",
+          "Bar Peepal Resort",
+          "Majestic Lakefront Hotel & Suites",
+          "Hotel White Pearl",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost for Single Pax Travelling",
+            "₹70,502",
+            "₹63,440",
+            "₹52,965"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹37,782",
+            "₹32,603",
+            "₹27,660"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "₹33,309",
+            "₹28,130",
+            "₹23,128"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed",
+            "₹11,770",
+            "₹10,475",
+            "₹7,474"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wonders-of-nepal-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kathmandu",
+          "3",
+          "Hyatt Centric",
+          "Best Western Plus",
+          "Hotel Kailash Kutee",
+          "Breakfast"
+        ],
+        [
+          "Pokhara",
+          "2",
+          "Bar Peepal Resort",
+          "Majestic Lakefront Hotel & Suites",
+          "Hotel White Pearl",
+          "Breakfast"
+        ],
+        [
+          "Chitwan",
+          "2",
+          "Soaltee Western",
+          "Green Mansion Jungle Resort",
+          "Hotel Earthlight",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost for Single Pax Travelling",
+            "₹1,03,105",
+            "₹88,040",
+            "₹77,211"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹59,909",
+            "₹49,669",
+            "₹42,725"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "₹53,907",
+            "₹43,667",
+            "₹36,722"
+          ],
+          [
+            "Cost for Extra Adult / Child with Bed",
+            "₹26,306",
+            "₹20,421",
+            "₹15,713"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-eastern-himalayas-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Gangtok",
+          "2",
+          "Elgin Norkhill /Denzong Regency /Similar",
+          "Lemon Tree/Fern Denzong/Similar",
+          "Yashshree Sikkim Blossom / Summit Grand / Ginger Hotel",
+          "Breakfast"
+        ],
+        [
+          "Pelling",
+          "2",
+          "Elgin Mt. Pandim / Similar",
+          "Norbu Ghang Retreat / Similar",
+          "Norbu ghang Resort / Sumitel / Similar",
+          "Breakfast"
+        ],
+        [
+          "Darjeeling",
+          "2",
+          "New Elgin / Cedar Inn / Similar",
+          "Crescent Resort / Similar",
+          "Orsino Resort / RJ Resort / Similar",
+          "Breakfast"
+        ],
+        [
+          "Kalimpong",
+          "1",
+          "Silver Oaks/Similar",
+          "Fortune Resort / Sterling Park",
+          "Summit Sherpa / Yashshree Kalimpong",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹87,560",
+            "₹60,742",
+            "₹52,338"
+          ],
+          [
+            "4 Pax",
+            "₹77,550",
+            "₹50,732",
+            "₹42,328"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹38,929",
+            "₹19,032",
+            "₹14,150"
+          ],
+          [
+            "Child without Bed",
+            "₹23,358",
+            "₹10,999",
+            "₹9,516"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-enchanting-north-east-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Gangtok",
+          "3",
+          "Elgin Norkhill / Denzong Regency / Similar",
+          "Lemon Tree / Fern Denzong / Similar",
+          "Yashshree Sikkim Blossom / Summit Grand / Ginger Hotel",
+          "Breakfast"
+        ],
+        [
+          "Lachung",
+          "2",
+          "Yarlam Resort / Similar",
+          "Yashshree Lachung / Similar",
+          "Orsino Khangri Kapro / Similar",
+          "Breakfast"
+        ],
+        [
+          "Darjeeling",
+          "2",
+          "New Elgin / Cedar Inn / Similar",
+          "Crescent Resort/ Similar",
+          "Orsino Resort / RJ Resort / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹87,622",
+            "₹62,843",
+            "₹53,698"
+          ],
+          [
+            "4 Pax",
+            "₹76,252",
+            "₹51,473",
+            "₹42,328"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹34,418",
+            "₹18,105",
+            "₹14,027"
+          ],
+          [
+            "Child without Bed",
+            "₹22,616",
+            "₹11,370",
+            "₹9,516"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-hills-of-the-east-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Gangtok",
+          "2",
+          "Elgin Norkhill / Denzong Regency / Similar",
+          "Lemon Tree / Fern Denzong / Similar",
+          "Yashshree Sikkim Blossom / Summit Grand / Ginger Hotel",
+          "Breakfast"
+        ],
+        [
+          "Pelling",
+          "2",
+          "Elgin Mt. Pandim / Similar",
+          "Norbu Ghang Retreat / Similar",
+          "Norbu ghang Resort / Sumitel / Similar",
+          "Breakfast"
+        ],
+        [
+          "Darjeeling",
+          "2",
+          "New Elgin / Cedar Inn / Similar",
+          "Crescent Resort / Similar",
+          "Orsino Resort / RJ Resort / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹77,302",
+            "₹51,720",
+            "₹45,170"
+          ],
+          [
+            "4 Pax",
+            "₹68,960",
+            "₹43,378",
+            "₹36,828"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹33,368",
+            "₹16,066",
+            "₹12,111"
+          ],
+          [
+            "Child without Bed",
+            "₹20,021",
+            "₹8,898",
+            "₹8,157"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-north-east-sojourn-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Gangtok",
+          "3",
+          "Elgin Norkhill / Denzong Regency / Similar",
+          "Lemon Tree / Fern Denzong / Similar",
+          "Yashshree Sikkim Blossom / Summit Grand / Ginger Hotel",
+          "Breakfast"
+        ],
+        [
+          "Darjeeling",
+          "2",
+          "New Elgin / Cedar Inn / Similar",
+          "Crescent Resort / Similar",
+          "Orsino Resort / RJ Resort / Similar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹61,731",
+            "₹40,474",
+            "₹35,036"
+          ],
+          [
+            "4 Pax",
+            "₹55,984",
+            "₹34,727",
+            "₹29,290"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹27,807",
+            "₹12,667",
+            "₹10,505"
+          ],
+          [
+            "Child without Bed",
+            "₹16,684",
+            "₹7,662",
+            "₹7,168"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-odisha-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bhubaneswar",
+          "2",
+          "Lemon Tree Premier",
+          "Hotel Hindusthan International",
+          "Ginger",
+          "Breakfast"
+        ],
+        [
+          "Puri",
+          "2",
+          "Swosti Premium Beach Resort",
+          "Sterling",
+          "Pride Ananya Resort",
+          "Breakfast"
+        ],
+        [
+          "Gopalpur",
+          "1",
+          "Swosti Palm Resort",
+          "Swosti Palm Resort",
+          "Swosti Palm Resort",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹39,220",
+            "₹32,244",
+            "₹26,818"
+          ],
+          [
+            "4 Pax",
+            "₹35,821",
+            "₹28,845",
+            "₹23,419"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹10,881",
+            "₹9,234",
+            "₹6,797"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹10,881",
+            "₹6,328",
+            "₹6,180"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-odisha-temple-tour-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Bhubaneswar",
+          "3",
+          "Lemon Tree Premier",
+          "Hotel Hindusthan International",
+          "Ginger",
+          "Breakfast"
+        ],
+        [
+          "Puri",
+          "1",
+          "Swosti Premium Beach Resort",
+          "Sterling",
+          "Pride Ananya Resort",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹34,397",
+            "₹25,391",
+            "₹21,566"
+          ],
+          [
+            "4 Pax",
+            "₹31,770",
+            "₹22,765",
+            "₹18,939"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹7,986",
+            "₹6,903",
+            "₹4,943"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹7,986",
+            "₹5,851",
+            "₹4,635"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-amazing-udaipur-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Udaipur",
+          "3",
+          "Ramada Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹27,925",
+            "₹19,044",
+            "₹18,096"
+          ],
+          [
+            "4 Pax",
+            "₹25,330",
+            "₹16,449",
+            "₹15,501"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,736",
+            "₹7,616",
+            "₹6,881"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹5,850",
+            "₹5,557",
+            "₹4,102"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-enchanting-gujarat-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Dwarka",
+          "2",
+          "Hawthorn Suites by Wyndham",
+          "VITS Devbhumi Hotel",
+          "Ginger",
+          "Breakfast"
+        ],
+        [
+          "Somnath",
+          "1",
+          "Sarovar Portico",
+          "The Fern Residency",
+          "Lords Inn",
+          "Breakfast"
+        ],
+        [
+          "Sasan Gir",
+          "2",
+          "Sarovar Portico",
+          "Sterling",
+          "Pride Biznotel, Sasan Gir",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹36,519",
+            "₹34,184",
+            "₹30,680"
+          ],
+          [
+            "4 Pax",
+            "₹32,039",
+            "₹29,704",
+            "₹26,200"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹12,417",
+            "₹12,476",
+            "₹9,929"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹12,417",
+            "₹9,587",
+            "₹9,312"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-forts-and-palaces-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ],
+        [
+          "Jodhpur",
+          "2",
+          "Radisson Jodhpur",
+          "Park Plaza",
+          "Trulyy Rudransh Inn",
+          "Breakfast"
+        ],
+        [
+          "Udaipur",
+          "2",
+          "Ramada Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹50,329",
+            "₹40,407",
+            "₹33,890"
+          ],
+          [
+            "4 Pax",
+            "₹45,496",
+            "₹35,574",
+            "₹29,057"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹16,360",
+            "₹11,164",
+            "₹10,534"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,770",
+            "₹9,957",
+            "₹8,682"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-golden-triangle-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Delhi",
+          "2",
+          "The Park",
+          "Deventure Sarovar Portico Kapashera",
+          "Hotel Amrapali Grand",
+          "Breakfast"
+        ],
+        [
+          "Agra",
+          "1",
+          "Radisson Hotel",
+          "Royale Sarovar Portico",
+          "Taj Vilas",
+          "Breakfast"
+        ],
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹45,382",
+            "₹32,718",
+            "₹25,544"
+          ],
+          [
+            "4 Pax",
+            "₹42,378",
+            "₹29,713",
+            "₹22,540"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹9,463",
+            "₹8,351",
+            "₹7,439"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹9,463",
+            "₹8,351",
+            "₹7,439"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-golden-triangle-with-ranthambore-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Delhi",
+          "2",
+          "The Park",
+          "Deventure Sarovar Portico Kapashera",
+          "Hotel Amrapali Grand",
+          "Breakfast"
+        ],
+        [
+          "Agra",
+          "1",
+          "Radisson Hotel",
+          "Royale Sarovar Portico",
+          "Taj Vilas",
+          "Breakfast"
+        ],
+        [
+          "Ranthambore",
+          "2",
+          "Nahargarh",
+          "Anuraga Palace",
+          "Jungle Cave Resort",
+          "All Meals"
+        ],
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax69487",
+            "₹74,963",
+            "₹53,471",
+            "₹41,589"
+          ],
+          [
+            "4 Pax",
+            "₹69,487",
+            "₹47,995",
+            "₹36,113"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹21,233",
+            "₹15,413",
+            "₹10,970"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹21,233",
+            "₹14,236",
+            "₹10,499"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-golden-triangle-with-udaipur-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Delhi",
+          "2",
+          "The Park",
+          "Deventure Sarovar Portico Kapashera",
+          "Hotel Amrapali Grand",
+          "Breakfast"
+        ],
+        [
+          "Agra",
+          "1",
+          "Radisson Hotel",
+          "Royale Sarovar Portico",
+          "Taj Vilas",
+          "Breakfast"
+        ],
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ],
+        [
+          "Udaipur",
+          "2",
+          "Ramada Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹68,394",
+            "₹49,809",
+            "₹42,003"
+          ],
+          [
+            "4 Pax",
+            "₹60,600",
+            "₹42,016",
+            "₹34,210"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹16,407",
+            "₹11,882",
+            "₹11,146"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,817",
+            "₹11,176",
+            "₹9,294"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jaipur-tour-with-ranthambore-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ],
+        [
+          "Ranthambore",
+          "2",
+          "Nahargarh",
+          "Anuraga Palace",
+          "Jungle Cave Resort",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹48,192",
+            "₹37,334",
+            "₹29,830"
+          ],
+          [
+            "4 Pax",
+            "₹44,533",
+            "₹33,675",
+            "₹26,172"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹15,301",
+            "₹10,028",
+            "₹6,827"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹15,301",
+            "₹8,851",
+            "₹6,356"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-rann-of-kutch-2n-3d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C"
+      ],
+      "rows": [
+        [
+          "Dhordo Tent City",
+          "2",
+          "Super Premium Tent",
+          "Premium Tent",
+          "Deluxe AC Swiss Cottages"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹22,722",
+            "₹20,531",
+            "₹18,339"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹14,971",
+            "₹14,971",
+            "₹14,971"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹27,278",
+            "₹25,029",
+            "₹22,722"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹26,586",
+            "₹24,394",
+            "₹22,203"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹30,046",
+            "₹27,797",
+            "₹25,548"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-rann-of-kutch-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C"
+      ],
+      "rows": [
+        [
+          "Dhordo Tent City",
+          "3",
+          "Super Premium Tent",
+          "Premium Tent",
+          "Deluxe AC Swiss Cottages"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹34,083",
+            "₹30,796",
+            "₹27,451"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹14,971",
+            "₹14,971",
+            "₹14,971"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹40,023",
+            "₹36,678",
+            "₹33,218"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹39,043",
+            "₹35,755",
+            "₹32,411"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "₹43,945",
+            "₹40,600",
+            "₹37,197"
+          ],
+          [
+            "Extra Bed (Hotel cost only)",
+            "₹16,378",
+            "₹16,378",
+            "₹16,378"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-royal-rajasthan-8n-9d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ],
+        [
+          "Bikaner",
+          "1",
+          "Narendra Bhawan",
+          "Lallgarh Palace",
+          "Hotel Chirag",
+          "Breakfast"
+        ],
+        [
+          "Jaisalmer",
+          "2",
+          "WH Mandir Palace",
+          "Sairafort Sarovar Portico",
+          "Golden Haveli",
+          "Breakfast"
+        ],
+        [
+          "Jodhpur",
+          "1",
+          "Radisson Jodhpur",
+          "Park Plaza",
+          "Trulyy Rudransh Inn",
+          "Breakfast"
+        ],
+        [
+          "Udaipur",
+          "2",
+          "Ramada Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹72,666",
+            "₹54,187",
+            "₹44,659"
+          ],
+          [
+            "4 Pax",
+            "₹66,473",
+            "₹47,995",
+            "₹38,467"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹31,612",
+            "₹15,247",
+            "₹13,594"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹25,494",
+            "₹14,541",
+            "₹9,859"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-statue-of-unity-2n-3d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kevadia",
+          "2",
+          "Royal Cottage",
+          "Premium Cottage",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Weekend Rates (Friday & Saturday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹18,639",
+            "₹17,509"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹14,971",
+            "₹14,971"
+          ],
+          [
+            "Child without Bed",
+            "₹14,971",
+            "₹14,971"
+          ]
+        ]
+      },
+      {
+        "title": "Weekday Rates (Sunday to Thursday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹17,509",
+            "₹16,378"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹14,971",
+            "₹14,971"
+          ],
+          [
+            "Child without Bed",
+            "₹14,971",
+            "₹14,971"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-statue-of-unity-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City"
+      ],
+      "rows": [
+        [
+          "Kevadia"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Weekend Rates (Friday & Saturday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹27,958",
+            "₹26,263"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹22,457",
+            "₹22,457"
+          ],
+          [
+            "Child without Bed",
+            "₹22,457",
+            "₹22,457"
+          ]
+        ]
+      },
+      {
+        "title": "Weekday Rates (Sunday to Thursday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹26,263",
+            "₹24,567"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹22,457",
+            "₹22,457"
+          ],
+          [
+            "Child without Bed",
+            "₹22,457",
+            "₹22,457"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-statue-of-unity-with-ahmedabad-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Ahmedabad",
+          "2",
+          "The Ummed",
+          "WelcomHeritage Mani Mansion",
+          "Breakfast"
+        ],
+        [
+          "Kevadia",
+          "2",
+          "Royal Cottage",
+          "Premium Cottage",
+          "All Meals"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Weekend Rates (Friday & Saturday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹38,794",
+            "₹34,922"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹19,444",
+            "₹18,738"
+          ],
+          [
+            "Child without Bed",
+            "₹19,444",
+            "₹18,738"
+          ]
+        ]
+      },
+      {
+        "title": "Weekday Rates (Sunday to Thursday)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹37,640",
+            "₹33,768"
+          ],
+          [
+            "Extra Adult / Child with Bed",
+            "₹19,444",
+            "₹18,738"
+          ],
+          [
+            "Child without Bed",
+            "₹19,444",
+            "₹18,378"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Delhi",
+          "2",
+          "The Park",
+          "Deventure Sarovar Portico Kapashera",
+          "Hotel Amrapali Grand",
+          "Breakfast"
+        ],
+        [
+          "Agra",
+          "1",
+          "Radisson Hotel",
+          "Royale Sarovar Portico",
+          "Taj Vilas",
+          "Breakfast"
+        ],
+        [
+          "Jaipur",
+          "2",
+          "Sarovar Premiere",
+          "Sarovar Portico",
+          "LilyPool The Heritage JalMahal",
+          "Breakfast"
+        ],
+        [
+          "Jodhpur",
+          "2",
+          "Radisson Jodhpur",
+          "Park Plaza",
+          "Trulyy Rudransh Inn",
+          "Breakfast"
+        ],
+        [
+          "Jaisalmer",
+          "2",
+          "WH Mandir Palace",
+          "Sairafort Sarovar Portico",
+          "Golden Haveli",
+          "Breakfast"
+        ],
+        [
+          "Udaipur",
+          "2",
+          "Ramada Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹1,01,556",
+            "₹76,256",
+            "₹61,865"
+          ],
+          [
+            "4 Pax",
+            "₹89,283",
+            "₹63,983",
+            "₹49,592"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹30,070",
+            "₹20,215",
+            "₹17,737"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹25,480",
+            "₹19,509",
+            "₹14,002"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-ultimate-udaipur-with-mt-abu-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mt. Abu",
+          "2",
+          "WH Connaught House",
+          "The Jaipur House",
+          "Sterling",
+          "Breakfast"
+        ],
+        [
+          "Udaipur",
+          "2",
+          "Ramada Udaipur Resort & Spa",
+          "Howard Johnson by Wyndham",
+          "Pride Hotel",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹35,120",
+            "₹26,846",
+            "₹25,481"
+          ],
+          [
+            "4 Pax",
+            "₹31,999",
+            "₹23,725",
+            "₹22,361"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹14,149",
+            "₹11,912",
+            "₹9,194"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,558",
+            "₹11,206",
+            "₹5,535"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-explore-sri-lanka-8n-9d-revised": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kandy",
+          "2",
+          "The Golden Crown",
+          "Royal Kandyan",
+          "Serendip Stone Bungalow",
+          "Breakfast"
+        ],
+        [
+          "Nuwara Eliya",
+          "1",
+          "Araliya Green City",
+          "Araliya Green Hills",
+          "Heaven Seven",
+          "Breakfast"
+        ],
+        [
+          "Bentota",
+          "2",
+          "Cinnamon Bey",
+          "The Palms",
+          "Joes Bentota",
+          "Breakfast"
+        ],
+        [
+          "Colombo",
+          "2",
+          "Cinnamon Lakeside",
+          "Ramada Colombo",
+          "Best Western",
+          "Breakfast"
+        ],
+        [
+          "Yala / Tissamaharama",
+          "1",
+          "Cinnamon Wild",
+          "EKHO Safari",
+          "Mandara Rosen",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-",
+          "01.10.2026 –",
+          "01.11.2026 – 19.12.2026",
+          "20.11.2026 –",
+          "11.01.2027 –",
+          "01.03.2027 – 31.03.2027"
+        ],
+        "rows": [
+          [
+            "A IN USD",
+            "31.10.2026",
+            "10.01.2027",
+            "28.02.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$939",
+            "$1224",
+            "$1454",
+            "$1395",
+            "$1354"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$782",
+            "$1071",
+            "$1302",
+            "$1242",
+            "$1201"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$418",
+            "$666",
+            "$896",
+            "$837",
+            "$796"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$282",
+            "$318",
+            "$318",
+            "$318",
+            "$318"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category B (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-B IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 – 10.01.2027",
+          "11.01.2027 – 31.03.2027"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$844",
+            "$956",
+            "$1045",
+            "$1017"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$687",
+            "$800",
+            "$887",
+            "$857"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$324",
+            "$383",
+            "$471",
+            "$441"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$259",
+            "$282",
+            "$294",
+            "$288"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category C (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-C IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 –",
+          "11.01.2027 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$806",
+            "$844",
+            "$892",
+            "$876"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$649",
+            "$687",
+            "$736",
+            "$716"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$279",
+            "$312",
+            "$347",
+            "$341"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$241",
+            "$253",
+            "$253",
+            "$253"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Sigiriya",
+          "2",
+          "Cinnamon Lodge",
+          "Sigiriana Resort",
+          "Elephas Resort",
+          "Breakfast"
+        ],
+        [
+          "Nuwara Eliya",
+          "1",
+          "Araliya Green City",
+          "Araliya Green Hills",
+          "Heaven Seven",
+          "Breakfast"
+        ],
+        [
+          "Bentota",
+          "2",
+          "Cinnamon Bey",
+          "The Palms",
+          "Joes Bentota",
+          "Breakfast"
+        ],
+        [
+          "Colombo",
+          "1",
+          "Cinnamon Lakeside",
+          "Ramada Colombo",
+          "Best Western",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost - Category A (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-A",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.12.2026 –",
+          "11.01.2027 –",
+          "01.03.2027 –"
+        ],
+        "rows": [
+          [
+            "IN USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "28.02.2027",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$647",
+            "$883",
+            "$1022",
+            "$1012",
+            "$953"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$514",
+            "$750",
+            "$891",
+            "$877",
+            "$818"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$280",
+            "$483",
+            "$624",
+            "$612",
+            "$553"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$194",
+            "$241",
+            "$241",
+            "$241",
+            "$241"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category B (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-B IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.12.2026 –",
+          "11.01.2027 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$625",
+            "$713",
+            "$783",
+            "$759"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$491",
+            "$579",
+            "$647",
+            "$624"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$238",
+            "$297",
+            "$367",
+            "$344"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$177",
+            "$188",
+            "$188",
+            "$188"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category C (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-C IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.12.2026 –",
+          "11.01.2027 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$589",
+            "$638",
+            "$691",
+            "$666"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$453",
+            "$504",
+            "$558",
+            "$534"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$214",
+            "$265",
+            "$306",
+            "$294"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$153",
+            "$165",
+            "$165",
+            "$165"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-scenic-srilanka-6n-7d-revised": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kandy",
+          "2",
+          "The Golden Crown",
+          "Royal Kandyan",
+          "Serendip Stone Bungalow",
+          "Breakfast"
+        ],
+        [
+          "Bentota",
+          "2",
+          "Cinnamon Bey",
+          "The Palms",
+          "Joes Bentota",
+          "Breakfast"
+        ],
+        [
+          "Colombo",
+          "2",
+          "Cinnamon Lakeside",
+          "Raddison Colombo",
+          "Best Western",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost - Category A (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-A IN",
+          "01.10.2026 –",
+          "01.11.2026 – 19.12.2026",
+          "20.11.2026 –",
+          "11.01.2027 – 31.03.2027"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "10.01.2027"
+          ],
+          [
+            "Cost Per Person when 1 Pax Travelling",
+            "$1143",
+            "$1544",
+            "$1849",
+            "$1731"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$583",
+            "$803",
+            "$958",
+            "$897"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$464",
+            "$680",
+            "$833",
+            "$777"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$179",
+            "$202",
+            "$202",
+            "$202"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost (Per Person)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT- B",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 –",
+          "11.01.2027 –",
+          "01.03.2027 – 31.03.2027"
+        ],
+        "rows": [
+          [
+            "IN USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "28.02.2027"
+          ],
+          [
+            "Cost Per Person when 1 Pax Travelli",
+            "ng 1099",
+            "$1229",
+            "$1335",
+            "$1309",
+            "$1297"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelli",
+            "ng 578",
+            "$666",
+            "$711",
+            "$700",
+            "$689"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelli",
+            "ng 459",
+            "$547",
+            "$591",
+            "$581",
+            "$566"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$171",
+            "$182",
+            "$182",
+            "$182",
+            "$182"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category C (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-C IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 –",
+          "11.01.2027 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "10.01.2027",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 1 Pax Travelling",
+            "$1025",
+            "$1073",
+            "$1132",
+            "$1123"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$541",
+            "$565",
+            "$589",
+            "$578"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$421",
+            "$445",
+            "$466",
+            "$457"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$135",
+            "$147",
+            "$147",
+            "$147"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wonders-of-srilanka-7n-8d-revised": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kandy",
+          "2",
+          "The Golden Crown",
+          "Royal Kandyan",
+          "Serendip Stone Bungalow",
+          "Breakfast"
+        ],
+        [
+          "Nuwara Eliya",
+          "1",
+          "Araliya Green City",
+          "Araliya Green Hills",
+          "Heaven Seven",
+          "Breakfast"
+        ],
+        [
+          "Bentota",
+          "2",
+          "Cinnamon Bey",
+          "The Palms",
+          "Joes Bentota",
+          "Breakfast"
+        ],
+        [
+          "Colombo",
+          "2",
+          "Cinnamon Lakeside",
+          "Ramada Colombo",
+          "Best Western",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost - Category A (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-A IN",
+          "01.10.2026 –",
+          "01.11.2026 – 19.12.2026",
+          "20.11.2026 – 10.01.2027",
+          "11.01.2026 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$691",
+            "$918",
+            "$1071",
+            "$1012"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$573",
+            "$800",
+            "$953",
+            "$891"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$324",
+            "$507",
+            "$660",
+            "$601"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$218",
+            "$241",
+            "$241",
+            "$241"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category B (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-B IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 – 10.01.2027",
+          "11.01.2026 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$650",
+            "$744",
+            "$803",
+            "$791"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$532",
+            "$626",
+            "$685",
+            "$673"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$282",
+            "$330",
+            "$388",
+            "$377"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$208",
+            "$220",
+            "$220",
+            "$220"
+          ]
+        ]
+      },
+      {
+        "title": "Package Cost - Category C (in USD)",
+        "currency": "USD",
+        "headers": [
+          "PACKAGE COST FOR CAT-C IN",
+          "01.10.2026 –",
+          "01.11.2026 –",
+          "20.11.2026 – 10.01.2027",
+          "11.01.2026 –"
+        ],
+        "rows": [
+          [
+            "USD",
+            "31.10.2026",
+            "19.12.2026",
+            "31.03.2027"
+          ],
+          [
+            "Cost Per Person when 2 Pax Travelling",
+            "$612",
+            "$641",
+            "$685",
+            "$671"
+          ],
+          [
+            "Cost Per Person when 4 Pax Travelling",
+            "$494",
+            "$523",
+            "$565",
+            "$553"
+          ],
+          [
+            "Cost for Extra Adult",
+            "$238",
+            "$268",
+            "$297",
+            "$297"
+          ],
+          [
+            "Cost for Child with Bed",
+            "$173",
+            "$185",
+            "$185",
+            "$185"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-incredible-south-hills-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Munnar",
+          "2",
+          "Blanket Hotel & Spa",
+          "Tea County KTDC",
+          "Eastend",
+          "Breakfast"
+        ],
+        [
+          "Ooty",
+          "2",
+          "WelcomHeritage Fernhills Royal Palace",
+          "Sterling Elk Hill",
+          "Sinclairs Retreat",
+          "Breakfast"
+        ],
+        [
+          "Kodaikanal",
+          "3",
+          "The Carlton",
+          "Sterling Kodai Valley",
+          "Poppys Pleasant Stay",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹65,538",
+            "₹43,349",
+            "₹37,632"
+          ],
+          [
+            "4 Pax",
+            "₹61,738",
+            "₹39,549",
+            "₹33,832"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹34,463",
+            "₹13,471",
+            "₹11,618"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹28,567",
+            "₹9,357",
+            "₹8,846"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-serene-tamil-nadu-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mahabalipuram",
+          "1",
+          "The Grand Bay Resort & Spa",
+          "Chariot Beach Resort",
+          "Mamallaa Heritage",
+          "Breakfast"
+        ],
+        [
+          "Pondicherry",
+          "2",
+          "Le Pondy",
+          "Mango Hill La Serene",
+          "Shenbaga Hotel & Convention Center",
+          "Breakfast"
+        ],
+        [
+          "Madurai",
+          "2",
+          "The Residency Signature",
+          "GRT Regency",
+          "Astoria by Sparsa",
+          "Breakfast"
+        ],
+        [
+          "Rameshwaram",
+          "1",
+          "The Residency Towers",
+          "Daiwik Hotel",
+          "Vinayaga",
+          "Breakfast"
+        ],
+        [
+          "Kanyakumari",
+          "1",
+          "Annai Resorts & Spa",
+          "Annai Celestial Resorts",
+          "Hotel Sea View",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹61,619",
+            "₹51,877",
+            "₹40,451"
+          ],
+          [
+            "4 Pax",
+            "₹54,151",
+            "₹44,409",
+            "₹32,982"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹18,573",
+            "₹14,870",
+            "₹9,863"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹15,160",
+            "₹10,409",
+            "₹8,593"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-short-gateway-to-tamil-nadu-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Mahabalipuram",
+          "2",
+          "The Grand Bay Resort & Spa",
+          "Chariot Beach Resort",
+          "Mamallaa Heritage",
+          "Breakfast"
+        ],
+        [
+          "Pondicherry",
+          "2",
+          "Le Pondy",
+          "Mango Hill La Serene",
+          "Shenbaga Hotel & Convention Center",
+          "Breakfast"
+        ],
+        [
+          "Chennai",
+          "1",
+          "The Residency Towers",
+          "Grand Continent Premiere, T Nagar",
+          "Mango Hill Central",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹45,856",
+            "₹31,744",
+            "₹25,891"
+          ],
+          [
+            "4 Pax",
+            "₹41,416",
+            "₹27,304",
+            "₹21,451"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹13,842",
+            "₹11,764",
+            "₹7,368"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹9,298",
+            "₹6,991",
+            "₹6,403"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-spiritual-tamil-nadu-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Chettinad",
+          "2",
+          "Chidambara Vilas",
+          "Chidambara Vilas",
+          "Chettinadu Court",
+          "Breakfast"
+        ],
+        [
+          "Pondicherry",
+          "2",
+          "Le Pondy",
+          "Mango Hill La Serene",
+          "Shenbaga Hotel & Convention Center",
+          "Breakfast"
+        ],
+        [
+          "Mahabalipuram",
+          "1",
+          "The Grand Bay Resort & Spa",
+          "Chariot Beach Resort",
+          "Mamallaa Heritage",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹53,412",
+            "₹44,674",
+            "₹29,931"
+          ],
+          [
+            "4 Pax",
+            "₹47,913",
+            "₹39,174",
+            "₹24,432"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹14,030",
+            "₹11,994",
+            "₹8,474"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹10,617",
+            "₹8,922",
+            "₹8,004"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-the-best-of-hyderabad-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Hyderabad",
+          "3",
+          "Marigold By Green Park",
+          "Green Park",
+          "Best Western Ashoka",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹25,070",
+            "₹22,307",
+            "₹17,231"
+          ],
+          [
+            "4 Pax",
+            "₹22,846",
+            "₹20,083",
+            "₹15,007"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹6,250",
+            "₹6,250",
+            "₹5,297"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹6,250",
+            "₹6,250",
+            "₹5,297"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-best-of-uttar-pradesh-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Lucknow",
+          "1",
+          "Saraca Lucknow, Saraca Estate",
+          "Ramada Lucknow Hotel and Convention Centre",
+          "SureStay By Best Western",
+          "Breakfast"
+        ],
+        [
+          "Ayodhya",
+          "1",
+          "Ira by Orchid",
+          "Clarks Inn Express",
+          "Sterling Saryu",
+          "Breakfast"
+        ],
+        [
+          "Prayagraj",
+          "1",
+          "Hotel Kanha Shyam",
+          "WelcomHeritage Badi Kothi",
+          "Hotel Placid",
+          "Breakfast"
+        ],
+        [
+          "Varanasi",
+          "2",
+          "Radisson Varanasi",
+          "Hotel Hindusthan International",
+          "Hotel Vedangam",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹43,640",
+            "₹32,004",
+            "₹26,865"
+          ],
+          [
+            "4 Pax",
+            "₹39,624",
+            "₹27,988",
+            "₹22,849"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹13,194",
+            "₹11,056",
+            "₹6,909"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹13,194",
+            "₹7,213",
+            "₹5,535"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-holy-triangle-of-uttar-pradesh-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Prayagraj",
+          "1",
+          "Hotel Kanha Shyam",
+          "WelcomHeritage Badi Kothi",
+          "Hotel Placid",
+          "Breakfast"
+        ],
+        [
+          "Ayodhya",
+          "1",
+          "Ira by Orchid",
+          "Clarks Inn Express",
+          "Sterling Saryu",
+          "Breakfast"
+        ],
+        [
+          "Varanasi",
+          "2",
+          "Radisson Varanasi",
+          "Hotel Hindusthan International",
+          "Hotel Vedangam",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹31,576",
+            "₹29,240",
+            "₹25,737"
+          ],
+          [
+            "4 Pax",
+            "₹28,332",
+            "₹25,996",
+            "₹22,492"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹9,722",
+            "₹9,450",
+            "₹5,732"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹9,722",
+            "₹5,978",
+            "₹4,358"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-trip-to-varansi-and-bodhgaya-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Varanasi",
+          "3",
+          "Radisson Varanasi",
+          "Hotel Hindusthan International",
+          "Hotel Vedangam",
+          "Breakfast"
+        ],
+        [
+          "Bodhgaya",
+          "2",
+          "Marasa Sarovar Premiere",
+          "The Imperial",
+          "Taj Darbar",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹43,308",
+            "₹29,846",
+            "₹23,599"
+          ],
+          [
+            "4 Pax",
+            "₹40,218",
+            "₹26,756",
+            "₹20,509"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹11,864",
+            "₹11,532",
+            "₹5,414"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹11,864",
+            "₹6,324",
+            "₹5,414"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-kolkata-with-sunderbans-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "City",
+        "Nights",
+        "Category A",
+        "Category B",
+        "Category C",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Kolkata",
+          "3",
+          "Lemon Tree Premiere",
+          "Peerless Inn",
+          "Starlit Suites",
+          "Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Package Cost (Per Person in INR)",
+        "currency": "INR",
+        "headers": [
+          "Per person cost in INR",
+          "Category A",
+          "Category B",
+          "Category C"
+        ],
+        "rows": [
+          [
+            "2 Pax",
+            "₹27,047",
+            "₹23,358",
+            "₹17,796"
+          ],
+          [
+            "4 Pax",
+            "₹23,309",
+            "₹19,619",
+            "₹14,058"
+          ],
+          [
+            "Extra Adult / Child with Bed (Hotel cost only)",
+            "₹6,508",
+            "₹6,250",
+            "₹3,708"
+          ],
+          [
+            "Child without Bed (Hotel cost only)",
+            "₹6,508",
+            "₹6,250",
+            "₹3,708"
+          ]
+        ]
+      }
+    ]
+  }
+}

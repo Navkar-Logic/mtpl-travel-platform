@@ -5,9 +5,10 @@ import Link from "next/link"
 import Image from "next/image"
 
 import { Container } from "@/components/ui/container"
-import { getPackageBySlug, getAllPackages } from "@/features/packages/data/packages"
+import { getPackageBySlug, getAllPackages, getPackageTables } from "@/features/packages/data/packages"
 import { officeImages } from "@/config/office-images"
-import { HolidayPackageTermsSection } from "@/components/packages/holiday-package-terms-section"
+import { PackageTables } from "@/components/packages/package-tables"
+import { PackageTermsModal } from "@/components/packages/package-terms-modal"
 import { Clock, MapPin, Download, MessageCircle, Send, CheckCircle2, XCircle, Calendar, ShieldCheck, ChevronRight, Scale } from "lucide-react"
 
 type Props = {
@@ -55,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PackageDetailPage({ params }: Props) {
   const resolvedParams = await params
   const pkg = getPackageBySlug(resolvedParams.slug)
+  const tables = getPackageTables(resolvedParams.slug)
 
   if (!pkg) {
     notFound()
@@ -188,6 +190,9 @@ export default async function PackageDetailPage({ params }: Props) {
               </section>
             )}
 
+            {/* Accommodation Options & Package Cost Tables */}
+            <PackageTables tables={tables} packageName={pkg.title} />
+
             {/* Inclusions & Exclusions */}
             {(pkg.inclusions || pkg.exclusions) && (
               <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -242,8 +247,8 @@ export default async function PackageDetailPage({ params }: Props) {
               </section>
             )}
 
-            {/* Authoritative Holiday Tour Package Terms & Conditions */}
-            <HolidayPackageTermsSection
+            {/* Authoritative Holiday Tour Package Terms & Conditions Modal */}
+            <PackageTermsModal
               packageName={pkg.title}
               destination={pkg.destination}
             />
@@ -268,15 +273,6 @@ export default async function PackageDetailPage({ params }: Props) {
                     {pkg.priceDisplay.startsWith("Starting") && (
                       <span className="text-xs font-semibold text-slate-500">/ person (twin sharing)</span>
                     )}
-                  </div>
-
-                  {/* Pricing Advisory Note */}
-                  <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-3.5 my-3 text-xs text-amber-900 leading-relaxed">
-                    <span className="font-bold block mb-1 text-amber-950 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600 inline-block" />
-                      Notice Regarding Tour Pricing:
-                    </span>
-                    Prices shown are indicative base rates. Actual tour price varies depending on specific travel dates, seasonality, number of guests, and selected hotel category. <strong>Send a request below for an exact, tailored quotation.</strong>
                   </div>
 
                   {/* Validity Display */}
@@ -342,11 +338,16 @@ export default async function PackageDetailPage({ params }: Props) {
                 <div className="pt-4 border-t border-slate-100 text-center">
                   <a
                     href="#package-terms"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-brand transition-colors cursor-pointer"
                   >
                     <Scale className="w-3.5 h-3.5 text-brand" />
                     Subject to MTPL Tour Terms &amp; Conditions
                   </a>
+                </div>
+
+                {/* Pricing Notice Footnote - Very Small Font at the End */}
+                <div className="pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed text-center sm:text-left">
+                  <span className="font-semibold text-slate-500">Notice Regarding Tour Pricing:</span> Prices shown are indicative base rates. Actual tour price varies depending on specific travel dates, seasonality, number of guests, and selected hotel category. Send a request below for an exact, tailored quotation.
                 </div>
               </div>
 
