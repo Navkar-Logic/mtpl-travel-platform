@@ -130,3 +130,29 @@ h1, h2, h3, h4, h5, h6 {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* Custom Table Scrollbar */
+.custom-table-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.custom-table-scrollbar::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+.custom-table-scrollbar::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 9999px;
+}
+
+.custom-table-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 1px solid #f1f5f9;
+}
+
+.custom-table-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

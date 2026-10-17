@@ -542,23 +542,23 @@ export function HolidayPackageTermsSection({
         <p className="text-xs text-slate-600 leading-relaxed">
           Standard execution schedule applicable to all travellers covered under this booking:
         </p>
-        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
-          <table className="w-full text-left text-xs text-slate-700">
-            <thead className="bg-slate-50 border-b border-slate-200 text-slate-900 font-semibold">
+        <div className="overflow-x-auto rounded-xl border-2 border-slate-300 bg-white shadow-2xs custom-table-scrollbar">
+          <table className="w-full border-collapse text-left text-xs text-slate-700">
+            <thead className="bg-slate-100 border-b-2 border-slate-300 text-slate-900 font-bold uppercase tracking-wider text-[11px]">
               <tr>
-                <th className="py-2.5 px-3 w-16 text-center">Sr. No.</th>
-                <th className="py-2.5 px-3">Traveller Name (as per Passport/ID)</th>
-                <th className="py-2.5 px-3">Passport / ID No.</th>
-                <th className="py-2.5 px-3">Relationship to Signatory</th>
+                <th className="py-3 px-3 w-16 text-center border-r border-slate-300">Sr. No.</th>
+                <th className="py-3 px-4 border-r border-slate-300">Traveller Name (as per Passport/ID)</th>
+                <th className="py-3 px-4 border-r border-slate-300">Passport / ID No.</th>
+                <th className="py-3 px-4">Relationship to Signatory</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-200">
               {[1, 2, 3, 4, 5].map((num) => (
-                <tr key={num} className="hover:bg-slate-50/50">
-                  <td className="py-2.5 px-3 text-center text-slate-400 font-mono">{num}</td>
-                  <td className="py-2.5 px-3 text-slate-400 italic">As recorded on booking voucher / ticket</td>
-                  <td className="py-2.5 px-3 text-slate-400 italic">As verified for immigration / airline</td>
-                  <td className="py-2.5 px-3 text-slate-400 italic">Self / Spouse / Child / Dependent / Co-traveller</td>
+                <tr key={num} className="hover:bg-emerald-50/40 transition-colors">
+                  <td className="py-2.5 px-3 text-center text-slate-500 font-mono font-bold bg-slate-50/60 border-r border-slate-200">{num}</td>
+                  <td className="py-2.5 px-4 text-slate-400 italic border-r border-slate-200">As recorded on booking voucher / ticket</td>
+                  <td className="py-2.5 px-4 text-slate-400 italic border-r border-slate-200">As verified for immigration / airline</td>
+                  <td className="py-2.5 px-4 text-slate-400 italic">Self / Spouse / Child / Dependent / Co-traveller</td>
                 </tr>
               ))}
             </tbody>

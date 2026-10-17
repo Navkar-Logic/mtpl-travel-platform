@@ -285,7 +285,7 @@ export default async function PackageDetailPage({ params }: Props) {
                           ? "text-amber-700"
                           : "text-emerald-800"
                       }`}>
-                        {pkg.validityDisplay || "1 October 2026 – 31 March 2027"}
+                        {pkg.validityDisplay || "31 March 2027"}
                       </span>
                     </div>
                   </div>

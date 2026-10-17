@@ -116,7 +116,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
                 ? "text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md"
                 : "text-emerald-800 bg-emerald-50/80 px-2 py-0.5 rounded-md"
             }`}>
-              {pkg.validityDisplay || "1 October 2026 – 31 March 2027"}
+              {pkg.validityDisplay || "31 March 2027"}
             </span>
           </div>
         </div>

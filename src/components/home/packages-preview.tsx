@@ -95,7 +95,7 @@ export function PackagesPreview() {
                       {featured[0].priceDisplay}
                     </span>
                     <span className="bg-black/50 backdrop-blur-md text-white/90 border border-white/10 text-xs font-medium px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-brand" /> {featured[0].validityDisplay || "1 October 2026 – 31 March 2027"}
+                      <Calendar className="w-3.5 h-3.5 text-brand" /> {featured[0].validityDisplay || "31 March 2027"}
                     </span>
                   </div>
 
@@ -151,7 +151,7 @@ export function PackagesPreview() {
                       </span>
                       <span className="text-white/30">•</span>
                       <span className="text-[11px] text-white/70 font-medium">
-                        {pkg.validityDisplay || "1 October 2026 – 31 March 2027"}
+                        {pkg.validityDisplay || "31 March 2027"}
                       </span>
                     </div>
 
