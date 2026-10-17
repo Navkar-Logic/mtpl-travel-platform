@@ -6,14 +6,14 @@
   --muted: #F7F9F8; /* Pale background */
   --muted-foreground: #66736D; /* Secondary text */
   
-  /* Brand Green Palette */
-  --brand-light: #A7F3C0; /* Light green */
-  --brand-medium: #4ADE80; /* Medium green */
-  --brand: #16A765; /* Deeper brand green */
+  /* Brand Green Palette - Refined Darker Heritage Green */
+  --brand-light: #86EFAC; /* Soft green */
+  --brand-medium: #15803D; /* Medium dark green */
+  --brand: #0E7443; /* Darker, richer executive green */
   --brand-foreground: #ffffff; /* Readable white text on deeper brand green */
-  --brand-dark: #063D2A; /* Deep-green footer & hero surfaces */
-  --brand-pale: #EEF8F3; /* Soft background tint */
-  --border: #DCE7E1;
+  --brand-dark: #053322; /* Deep-green footer & hero surfaces */
+  --brand-pale: #EDF7F2; /* Soft background tint */
+  --border: #D2E3DA;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,13 +22,13 @@
     --foreground: #17201C;
     --muted: #F7F9F8;
     --muted-foreground: #66736D;
-    --brand-light: #A7F3C0;
-    --brand-medium: #4ADE80;
-    --brand: #16A765;
+    --brand-light: #86EFAC;
+    --brand-medium: #15803D;
+    --brand: #0E7443;
     --brand-foreground: #ffffff;
-    --brand-dark: #063D2A;
-    --brand-pale: #EEF8F3;
-    --border: #DCE7E1;
+    --brand-dark: #053322;
+    --brand-pale: #EDF7F2;
+    --border: #D2E3DA;
   }
 }
 
@@ -57,15 +57,15 @@
 
 /* Centralized Gradient & Surface Utility Classes */
 .bg-gradient-brand {
-  background-image: linear-gradient(135deg, #16A765 0%, #4ADE80 100%);
+  background-image: linear-gradient(135deg, #0A5C34 0%, #0F7A47 100%);
 }
 
 .bg-gradient-brand-subtle {
-  background-image: linear-gradient(135deg, rgba(167, 243, 192, 0.22) 0%, rgba(74, 222, 128, 0.1) 100%);
+  background-image: linear-gradient(135deg, rgba(14, 116, 67, 0.12) 0%, rgba(10, 92, 52, 0.05) 100%);
 }
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #16A765 0%, #4ADE80 100%);
+  background: linear-gradient(135deg, #0A5C34 0%, #0E7443 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -77,7 +77,7 @@
 }
 
 .text-gradient-brand-light {
-  background: linear-gradient(135deg, #4ADE80 0%, #A7F3C0 100%);
+  background: linear-gradient(135deg, #22C55E 0%, #86EFAC 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

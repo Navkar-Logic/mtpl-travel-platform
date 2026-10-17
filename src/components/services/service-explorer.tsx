@@ -4,7 +4,7 @@ import * as React from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Container } from "@/components/ui/container"
-import { ArrowRight, Plane, Building2, Map, FileText, Briefcase, Car } from "lucide-react"
+import { ArrowRight, Plane, Building2, Map, FileText, Briefcase, Car, Banknote, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 import { officeImages, OfficeImage } from "@/config/office-images"
 
@@ -31,7 +31,7 @@ const serviceCategories: ServiceCategory[] = [
     title: "Hotel Bookings",
     icon: Building2,
     desc: "From luxury resorts to business accommodations, we secure the perfect stay based on your precise location requirements and comfort preferences.",
-    image: officeImages.directorCabin,
+    image: officeImages.hotelBookingOperations,
     badge: "Curated Accommodations",
   },
   {
@@ -47,8 +47,24 @@ const serviceCategories: ServiceCategory[] = [
     title: "Visa Assistance",
     icon: FileText,
     desc: "Navigating international travel requirements with expertise. We provide comprehensive support for tourist and business visa applications.",
-    image: officeImages.operationsFloorWide,
+    image: officeImages.visaAssistanceOperations,
     badge: "Documentation & Visa Desk",
+  },
+  {
+    id: "forex",
+    title: "Foreign Exchange Assistance",
+    icon: Banknote,
+    desc: "Seamless foreign exchange facilitation through RBI-authorized partners. Competitive forex rates, multi-currency travel cards, and compliant international transaction support.",
+    image: officeImages.consultantsFloor,
+    badge: "RBI-Authorized Coordination",
+  },
+  {
+    id: "insurance",
+    title: "Travel Insurance",
+    icon: ShieldCheck,
+    desc: "Comprehensive domestic and overseas travel protection. Essential coverage against unexpected medical emergencies, trip delays, lost baggage, and journey disruptions.",
+    image: officeImages.itineraryPlanning,
+    badge: "Comprehensive Policy Protection",
   },
   {
     id: "corporate",
@@ -63,13 +79,49 @@ const serviceCategories: ServiceCategory[] = [
     title: "Transfers & Ground",
     icon: Car,
     desc: "Seamless point-to-point connectivity. Reliable airport transfers, intercity travel, and local sightseeing arrangements.",
-    image: officeImages.buildingSignboard,
+    image: officeImages.officeExteriorTransfers,
     badge: "Nagpur Central Dispatch",
   },
 ]
 
 export function ServiceExplorer() {
   const [activeService, setActiveService] = React.useState<ServiceCategory>(serviceCategories[0])
+
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace("#", "").toLowerCase()
+      if (!hash) return
+      const aliasMap: Record<string, string> = {
+        "flight-assistance": "flights",
+        "flights": "flights",
+        "hotel-bookings": "hotels",
+        "hotels": "hotels",
+        "holiday-planning": "holidays",
+        "holidays": "holidays",
+        "visa-assistance": "visa",
+        "passport-assistance": "visa",
+        "visa": "visa",
+        "forex-assistance": "forex",
+        "forex": "forex",
+        "foreign-exchange": "forex",
+        "travel-insurance": "insurance",
+        "insurance": "insurance",
+        "corporate-travel": "corporate",
+        "corporate": "corporate",
+        "transfers": "transfers",
+        "group-travel": "corporate",
+      }
+      const targetId = aliasMap[hash] || hash
+      const found = serviceCategories.find((s) => s.id === targetId)
+      if (found) {
+        setActiveService(found)
+      }
+    }
+
+    handleHash()
+    window.addEventListener("hashchange", handleHash)
+    return () => window.removeEventListener("hashchange", handleHash)
+  }, [])
 
   return (
     <section className="relative w-full bg-[var(--background)] py-20 md:py-28 overflow-hidden">
@@ -131,7 +183,7 @@ export function ServiceExplorer() {
           </div>
           
           {/* Visual Explorer / Display */}
-          <div className="w-full lg:w-7/12 lg:sticky lg:top-32 h-[480px] lg:h-[640px]">
+          <div className="w-full lg:w-7/12 lg:sticky lg:top-32 h-[480px] lg:h-[720px]">
             <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-slate-950 relative shadow-2xl border border-slate-800">
               <AnimatePresence mode="wait">
                 <motion.div

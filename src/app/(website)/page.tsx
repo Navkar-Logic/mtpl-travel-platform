@@ -4,11 +4,9 @@ import type { Metadata } from "next"
 import { Hero } from "@/components/home/hero"
 import { TrustSection } from "@/components/home/trust-section"
 import { IntroductionSection } from "@/components/home/introduction-section"
-import { DestinationsSection } from "@/components/home/destinations-section"
 import { PackagesPreview } from "@/components/home/packages-preview"
 import { ServicesSection } from "@/components/home/services-section"
 import { WhyMtplSection } from "@/components/home/why-mtpl-section"
-import { OffersSection } from "@/components/home/offers-section"
 import { TestimonialsSection } from "@/components/testimonials/testimonials-section"
 import { EnquiryCta } from "@/components/home/enquiry-cta"
 
@@ -26,11 +24,9 @@ export default function HomePage() {
       <Hero />
       <TrustSection />
       <IntroductionSection />
-      <DestinationsSection />
       <PackagesPreview />
       <ServicesSection />
       <WhyMtplSection />
-      <OffersSection />
       <TestimonialsSection />
       <EnquiryCta />
     </div>

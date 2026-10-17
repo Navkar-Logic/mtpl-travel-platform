@@ -28,7 +28,6 @@ const navigation = {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Holiday Packages", href: "/packages" },
-    { name: "Destinations", href: "/destinations" },
     { name: "Client Reviews", href: "/reviews" },
     { name: "Contact", href: "/contact" },
   ],

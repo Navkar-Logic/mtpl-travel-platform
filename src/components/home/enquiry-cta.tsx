@@ -57,11 +57,11 @@ export function EnquiryCta() {
           className="max-w-3xl mx-auto text-center space-y-8"
         >
           <div className="space-y-4">
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#16A765] bg-white/80 border border-[#16A765]/20 px-3.5 py-1.5 rounded-full shadow-xs">
+            <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#0E7443] bg-white/80 border border-[#0E7443]/20 px-3.5 py-1.5 rounded-full shadow-xs">
               Personalized Travel Planning
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-[#123D2E] font-sans leading-[1.15]">
-              Ready to <span className="font-serif italic font-normal text-[#16A765]">Experience</span> the World?
+              Ready to <span className="font-serif italic font-normal text-[#0E7443]">Experience</span> the World?
             </h2>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-[#265344] max-w-2xl mx-auto font-normal">
               Let our travel experts craft the perfect itinerary tailored exclusively to your requirements. 
@@ -72,7 +72,7 @@ export function EnquiryCta() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-2">
             <Link 
               href="/contact#enquiry-form"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full text-base font-semibold transition-all duration-200 bg-[#16A765] hover:bg-[#128a53] text-white h-13 sm:h-14 px-8 shadow-md shadow-[#16A765]/25 hover:shadow-lg hover:shadow-[#16A765]/35 hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full text-base font-semibold transition-all duration-200 bg-[#0E7443] hover:bg-[#0A5C34] text-white h-13 sm:h-14 px-8 shadow-md shadow-[#0E7443]/25 hover:shadow-lg hover:shadow-[#0E7443]/35 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Enquire Now</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -80,9 +80,9 @@ export function EnquiryCta() {
 
             <a 
               href={`tel:${siteConfig.contact.phones.primary.replace(/\s/g, '')}`}
-              className="group inline-flex items-center justify-center gap-2 text-base font-medium text-[#123D2E] hover:text-[#16A765] px-4 py-2.5 rounded-full transition-colors duration-200"
+              className="group inline-flex items-center justify-center gap-2 text-base font-medium text-[#123D2E] hover:text-[#0E7443] px-4 py-2.5 rounded-full transition-colors duration-200"
             >
-              <Phone className="w-4 h-4 text-[#16A765] transition-transform duration-200 group-hover:scale-110" />
+              <Phone className="w-4 h-4 text-[#0E7443] transition-transform duration-200 group-hover:scale-110" />
               <span>
                 Or call us directly: <strong className="font-semibold">{siteConfig.contact.phones.primary}</strong>
               </span>

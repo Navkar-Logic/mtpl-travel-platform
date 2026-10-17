@@ -72,7 +72,7 @@ export function Hero() {
           <div className="pt-4 flex flex-wrap items-center justify-center gap-5">
             <Link 
               href="/contact#enquiry-form"
-              className="group relative inline-flex items-center justify-center gap-3 rounded-full text-base font-bold transition-all bg-gradient-brand text-white overflow-hidden h-14 px-8 shadow-[0_10px_35px_rgba(22,167,101,0.35)] hover:shadow-[0_15px_45px_rgba(74,222,128,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+              className="group relative inline-flex items-center justify-center gap-3 rounded-full text-base font-bold transition-all bg-gradient-brand text-white overflow-hidden h-14 px-8 shadow-[0_10px_35px_rgba(14,116,67,0.3)] hover:shadow-[0_15px_45px_rgba(14,116,67,0.4)] hover:-translate-y-0.5 active:translate-y-0"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <span className="relative z-10">Plan Your Trip</span>

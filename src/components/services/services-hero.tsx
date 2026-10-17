@@ -39,12 +39,18 @@ export function ServicesHero() {
             From meticulously planned holidays to comprehensive corporate itineraries, MTPL provides professional, end-to-end travel assistance.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4 text-xs font-semibold text-white/70">
+          <div className="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-4 gap-y-2 pt-4 text-xs font-semibold text-white/75 max-w-4xl">
             <span>Air Ticketing</span>
             <span className="text-white/30">•</span>
             <span>Verified Hotel Stays</span>
             <span className="text-white/30">•</span>
-            <span>Visa & Passport Support</span>
+            <span>Holidays</span>
+            <span className="text-white/30">•</span>
+            <span>Visa &amp; Passport Support</span>
+            <span className="text-white/30">•</span>
+            <span>Foreign Exchange Assistance</span>
+            <span className="text-white/30">•</span>
+            <span>Travel Insurance</span>
             <span className="text-white/30">•</span>
             <span>Corporate Travel</span>
             <span className="text-white/30">•</span>

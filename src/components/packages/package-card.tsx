@@ -150,7 +150,7 @@ export function PackageCard({ pkg }: { pkg: Package }) {
               target="_blank"
               rel="noopener noreferrer"
               title="Enquire on WhatsApp"
-              className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-600 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] flex items-center justify-center transition-all shadow-sm"
+              className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200/60 text-emerald-700 hover:bg-[#0E7443] hover:text-white hover:border-[#0E7443] flex items-center justify-center transition-all shadow-sm"
               aria-label={`Enquire about ${pkg.title} on WhatsApp`}
             >
               <MessageCircle className="w-4 h-4" />

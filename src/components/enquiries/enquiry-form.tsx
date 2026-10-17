@@ -528,7 +528,7 @@ export function EnquiryForm() {
         <button
           type="submit"
           disabled={isSubmitting || !isTermsAccepted}
-          className="w-full h-14 bg-gradient-brand text-white rounded-xl font-bold text-lg hover:opacity-95 hover:shadow-[0_8px_25px_rgba(22,167,101,0.35)] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none flex items-center justify-center gap-2"
+          className="w-full h-14 bg-gradient-brand text-white rounded-xl font-bold text-lg hover:opacity-95 hover:shadow-[0_8px_25px_rgba(14,116,67,0.35)] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <>

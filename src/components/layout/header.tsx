@@ -46,27 +46,6 @@ const navigation = [
   { 
     name: "Holidays", 
     href: "/packages",
-    dropdown: [
-      {
-        title: "Explore",
-        items: [
-          { name: "Holiday Packages", href: "/packages" },
-          { name: "Special Offers", href: "/offers" },
-        ]
-      }
-    ]
-  },
-  { 
-    name: "Destinations", 
-    href: "/destinations",
-    dropdown: [
-      {
-        title: "Discover",
-        items: [
-          { name: "All Destinations", href: "/destinations" },
-        ]
-      }
-    ]
   },
   { 
     name: "Reviews", 

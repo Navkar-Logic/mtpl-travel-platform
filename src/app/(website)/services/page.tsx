@@ -7,7 +7,7 @@ import { EnquiryCta } from "@/components/home/enquiry-cta"
 
 export const metadata: Metadata = {
   title: "Travel Services",
-  description: "Comprehensive domestic and international travel services including flights, hotel bookings, holiday packages, visa assistance, and corporate travel management.",
+  description: "Comprehensive domestic and international travel services including flights, hotel bookings, holiday packages, visa support, foreign exchange assistance, travel insurance, and corporate travel management.",
   alternates: {
     canonical: "/services",
   },

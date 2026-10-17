@@ -100,21 +100,15 @@ export default function ContactPage() {
                   <a
                     href={`tel:${siteConfig.contact.phones.primary.replace(/\s+/g, '')}`}
                     aria-label="Call MTPL Primary Line"
-                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#16A765] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#16A765] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
+                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#0E7443] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0E7443] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
                   >
                     <Phone className="w-5 h-5 transition-transform group-hover:rotate-12" />
                   </a>
                   <div className="flex-1 min-w-0">
                     <span className="block text-xs font-bold text-muted-foreground mb-1 uppercase tracking-wider">Call Us</span>
                     <a 
-                      href={`tel:${siteConfig.contact.phones.primary.replace(/\s+/g, '')}`} 
-                      className="block text-foreground hover:text-[#16A765] transition-colors font-bold mb-1 hover:underline underline-offset-2 cursor-pointer"
-                    >
-                      {siteConfig.contact.phones.primary}
-                    </a>
-                    <a 
                       href={`tel:${siteConfig.contact.phones.alternate.replace(/\s+/g, '')}`} 
-                      className="block text-foreground hover:text-[#16A765] transition-colors font-medium text-sm hover:underline underline-offset-2 cursor-pointer"
+                      className="block text-foreground hover:text-[#0E7443] transition-colors font-medium text-sm hover:underline underline-offset-2 cursor-pointer"
                     >
                       {siteConfig.contact.phones.alternate}
                     </a>
@@ -126,7 +120,7 @@ export default function ContactPage() {
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
                     aria-label="Email Mishrikotkar Travels"
-                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#16A765] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#16A765] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
+                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#0E7443] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0E7443] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
                   >
                     <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
                   </a>
@@ -134,7 +128,7 @@ export default function ContactPage() {
                     <span className="block text-xs font-bold text-muted-foreground mb-1 uppercase tracking-wider">Email</span>
                     <a 
                       href={`mailto:${siteConfig.contact.email}`} 
-                      className="block text-foreground hover:text-[#16A765] transition-colors font-medium text-sm break-all hover:underline underline-offset-2 cursor-pointer"
+                      className="block text-foreground hover:text-[#0E7443] transition-colors font-medium text-sm break-all hover:underline underline-offset-2 cursor-pointer"
                     >
                       {siteConfig.contact.email}
                     </a>
@@ -148,7 +142,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Open MTPL Office Location on Google Maps"
-                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#16A765] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#16A765] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
+                    className="w-12 h-12 rounded-2xl bg-[#EEF8F3] text-[#0E7443] border border-[#A7F3C0]/50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0E7443] group-hover:text-white group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
                   >
                     <MapPin className="w-5 h-5 transition-transform group-hover:-translate-y-0.5" />
                   </a>
@@ -158,10 +152,10 @@ export default function ContactPage() {
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Mishrikotkar Travels Pvt Ltd, 101, Shri Ganesh Apartments, Dharampeth, Nagpur, Maharashtra 440010")}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/addr block text-foreground hover:text-[#16A765] transition-colors font-medium text-sm leading-relaxed cursor-pointer"
+                      className="group/addr block text-foreground hover:text-[#0E7443] transition-colors font-medium text-sm leading-relaxed cursor-pointer"
                     >
                       <span>{siteConfig.contact.address}</span>
-                      <span className="flex items-center gap-1 text-xs text-[#16A765] font-semibold mt-1.5 group-hover/addr:underline">
+                      <span className="flex items-center gap-1 text-xs text-[#0E7443] font-semibold mt-1.5 group-hover/addr:underline">
                         Open in Google Maps &rarr;
                       </span>
                     </a>
@@ -186,7 +180,7 @@ export default function ContactPage() {
                 href={`https://wa.me/${siteConfig.contact.phones.customerEnquiry[0].replace(/[^0-9]/g, '')}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-[#25D366] text-white rounded-[2.5rem] p-8 shadow-sm border border-[#25D366]/20 flex flex-col items-center text-center gap-3 hover:-translate-y-1 transition-transform"
+                className="bg-[#0E7443] hover:bg-[#0A5C34] text-white rounded-[2.5rem] p-8 shadow-sm border border-[#0E7443]/30 flex flex-col items-center text-center gap-3 hover:-translate-y-1 transition-all"
               >
                 <h4 className="font-bold text-xl font-sans">WhatsApp Us</h4>
                 <p className="text-white/80 text-sm font-light">Quick responses for urgent travel queries.</p>

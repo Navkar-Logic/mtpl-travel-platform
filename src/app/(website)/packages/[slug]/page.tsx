@@ -308,7 +308,7 @@ export default async function PackageDetailPage({ params }: Props) {
                     href={pkg.whatsAppHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 rounded-2xl text-sm font-bold transition-all bg-[#25D366] text-white hover:bg-[#20ba59] h-12 shadow-sm"
+                    className="w-full flex items-center justify-center gap-2 rounded-2xl text-sm font-bold transition-all bg-[#0E7443] text-white hover:bg-[#0A5C34] h-12 shadow-sm"
                   >
                     <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
                   </a>

@@ -70,9 +70,9 @@ const storyPoints: StoryPoint[] = [
         detail: "Personal attention and hands-on accountability for every traveler from day one",
       },
     ],
-    imageSrc: "/assets/office/exterior/mtpl-building-signboard.webp",
+    imageSrc: "/assets/office/exterior/office.png",
     imageAlt: "MTPL Dharampeth Office Building and IATA Signboard in Nagpur",
-    caption: "Shri Ganesh Apartments, Dharampeth, Nagpur — Head Office & Customer Service Center",
+    caption: "Shri Ganesh Apartments, Dharampeth, Nagpur",
     locationTag: "Nagpur Headquarters · Est. 2006",
   },
   {
