@@ -75,7 +75,7 @@ export function Footer() {
             </div>
             <div className="space-y-2.5">
               <h4 className="text-lg md:text-lg font-semibold tracking-wide text-white">
-                MISHRIKOTKAR TRAVELS PVT LTD
+                MISHRIKOTKAR TRAVELS PVT. LTD.
               </h4>
               <h3 className="text-lg md:text-lg font-semibold tracking-wide text-white">
                 Travel, Taken Care Of.
