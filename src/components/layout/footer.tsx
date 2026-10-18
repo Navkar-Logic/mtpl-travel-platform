@@ -65,7 +65,7 @@ export function Footer() {
           <div className="space-y-6 lg:pr-4">
             <div className="inline-flex items-center bg-white px-5 py-3 rounded-2xl shadow-sm border border-white/20 w-fit">
               <Image 
-                src="/assets/mtpl-footer-logo.png" 
+                src="/assets/mtpl-desktop-logo.png" 
                 alt="Mishrikotkar Travels Logo" 
                 width={180} 
                 height={48} 
@@ -73,8 +73,10 @@ export function Footer() {
                 unoptimized 
               />
             </div>
-
             <div className="space-y-2.5">
+              <h2 className="text-lg md:text-xl font-semibold tracking-wide text-white">
+                MISHRIKOTKAR TRAVELS PVT LTD
+              </h2>
               <h3 className="text-lg md:text-xl font-semibold tracking-wide text-white">
                 Travel, Taken Care Of.
               </h3>
