@@ -94,13 +94,13 @@ const servicesData: ServiceItem[] = [
     id: "forex",
     title: "Foreign Exchange (Forex)",
     category: "support",
-    badge: "RBI-Authorized Channels",
+    badge: "Authorized Dealer Network",
     icon: "/assets/icons/forex.png",
-    description: "RBI-compliant foreign exchange and multi-currency travel cards with competitive live rates and door delivery.",
+    description: "Assisting guests in securing the lowest exchange rates across authorized dealers, arranging currency notes and travel cards.",
     highlights: [
-      "Zero-Markup Multi-Currency Cards",
-      "Physical Currency in All Major Denominations",
-      "Swift & RBI-Compliant International Remittance"
+      "Lowest Rates Sourced Across Multiple Dealers",
+      "Physical Currency Notes in Major Denominations",
+      "Multi-Currency Forex Cards & Doorstep Delivery"
     ],
     enquiryParam: "Foreign Exchange",
   },
