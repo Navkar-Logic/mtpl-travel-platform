@@ -70,7 +70,7 @@ const servicesData: ServiceItem[] = [
     icon: "/assets/icons/cruise.png",
     description: "Luxury ocean and river voyages aboard premier cruise liners with elegant staterooms, dining, and excursions.",
     highlights: [
-      "Royal Caribbean, Costa, NCL & River Cruises",
+      "Royal Caribbean, NCL, Disney Cruises, Cordelia & Genting",
       "Ocean-view & Balcony Stateroom Guidance",
       "All-Inclusive Dining & Shore Excursions"
     ],
