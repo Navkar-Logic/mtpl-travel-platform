@@ -59,27 +59,27 @@ export function Footer() {
       </h2>
 
       <Container className="pt-16 pb-10 md:pt-20 md:pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           
           {/* Column 1: Brand & Accreditations */}
-          <div className="space-y-6 lg:pr-4">
-            <div className="inline-flex items-center bg-white px-5 py-3 rounded-2xl shadow-sm border border-white/20 w-fit">
+          <div className="space-y-6 lg:col-span-4">
+            <div className="inline-flex items-center bg-white px-5 py-3.5 rounded-2xl shadow-sm border border-white/20 w-fit">
               <Image 
                 src="/assets/mtpl-desktop-logo.png" 
                 alt="Mishrikotkar Travels Logo" 
-                width={150} 
-                height={180} 
-                className="h-8 md:h-10 w-auto object-contain" 
+                width={200} 
+                height={220} 
+                className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain" 
                 unoptimized 
               />
             </div>
             <div className="space-y-2.5">
-              <h4 className="text-lg md:text-lg font-semibold tracking-wide text-white">
+              <h3 className="text-base sm:text-lg font-semibold tracking-wide text-white whitespace-nowrap">
                 MISHRIKOTKAR TRAVELS PVT. LTD.
-              </h4>
-              <h3 className="text-lg md:text-lg font-semibold tracking-wide text-white">
-                Travel, Taken Care Of.
               </h3>
+              <h4 className="text-base sm:text-lg font-semibold tracking-wide text-white">
+                Travel, Taken Care Of.
+              </h4>
               <p className="text-sm leading-relaxed text-[#D0E2D9]">
                 Professional travel assistance, holiday planning and personalized travel support.
               </p>
@@ -114,7 +114,7 @@ export function Footer() {
           </div>
 
           {/* Column 2: Company */}
-          <div className="lg:pl-4">
+          <div className="lg:col-span-2">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#91D7B0] mb-5">
               Company
             </h3>
@@ -134,7 +134,7 @@ export function Footer() {
           </div>
 
           {/* Column 3: Services */}
-          <div>
+          <div className="lg:col-span-2 xl:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#91D7B0] mb-5">
               Services
             </h3>
@@ -154,7 +154,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Contact Us */}
-          <div>
+          <div className="lg:col-span-4 xl:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#91D7B0] mb-5">
               Contact Us
             </h3>
