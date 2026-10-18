@@ -67,19 +67,19 @@ export function Footer() {
               <Image 
                 src="/assets/mtpl-desktop-logo.png" 
                 alt="Mishrikotkar Travels Logo" 
-                width={180} 
-                height={48} 
+                width={150} 
+                height={180} 
                 className="h-8 md:h-10 w-auto object-contain" 
                 unoptimized 
               />
             </div>
             <div className="space-y-2.5">
-              <h2 className="text-lg md:text-xl font-semibold tracking-wide text-white">
-                MISHRIKOTKAR TRAVELS PVT LTD
-              </h2>
               <h3 className="text-lg md:text-xl font-semibold tracking-wide text-white">
-                Travel, Taken Care Of.
+                MISHRIKOTKAR TRAVELS PVT LTD
               </h3>
+              <h4 className="text-lg md:text-xl font-semibold tracking-wide text-white">
+                Travel, Taken Care Of.
+              </h4>
               <p className="text-sm leading-relaxed text-[#D0E2D9]">
                 Professional travel assistance, holiday planning and personalized travel support.
               </p>
