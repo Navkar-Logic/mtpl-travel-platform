@@ -11,7 +11,7 @@ import { EnquiryForm } from "@/components/enquiries/enquiry-form"
 import { siteConfig } from "@/config/site"
 import { officeImages } from "@/config/office-images"
 
-import { MapPin, Phone, Mail, Clock, Building, Users, CreditCard, Maximize2, X, Download } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Building, Users, CreditCard, X, Download } from "lucide-react"
 
 export default function ContactPage() {
   const [isPaymentOpen, setIsPaymentOpen] = React.useState(false)
@@ -131,10 +131,10 @@ export default function ContactPage() {
                   <div className="flex-1 min-w-0">
                     <span className="block text-xs font-bold text-muted-foreground mb-1 uppercase tracking-wider">Call Us</span>
                     <a 
-                      href={`tel:${siteConfig.contact.phones.alternate.replace(/\s+/g, '')}`} 
+                      href={`tel:${siteConfig.contact.phones.primary.replace(/\s+/g, '')}`} 
                       className="block text-foreground hover:text-[#0E7443] transition-colors font-medium text-sm hover:underline underline-offset-2 cursor-pointer"
                     >
-                      {siteConfig.contact.phones.alternate}
+                      {siteConfig.contact.phones.primary}
                     </a>
                   </div>
                 </div>
@@ -230,37 +230,26 @@ export default function ContactPage() {
                   </span>
                 </div>
 
-                {/* Clickable Image Preview */}
-                <button
-                  type="button"
-                  onClick={() => setIsPaymentOpen(true)}
-                  className="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-border/80 bg-slate-900 cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 transition-all hover:shadow-md"
-                  aria-label="Click to open Payment Details in full screen"
-                >
-                  <Image
-                    src="/assets/Payment.jpeg"
-                    alt="MTPL Payment Details, Bank Accounts and UPI QR Code"
-                    fill
-                    unoptimized
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                  
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent group-hover:from-black/85 transition-colors" />
-
-                  {/* Click to open badge */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                    <span className="text-xs font-semibold drop-shadow-sm flex items-center gap-1.5">
-                      <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
-                      Click to view full screen
-                    </span>
-                    <span className="text-[11px] px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md font-medium border border-white/30 group-hover:bg-[#0E7443] group-hover:border-[#0E7443] transition-colors">
-                      Full View &rarr;
-                    </span>
-                  </div>
-                </button>
+                {/* Full Size Payment Details Image */}
+                <div className="relative w-full rounded-2xl overflow-hidden border border-border/80 bg-white shadow-sm">
+                  <button
+                    type="button"
+                    onClick={() => setIsPaymentOpen(true)}
+                    className="w-full block cursor-zoom-in group focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 rounded-2xl overflow-hidden"
+                    title="Click to view full screen"
+                    aria-label="Click to open Payment Details in full screen"
+                  >
+                    <Image
+                      src="/assets/Payment.jpeg"
+                      alt="MTPL Payment Details, Bank Accounts and UPI QR Code"
+                      width={1024}
+                      height={1536}
+                      unoptimized
+                      priority
+                      className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                    />
+                  </button>
+                </div>
 
                 <div className="flex items-center justify-between text-[11px] text-muted-foreground px-1">
                   <span>IDFC &bull; ICICI &bull; HDFC &bull; GPay UPI</span>

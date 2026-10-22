@@ -65,3 +65,23 @@ export function getActiveTestimonials(): Testimonial[] {
 export function getFeaturedTestimonials(limit: number = 3): Testimonial[] {
   return getActiveTestimonials().slice(0, limit);
 }
+
+export function getPlatformDisplayName(type: TestimonialRecord["type"], platform?: string | null): string {
+  switch (type) {
+    case "whatsapp":
+      return "WhatsApp";
+    case "whatsapp_group":
+      return "WhatsApp Group";
+    case "email_testimonial":
+      return "Email Feedback";
+    case "sms":
+      return "SMS";
+    case "platform_review":
+      return "Google Review";
+    case "blackberry_messenger":
+      return "BBM";
+    default:
+      return platform || "Direct Feedback";
+  }
+}
+

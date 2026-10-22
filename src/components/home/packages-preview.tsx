@@ -92,11 +92,13 @@ export function PackagesPreview() {
                   {/* Price & Validity Meta */}
                   <div className="flex flex-wrap items-center gap-3 mb-8">
                     <span className="bg-brand text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm">
-                      {featured[0].priceDisplay}
+                      Request a Quote
                     </span>
-                    <span className="bg-black/50 backdrop-blur-md text-white/90 border border-white/10 text-xs font-medium px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-brand" /> {featured[0].validityDisplay || "31 March 2027"}
-                    </span>
+                    {featured[0].validityStatus === "verified" && featured[0].validityDisplay && (
+                      <span className="bg-black/50 backdrop-blur-md text-white/90 border border-white/10 text-xs font-medium px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-brand" /> {featured[0].validityDisplay}
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex gap-4">
@@ -147,12 +149,16 @@ export function PackagesPreview() {
                     {/* Price & Validity Meta */}
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className="text-xs font-bold text-emerald-400">
-                        {pkg.priceDisplay}
+                        Request a Quote
                       </span>
-                      <span className="text-white/30">•</span>
-                      <span className="text-[11px] text-white/70 font-medium">
-                        {pkg.validityDisplay || "31 March 2027"}
-                      </span>
+                      {pkg.validityStatus === "verified" && pkg.validityDisplay && (
+                        <>
+                          <span className="text-white/30">•</span>
+                          <span className="text-[11px] text-white/70 font-medium">
+                            {pkg.validityDisplay}
+                          </span>
+                        </>
+                      )}
                     </div>
 
                     <Link 

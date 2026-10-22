@@ -1,4 +1,4 @@
-import { Package, PackageTableData } from "@/types/package";
+import { Package, PackageTableData, PackageCategory } from "@/types/package";
 import packageTablesData from "./package-tables.json";
 
 // AUTHORITATIVE MTPL HOLIDAY PACKAGES
@@ -16,12 +16,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-andaman-4n-5d.webp",
     "pdfDownloadKey": "mtpl-amazing-andaman-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Andaman_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹31,288*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Andaman. This handcrafted itinerary covers Arrive at Port Blair, Port Blair - Havelock Island, Havelock - Elephant Beach, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -74,7 +74,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Port Blair - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Port%20Blair%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B931%2C288%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Glimpse%20Of%20Andaman%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-andaman-002",
@@ -88,12 +88,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-andaman-5n-6d.webp",
     "pdfDownloadKey": "mtpl-amazing-andaman-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Andaman_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹39,557*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Andaman. This handcrafted itinerary covers Arrive at Port Blair, Port Blair - North Bay & Ross Island, Port Blair - Havelock, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -152,7 +152,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Port Blair - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Port%20Blair%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B939%2C557%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amazing%20Andaman%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-andaman-003",
@@ -166,12 +166,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-andaman-6n-7d.webp",
     "pdfDownloadKey": "mtpl-amazing-andaman-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Andaman_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹45,028*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Andaman. This handcrafted itinerary covers Arrive at Port Blair, Port Blair - North Bay & Ross Island, Port Blair - Havelock, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -235,7 +235,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Port Blair - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Port%20Blair%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B945%2C028%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Islands%20Of%20Andaman%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-assam-004",
@@ -249,12 +249,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-3-sisters-of-the-north-east-11n-12d.webp",
     "pdfDownloadKey": "mtpl-3-sisters-of-the-north-east-11n-12d.pdf",
     "pdfOriginalFilename": "MTPL_3_Sisters_of_the_North_East_11N_12D.pdf",
-    "priceDisplay": "Starting from ₹50,917*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 11 nights / 12 days holiday in Assam. This handcrafted itinerary covers Arrive at Guwahati - Shillong Day 2: Shillong - Cherrapunjee - Shillong, Shillong - Tezpur Day 4: Tezpur - Dirang, Dirnag - Tawang Day 6: Tawang Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -343,7 +343,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast transfer to the airport/railway station in time for onward connection. ***END OF THE TOUR***"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20Guwahati%20%2811%20Nights%20/%2012%20Days%2C%20Starting%20from%20%E2%82%B950%2C917%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%203%20Sisters%20Of%20The%20North%20East%20%2811%20Nights%20/%2012%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-assam-005",
@@ -357,12 +357,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-heavenly-khasi-hills-4n-5d.webp",
     "pdfDownloadKey": "mtpl-heavenly-khasi-hills-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Heavenly_Khasi_Hills_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹17,487*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Assam. This handcrafted itinerary covers Arrival at Guwahati - Shillong, Shillong - Cherrapunjee - Shillong, Shillong - Guwahati, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -412,7 +412,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Guwahati - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Guwahati%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B917%2C487%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Heavenly%20Khasi%20Hills%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-assam-006",
@@ -426,12 +426,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-north-east-marvels-6n-7d.webp",
     "pdfDownloadKey": "mtpl-north-east-marvels-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_North_East_Marvels_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹30,587*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Assam. This handcrafted itinerary covers Arrive at Guwahati - Shillong, Shillong - Cherrapunjee - Shillong, Shillong - Kaziranga, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -494,7 +494,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Guwahati Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Guwahati%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B930%2C587%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20North%20East%20Marvels%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-bhutan-007",
@@ -508,12 +508,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-4n-5d.webp",
     "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Bhutan_Tour_via_Bagdogra_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹33,545*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Bhutan. This handcrafted itinerary covers Arrive at Paro - Thimphu, Thimphu Sightseeing, Thimphu - Paro, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -566,7 +566,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Paro - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Paro%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B933%2C545%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Short%20Trip%20To%20Bhutan%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-bhutan-008",
@@ -580,12 +580,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-6n-7d.webp",
     "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Bhutan_Tour_via_Bagdogra_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹45,903*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Bhutan. This handcrafted itinerary covers Arrive at Paro - Thimphu, Thimphu Sightseeing, Thimphu - Punakha, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -649,7 +649,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Paro - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Paro%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B945%2C903%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Thunder%20Dragon%20%27Bhutan%27%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-bhutan-009",
@@ -663,12 +663,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-8n-9d.webp",
     "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-8n-9d.pdf",
     "pdfOriginalFilename": "MTPL_Bhutan_Tour_via_Bagdogra_8N_9D.pdf",
-    "priceDisplay": "Starting from ₹65,912*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 08 nights / 09 days holiday in Bhutan. This handcrafted itinerary covers Arrive at Bagdogra - Phuentsholing, Phuentsholing - Thimphu, Thimphu Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -742,7 +742,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Phuentsholing - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Phuentsholing%20-%20Departure%20%2808%20Nights%20/%2009%20Days%2C%20Starting%20from%20%E2%82%B965%2C912%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Bhutan%20Tour%20Via%20Bagdogra%20%2808%20Nights%20/%2009%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-himachal-010",
@@ -756,12 +756,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-himachal-ex-amritsar-5n-6d.webp",
     "pdfDownloadKey": "mtpl-amazing-himachal-ex-amritsar-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Himachal_Ex_Amritsar_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹22,639*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Himachal Pradesh. This handcrafted itinerary covers Arrive in Amritsar & Drive to Dharamshala, Dharamshala Sightseeing, Dharamshala - Dalhousie, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -817,7 +817,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Amritsar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amritsar%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B922%2C639%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amazing%20Himachal%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-himachal-011",
@@ -831,12 +831,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-himachal-5n-6d.webp",
     "pdfDownloadKey": "mtpl-best-of-himachal-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Himachal_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹19,108*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Himachal Pradesh. This handcrafted itinerary covers Arrive in Chandigarh & Drive to Manali, Manali, Manali, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -892,7 +892,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Chandigarh - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Chandigarh%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B919%2C108%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Magical%20Manali%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-himachal-012",
@@ -906,12 +906,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-himachal-9n-10d.webp",
     "pdfDownloadKey": "mtpl-best-of-himachal-9n-10d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Himachal_9N_10D.pdf",
-    "priceDisplay": "Starting from ₹36,250*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 09 nights / 10 days holiday in Himachal Pradesh. This handcrafted itinerary covers Arrive in Chandigarh - Shimla Day 2: Shimla - Kufri- Shimla, Shimla - Kullu- Manali Day 4: Manali Sightseeing, Manali Sightseeing Day 6: Manali - Dharamshala, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -987,7 +987,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast, you will be transferred to Chandigarh airport for return journey. ***END OF THE TOUR*** 3"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amritsar%20-%20Chandigarh%20Departure%20%28230%20kms%20/%20approx.%205%20hours%29%20%2809%20Nights%20/%2010%20Days%2C%20Starting%20from%20%E2%82%B936%2C250%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Best%20Of%20Himachal%20%2809%20Nights%20/%2010%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-himachal-013",
@@ -1001,12 +1001,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-scenic-shimla-manali-ex-ixc-6n-7d.webp",
     "pdfDownloadKey": "mtpl-scenic-shimla-manali-ex-ixc-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Scenic_Shimla_Manali_Ex_IXC_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹23,266*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Himachal Pradesh. This handcrafted itinerary covers Arrive in Chandigarh & Drive to Shimla, Shimla - Kufri- Shimla, Shimla - Kullu - Manali, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1067,7 +1067,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Chandigarh Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Chandigarh%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B923%2C266%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Scenic%20Shimla%20Manali%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-014",
@@ -1081,12 +1081,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-3-jewels-of-south-5n-6d.webp",
     "pdfDownloadKey": "mtpl-3-jewels-of-south-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_3_Jewels_of_South_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹26,365*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru - Mysore, Mysore - Ooty, Ooty Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1142,7 +1142,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kodaikanal - Madurai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kodaikanal%20-%20Madurai%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B926%2C365%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%203%20Jewels%20Of%20South%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-015",
@@ -1156,12 +1156,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-blissful-south-india-7n-8d.webp",
     "pdfDownloadKey": "mtpl-blissful-south-india-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Blissful_South_India_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹34,049*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru, Bengaluru - Mysore, Mysore - Ooty, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1227,7 +1227,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Madurai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Madurai%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B934%2C049%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Blissful%20South%20India%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-016",
@@ -1241,12 +1241,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-coffee-destinations-6n-7d.webp",
     "pdfDownloadKey": "mtpl-coffee-destinations-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Coffee_Destinations_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹29,763*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru - Coorg, Coorg Sightseeing, Coorg Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1307,7 +1307,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Mysore - Bengaluru - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Mysore%20-%20Bengaluru%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B929%2C763%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Coffee%20Destinations%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-017",
@@ -1321,12 +1321,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-discover-karnataka-6n-7d.webp",
     "pdfDownloadKey": "mtpl-discover-karnataka-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Discover_Karnataka_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹46,334*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru - Coorg, Coorg Sightseeing, Coorg Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1387,7 +1387,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Mysore - Bangalore - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Mysore%20-%20Bangalore%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B946%2C334%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Discover%20Karnataka%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-018",
@@ -1401,12 +1401,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-magical-south-india-6n-7d.webp",
     "pdfDownloadKey": "mtpl-magical-south-india-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Magical_South_India_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹29,061*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Karnataka. This handcrafted itinerary covers Bengaluru - Mysore, Mysore - Ooty, Ooty Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1467,7 +1467,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Madurai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Madurai%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B929%2C061%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Magical%20South%20India%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-019",
@@ -1481,12 +1481,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-scenic-south-india-5n-6d.webp",
     "pdfDownloadKey": "mtpl-scenic-south-india-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Scenic_South_India_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹27,262*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru - Mysore, Mysore - Coorg, Coorg Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1542,7 +1542,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Wayanad - Calicut - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wayanad%20-%20Calicut%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B927%2C262%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Scenic%20South%20India%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-020",
@@ -1556,12 +1556,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-serene-coorg-and-wayanad-4n-5d.webp",
     "pdfDownloadKey": "mtpl-serene-coorg-and-wayanad-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Serene_Coorg_and_Wayanad_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹22,701*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru - Coorg, Coorg Sightseeing, Coorg - Wayanad, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1611,7 +1611,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Wayanad - Calicut - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wayanad%20-%20Calicut%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B922%2C701%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Serene%20Coorg%20And%20Wayanad%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-021",
@@ -1625,12 +1625,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-short-trip-to-south-5n-6d.webp",
     "pdfDownloadKey": "mtpl-short-trip-to-south-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Short_Trip_to_South_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹26,232*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Karnataka. This handcrafted itinerary covers Arrive at Bengaluru, Bengaluru - Mysore, Mysore - Ooty, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1686,7 +1686,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Ooty - Coimbatore Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Ooty%20-%20Coimbatore%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B926%2C232%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Short%20Trip%20To%20South%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-karnataka-022",
@@ -1700,12 +1700,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-wonders-of-coorg-and-kabini-4n-5d.webp",
     "pdfDownloadKey": "mtpl-wonders-of-coorg-and-kabini-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Wonders_of_Coorg_and_Kabini_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹37,218*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Karnataka. This handcrafted itinerary covers Bengaluru - Coorg, Coorg Sightseeing, Coorg - Kabini, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1755,7 +1755,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kabini - Bengaluru - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kabini%20-%20Bengaluru%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B937%2C218%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wonders%20Of%20Coorg%20And%20Kabini%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kashmir-023",
@@ -1769,12 +1769,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-kashmir-with-katra-7n-8d.webp",
     "pdfDownloadKey": "mtpl-amazing-kashmir-with-katra-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Kashmir_with_Katra_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹37,076*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Kashmir. This handcrafted itinerary covers Arrival in Jammu - Katra Day 2: Trip to Mata Vaishno Devi, Katra - Pahalgam Day 4: Pahalgam Sightseeing, Pahalgam - Gulmarg Day 6: Gulmarg - Srinagar, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1843,7 +1843,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast, you will be transferred to Srinagar airport for return flight back home. ***END OF THE TOUR*** 3"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20from%20Srinagar%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B937%2C076%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amazing%20Kashmir%20With%20Katra%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kashmir-024",
@@ -1857,12 +1857,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-charismatic-kashmir-7n-8d.webp",
     "pdfDownloadKey": "mtpl-charismatic-kashmir-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Charismatic_Kashmir_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹36,840*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Kashmir. This handcrafted itinerary covers Arrival in Srinagar, Srinagar - Pahalgam, Pahalgam Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -1931,7 +1931,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Srinagar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Srinagar%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B936%2C840%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Charismatic%20Kashmir%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kashmir-025",
@@ -1945,12 +1945,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-glimpses-of-kashmir-valley-4n-5d.webp",
     "pdfDownloadKey": "mtpl-glimpses-of-kashmir-valley-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Glimpses_of_Kashmir_Valley_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹22,363*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Kashmir. This handcrafted itinerary covers Arrival in Srinagar, Srinagar - Pahalgam, Pahalgam Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2003,7 +2003,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Gulmarg - Srinagar Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Gulmarg%20-%20Srinagar%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B922%2C363%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Glimpses%20Of%20Kashmir%20Valley%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kashmir-026",
@@ -2017,12 +2017,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-heaven-on-earth-5n-6d.webp",
     "pdfDownloadKey": "mtpl-heaven-on-earth-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Heaven_on_Earth_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹26,600*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Kashmir. This handcrafted itinerary covers Arrival in Srinagar, Srinagar - Pahalgam, Pahalgam Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2081,7 +2081,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Srinagar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Srinagar%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B926%2C600%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Heaven%20On%20Earth%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kashmir-027",
@@ -2095,12 +2095,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-kashmir-unplugged-6n-7d.webp",
     "pdfDownloadKey": "mtpl-kashmir-unplugged-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Kashmir_Unplugged_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹32,838*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Kashmir. This handcrafted itinerary covers Arrival in Srinagar, Srinagar - Pahalgam, Pahalgam - Gulmarg, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2164,7 +2164,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Srinagar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Srinagar%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B932%2C838%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kashmir%20Unplugged%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kerala-028",
@@ -2178,12 +2178,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-kerala-5n-6d.webp",
     "pdfDownloadKey": "mtpl-best-of-kerala-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Kerala_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹18,482*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Kerala. This handcrafted itinerary covers Arrive at Kochi & Drive to Munnar, Munnar sightseeing, Munnar - Thekkady, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2239,7 +2239,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kochi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kochi%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B918%2C482%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Best%20Of%20Kerala%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kerala-029",
@@ -2253,12 +2253,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-karismatic-kerala-5n-6d.webp",
     "pdfDownloadKey": "mtpl-karismatic-kerala-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Karismatic_Kerala_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹20,497*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Kerala. This handcrafted itinerary covers Arrive at Kochi & Drive to Munnar, Munnar Sightseeing, Munnar - Thekkady, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2314,7 +2314,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Alleppey - Kochi Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Alleppey%20-%20Kochi%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B920%2C497%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Karismatic%20Kerela%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kerala-030",
@@ -2328,12 +2328,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-kolorful-kerala-7n-8d.webp",
     "pdfDownloadKey": "mtpl-kolorful-kerala-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Kolorful_Kerala_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹27,948*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Kerala. This handcrafted itinerary covers Arrive at Kochi, Kochi - Munnar, Munnar sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2399,7 +2399,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kovalam - Trivandrum - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kovalam%20-%20Trivandrum%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B927%2C948%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kolorful%20Kerala%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kerala-031",
@@ -2413,12 +2413,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-splendid-wayanad-and-bekal-4n-5d.webp",
     "pdfDownloadKey": "mtpl-splendid-wayanad-and-bekal-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Splendid_Wayanad_and_Bekal_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹21,523*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Kerala. This handcrafted itinerary covers Arrive at Mangalore - Bekal, Bekal Sightseeing, Bekal - Wayanad, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2468,7 +2468,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Wayanad - Calicut - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wayanad%20-%20Calicut%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B921%2C523%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Splendid%20Wayanad%20And%20Bekal%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-kerala-032",
@@ -2482,12 +2482,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-unexplored-kerala-4n-5d.webp",
     "pdfDownloadKey": "mtpl-unexplored-kerala-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Unexplored_Kerala_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹15,466*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Kerala. This handcrafted itinerary covers Arrive at Kochi, Kochi - Kumarakom, Kumarakom - Athirappilly, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2537,7 +2537,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Athirappilly - Kochi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Athirappilly%20-%20Kochi%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B915%2C466%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Unexplored%20Kerala%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-maharashtra-033",
@@ -2551,12 +2551,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.webp",
     "pdfDownloadKey": "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_Mesmeric_Sojourn_to_Aurangabad_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹10,345*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Maharashtra. This handcrafted itinerary covers Arrive at Chatrapati Sambhaji Nagar (Aurangabad), Visit to Ajanta Caves, Visit to Ellora Caves, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2600,7 +2600,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Chatrapati Sambhaji Nagar(Aurangabad) - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Chatrapati%20Sambhaji%20Nagar%28Aurangabad%29%20-%20Departure%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B910%2C345%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Mesmeric%20Sojourn%20to%20Chhatrapati%20Sambhaji%20Nagar%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-maharashtra-034",
@@ -2614,12 +2614,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-shirdi-with-shani-shingnapur-2n-3d.webp",
     "pdfDownloadKey": "mtpl-shirdi-with-shani-shingnapur-2n-3d.pdf",
     "pdfOriginalFilename": "MTPL_Shirdi_with_Shani_Shingnapur_2N_3D.pdf",
-    "priceDisplay": "Starting from ₹10,659*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 02 nights / 03 days holiday in Maharashtra. This handcrafted itinerary covers Arrive at Shirdi, Shirdi, Shirdi - Departure, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2657,7 +2657,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Shirdi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Shirdi%20-%20Departure%20%2802%20Nights%20/%2003%20Days%2C%20Starting%20from%20%E2%82%B910%2C659%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Shirdi%20With%20Shani%20Shingnapur%20%2802%20Nights%20/%2003%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-maharashtra-035",
@@ -2671,12 +2671,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.webp",
     "pdfDownloadKey": "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_Shirdi_with_Shani_Shingnapur_Ex_MUM_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹15,992*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Maharashtra. This handcrafted itinerary covers Arrive at Mumbai - Shirdi, Shirdi - Shani Shingnapur - Shirdi, Shirdi - Mumbai, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2720,7 +2720,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Mumbai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Mumbai%20-%20Departure%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B915%2C992%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Shirdi%20With%20Shani%20Shingnapur%20%28Ex%20Mum%29%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-maharashtra-036",
@@ -2734,12 +2734,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-unlimited-maharashtra-5n-6d.webp",
     "pdfDownloadKey": "mtpl-unlimited-maharashtra-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Unlimited_Maharashtra_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹28,610*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": true,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Maharashtra. This handcrafted itinerary covers Arrive at Mumbai, Mumbai Sightseeing, Mumbai - Shirdi, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2795,7 +2795,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Aurangabad - Pune - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Aurangabad%20-%20Pune%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B928%2C610%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Unlimited%20Maharashtra%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-mp-037",
@@ -2809,12 +2809,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-heritage-tour-of-central-india-5n-6d.webp",
     "pdfDownloadKey": "mtpl-heritage-tour-of-central-india-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Heritage_Tour_of_Central_India_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹25,860*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Madhya Pradesh. This handcrafted itinerary covers Khajuraho, Khajuraho Sightseeing, Khajuraho - Orchha, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2870,7 +2870,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Gwalior - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Gwalior%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B925%2C860%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Heritage%20Tour%20Of%20Central%20India%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-mp-038",
@@ -2884,12 +2884,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-jungles-of-kanha-and-pench-4n-5d.webp",
     "pdfDownloadKey": "mtpl-jungles-of-kanha-and-pench-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Jungles_of_Kanha_and_Pench_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹31,191*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Madhya Pradesh. This handcrafted itinerary covers Arrive at Nagpur & Drive to Kanha, Kanha Safari, Kanha - Pench, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -2938,7 +2938,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Pench - Nagpur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Pench%20-%20Nagpur%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B931%2C191%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Jungles%20Of%20Kanha%20%26%20Pench%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-mp-039",
@@ -2952,12 +2952,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.webp",
     "pdfDownloadKey": "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Wild_Horizon_of_Kanha_and_Bandhavgarh_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹27,807*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Madhya Pradesh. This handcrafted itinerary covers Arrive at Jabalpur & Drive to Bandhavgarh, Bandhavgarh Safari, Bandhavgarh - Kanha, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3006,7 +3006,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kanha - Jabalpur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kanha%20-%20Jabalpur%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B927%2C807%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wild%20Horizon%20Of%20Kanha%20%26%20Bandhavgarh%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-mp-040",
@@ -3020,12 +3020,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-wilderness-of-madhya-pradesh-6n-7d.webp",
     "pdfDownloadKey": "mtpl-wilderness-of-madhya-pradesh-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Wilderness_of_Madhya_Pradesh_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹46,468*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Madhya Pradesh. This handcrafted itinerary covers Arrive at Jabalpur & Drive to Bandhavgarh, Bandhavgarh Safari, Bandhavgarh - Kanha, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3085,7 +3085,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Pench - Nagpur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Pench%20-%20Nagpur%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B946%2C468%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wilderness%20Of%20Madhya%20Pradesh%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-nepal-041",
@@ -3099,12 +3099,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-nepal-5n-6d.webp",
     "pdfDownloadKey": "mtpl-best-of-nepal-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Nepal_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹38,017*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Nepal. This handcrafted itinerary covers Arrival at Kathmandu, Kathmandu - Nagarkote, Nagarkote - Pokhara, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3163,7 +3163,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kathmandu - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kathmandu%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B938%2C017%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Best%20Of%20Nepal%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-nepal-042",
@@ -3177,12 +3177,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-glimpse-of-nepal-5n-6d.webp",
     "pdfDownloadKey": "mtpl-glimpse-of-nepal-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Glimpse_of_Nepal_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹33,309*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Nepal. This handcrafted itinerary covers Arrival at Kathmandu, Kathmandu Sightseeing, Kathmandu - Pokhara, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3241,7 +3241,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast, you will be transferred to Kathmandu airport for return flight back home. ***END OF THE TOUR***"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20from%20Kathmandu%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B933%2C309%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Glimpse%20Of%20Nepal%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-nepal-043",
@@ -3255,12 +3255,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-wonders-of-nepal-7n-8d.webp",
     "pdfDownloadKey": "mtpl-wonders-of-nepal-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Wonders_of_Nepal_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹53,907*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Nepal. This handcrafted itinerary covers Arrival at Kathmandu Day 2: Sightseeing in Kathmandu, Kathmandu - Pokhara Day 4: Pokhara Sightseeing, Pokhara - Chitwan Day 6: Chitwan Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3329,7 +3329,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast, you will be transferred to Kathmandu airport for return flight back home. ***END OF THE TOUR*** 3"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20from%20Kathmandu%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B953%2C907%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wonders%20Of%20Nepal%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-north-east-044",
@@ -3343,12 +3343,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-eastern-himalayas-7n-8d.webp",
     "pdfDownloadKey": "mtpl-eastern-himalayas-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Eastern_Himalayas_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹42,328*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in North East. This handcrafted itinerary covers Arrival in Bagdogra/ NJP Station - Gangtok, Gangtok Sightseeing, Gangtok - Pelling, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3417,7 +3417,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Darjeeling - Bagdogra / NJP Station - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Darjeeling%20-%20Bagdogra%20/%20NJP%20Station%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B942%2C328%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Eastern%20Himalayas%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-north-east-045",
@@ -3431,12 +3431,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-enchanting-north-east-7n-8d.webp",
     "pdfDownloadKey": "mtpl-enchanting-north-east-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Enchanting_North_East_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹42,328*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in North East. This handcrafted itinerary covers Arrival in Bagdogra/ NJP Station, Darjeeling Sightseeing, Darjeeling - Gangtok, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3505,7 +3505,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Gangtok - Bagdogra / NJP Station - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Gangtok%20-%20Bagdogra%20/%20NJP%20Station%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B942%2C328%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Enchanting%20North%20East%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-north-east-046",
@@ -3519,12 +3519,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-hills-of-the-east-6n-7d.webp",
     "pdfDownloadKey": "mtpl-hills-of-the-east-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Hills_of_the_East_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹36,828*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in North East. This handcrafted itinerary covers Arrival in Bagdogra/ NJP Station - Darjeeling, Darjeeling Sightseeing, Darjeeling - Pelling, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3588,7 +3588,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Gangtok - Bagdogra / NJP Station - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Gangtok%20-%20Bagdogra%20/%20NJP%20Station%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B936%2C828%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Hills%20Of%20The%20East%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-north-east-047",
@@ -3602,12 +3602,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-north-east-sojourn-5n-6d.webp",
     "pdfDownloadKey": "mtpl-north-east-sojourn-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_North_East_Sojourn_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹29,290*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in North East. This handcrafted itinerary covers Arrival in Bagdogra/ NJP Station - Gangtok, Gangtok Sightseeing, Gangtok Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3666,7 +3666,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Darjeeling - Bagdogra / NJP Station - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Darjeeling%20-%20Bagdogra%20/%20NJP%20Station%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B929%2C290%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20North%20East%20Sojourn%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-orrisa-048",
@@ -3680,12 +3680,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-odisha-5n-6d.webp",
     "pdfDownloadKey": "mtpl-best-of-odisha-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Odisha_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹23,419*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Odisha. This handcrafted itinerary covers Arrive at Bhubaneswar, Bhubaneswar - Konark - Puri, Puri Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3741,7 +3741,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Bhubaneswar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Bhubaneswar%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B923%2C419%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Best%20Of%20Odisha%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-orrisa-049",
@@ -3755,12 +3755,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-odisha-temple-tour-4n-5d.webp",
     "pdfDownloadKey": "mtpl-odisha-temple-tour-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Odisha_Temple_Tour_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹18,939*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Odisha. This handcrafted itinerary covers Arrive at Bhubaneswar, Bhubaneswar - Puri, Puri - Bhubaneswar, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3810,7 +3810,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Bhubaneswar - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Bhubaneswar%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B918%2C939%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Temple%20Tour%20Of%20Odisha%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-050",
@@ -3824,12 +3824,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-amazing-udaipur-3n-4d.webp",
     "pdfDownloadKey": "mtpl-amazing-udaipur-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_Amazing_Udaipur_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹15,501*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Udaipur, Udaipur Sightseeing, Udaipur - Ranakpur - Kumbhalgarh - Udaipur, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3874,7 +3874,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Udaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20-%20Departure%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B915%2C501%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Amazing%20Udaipur%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-051",
@@ -3888,12 +3888,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-enchanting-gujarat-5n-6d.webp",
     "pdfDownloadKey": "mtpl-enchanting-gujarat-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Enchanting_Gujarat_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹26,200*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Gujarat. This handcrafted itinerary covers Arrive at Rajkot - Dwarka, Dwarka Sightseeing, Dwarka - Somnath via Porbandar, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -3949,7 +3949,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Rajkot - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Rajkot%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B926%2C200%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Enchanting%20Gujarat%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-052",
@@ -3963,12 +3963,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-forts-and-palaces-6n-7d.webp",
     "pdfDownloadKey": "mtpl-forts-and-palaces-6n-7d.pdf",
     "pdfOriginalFilename": "MTPL_Forts_and_Palaces_6N_7D.pdf",
-    "priceDisplay": "Starting from ₹29,057*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Rajasthan & Gujarat. This handcrafted itinerary covers Arrive at Jaipur, Jaipur Sightseeing, Jaipur - Jodhpur, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4031,7 +4031,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Udaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20-%20Departure%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%E2%82%B929%2C057%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Forts%20And%20Palaces%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-053",
@@ -4045,12 +4045,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-golden-triangle-5n-6d.webp",
     "pdfDownloadKey": "mtpl-golden-triangle-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Golden_Triangle_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹22,540*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Rajasthan & Gujarat. This handcrafted itinerary covers Arrive at Delhi, Delhi sightseeing, Delhi - Agra with Agra sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4108,7 +4108,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Jaipur - Delhi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Jaipur%20-%20Delhi%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B922%2C540%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Golden%20Triangle%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-054",
@@ -4122,12 +4122,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-golden-triangle-with-ranthambore-7n-8d.webp",
     "pdfDownloadKey": "mtpl-golden-triangle-with-ranthambore-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Golden_Triangle_with_Ranthambore_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹36,113*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Delhi, Delhi sightseeing, Delhi - Agra with Agra sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4195,7 +4195,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Jaipur - Delhi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Jaipur%20-%20Delhi%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B936%2C113%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Golden%20Triangle%20With%20Ranthambore%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-055",
@@ -4209,12 +4209,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-golden-triangle-with-udaipur-7n-8d.webp",
     "pdfDownloadKey": "mtpl-golden-triangle-with-udaipur-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Golden_Triangle_with_Udaipur_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹34,210*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Delhi, Delhi sightseeing, Delhi - Agra with Agra sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4282,7 +4282,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Udaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B934%2C210%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Golden%20Triangle%20With%20Udaipur%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-056",
@@ -4296,12 +4296,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-jaipur-tour-with-ranthambore-4n-5d.webp",
     "pdfDownloadKey": "mtpl-jaipur-tour-with-ranthambore-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Jaipur_Tour_with_Ranthambore_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹26,172*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Jaipur, Jaipur, Jaipur - Ranthambore, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4353,7 +4353,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Ranthambore - Jaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Ranthambore%20-%20Jaipur%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B926%2C172%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Jaipur%20With%20Ranthambore%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-057",
@@ -4367,12 +4367,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-rann-of-kutch-2n-3d.webp",
     "pdfDownloadKey": "mtpl-rann-of-kutch-2n-3d.pdf",
     "pdfOriginalFilename": "MTPL_Rann_of_Kutch_2N_3D.pdf",
-    "priceDisplay": "Starting from ₹22,722*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 02 nights / 03 days holiday in Gujarat. This handcrafted itinerary covers Arrive at Bhuj, Sightseeing, Departure from Bhuj, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4411,7 +4411,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Departure from Bhuj as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20from%20Bhuj%20%2802%20Nights%20/%2003%20Days%2C%20Starting%20from%20%E2%82%B922%2C722%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Rann%20Of%20Kutch%20%2802%20Nights%20/%2003%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-058",
@@ -4425,12 +4425,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-rann-of-kutch-3n-4d.webp",
     "pdfDownloadKey": "mtpl-rann-of-kutch-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_Rann_of_Kutch_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹34,083*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Gujarat. This handcrafted itinerary covers Arrive at Bhuj, Sightseeing, Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4475,7 +4475,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Departure from Bhuj as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Departure%20from%20Bhuj%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B934%2C083%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Rann%20Of%20Kutch%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-059",
@@ -4489,12 +4489,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-royal-rajasthan-8n-9d.webp",
     "pdfDownloadKey": "mtpl-royal-rajasthan-8n-9d.pdf",
     "pdfOriginalFilename": "MTPL_Royal_Rajasthan_8N_9D.pdf",
-    "priceDisplay": "Starting from ₹38,467*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 08 nights / 09 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Jaipur, Jaipur Sightseeing, Jaipur - Bikaner, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4567,7 +4567,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Udaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20-%20Departure%20%2808%20Nights%20/%2009%20Days%2C%20Starting%20from%20%E2%82%B938%2C467%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Royal%20Rajasthan%20%2808%20Nights%20/%2009%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-060",
@@ -4581,12 +4581,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-statue-of-unity-2n-3d.webp",
     "pdfDownloadKey": "mtpl-statue-of-unity-2n-3d.pdf",
     "pdfOriginalFilename": "MTPL_Statue_of_Unity_2N_3D.pdf",
-    "priceDisplay": "Starting from ₹16,378*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 02 nights / 03 days holiday in Gujarat. This handcrafted itinerary covers Arrive in Vadodara & Drive to Kevadia, Kevadia, Kevadia - Vadodara - Departure, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4627,7 +4627,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kevadia - Vadodara - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kevadia%20-%20Vadodara%20-%20Departure%20%2802%20Nights%20/%2003%20Days%2C%20Starting%20from%20%E2%82%B916%2C378%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Statue%20Of%20Unity%20%2802%20Nights%20/%2003%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-061",
@@ -4641,12 +4641,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-statue-of-unity-3n-4d.webp",
     "pdfDownloadKey": "mtpl-statue-of-unity-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_Statue_of_Unity_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹24,567*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Gujarat. This handcrafted itinerary covers Arrive in Vadodara & Drive to Kevadia, Kevadia, Kevadia, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4693,7 +4693,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kevadia - Vadodara - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kevadia%20-%20Vadodara%20-%20Departure%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B924%2C567%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Statue%20Of%20Unity%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-062",
@@ -4707,12 +4707,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-statue-of-unity-with-ahmedabad-4n-5d.webp",
     "pdfDownloadKey": "mtpl-statue-of-unity-with-ahmedabad-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Statue_of_Unity_with_Ahmedabad_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹33,768*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Gujarat. This handcrafted itinerary covers Arrive in Ahmedabad, Ahmedabad - Patan - Modhera - Ahmedabad, Ahmedabad - Kevadia, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4765,7 +4765,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kevadia - Ahmedabad - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kevadia%20-%20Ahmedabad%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B933%2C768%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Statue%20Of%20Unity%20With%20Ahmedabad%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-063",
@@ -4779,12 +4779,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.webp",
     "pdfDownloadKey": "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.pdf",
     "pdfOriginalFilename": "MTPL_Taj_Mahal_with_Gems_of_Rajasthan_11N_12D.pdf",
-    "priceDisplay": "Starting from ₹49,592*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 11 nights / 12 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Delhi Day 7: Jodhpur - Jaisalmer, Delhi Sightseeing Day 8: Jaisalmer Sightseeing, Delhi - Agra Day 9: Jaisalmer - Jodhpur, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4873,7 +4873,7 @@ export const authoritativePackages: Package[] = [
         "description": "After breakfast, you will be transferred to Udaipur airport/railway station for a return flight back home. ***END OF THE TOUR***"
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20%28Departure%29%20%2811%20Nights%20/%2012%20Days%2C%20Starting%20from%20%E2%82%B949%2C592%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Taj%20Mahal%20With%20Gems%20Of%20Rajasthan%20%2811%20Nights%20/%2012%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-rajasthan-and-gujrat-064",
@@ -4887,12 +4887,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-ultimate-udaipur-with-mt-abu-4n-5d.webp",
     "pdfDownloadKey": "mtpl-ultimate-udaipur-with-mt-abu-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Ultimate_Udaipur_with_Mt_Abu_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹22,361*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Rajasthan. This handcrafted itinerary covers Arrive at Udaipur - Mt. Abu, Mt. Abu Sightseeing, Mt. Abu - Udaipur, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -4943,7 +4943,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Udaipur - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Udaipur%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B922%2C361%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Ultimate%20Udaipur%20With%20Mt.%20Abu%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-srilanka-065",
@@ -4957,12 +4957,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-explore-sri-lanka-8n-9d-revised.webp",
     "pdfDownloadKey": "mtpl-explore-sri-lanka-8n-9d-revised.pdf",
     "pdfOriginalFilename": "MTPL_Explore_Sri_Lanka_8N_9D_Revised.pdf",
-    "priceDisplay": "Starting from $782*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 08 nights / 09 days holiday in Sri Lanka. This handcrafted itinerary covers Arrival at Colombo - Kandy, Kandy Sightseeing, Kandy - Nuwara Eliya, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5036,7 +5036,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Colombo - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Explore%20Sri%20Lanka%20%2808%20Nights%20/%2009%20Days%2C%20Starting%20from%20%24782%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Explore%20Sri%20Lanka%20%2808%20Nights%20/%2009%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-srilanka-066",
@@ -5050,12 +5050,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.webp",
     "pdfDownloadKey": "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.pdf",
     "pdfOriginalFilename": "MTPL_Heritage_and_Beaches_of_Srilanka_6N_7D_Revised.pdf",
-    "priceDisplay": "Starting from $514*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Sri Lanka. This handcrafted itinerary covers Arrival at Colombo - Sigiriya, Polonnaruwa Sightseeing, Sigiriya - Nuwara Eliya, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5118,7 +5118,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Colombo - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Heritage%20%26%20Beaches%20Of%20Sri%20Lanka%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%24514%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Heritage%20%26%20Beaches%20Of%20Sri%20Lanka%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-srilanka-067",
@@ -5132,12 +5132,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-scenic-srilanka-6n-7d-revised.webp",
     "pdfDownloadKey": "mtpl-scenic-srilanka-6n-7d-revised.pdf",
     "pdfOriginalFilename": "MTPL_Scenic_Srilanka_6N_7D_Revised.pdf",
-    "priceDisplay": "Starting from $464*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 06 nights / 07 days holiday in Sri Lanka. This handcrafted itinerary covers Arrival at Colombo - Kandy, Kandy Sightseeing, Kandy - Bentota, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5200,7 +5200,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Colombo - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Scenic%20Sri%20Lanka%20%2806%20Nights%20/%2007%20Days%2C%20Starting%20from%20%24464%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Scenic%20Sri%20Lanka%20%2806%20Nights%20/%2007%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-srilanka-068",
@@ -5214,12 +5214,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-wonders-of-srilanka-7n-8d-revised.webp",
     "pdfDownloadKey": "mtpl-wonders-of-srilanka-7n-8d-revised.pdf",
     "pdfOriginalFilename": "MTPL_Wonders_of_Srilanka_7N_8D_Revised.pdf",
-    "priceDisplay": "Starting from $573*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Sri Lanka. This handcrafted itinerary covers Arrival at Colombo - Kandy, Kandy Sightseeing, Kandy - Nuwara Eliya, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5288,7 +5288,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Colombo - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wonders%20Of%20Sri%20Lanka%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%24573%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Wonders%20Of%20Sri%20Lanka%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-tamil-nadu-069",
@@ -5302,12 +5302,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-incredible-south-hills-7n-8d.webp",
     "pdfDownloadKey": "mtpl-incredible-south-hills-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Incredible_South_Hills_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹33,832*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Tamil Nadu. This handcrafted itinerary covers Arrive at Coimbatore - Ooty, Ooty Sightseeing, Ooty - Kodaikanal, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5373,7 +5373,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Munnar - Cochin - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Munnar%20-%20Cochin%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B933%2C832%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Incredible%20Hills%20Of%20South%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-tamil-nadu-070",
@@ -5387,12 +5387,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-serene-tamil-nadu-7n-8d.webp",
     "pdfDownloadKey": "mtpl-serene-tamil-nadu-7n-8d.pdf",
     "pdfOriginalFilename": "MTPL_Serene_Tamil_Nadu_7N_8D.pdf",
-    "priceDisplay": "Starting from ₹32,982*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 07 nights / 08 days holiday in Tamil Nadu. This handcrafted itinerary covers Arrive at Chennai - Mahabalipuram, Mahabalipuram - Pondicherry, Pondicherry Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5458,7 +5458,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kanyakumari - Trivandrum - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kanyakumari%20-%20Trivandrum%20-%20Departure%20%2807%20Nights%20/%2008%20Days%2C%20Starting%20from%20%E2%82%B932%2C982%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Serene%20Tamil%20Nadu%20%2807%20Nights%20/%2008%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-tamil-nadu-071",
@@ -5472,12 +5472,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-short-gateway-to-tamil-nadu-5n-6d.webp",
     "pdfDownloadKey": "mtpl-short-gateway-to-tamil-nadu-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Short_Gateway_to_Tamil_Nadu_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹21,451*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Tamil Nadu. This handcrafted itinerary covers Arrive at Chennai - Mahabalipuram, Mahabalipuram Sightseeing, Mahabalipuram - Pondicherry, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5533,7 +5533,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Chennai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Chennai%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B921%2C451%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Short%20Gateway%20To%20Tamil%20Nadu%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-tamil-nadu-072",
@@ -5547,12 +5547,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-spiritual-tamil-nadu-5n-6d.webp",
     "pdfDownloadKey": "mtpl-spiritual-tamil-nadu-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Spiritual_Tamil_Nadu_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹24,432*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Tamil Nadu. This handcrafted itinerary covers Madurai - Chettinad, Chettinad - Rameshwaram - Chettinad, Chettinad - Thanjavur - Kumbakonam - Pondicherry, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5608,7 +5608,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Mahabalipuram - Chennai - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Mahabalipuram%20-%20Chennai%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B924%2C432%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Spiritual%20Tamilnadu%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-telangana-073",
@@ -5622,12 +5622,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-the-best-of-hyderabad-3n-4d.webp",
     "pdfDownloadKey": "mtpl-the-best-of-hyderabad-3n-4d.pdf",
     "pdfOriginalFilename": "MTPL_The_Best_of_Hyderabad_3N_4D.pdf",
-    "priceDisplay": "Starting from ₹15,007*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 03 nights / 04 days holiday in Telangana. This handcrafted itinerary covers Arrive at Hyderabad, Hyderabad Sightseeing, Hyderabad - Optional Visit to Ramoji Film City, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5671,7 +5671,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Hyderabad - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Hyderabad%20-%20Departure%20%2803%20Nights%20/%2004%20Days%2C%20Starting%20from%20%E2%82%B915%2C007%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20The%20Best%20Of%20Hyderabad%20%2803%20Nights%20/%2004%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-uttar-pradesh-074",
@@ -5685,12 +5685,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-best-of-uttar-pradesh-5n-6d.webp",
     "pdfDownloadKey": "mtpl-best-of-uttar-pradesh-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Best_of_Uttar_Pradesh_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹22,849*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Uttar Pradesh. This handcrafted itinerary covers Arrive at Lucknow, Lucknow - Naimisharanya - Ayodhya, Ayodhya - Prayagraj, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5747,7 +5747,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Varanasi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Varanasi%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B922%2C849%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Best%20Of%20Uttar%20Pradesh%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-uttar-pradesh-075",
@@ -5761,12 +5761,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-holy-triangle-of-uttar-pradesh-4n-5d.webp",
     "pdfDownloadKey": "mtpl-holy-triangle-of-uttar-pradesh-4n-5d.pdf",
     "pdfOriginalFilename": "MTPL_Holy_Triangle_of_Uttar_Pradesh_4N_5D.pdf",
-    "priceDisplay": "Starting from ₹22,492*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 04 nights / 05 days holiday in Uttar Pradesh. This handcrafted itinerary covers Arrive at Prayagraj, Prayagraj - Ayodhya, Ayodhya - Gorakhpur - Varanasi, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5817,7 +5817,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Varanasi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Varanasi%20-%20Departure%20%2804%20Nights%20/%2005%20Days%2C%20Starting%20from%20%E2%82%B922%2C492%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Holy%20Triangle%20Of%20Uttar%20Pradesh%20%2804%20Nights%20/%2005%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-uttar-pradesh-076",
@@ -5831,12 +5831,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-trip-to-varansi-and-bodhgaya-5n-6d.webp",
     "pdfDownloadKey": "mtpl-trip-to-varansi-and-bodhgaya-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Trip_to_Varansi_and_Bodhgaya_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹20,509*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in Uttar Pradesh. This handcrafted itinerary covers Arrive at Varanasi, Varanasi - Sarnath - Bodhgaya, Bodhgaya Sightseeing, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5893,7 +5893,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Varanasi - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Varanasi%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B920%2C509%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Trip%20To%20Varanasi%20And%20Bodhgaya%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   },
   {
     "id": "pkg-west-bengal-077",
@@ -5907,12 +5907,12 @@ export const authoritativePackages: Package[] = [
     "heroImage": "/api/media/mtpl-kolkata-with-sunderbans-5n-6d.webp",
     "pdfDownloadKey": "mtpl-kolkata-with-sunderbans-5n-6d.pdf",
     "pdfOriginalFilename": "MTPL_Kolkata_with_Sunderbans_5N_6D.pdf",
-    "priceDisplay": "Starting from ₹14,058*",
-    "pricingBasis": "Indicative starting tariff per person. Exact pricing varies by travel dates, party size, and chosen hotel tier. Send a quotation request for verified final pricing.",
+    "priceDisplay": "Price on Request",
+    "pricingBasis": "Personalized quote customized to travel dates, hotel category, and group size",
     "validityNotice": "Valid till 31 March 2027 (Peak seasonal surcharges may apply during blackout / festival dates)",
     "validityDisplay": "31 March 2027",
     "validityStatus": "verified",
-    "isPriceOnRequest": false,
+    "isPriceOnRequest": true,
     "featured": false,
     "overview": "Embark on an unforgettable 05 nights / 06 days holiday in West Bengal. This handcrafted itinerary covers Arrive at Kolkata, Kolkata - Sunderban - Kolkata, Kolkata, offering seamless point-to-point transfers, handpicked hotel stays, and authentic local sightseeing.",
     "highlights": [
@@ -5955,7 +5955,7 @@ export const authoritativePackages: Package[] = [
         "description": "Guided sightseeing and experiences in Kolkata - Departure as scheduled in the MTPL itinerary."
       }
     ],
-    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kolkata%20-%20Departure%20%2805%20Nights%20/%2006%20Days%2C%20Starting%20from%20%E2%82%B914%2C058%2A%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
+    "whatsAppHref": "https://wa.me/918381006600?text=Hello%20MTPL%20team%2C%20I%20am%20interested%20in%20planning%20a%20trip%20for%20Kolkata%20With%20Sunderbans%20%2805%20Nights%20/%2006%20Days%29.%20Please%20provide%20an%20exact%20customized%20quote%20for%20my%20travel%20dates%2C%20group%20size%2C%20and%20preferred%20hotel%20category.",
   }
 ];
 
@@ -5982,5 +5982,17 @@ export function getPackagesByDestination(destination: string): Package[] {
 export function getPackageTables(slug: string): PackageTableData | null {
   const data = (packageTablesData as Record<string, PackageTableData>)[slug];
   return data || null;
+}
+
+// Verified destinations outside India in the authoritative MTPL catalogue
+export const INTERNATIONAL_DESTINATIONS = new Set(['Bhutan', 'Nepal', 'Sri Lanka']);
+
+export function getPackageCategory(pkgOrDestination: Package | string): PackageCategory {
+  const dest = typeof pkgOrDestination === 'string' ? pkgOrDestination : pkgOrDestination.destination;
+  return INTERNATIONAL_DESTINATIONS.has(dest) ? 'international' : 'national';
+}
+
+export function getPackagesByCategory(category: PackageCategory): Package[] {
+  return authoritativePackages.filter(p => getPackageCategory(p) === category);
 }
 

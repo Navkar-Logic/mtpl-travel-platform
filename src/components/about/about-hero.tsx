@@ -31,8 +31,8 @@ export function AboutHero() {
             <span className="bg-white/10 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-md">Our Journey</span> 
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight md:leading-[1.18] font-sans drop-shadow-2xl">
-            About <span className="text-gradient-brand-light italic">Mishrikotkar Travels</span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight md:leading-[1.18] font-sans drop-shadow-2xl">
+            About <span className="text-gradient-brand-light inline italic">Mishrikotkar Travels Pvt Ltd</span>
           </h1>
           
           <p className="text-lg md:text-2xl leading-relaxed text-[#EEF8F3]/85 max-w-2xl font-light mx-auto">

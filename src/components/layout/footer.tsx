@@ -63,13 +63,13 @@ export function Footer() {
           
           {/* Column 1: Brand & Accreditations */}
           <div className="space-y-6 lg:col-span-4">
-            <div className="inline-flex items-center bg-white px-5 py-3.5 rounded-2xl shadow-sm border border-white/20 w-fit">
+            <div className="inline-flex items-center bg-white px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl shadow-sm border border-white/20 w-fit max-w-full">
               <Image 
-                src="/assets/mtpl-desktop-logo.png" 
+                src="/assets/mtpl-footer-logo.png" 
                 alt="Mishrikotkar Travels Logo" 
-                width={200} 
-                height={220} 
-                className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain" 
+                width={360} 
+                height={170} 
+                className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-full object-contain" 
                 unoptimized 
               />
             </div>

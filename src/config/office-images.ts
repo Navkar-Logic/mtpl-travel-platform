@@ -129,9 +129,9 @@ export const officeImages = {
   directorCabin: {
     id: "consult-director-cabin",
     src: "/assets/office/consultation/mtpl-director-consultation-cabin.webp",
-    title: "Executive Consultation Room",
-    caption: "Private client discussion lounge for bespoke luxury itineraries and corporate travel partnerships",
-    alt: "Executive travel consultation desk with contemporary lounge seating and client meeting table",
+    title: "Director's Cabin",
+    caption: "Personalized travel oversight and round-the-clock journey support from the director's desk",
+    alt: "Director Tushar Mishrikotkar at work in the executive director's cabin managing client travel",
     category: "consultation",
     width: 1280,
     height: 720,

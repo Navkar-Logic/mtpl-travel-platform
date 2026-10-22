@@ -623,11 +623,11 @@ export function HolidayPackageTermsSection({
               support@mishrikotkartravels.com
             </a>
             <a
-              href="tel:+919325006600"
+              href="tel:+917741006600"
               className="inline-flex items-center gap-1 hover:text-brand transition-colors"
             >
               <Phone className="w-3 h-3 text-brand" />
-              +91 9325006600
+              +91 7741006600
             </a>
           </div>
         </div>

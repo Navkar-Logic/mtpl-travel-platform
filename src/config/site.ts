@@ -20,8 +20,8 @@ export const siteConfig = {
     directors: ["Tushar Mishrikotkar", "Puja Mishrikotkar"],
     email: "support@mishrikotkartravels.com",
     phones: {
-      primary: "+91 9325006600",
-      alternate: "+91 7741006600",
+      primary: "+91 7741006600",
+      alternate: "+91 8381006600",
       customerEnquiry: ["+91 8381006600", "+91 7776006600"],
     },
     address: "101, Shri Ganesh Apartments, Dharampeth, Nagpur – 440010, Maharashtra, India",

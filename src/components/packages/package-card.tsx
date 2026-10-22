@@ -10,34 +10,21 @@ export function PackageCard({ pkg }: { pkg: Package }) {
   const [imgSrc, setImgSrc] = React.useState(pkg.heroImage)
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(7,162,94,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative">
+    <div className="group flex flex-col h-full overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(7,162,94,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative">
       {/* Cover Image Container */}
-      <div className="aspect-[16/10] bg-slate-900 relative overflow-hidden">
+      <div className="aspect-[16/10] bg-slate-900 relative overflow-hidden flex-shrink-0">
         <Image
           src={imgSrc}
           alt={pkg.title}
           fill
           unoptimized
-          quality={95}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
           className="object-cover group-hover:scale-105 transition-transform duration-700"
           onError={() => setImgSrc("/assets/package-fallback.webp")}
         />
 
         {/* Ambient Subtle Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
-
-        {/* Destination & Duration Badges */}
-        <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
-          <span className="bg-brand text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
-            {pkg.destination}
-          </span>
-          {pkg.featured && (
-            <span className="bg-amber-500 text-white px-2.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase shadow-md">
-              Signature
-            </span>
-          )}
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent z-10" />
 
         {/* Duration Pill at bottom-right */}
         <div className="absolute bottom-3 right-3 z-20">
@@ -48,77 +35,113 @@ export function PackageCard({ pkg }: { pkg: Package }) {
       </div>
 
       {/* Body Content */}
-      <div className="p-6 md:p-7 flex flex-col flex-1 bg-white">
+      <div className="p-4 sm:p-5 flex flex-col flex-1 bg-white">
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-bold font-sans text-slate-900 mb-2 group-hover:text-brand transition-colors line-clamp-1">
+        <h3 className="text-lg sm:text-xl font-bold font-sans text-slate-900 mb-1.5 group-hover:text-brand transition-colors line-clamp-1">
           <Link href={`/packages/${pkg.slug}`}>
             {pkg.title}
           </Link>
         </h3>
 
         {/* Short Factual Description */}
-        <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2 font-light">
+        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3 line-clamp-2 font-light">
           {pkg.shortDescription}
         </p>
 
-        {/* Highlights Pills */}
-        {pkg.highlights && pkg.highlights.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {pkg.highlights.slice(0, 3).map((h, i) => (
-              <span
-                key={i}
-                className="text-[11px] font-medium bg-slate-50 text-slate-600 border border-slate-200/60 px-2.5 py-0.5 rounded-lg flex items-center gap-1"
-              >
-                <MapPin className="w-3 h-3 text-brand" /> {h}
+        {/* Day-by-Day Route Itinerary */}
+        {pkg.itinerary && pkg.itinerary.length > 0 && (
+          <div className="bg-slate-50/70 rounded-xl p-3 border border-slate-200/70 mb-3">
+            <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-slate-200/60">
+              <span className="text-[10.5px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                <MapPin className="w-3 h-3 text-brand" />
+                Route Itinerary
               </span>
-            ))}
+              <span className="text-[10.5px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-md border border-slate-200/70">
+                {pkg.days}D / {pkg.nights}N
+              </span>
+            </div>
+
+            <ul className="space-y-1.5">
+              {(() => {
+                const total = pkg.itinerary.length
+                const maxDisplay = total <= 6 ? total : 5
+                const displayDays = pkg.itinerary.slice(0, maxDisplay)
+                const remaining = total - maxDisplay
+
+                return (
+                  <>
+                    {displayDays.map((day) => (
+                      <li
+                        key={day.day}
+                        className="flex items-start gap-2 text-xs leading-snug text-slate-700"
+                      >
+                        <span className="font-bold text-emerald-900 bg-emerald-50 border border-emerald-200/80 rounded px-1.5 py-0.5 text-[10.5px] whitespace-nowrap flex-shrink-0">
+                          Day {day.day}
+                        </span>
+                        <span className="font-medium text-slate-800 text-xs">
+                          {day.title}
+                        </span>
+                      </li>
+                    ))}
+                    {remaining > 0 && (
+                      <li className="pt-2 mt-1.5 border-t border-slate-200/60 flex items-center justify-between text-xs">
+                        <span className="text-[11px] font-medium text-slate-500">
+                          + {remaining} more {remaining === 1 ? "day" : "days"} in itinerary
+                        </span>
+                        <Link
+                          href={`/packages/${pkg.slug}`}
+                          className="text-[11px] font-bold text-brand hover:underline inline-flex items-center gap-0.5"
+                        >
+                          View Details &rarr;
+                        </Link>
+                      </li>
+                    )}
+                  </>
+                )
+              })()}
+            </ul>
           </div>
         )}
 
         {/* Pricing & Validity Block */}
-        <div className="pt-3.5 border-t border-slate-100 flex flex-col gap-2.5 mt-auto mb-4">
+        <div className="pt-2.5 border-t border-slate-100 flex flex-col gap-1.5 mt-auto mb-3">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">
-              Price
-            </span>
+            <div>
+              <span className="text-[10.5px] text-slate-400 font-bold uppercase tracking-wider block">
+                Price
+              </span>
+              <span className="text-sm sm:text-base font-bold text-brand tracking-tight">
+                Request a Quote
+              </span>
+            </div>
             <Link
               href={`/contact?package=${pkg.slug}`}
-              className="text-xs text-emerald-700 bg-emerald-50 hover:bg-emerald-600 hover:text-white font-semibold px-3 py-1 rounded-full border border-emerald-200/70 hover:border-emerald-600 transition-all shadow-sm"
-              title="Send a request for verified final pricing"
+              className="text-xs text-emerald-700 bg-emerald-50 hover:bg-emerald-600 hover:text-white font-semibold px-3 py-1 rounded-full border border-emerald-200/70 hover:border-emerald-600 transition-all shadow-xs"
+              title={`Request a quote for ${pkg.title}`}
             >
               Request Quote &rarr;
             </Link>
           </div>
 
-          {/* Price In One Clean Unbroken Line */}
-          <div className="flex items-baseline gap-1.5 whitespace-nowrap overflow-hidden">
-            <span className="text-base sm:text-lg font-bold text-brand tracking-tight">
-              {pkg.priceDisplay}
-            </span>
-            {pkg.priceDisplay.startsWith("Starting") && (
-              <span className="text-xs text-slate-500 font-medium whitespace-nowrap">
-                / person
+          {/* Package Validity Row: Display only when verified, never infer */}
+          {pkg.validityStatus === "verified" && pkg.validityDisplay && (
+            <div className="flex items-center gap-1.5 text-xs pt-2 border-t border-slate-100/80">
+              <Calendar className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+              <span className="text-slate-500 font-medium">Validity:</span>
+              <span className="font-semibold text-emerald-800 bg-emerald-50/80 px-2 py-0.5 rounded-md truncate">
+                {pkg.validityDisplay}
               </span>
-            )}
-          </div>
-
-          {/* Pricing Note */}
-          <p className="text-[11px] text-slate-500 leading-relaxed font-light bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-            *Indicative base price. For exact dates & hotel tier pricing, please send a quotation request.
-          </p>
-
-          {/* Package Validity Row */}
-          <div className="flex items-center gap-1.5 text-xs pt-2 border-t border-slate-100/80">
-            <Calendar className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-            <span className="text-slate-500 font-medium">Validity:</span>
-            <span className={`font-semibold truncate ${
-              pkg.validityStatus === "confirmation_required"
-                ? "text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md"
-                : "text-emerald-800 bg-emerald-50/80 px-2 py-0.5 rounded-md"
-            }`}>
-              {pkg.validityDisplay || "31 March 2027"}
-            </span>
-          </div>
+            </div>
+          )}
+          {pkg.validityStatus === "confirmation_required" && (
+            <div className="flex items-center gap-1.5 text-xs pt-2 border-t border-slate-100/80">
+              <Calendar className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+              <span className="text-slate-500 font-medium">Validity:</span>
+              <span className="font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md truncate">
+                Confirmation on Request
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Actions Row */}

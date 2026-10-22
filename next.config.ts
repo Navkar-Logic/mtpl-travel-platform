@@ -35,7 +35,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
-  reactCompiler: true,
+  reactCompiler: isProd ? true : false,
   outputFileTracingIncludes: {
     '/api/**/*': ['./storage/media/**/*'],
   },

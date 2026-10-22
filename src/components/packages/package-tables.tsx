@@ -14,6 +14,8 @@ import {
   Star,
   Users,
   UtensilsCrossed,
+  Check,
+  Tag,
 } from "lucide-react"
 
 export type AccommodationData = {
@@ -39,98 +41,289 @@ interface PackageTablesProps {
 }
 
 /**
- * Returns distinct styling badges for category headers (Category A, B, C, Deluxe, etc.)
+ * Returns distinct, modern badge pill for category headers (Category A, B, C, Deluxe, etc.)
  */
-function renderCategoryHeader(header: string) {
+function renderCategoryHeader(header: string, isHighlighted = false) {
   const normalized = header.toLowerCase()
 
-  if (normalized.includes("category a") || normalized.includes("deluxe")) {
+  if (normalized.includes("category a") || normalized.includes("deluxe") || normalized.includes("luxury")) {
     return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold text-xs tracking-wide">
-        <Sparkles className="w-3 h-3 text-emerald-700 shrink-0" />
-        {header}
+      <span
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs tracking-wide transition-all shadow-2xs ${
+          isHighlighted
+            ? "bg-emerald-600 text-white ring-2 ring-emerald-400/50"
+            : "bg-emerald-50 text-emerald-900 border border-emerald-200/90 hover:bg-emerald-100/80"
+        }`}
+      >
+        <Sparkles className={`w-3.5 h-3.5 shrink-0 ${isHighlighted ? "text-emerald-100" : "text-emerald-600"}`} />
+        <span>{header}</span>
+        <span className="text-[10px] font-semibold opacity-80 uppercase tracking-wider ml-0.5">Luxury</span>
       </span>
     )
   }
 
-  if (normalized.includes("category b") || normalized.includes("superior") || normalized.includes("standard")) {
+  if (normalized.includes("category b") || normalized.includes("superior") || normalized.includes("deluxe")) {
     return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-sky-100 text-sky-900 border border-sky-300 font-bold text-xs tracking-wide">
-        <Star className="w-3 h-3 text-sky-700 shrink-0" />
-        {header}
+      <span
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs tracking-wide transition-all shadow-2xs ${
+          isHighlighted
+            ? "bg-sky-600 text-white ring-2 ring-sky-400/50"
+            : "bg-sky-50 text-sky-900 border border-sky-200/90 hover:bg-sky-100/80"
+        }`}
+      >
+        <Star className={`w-3.5 h-3.5 shrink-0 ${isHighlighted ? "text-sky-100" : "text-sky-600"}`} />
+        <span>{header}</span>
+        <span className="text-[10px] font-semibold opacity-80 uppercase tracking-wider ml-0.5">Deluxe</span>
       </span>
     )
   }
 
-  if (normalized.includes("category c") || normalized.includes("budget") || normalized.includes("economy")) {
+  if (normalized.includes("category c") || normalized.includes("budget") || normalized.includes("standard") || normalized.includes("economy")) {
     return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 border border-amber-300 font-bold text-xs tracking-wide">
-        <Shield className="w-3 h-3 text-amber-700 shrink-0" />
-        {header}
+      <span
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs tracking-wide transition-all shadow-2xs ${
+          isHighlighted
+            ? "bg-amber-600 text-white ring-2 ring-amber-400/50"
+            : "bg-amber-50 text-amber-900 border border-amber-200/90 hover:bg-amber-100/80"
+        }`}
+      >
+        <Shield className={`w-3.5 h-3.5 shrink-0 ${isHighlighted ? "text-amber-100" : "text-amber-600"}`} />
+        <span>{header}</span>
+        <span className="text-[10px] font-semibold opacity-80 uppercase tracking-wider ml-0.5">Standard</span>
       </span>
     )
   }
 
   if (normalized.includes("category d") || normalized.includes("premium")) {
     return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-purple-100 text-purple-900 border border-purple-300 font-bold text-xs tracking-wide">
-        <Star className="w-3 h-3 text-purple-700 shrink-0" />
-        {header}
+      <span
+        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold text-xs tracking-wide transition-all shadow-2xs ${
+          isHighlighted
+            ? "bg-purple-600 text-white ring-2 ring-purple-400/50"
+            : "bg-purple-50 text-purple-900 border border-purple-200/90 hover:bg-purple-100/80"
+        }`}
+      >
+        <Star className={`w-3.5 h-3.5 shrink-0 ${isHighlighted ? "text-purple-100" : "text-purple-600"}`} />
+        <span>{header}</span>
       </span>
     )
   }
 
-  return <span>{header}</span>
+  return <span className="font-bold text-slate-800 text-xs">{header}</span>
 }
 
-export function PackageTables({ tables, packageName }: PackageTablesProps) {
+/**
+ * Format occupancy row label with appropriate icon badge
+ */
+function formatOccupancyLabel(label: string) {
+  const lower = label.toLowerCase()
+
+  if (lower.includes("2 pax") || lower.includes("2pax")) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0">
+          2P
+        </span>
+        <div>
+          <span className="font-bold text-slate-900 text-xs md:text-sm block">{label}</span>
+          <span className="text-[10px] text-slate-400 block font-normal">Twin / Double Occupancy</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (lower.includes("4 pax") || lower.includes("4pax")) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-lg bg-sky-100 text-sky-800 flex items-center justify-center font-bold text-xs shrink-0">
+          4P
+        </span>
+        <div>
+          <span className="font-bold text-slate-900 text-xs md:text-sm block">{label}</span>
+          <span className="text-[10px] text-slate-400 block font-normal">Small Family / Group Sharing</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (lower.includes("6 pax") || lower.includes("6pax")) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-lg bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold text-xs shrink-0">
+          6P
+        </span>
+        <div>
+          <span className="font-bold text-slate-900 text-xs md:text-sm block">{label}</span>
+          <span className="text-[10px] text-slate-400 block font-normal">Large Group Travel</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (lower.includes("extra") || lower.includes("bed")) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center text-xs shrink-0">
+          🛏️
+        </span>
+        <div>
+          <span className="font-semibold text-slate-800 text-xs md:text-sm block">{label}</span>
+        </div>
+      </div>
+    )
+  }
+
+  if (lower.includes("child")) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-6 h-6 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center text-xs shrink-0">
+          👶
+        </span>
+        <div>
+          <span className="font-semibold text-slate-800 text-xs md:text-sm block">{label}</span>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
+      <span className="font-semibold text-slate-900 text-xs md:text-sm">{label}</span>
+    </div>
+  )
+}
+
+export function PackageTables({ tables }: PackageTablesProps) {
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null)
+
   if (!tables) return null
 
   const { accommodations, costTables } = tables
   const hasAccommodations = accommodations && accommodations.rows && accommodations.rows.length > 0
-  const hasCosts = costTables && costTables.length > 0 && costTables.some(t => t.rows && t.rows.length > 0)
+  const hasCosts = costTables && costTables.length > 0 && costTables.some((t) => t.rows && t.rows.length > 0)
 
   if (!hasAccommodations && !hasCosts) return null
 
+  // Find lowest price specifically for 2 Pax / 2 Persons, as well as overall group
+  let lowest2PaxPrice = Infinity
+  let lowestOverallPrice = Infinity
+
+  if (hasCosts) {
+    costTables.forEach((table) => {
+      table.rows.forEach((row) => {
+        const rowLabel = (row[0] || "").toLowerCase()
+        if (rowLabel.includes("child") || rowLabel.includes("without bed") || rowLabel.includes("extra")) return
+        const is2Pax =
+          rowLabel.includes("2 pax") ||
+          rowLabel.includes("2pax") ||
+          rowLabel.includes("double") ||
+          rowLabel.includes("twin")
+
+        for (let i = 1; i < row.length; i++) {
+          const num = parseInt((row[i] || "").replace(/[^0-9]/g, ""), 10)
+          if (!isNaN(num) && num > 1000) {
+            if (is2Pax && num < lowest2PaxPrice) {
+              lowest2PaxPrice = num
+            }
+            if (num < lowestOverallPrice) {
+              lowestOverallPrice = num
+            }
+          }
+        }
+      })
+    })
+  }
+
+  // Extract distinct category headers if available
+  const categoryHeaders: string[] = []
+  if (hasAccommodations) {
+    accommodations.headers.forEach((h) => {
+      const lower = h.toLowerCase()
+      if (lower.includes("category") || lower.includes("deluxe") || lower.includes("standard") || lower.includes("luxury")) {
+        categoryHeaders.push(h)
+      }
+    })
+  }
+
   return (
-    <div className="space-y-12">
+    <div id="package-tariff-tables" className="space-y-10 scroll-mt-28">
       {/* 1. ACCOMMODATION OPTIONS TABLE */}
       {hasAccommodations && (
-        <section aria-labelledby="accommodation-heading" className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+        <section
+          aria-labelledby="accommodation-heading"
+          className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm relative overflow-hidden space-y-6"
+        >
+          {/* Subtle Corner Background Accent */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-bl-full pointer-events-none" />
+
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/70">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/70 shadow-2xs">
                 <Hotel className="w-3.5 h-3.5 text-brand" />
-                Hotel Stays
+                Hotel Stays &amp; Accommodations
               </div>
               <h2 id="accommodation-heading" className="text-xl md:text-2xl font-bold font-sans text-slate-900 tracking-tight">
-                Accommodation Options
+                Handpicked Accommodations
               </h2>
-              <p className="text-slate-600 text-xs md:text-sm font-light mt-1">
-                Handpicked hotels curated for this tour across verified category tiers.
+              <p className="text-slate-500 text-xs md:text-sm font-light mt-1">
+                Verified partner properties curated across distinct comfort and luxury categories.
               </p>
             </div>
-            <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-medium bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+
+            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50/90 px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-2xs self-start sm:self-auto">
               <ShieldCheck className="w-4 h-4 text-brand" />
-              <span>Verified MTPL Partner Hotels</span>
+              <span>100% Verified MTPL Partner Hotels</span>
             </div>
           </div>
 
+          {/* Category Guide Pills */}
+          {categoryHeaders.length > 0 && (
+            <div className="bg-slate-50/80 p-3.5 rounded-2xl border border-slate-200/80 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold text-slate-600 flex items-center gap-1.5 mr-2">
+                <Tag className="w-3.5 h-3.5 text-brand" /> Category Tiers:
+              </span>
+              {categoryHeaders.map((cat, idx) => {
+                const isSelected = selectedCategory === cat
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setSelectedCategory(isSelected ? null : cat)}
+                    className="focus:outline-hidden cursor-pointer"
+                  >
+                    {renderCategoryHeader(cat, isSelected)}
+                  </button>
+                )
+              })}
+              {selectedCategory && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory(null)}
+                  className="text-xs text-brand font-semibold underline hover:text-brand-dark ml-2 cursor-pointer"
+                >
+                  Clear highlight
+                </button>
+              )}
+            </div>
+          )}
+
           {/* Mobile Swipe Cue */}
-          <div className="sm:hidden flex items-center justify-between gap-2 text-xs text-slate-500 font-medium pb-1">
+          <div className="sm:hidden flex items-center justify-between text-xs text-slate-500 font-medium pb-1">
             <span className="inline-flex items-center gap-1.5 text-slate-500">
               <ArrowRightLeft className="w-3.5 h-3.5 text-brand" />
               Swipe horizontally to view all hotel categories
             </span>
           </div>
 
-          {/* Responsive Table Container with Proper Frame & Borders */}
+          {/* Table Container */}
           <div className="overflow-x-auto -mx-2 px-2 pb-2 custom-table-scrollbar">
             <div className="inline-block min-w-full align-middle">
-              <div className="overflow-hidden rounded-2xl border-2 border-slate-300 shadow-sm bg-white">
+              <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-xs bg-white">
                 <table className="min-w-full border-collapse text-left text-xs md:text-sm">
                   {/* Table Header */}
-                  <thead className="bg-slate-100/95 border-b-2 border-slate-300">
+                  <thead className="bg-gradient-to-r from-slate-100 via-slate-50 to-slate-100 border-b border-slate-200">
                     <tr>
                       {accommodations.headers.map((header, idx) => {
                         const isCity = header.toLowerCase().includes("city")
@@ -138,22 +331,25 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
                         const isMeal = header.toLowerCase().includes("meal")
                         const isFirst = idx === 0
                         const isLast = idx === accommodations.headers.length - 1
+                        const isHighlighted = selectedCategory === header
 
                         return (
                           <th
                             key={idx}
                             scope="col"
-                            className={`py-3.5 px-3 md:px-4 font-bold text-slate-800 tracking-wider uppercase text-[11px] md:text-xs ${
-                              !isLast ? "border-r border-slate-300" : ""
-                            } ${isFirst ? "border-r-2 border-slate-300 min-w-[110px] md:w-[125px] bg-slate-100" : ""} ${
-                              isNights ? "w-[85px] md:w-[90px] text-center" : ""
-                            } ${isMeal ? "w-[100px] md:w-[110px] text-center" : isFirst ? "" : "min-w-[155px] md:min-w-[170px]"}`}
+                            className={`py-4 px-4 font-bold text-slate-800 tracking-wider uppercase text-[11px] md:text-xs transition-colors ${
+                              !isLast ? "border-r border-slate-200" : ""
+                            } ${isFirst ? "min-w-[120px] md:w-[140px] bg-slate-100/80" : ""} ${
+                              isNights ? "w-[90px] md:w-[100px] text-center" : ""
+                            } ${isMeal ? "w-[120px] md:w-[130px] text-center" : isFirst ? "" : "min-w-[170px] md:min-w-[190px]"} ${
+                              isHighlighted ? "bg-emerald-50/70" : ""
+                            }`}
                           >
                             <span className={`flex items-center gap-1.5 ${isNights || isMeal ? "justify-center" : ""}`}>
                               {isCity && <Building2 className="w-3.5 h-3.5 text-brand" />}
                               {isNights && <Calendar className="w-3.5 h-3.5 text-brand" />}
                               {isMeal && <UtensilsCrossed className="w-3.5 h-3.5 text-brand" />}
-                              {!isCity && !isNights && !isMeal ? renderCategoryHeader(header) : header}
+                              {!isCity && !isNights && !isMeal ? renderCategoryHeader(header, isHighlighted) : header}
                             </span>
                           </th>
                         )
@@ -162,59 +358,59 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
                   </thead>
 
                   {/* Table Body */}
-                  <tbody className="divide-y divide-slate-200 bg-white">
+                  <tbody className="divide-y divide-slate-100 bg-white">
                     {accommodations.rows.map((row, rIdx) => (
                       <tr
                         key={rIdx}
-                        className={`transition-colors hover:bg-emerald-50/40 ${
-                          rIdx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                        className={`transition-colors hover:bg-emerald-50/30 ${
+                          rIdx % 2 === 0 ? "bg-white" : "bg-slate-50/40"
                         }`}
                       >
                         {row.map((cell, cIdx) => {
-                          const colHeader = accommodations.headers[cIdx]?.toLowerCase() || ""
-                          const isCity = colHeader.includes("city")
-                          const isNights = colHeader.includes("night")
-                          const isMeal = colHeader.includes("meal")
+                          const colHeader = accommodations.headers[cIdx] || ""
+                          const lowerHeader = colHeader.toLowerCase()
+                          const isCity = lowerHeader.includes("city")
+                          const isNights = lowerHeader.includes("night")
+                          const isMeal = lowerHeader.includes("meal")
                           const isFirst = cIdx === 0
                           const isLast = cIdx === row.length - 1
+                          const isHighlighted = selectedCategory === colHeader
 
-                          // Clean hotel string: replace "/ Similar" or "/ similar" with " (or similar)" so it doesn't become a standalone bullet
+                          // Clean hotel string: replace "/ Similar" or "/ similar" with " (or similar)"
                           const cleanText = cell.replace(/\s*\/\s*similar/gi, " (or similar)")
                           const hotels = cleanText.includes("/") ? cleanText.split(/\s*\/\s*/) : [cleanText]
 
                           return (
                             <td
                               key={cIdx}
-                              className={`py-3.5 px-3 md:px-4 text-slate-700 align-middle ${
-                                !isLast ? "border-r border-slate-200" : ""
-                              } ${isFirst ? "bg-slate-50/90 font-bold border-r-2 border-slate-300" : ""} ${
+                              className={`py-4 px-4 text-slate-700 align-middle transition-colors ${
+                                !isLast ? "border-r border-slate-100" : ""
+                              } ${isFirst ? "bg-slate-50/70 font-bold border-r border-slate-200" : ""} ${
                                 isNights ? "text-center font-bold" : ""
-                              } ${isMeal ? "text-center" : ""}`}
+                              } ${isMeal ? "text-center" : ""} ${isHighlighted ? "bg-emerald-50/40" : ""}`}
                             >
                               {isCity ? (
                                 <div className="flex items-center gap-2">
-                                  <span className="w-1.5 h-4 bg-brand rounded-full shrink-0" />
+                                  <span className="w-2 h-5 bg-brand rounded-full shrink-0" />
                                   <span className="font-bold text-slate-900 font-sans text-xs md:text-sm">
                                     {cell}
                                   </span>
                                 </div>
                               ) : isNights ? (
-                                <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-800 border border-slate-300 shadow-2xs">
+                                <span className="inline-flex items-center justify-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200 shadow-2xs">
                                   {cell} {cell === "1" ? "Night" : "Nights"}
                                 </span>
                               ) : isMeal ? (
-                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-2xs">
-                                  <UtensilsCrossed className="w-3 h-3 text-emerald-700" />
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs">
+                                  <UtensilsCrossed className="w-3.5 h-3.5 text-emerald-700" />
                                   {cell}
                                 </span>
                               ) : (
-                                <div className="space-y-1.5 text-xs text-slate-700 font-medium">
+                                <div className="space-y-1.5 text-xs text-slate-800 font-medium">
                                   {hotels.map((hotel, hIdx) => (
                                     <div key={hIdx} className="flex items-start gap-1.5 leading-snug">
-                                      {hotels.length > 1 && (
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
-                                      )}
-                                      <span>{hotel}</span>
+                                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
+                                      <span className="text-slate-800">{hotel.trim()}</span>
                                     </div>
                                   ))}
                                 </div>
@@ -234,7 +430,7 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
           <div className="flex items-start gap-2 pt-1 text-[11px] text-slate-500 italic leading-relaxed">
             <Info className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
             <p>
-              * All hotel accommodations are subject to availability at the time of final confirmation. In case of non-availability, an equivalent hotel in the same or upgraded category will be provided.
+              * All hotel accommodations are subject to availability at the time of booking confirmation. If any listed property is unavailable, an equivalent or upgraded hotel in the same category tier will be provided.
             </p>
           </div>
         </section>
@@ -242,27 +438,36 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
 
       {/* 2. PACKAGE COST OPTIONS TABLE */}
       {hasCosts && (
-        <section aria-labelledby="cost-heading" className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+        <section
+          aria-labelledby="cost-heading"
+          className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/90 shadow-sm relative overflow-hidden space-y-6"
+        >
+          {/* Subtle Corner Background Accent */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 rounded-bl-full pointer-events-none" />
+
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/70">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/70 shadow-2xs">
                 <CreditCard className="w-3.5 h-3.5 text-brand" />
-                Tariff Breakdown
+                Verified Tariff Matrix
               </div>
               <h2 id="cost-heading" className="text-xl md:text-2xl font-bold font-sans text-slate-900 tracking-tight">
-                Package Cost
+                Package Cost &amp; Tariff Breakdown
               </h2>
-              <p className="text-slate-600 text-xs md:text-sm font-light mt-1">
-                Rates per person based on occupancy tiers and hotel category selection.
+              <p className="text-slate-500 text-xs md:text-sm font-light mt-1">
+                Rates per person quoted in Indian Rupees (INR) across occupancy tiers and hotel categories.
               </p>
             </div>
-            <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200/70 shadow-2xs self-start sm:self-auto">
-              <span>Indicative Base Tariffs</span>
+
+            <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-2xs self-start sm:self-auto">
+              <Check className="w-4 h-4 text-brand" />
+              <span>Verified Supplier Rate Matrix</span>
             </div>
           </div>
 
           {/* Tables Loop */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {costTables.map((costTable, tIdx) => {
               if (!costTable.rows || costTable.rows.length === 0) return null
 
@@ -276,7 +481,7 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
                           {costTable.title}
                         </h3>
                         {costTable.currency && (
-                          <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200 uppercase tracking-wider">
+                          <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 uppercase tracking-wider">
                             {costTable.currency}
                           </span>
                         )}
@@ -289,38 +494,39 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
                     </div>
                   )}
 
-                  {/* Responsive Cost Table with Proper Borders */}
+                  {/* Responsive Cost Table with Proper Borders & Modern Highlights */}
                   <div className="overflow-x-auto -mx-2 px-2 pb-2 custom-table-scrollbar">
                     <div className="inline-block min-w-full align-middle">
-                      <div className="overflow-hidden rounded-2xl border-2 border-slate-300 shadow-sm bg-white">
+                      <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-xs bg-white">
                         <table className="min-w-full border-collapse text-left text-xs md:text-sm">
                           {/* Table Header */}
-                          <thead className="bg-slate-100/95 border-b-2 border-slate-300">
+                          <thead className="bg-gradient-to-r from-slate-100 via-slate-50 to-slate-100 border-b border-slate-200">
                             <tr>
                               {costTable.headers.map((header, hIdx) => {
                                 const isFirstCol = hIdx === 0
                                 const isLastCol = hIdx === costTable.headers.length - 1
+                                const isHighlighted = selectedCategory === header
 
                                 return (
                                   <th
                                     key={hIdx}
                                     scope="col"
-                                    className={`py-3.5 px-4 font-bold text-slate-800 tracking-wider uppercase text-[11px] md:text-xs ${
-                                      !isLastCol ? "border-r border-slate-300" : ""
+                                    className={`py-4 px-4 font-bold text-slate-800 tracking-wider uppercase text-[11px] md:text-xs transition-colors ${
+                                      !isLastCol ? "border-r border-slate-200" : ""
                                     } ${
                                       isFirstCol
-                                        ? "min-w-[190px] bg-slate-100 border-r-2 border-slate-300"
-                                        : "min-w-[140px] text-right"
-                                    }`}
+                                        ? "min-w-[200px] bg-slate-100/80 border-r border-slate-200"
+                                        : "min-w-[150px] text-right"
+                                    } ${isHighlighted ? "bg-emerald-50/70" : ""}`}
                                   >
                                     <span className={`flex items-center gap-1.5 ${!isFirstCol ? "justify-end" : ""}`}>
                                       {isFirstCol ? (
                                         <>
                                           <Users className="w-3.5 h-3.5 text-brand" />
-                                          {header}
+                                          <span>{header}</span>
                                         </>
                                       ) : (
-                                        renderCategoryHeader(header)
+                                        renderCategoryHeader(header, isHighlighted)
                                       )}
                                     </span>
                                   </th>
@@ -330,51 +536,78 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
                           </thead>
 
                           {/* Table Body */}
-                          <tbody className="divide-y divide-slate-200 bg-white">
+                          <tbody className="divide-y divide-slate-100 bg-white">
                             {costTable.rows.map((row, rIdx) => (
                               <tr
                                 key={rIdx}
-                                className={`transition-colors hover:bg-emerald-50/40 ${
-                                  rIdx % 2 === 0 ? "bg-white" : "bg-slate-50/50"
+                                className={`transition-colors hover:bg-emerald-50/30 ${
+                                  rIdx % 2 === 0 ? "bg-white" : "bg-slate-50/40"
                                 }`}
                               >
                                 {row.map((cell, cIdx) => {
+                                  const colHeader = costTable.headers[cIdx] || ""
                                   const isFirstCol = cIdx === 0
                                   const isLastCol = cIdx === row.length - 1
+                                  const isHighlighted = selectedCategory === colHeader
+
+                                  const numVal = parseInt(cell.replace(/[^0-9]/g, ""), 10)
                                   const isPrice =
                                     !isFirstCol &&
                                     (cell.startsWith("₹") ||
                                       cell.startsWith("$") ||
-                                      !isNaN(Number(cell.replace(/,/g, ""))))
+                                      (!isNaN(numVal) && numVal > 1000))
+
+                                  const rowLabel = (row[0] || "").toLowerCase()
+                                  const is2PaxRow =
+                                    rowLabel.includes("2 pax") ||
+                                    rowLabel.includes("2pax") ||
+                                    rowLabel.includes("double") ||
+                                    rowLabel.includes("twin")
+
+                                  const is2PaxLowestPrice = isPrice && is2PaxRow && numVal === lowest2PaxPrice
+                                  const isGroupLowestPrice = isPrice && !is2PaxRow && numVal === lowestOverallPrice
 
                                   return (
                                     <td
                                       key={cIdx}
-                                      className={`py-4 px-4 ${
-                                        !isLastCol ? "border-r border-slate-200" : ""
+                                      className={`py-4 px-4 transition-colors ${
+                                        !isLastCol ? "border-r border-slate-100" : ""
                                       } ${
                                         isFirstCol
-                                          ? "font-semibold text-slate-900 bg-slate-50/90 border-r-2 border-slate-300 text-xs md:text-sm"
+                                          ? "font-semibold text-slate-900 bg-slate-50/70 border-r border-slate-200 text-xs md:text-sm"
                                           : "text-right"
-                                      }`}
+                                      } ${isHighlighted ? "bg-emerald-50/40" : ""} ${
+                                        is2PaxLowestPrice ? "bg-emerald-50/90 ring-1 ring-inset ring-emerald-300" : ""
+                                      } ${isGroupLowestPrice ? "bg-sky-50/60" : ""}`}
                                     >
                                       {isFirstCol ? (
-                                        <div className="flex items-center gap-2">
-                                          {cell.includes("Pax") && (
-                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
-                                          )}
-                                          <span>{cell}</span>
-                                        </div>
+                                        formatOccupancyLabel(cell)
                                       ) : isPrice ? (
-                                        <div>
-                                          <span className="text-emerald-800 font-bold font-display text-sm md:text-base tracking-tight block">
-                                            {cell}
-                                          </span>
-                                          {row[0]?.includes("Pax") && (
-                                            <span className="text-[10px] text-slate-400 font-normal block leading-tight">
-                                              per person
+                                        <div className="space-y-0.5">
+                                          {is2PaxLowestPrice && (
+                                            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded-full mb-1 uppercase tracking-wider shadow-2xs">
+                                              <Star className="w-2.5 h-2.5 text-emerald-700" /> 2-Pax Base Rate
                                             </span>
                                           )}
+                                          {isGroupLowestPrice && (
+                                            <span className="inline-block text-[10px] font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded-full mb-1 uppercase tracking-wider">
+                                              Group Rate
+                                            </span>
+                                          )}
+                                          <span
+                                            className={`font-bold font-display text-sm md:text-base tracking-tight block ${
+                                              is2PaxLowestPrice
+                                                ? "text-emerald-900 text-base md:text-lg"
+                                                : isGroupLowestPrice
+                                                ? "text-sky-900"
+                                                : "text-slate-900"
+                                            }`}
+                                          >
+                                            {cell}
+                                          </span>
+                                          <span className="text-[10px] text-slate-400 font-normal block leading-tight">
+                                            per person
+                                          </span>
                                         </div>
                                       ) : (
                                         <span className="text-slate-600 font-medium text-xs">
@@ -397,11 +630,16 @@ export function PackageTables({ tables, packageName }: PackageTablesProps) {
           </div>
 
           {/* Pricing Advisory Footnote */}
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200/90 flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed shadow-2xs">
+          <div className="bg-slate-50/80 rounded-2xl p-4 border border-slate-200/90 flex items-start gap-3 text-xs text-slate-600 leading-relaxed shadow-2xs">
             <Info className="w-4 h-4 text-brand shrink-0 mt-0.5" />
-            <p>
-              Tariffs shown are indicative base rates per person based on twin sharing. Final quotation will reflect exact travel dates, airline schedules, seasonal surcharges, and requested custom hotel choices.
-            </p>
+            <div className="space-y-1">
+              <p className="font-semibold text-slate-800">
+                Tariff Transparency Note:
+              </p>
+              <p>
+                Rates shown represent published supplier rates from the official package tariff schedule. Final quotations reflect specific travel dates, room availability, and custom vehicle requirements. Peak season surcharges may apply during Diwali, Christmas, New Year, and long holiday weekends.
+              </p>
+            </div>
           </div>
         </section>
       )}

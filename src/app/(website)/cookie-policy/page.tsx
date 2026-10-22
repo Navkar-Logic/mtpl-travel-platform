@@ -396,7 +396,7 @@ export default function CookiePolicyPage() {
                       Our website contains direct hyperlinks to external platforms:
                     </p>
                     <ul className="list-disc pl-5 space-y-1 mt-1 text-slate-600">
-                      <li><strong>WhatsApp Consultation:</strong> Links opening <code className="text-xs bg-slate-200/60 px-1 rounded">https://wa.me/919325006600</code>.</li>
+                      <li><strong>WhatsApp Consultation:</strong> Links opening <code className="text-xs bg-slate-200/60 px-1 rounded">https://wa.me/917741006600</code>.</li>
                       <li><strong>Google Maps Navigation:</strong> Links opening our office location in Google Maps.</li>
                       <li><strong>Social Media Links:</strong> Outbound links navigating to MTPL&apos;s official Instagram and Facebook profiles.</li>
                     </ul>

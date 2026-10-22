@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronLeft, ChevronRight, Star, MessageSquare, Calendar, User, ExternalLink } from "lucide-react"
 import { TestimonialRecord } from "@/types/testimonial"
+import { getPlatformDisplayName } from "@/features/testimonials/data/testimonials"
 
 interface TestimonialLightboxProps {
   testimonials: TestimonialRecord[]
@@ -49,6 +50,7 @@ export function TestimonialLightbox({
   if (!isOpen || !current) return null
 
   const hasVerifiedRating = current.ratingStatus === "verified" && typeof current.rating === "number"
+  const platformLabel = getPlatformDisplayName(current.type, current.platform)
 
   return (
     <AnimatePresence>
@@ -125,7 +127,7 @@ export function TestimonialLightbox({
             <div className="relative w-full h-full flex items-center justify-center max-h-[75vh]">
               <Image
                 src={current.image}
-                alt={current.customerName ? `Original testimonial screenshot from ${current.customerName}` : "Customer feedback screenshot"}
+                alt={current.customerName ? `Original testimonial screenshot from ${current.customerName} via ${platformLabel}` : `Customer feedback screenshot via ${platformLabel}`}
                 width={current.dimensions.width}
                 height={current.dimensions.height}
                 className="max-h-[75vh] w-auto max-w-full object-contain rounded-lg shadow-2xl border border-white/10"
@@ -153,7 +155,7 @@ export function TestimonialLightbox({
               <div className="flex items-center justify-between gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   <MessageSquare className="w-3.5 h-3.5" />
-                  {current.platform || "Direct Feedback"}
+                  {platformLabel}
                 </span>
 
                 {hasVerifiedRating ? (

@@ -6,11 +6,14 @@ export type ItineraryDay = {
   description: string;
 };
 
+export type PackageCategory = 'national' | 'international';
+
 export type Package = {
   id: string;
   slug: string;
   title: string;
   destination: string;
+  category?: PackageCategory;
   duration: string;
   nights: number;
   days: number;
@@ -24,6 +27,7 @@ export type Package = {
   validityDisplay?: string;
   validityStatus?: "verified" | "confirmation_required";
   isPriceOnRequest: boolean;
+  numericPrice?: number;
   featured?: boolean;
   overview?: string;
   highlights?: PackageHighlight[];

@@ -16,10 +16,20 @@ export const metadata: Metadata = {
 }
 
 export default function PackagesPage() {
+  const allPackages = getAllPackages()
+
   return (
     <div className="flex flex-col w-full bg-white">
-      <PackagesHero />
-      <PackagesGrid packages={getAllPackages()} />
+      <React.Suspense
+        fallback={
+          <div className="py-20 text-center">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-brand border-r-transparent align-[-0.125em]" />
+            <p className="mt-4 text-sm text-slate-500 font-medium">Loading holiday packages...</p>
+          </div>
+        }
+      >
+        <PackagesGrid packages={allPackages} />
+      </React.Suspense>
       <PlanningAssurance />
       <EnquiryCta />
     </div>
