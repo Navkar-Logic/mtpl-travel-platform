@@ -155,7 +155,7 @@ export const officeImages = {
     src: "/assets/office/awards/mtpl-directors-airline-certificate.webp",
     title: "Airline Excellence Certification",
     caption: "Official presentation of airline excellence certificate to MTPL directorship",
-    alt: "Directors Tushar Mishrikotkar and Pooja Mishrikotkar receiving airline partner certificate",
+    alt: "Directors Tushar Mishrikotkar and Puja Mishrikotkar receiving airline partner certificate",
     category: "awards",
     width: 1280,
     height: 960,

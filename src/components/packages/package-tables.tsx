@@ -194,7 +194,22 @@ function formatOccupancyLabel(label: string) {
   )
 }
 
-export function PackageTables({ tables }: PackageTablesProps) {
+/**
+ * Format price cell with USD or INR
+ */
+function formatCellPrice(cell: string, isUSD: boolean): string {
+  if (!cell) return cell
+  const numVal = parseInt(cell.replace(/[^0-9]/g, ""), 10)
+  if (isNaN(numVal)) return cell
+
+  if (isUSD) {
+    return `USD ${numVal.toLocaleString("en-US")}`
+  }
+
+  return `₹${numVal.toLocaleString("en-IN")}`
+}
+
+export function PackageTables({ tables, packageName }: PackageTablesProps) {
   const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null)
 
   if (!tables) return null
@@ -204,6 +219,33 @@ export function PackageTables({ tables }: PackageTablesProps) {
   const hasCosts = costTables && costTables.length > 0 && costTables.some((t) => t.rows && t.rows.length > 0)
 
   if (!hasAccommodations && !hasCosts) return null
+
+  // Detect if package is denominated in USD (e.g. Sri Lanka and other USD international tours)
+  const isUSD =
+    Boolean(
+      costTables?.some(
+        (t) =>
+          t.currency?.toUpperCase() === "USD" ||
+          t.title?.toUpperCase().includes("USD") ||
+          t.headers?.some((h) => h?.toUpperCase().includes("USD"))
+      )
+    ) ||
+    Boolean(
+      costTables?.some((t) =>
+        t.rows?.some((r) =>
+          r.some(
+            (c) =>
+              c &&
+              (c.includes("$") ||
+                c.toUpperCase().includes("USD") ||
+                c.toUpperCase().includes("IN USD"))
+          )
+        )
+      )
+    ) ||
+    (packageName ? /sri\s*lanka/i.test(packageName) : false)
+
+  const minThreshold = isUSD ? 50 : 1000
 
   // Find lowest price specifically for 2 Pax / 2 Persons, as well as overall group
   let lowest2PaxPrice = Infinity
@@ -222,7 +264,7 @@ export function PackageTables({ tables }: PackageTablesProps) {
 
         for (let i = 1; i < row.length; i++) {
           const num = parseInt((row[i] || "").replace(/[^0-9]/g, ""), 10)
-          if (!isNaN(num) && num > 1000) {
+          if (!isNaN(num) && num >= minThreshold) {
             if (is2Pax && num < lowest2PaxPrice) {
               lowest2PaxPrice = num
             }
@@ -456,7 +498,9 @@ export function PackageTables({ tables }: PackageTablesProps) {
                 Package Cost &amp; Tariff Breakdown
               </h2>
               <p className="text-slate-500 text-xs md:text-sm font-light mt-1">
-                Rates per person quoted in Indian Rupees (INR) across occupancy tiers and hotel categories.
+                {isUSD
+                  ? "Rates per person quoted in US Dollars (USD) across occupancy tiers and hotel categories."
+                  : "Rates per person quoted in Indian Rupees (INR) across occupancy tiers and hotel categories."}
               </p>
             </div>
 
@@ -480,11 +524,9 @@ export function PackageTables({ tables }: PackageTablesProps) {
                         <h3 className="font-bold text-sm md:text-base text-slate-900 font-sans">
                           {costTable.title}
                         </h3>
-                        {costTable.currency && (
-                          <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 uppercase tracking-wider">
-                            {costTable.currency}
-                          </span>
-                        )}
+                        <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 uppercase tracking-wider">
+                          {costTable.currency || (isUSD ? "USD" : "INR")}
+                        </span>
                       </div>
 
                       {/* Mobile Swipe Indicator */}
@@ -555,7 +597,8 @@ export function PackageTables({ tables }: PackageTablesProps) {
                                     !isFirstCol &&
                                     (cell.startsWith("₹") ||
                                       cell.startsWith("$") ||
-                                      (!isNaN(numVal) && numVal > 1000))
+                                      cell.toUpperCase().includes("USD") ||
+                                      (!isNaN(numVal) && numVal >= minThreshold))
 
                                   const rowLabel = (row[0] || "").toLowerCase()
                                   const is2PaxRow =
@@ -603,7 +646,7 @@ export function PackageTables({ tables }: PackageTablesProps) {
                                                 : "text-slate-900"
                                             }`}
                                           >
-                                            {cell}
+                                            {formatCellPrice(cell, isUSD)}
                                           </span>
                                           <span className="text-[10px] text-slate-400 font-normal block leading-tight">
                                             per person

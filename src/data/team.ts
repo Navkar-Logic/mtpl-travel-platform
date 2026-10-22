@@ -10,10 +10,10 @@ export const directors: DirectorMember[] = [
       "Guiding MTPL’s strategic vision, global airline alliances, and corporate travel standards with unwavering integrity since 2006.",
   },
   {
-    name: "Pooja Mishrikotkar",
+    name: "Puja Mishrikotkar",
     role: "Director",
     image: "/assets/team/pooja-mishrikotkar.jpg",
-    alt: "Pooja Mishrikotkar, Director at Mishrikotkar Travels Pvt. Ltd.",
+    alt: "Puja Mishrikotkar, Director at Mishrikotkar Travels Pvt. Ltd.",
     message:
       "Curating bespoke customer journeys, personalized holiday designs, and seamless hospitality operations for every traveler.",
   },
@@ -38,6 +38,7 @@ export const teamMembers: TeamMember[] = [
       "Operations Oversight",
     ],
   },
+  // Line 1 (Pair 1 - Ticketing & Stays): Sachin Kamble & Anurag Sahu
   {
     id: "sachin-kamble",
     name: "Mr. Sachin Kamble",
@@ -53,6 +54,22 @@ export const teamMembers: TeamMember[] = [
       "Airline Re-issues & Upgrades",
     ],
   },
+  {
+    id: "anurag-sahu",
+    name: "Mr. Anurag Sahu",
+    role: "Travel Operations Executive – Ticketing & Hotel Reservations",
+    department: "Ticketing & Stays",
+    image: "/assets/team/anurag-sahu.jpeg",
+    alt: "Mr. Anurag Sahu - Travel Operations Executive – Ticketing & Hotel Reservations",
+    description: "Assists in ticketing and hotel booking operations.",
+    bio: "Executes precise ticketing, transit lodging reservations, and ongoing booking modifications, ensuring accurate travel documentation for clients.",
+    responsibilities: [
+      "Transit & Hotel Stays",
+      "Flight Changes",
+      "Ticketing Support",
+    ],
+  },
+  // Line 2 (Pair 2 - Ticketing & Stays): Razina Soloman & Nikita Partike
   {
     id: "razina-soloman",
     name: "Ms. Razina Soloman",
@@ -83,21 +100,7 @@ export const teamMembers: TeamMember[] = [
       "Booking Confirmations",
     ],
   },
-  {
-    id: "anurag-sahu",
-    name: "Mr. Anurag Sahu",
-    role: "Travel Operations Executive – Ticketing & Hotel Reservations",
-    department: "Ticketing & Stays",
-    image: "/assets/team/anurag-sahu.jpeg",
-    alt: "Mr. Anurag Sahu - Travel Operations Executive – Ticketing & Hotel Reservations",
-    description: "Assists in ticketing and hotel booking operations.",
-    bio: "Executes precise ticketing, transit lodging reservations, and ongoing booking modifications, ensuring accurate travel documentation for clients.",
-    responsibilities: [
-      "Transit & Hotel Stays",
-      "Flight Changes",
-      "Ticketing Support",
-    ],
-  },
+  // Line 3 (Pair 3 - Finance & Accounts): Tanushree Farkade & Bhuvnesh Kshirsagar
   {
     id: "tanushree-farkade",
     name: "Ms. Tanushree Farkade",
@@ -128,6 +131,7 @@ export const teamMembers: TeamMember[] = [
       "Financial Operations",
     ],
   },
+  // Line 4 (Pair 4 - Field Operations): Naman Ukebondre & Manish Jain
   {
     id: "naman-ukebondre",
     name: "Mr. Naman Ukebondre",

@@ -24,7 +24,7 @@ const achievements = [
   {
     icon: Users,
     title: "Experienced Leadership",
-    description: "Led by Directors Tushar Mishrikotkar and Pooja Mishrikotkar, bringing extensive experience across multiple travel-business verticals."
+    description: "Led by Directors Tushar Mishrikotkar and Puja Mishrikotkar, bringing extensive experience across multiple travel-business verticals."
   }
 ]
 

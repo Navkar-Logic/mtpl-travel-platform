@@ -47,25 +47,13 @@ export function TeamSection() {
     return teamMembers.find((m) => m.isLead) || teamMembers[0]
   }, [])
 
-  // In "All Specialists" view:
-  // Top 3 cards: Sachin Kamble, Razina Soloman, Nikita Partike
-  // Bottom 5 cards: Anurag Sahu, Tanushree Farkade, Bhuvnesh Kshirsagar, Naman Ukebondre, Manish Jain
-  const row1Members = React.useMemo(() => {
-    return teamMembers.filter((m) =>
-      ["sachin-kamble", "razina-soloman", "nikita-partike"].includes(m.id)
-    )
-  }, [])
-
-  const row2Members = React.useMemo(() => {
-    return teamMembers.filter((m) =>
-      [
-        "anurag-sahu",
-        "tanushree-farkade",
-        "bhuvnesh-kshirsagar",
-        "naman-ukebondre",
-        "manish-jain",
-      ].includes(m.id)
-    )
+  // 8 Specialists paired 2 in each line (red-line wise):
+  // Line 1: Sachin Kamble & Anurag Sahu (Ticketing & Stays)
+  // Line 2: Razina Soloman & Nikita Partike (Ticketing & Stays)
+  // Line 3: Tanushree Farkade & Bhuvnesh Kshirsagar (Finance & Accounts)
+  // Line 4: Naman Ukebondre & Manish Jain (Field Operations)
+  const specialists = React.useMemo(() => {
+    return teamMembers.filter((m) => !m.isLead)
   }, [])
 
   // When filtered by specific department
@@ -333,36 +321,26 @@ export function TeamSection() {
         {/* ========================================================= */}
         {/* 4. TEAM MEMBER CARDS (Matches Reference Grid Layout)      */}
         {/* ========================================================= */}
+        {/* ========================================================= */}
+        {/* 4. TEAM MEMBER CARDS (2 in each line - Red Line Paired)  */}
+        {/* ========================================================= */}
         {activeDept === "All Specialists" ? (
-          <div className="space-y-4 sm:space-y-5 mb-10">
-            {/* Row 1: 3 Cards (Sachin, Razina, Nikita) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {row1Members.map((member) => (
+          <div className="mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+              {specialists.map((member) => (
                 <TeamCard
                   key={member.id}
                   member={member}
-                  onOpenModal={(m, el) => openModal(m, el)}
-                />
-              ))}
-            </div>
-
-            {/* Row 2: 5 Cards (Anurag, Tanushree, Bhuvnesh, Naman, Manish) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-4">
-              {row2Members.map((member) => (
-                <TeamCard
-                  key={member.id}
-                  member={member}
-                  isCompact
                   onOpenModal={(m, el) => openModal(m, el)}
                 />
               ))}
             </div>
           </div>
         ) : (
-          /* Filtered Department Grid */
+          /* Filtered Department Grid (2 in each line) */
           filteredDepartmentMembers.length > 0 && (
             <div className="mb-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 {filteredDepartmentMembers.map((member) => (
                   <TeamCard
                     key={member.id}
@@ -574,15 +552,13 @@ export function TeamSection() {
 }
 
 /**
- * Reusable Team Card matching the reference mockup layout
+ * Reusable Team Card (2 in each line layout)
  */
 function TeamCard({
   member,
-  isCompact = false,
   onOpenModal,
 }: {
   member: TeamMember
-  isCompact?: boolean
   onOpenModal: (member: TeamMember, el: HTMLElement) => void
 }) {
   return (
@@ -596,25 +572,19 @@ function TeamCard({
           onOpenModal(member, e.currentTarget)
         }
       }}
-      className={`group relative bg-white rounded-2xl border border-[#DFEAE3] shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(6,61,42,0.06)] hover:border-[#087B50]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087B50] ${
-        isCompact ? "p-3.5 sm:p-4" : "p-4 sm:p-4.5"
-      }`}
+      className="group relative bg-white rounded-2xl border border-[#DFEAE3] p-4 sm:p-5 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(6,61,42,0.06)] hover:border-[#087B50]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087B50]"
       aria-label={`View bio for ${member.name}`}
     >
       <div>
-        <div className="flex items-start gap-3 mb-2.5">
+        <div className="flex items-start gap-3.5 sm:gap-4 mb-2.5">
           {/* Portrait Photo on Left */}
-          <div
-            className={`relative rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 ring-1 ring-slate-200/80 group-hover:ring-[#087B50]/30 transition-all ${
-              isCompact ? "w-14 h-16 sm:w-16 sm:h-18" : "w-18 h-22 sm:w-20 sm:h-24"
-            }`}
-          >
+          <div className="relative w-18 h-22 sm:w-20 sm:h-24 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 ring-1 ring-slate-200/80 group-hover:ring-[#087B50]/30 transition-all">
             {member.image ? (
               <Image
                 src={member.image}
                 alt={member.alt || member.name}
                 fill
-                sizes="80px"
+                sizes="(max-width: 768px) 80px, 96px"
                 className="object-cover object-[center_15%] transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
@@ -626,13 +596,13 @@ function TeamCard({
 
           {/* Right Information */}
           <div className="flex-1 min-w-0">
-            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#087B50] bg-[#E7F5ED] px-2 py-0.5 rounded-full inline-block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#087B50] bg-[#E7F5ED] px-2.5 py-0.5 rounded-full inline-block mb-1.5">
               {member.department}
             </span>
-            <h4 className="text-xs sm:text-sm font-bold text-[#102820] font-sans tracking-tight leading-snug group-hover:text-[#087B50] transition-colors">
+            <h4 className="text-sm sm:text-base font-bold text-[#102820] font-sans tracking-tight leading-snug group-hover:text-[#087B50] transition-colors">
               {member.name}
             </h4>
-            <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium leading-tight line-clamp-2 mt-0.5">
+            <p className="text-xs sm:text-[13px] text-slate-500 font-medium leading-normal mt-0.5">
               {member.role}
             </p>
           </div>
@@ -640,14 +610,14 @@ function TeamCard({
 
         {/* Short Factual Description */}
         {member.description && (
-          <p className="text-[10px] sm:text-[11px] text-[#60736A] font-light leading-snug line-clamp-2 mb-2 pl-0.5">
+          <p className="text-xs sm:text-[13px] text-[#60736A] font-light leading-relaxed mb-3 pl-0.5">
             {member.description}
           </p>
         )}
       </div>
 
       {/* Enquire Text Link on Bottom-Right */}
-      <div className="pt-2 border-t border-slate-100 flex items-center justify-end">
+      <div className="pt-2.5 border-t border-slate-100 flex items-center justify-end">
         <span className="text-xs font-semibold text-slate-700 group-hover:text-[#087B50] inline-flex items-center gap-1 transition-colors">
           <Mail className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#087B50] transition-colors" />
           <span>Enquire</span>

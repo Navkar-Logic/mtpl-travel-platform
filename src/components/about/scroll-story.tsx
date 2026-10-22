@@ -137,7 +137,7 @@ const storyPoints: StoryPoint[] = [
       },
     ],
     imageSrc: "/assets/office/awards/mtpl-airline-recognition-indigo.webp",
-    imageAlt: "Directors Tushar Mishrikotkar and Pooja Mishrikotkar receiving the official IndiGo airline award plaque",
+    imageAlt: "Directors Tushar Mishrikotkar and Puja Mishrikotkar receiving the official IndiGo airline award plaque",
     caption: "Honoring outstanding performance and premier partnership in commercial airline ticketing",
     locationTag: "Official IndiGo Airline Plaque",
   },
