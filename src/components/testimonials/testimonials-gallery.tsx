@@ -75,12 +75,14 @@ export function TestimonialsGallery({ testimonials }: TestimonialsGalleryProps) 
               <MessageSquare className="w-4 h-4 text-brand" />
               <span>{testimonials.length} Genuine Testimonials</span>
             </span>
-            {verifiedRatingCount > 0 && (
-              <span className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-border shadow-xs text-foreground">
-                <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                <span>1 Verified 5.0 Google Review</span>
-              </span>
-            )}
+            <span className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-border shadow-xs text-foreground">
+              <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+              <span>4.6 ★ Google (57 Reviews)</span>
+            </span>
+            <span className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-full border border-border shadow-xs text-foreground">
+              <span className="w-2 h-2 rounded-full bg-[#F58220]" />
+              <span>4.6 ★ Justdial (89 Votes)</span>
+            </span>
           </div>
         </div>
 

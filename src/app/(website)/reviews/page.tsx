@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { getWebsiteTestimonials } from "@/features/testimonials/data/testimonials"
 import { TestimonialsGallery } from "@/components/testimonials/testimonials-gallery"
+import { PublicRatingsShowcase } from "@/components/testimonials/public-ratings-showcase"
 import { EnquiryCta } from "@/components/home/enquiry-cta"
 import { officeImages } from "@/config/office-images"
 import { Award, ShieldCheck, HeartHandshake } from "lucide-react"
@@ -57,6 +58,9 @@ export default function ReviewsPage() {
           </div>
         </Container>
       </div>
+
+      {/* Public Ratings & Web Standing Showcase (Google & Justdial) */}
+      <PublicRatingsShowcase />
 
       {/* Trust & Dedication Reassurance Banner */}
       <div className="py-10 bg-white border-b border-border/80">
