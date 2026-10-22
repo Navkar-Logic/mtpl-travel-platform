@@ -124,6 +124,9 @@ export function AboutIntro() {
           </div>
 
         </div>
+
+
+        
       </Container>
     </Section>
   )
