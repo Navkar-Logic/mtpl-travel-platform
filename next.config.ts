@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === 'production';
-
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -27,7 +25,7 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
   },
-  ...(isProd ? [{
+  ...(process.env.NODE_ENV === 'production' ? [{
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload'
   }] : [])
@@ -35,7 +33,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
-  reactCompiler: isProd ? true : false,
+  reactCompiler: false,
   outputFileTracingIncludes: {
     '/api/**/*': ['./storage/media/**/*'],
   },
