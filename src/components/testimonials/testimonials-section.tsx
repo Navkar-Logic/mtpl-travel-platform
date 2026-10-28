@@ -6,7 +6,6 @@ import Image from "next/image"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { getHomepageFeaturedTestimonials, getPlatformDisplayName } from "@/features/testimonials/data/testimonials"
-import { TestimonialLightbox } from "@/components/testimonials/testimonial-lightbox"
 import { 
   ArrowRight, 
   ChevronLeft, 
@@ -14,7 +13,6 @@ import {
   Star, 
   MessageSquare, 
   Quote, 
-  ZoomIn, 
   Calendar, 
   User, 
   ShieldCheck 
@@ -22,7 +20,6 @@ import {
 
 export function TestimonialsSection() {
   const featuredTestimonials = getHomepageFeaturedTestimonials(6)
-  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null)
   const [currentIndex, setCurrentIndex] = React.useState(0)
   
   // Responsive cards per view: 1 on mobile (<768px), 2 on tablet (<1024px), 3 on desktop (>=1024px)
@@ -136,7 +133,7 @@ export function TestimonialsSection() {
               transform: `translateX(-${safeIndex * (100 / cardsPerView)}%)` 
             }}
           >
-            {featuredTestimonials.map((testimonial, idx) => {
+            {featuredTestimonials.map((testimonial) => {
               const hasVerifiedRating = testimonial.ratingStatus === "verified" && typeof testimonial.rating === "number"
               const platformLabel = getPlatformDisplayName(testimonial.type, testimonial.platform)
 
@@ -145,86 +142,77 @@ export function TestimonialsSection() {
                   key={testimonial.id}
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3 flex"
                 >
-                  <article className="group relative flex flex-col justify-between w-full bg-white rounded-3xl border border-border/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_30px_rgba(14,116,67,0.08)] hover:border-brand/40 transition-all duration-300 p-6 sm:p-7">
-                    <div>
+                  <article className="group relative flex flex-col justify-between w-full min-h-[260px] bg-[#0A1626] rounded-3xl border border-white/20 hover:border-white/40 shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)] transition-all duration-300 p-6 sm:p-7 overflow-hidden">
+                    {/* Testimonial Background Image (100% Clear, Original colors) */}
+                    <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+                      <Image
+                        src="/assets/testimonial-bg.png"
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-center opacity-100 scale-105 transition-transform duration-500 group-hover:scale-110"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Decorative quotation watermark in background */}
+                    <Quote 
+                      className="absolute top-4 right-4 w-12 h-12 text-white/15 -scale-x-100 pointer-events-none select-none transition-transform duration-300 group-hover:scale-105 z-0" 
+                      aria-hidden="true"
+                    />
+
+                    <div className="relative z-10">
                       {/* Top Meta: Platform Badge & Rating / Verified */}
                       <div className="flex items-center justify-between gap-2 mb-4">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#EEF8F3] text-brand border border-[#A7F3C0]/60">
-                          <MessageSquare className="w-3 h-3 text-brand" />
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-black/40 text-white border border-white/30 backdrop-blur-xs shadow-sm">
+                          <MessageSquare className="w-3 h-3 text-[#34D399]" />
                           <span>{platformLabel}</span>
                         </span>
 
                         {hasVerifiedRating ? (
-                          <div className="flex items-center gap-1 bg-amber-50 text-amber-700 border border-amber-200/80 font-bold text-xs px-2.5 py-0.5 rounded-full">
-                            <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                          <div className="flex items-center gap-1 bg-black/45 border border-white/25 font-bold text-xs px-2.5 py-0.5 rounded-full text-amber-300 backdrop-blur-xs shadow-sm">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                             <span>5.0</span>
                           </div>
                         ) : (
-                          <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+                          <span className="text-[11px] font-semibold text-white uppercase tracking-wider drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
                             Verified Feedback
                           </span>
                         )}
                       </div>
 
                       {/* Customer Quote */}
-                      <div className="relative mb-5">
-                        <Quote className="w-8 h-8 text-brand/15 mb-2 -ml-1" />
-                        <blockquote className="text-sm text-foreground/90 font-sans italic leading-relaxed line-clamp-4">
+                      <div className="relative mb-4">
+                        <Quote className="w-8 h-8 text-[#34D399]/70 mb-2 -ml-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" />
+                        <blockquote className="text-sm sm:text-[15px] text-white font-sans italic leading-relaxed line-clamp-5 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                           &ldquo;{testimonial.text}&rdquo;
                         </blockquote>
                       </div>
-
-                      {/* Original Screenshot Thumbnail (Compact & Containment) */}
-                      <button
-                        type="button"
-                        onClick={() => setLightboxIndex(idx)}
-                        className="w-full relative bg-slate-950 rounded-2xl overflow-hidden p-2 flex items-center justify-center min-h-[140px] max-h-[160px] border border-border/60 cursor-pointer group/thumb text-left focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 transition-all hover:border-brand/50 mb-5"
-                        aria-label={`View full original screenshot for ${testimonial.customerName || "Customer feedback"}`}
-                      >
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.customerName ? `Original screenshot from ${testimonial.customerName}` : "Feedback screenshot"}
-                          width={testimonial.dimensions.width}
-                          height={testimonial.dimensions.height}
-                          className="w-auto h-auto max-h-[145px] max-w-full object-contain transition-transform duration-300 group-hover/thumb:scale-[1.02]"
-                          unoptimized
-                        />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-foreground font-bold text-xs shadow-md">
-                            <ZoomIn className="w-3.5 h-3.5 text-brand" />
-                            <span>View Original Screenshot</span>
-                          </span>
-                        </div>
-                      </button>
                     </div>
 
-                    {/* Card Footer: Customer Identity & Action */}
-                    <div className="pt-4 border-t border-border/60 flex items-center justify-between gap-3">
+                    {/* Card Footer: Customer Identity & Verification */}
+                    <div className="relative z-10 pt-4 border-t border-white/20 flex items-center justify-between gap-3 mt-4">
                       <div className="min-w-0 flex-1">
-                        <h4 className="font-bold text-sm text-foreground truncate flex items-center gap-1.5">
-                          <User className="w-3.5 h-3.5 text-brand flex-shrink-0" />
+                        <h4 className="font-bold text-sm text-white truncate flex items-center gap-1.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
+                          <User className="w-3.5 h-3.5 text-[#34D399] flex-shrink-0" />
                           <span className="truncate">{testimonial.customerName || "Valued MTPL Traveller"}</span>
                         </h4>
                         {testimonial.customerEntity ? (
-                          <p className="text-[11px] text-brand font-medium truncate mt-0.5">
+                          <p className="text-[11px] text-white/90 font-medium truncate mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
                             {testimonial.customerEntity}
                           </p>
                         ) : testimonial.date ? (
-                          <p className="text-[11px] text-muted-foreground flex items-center gap-1 mt-0.5">
-                            <Calendar className="w-3 h-3" />
+                          <p className="text-[11px] text-white/80 flex items-center gap-1 mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">
+                            <Calendar className="w-3 h-3 text-[#34D399]" />
                             <span>{testimonial.date}</span>
                           </p>
                         ) : null}
                       </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setLightboxIndex(idx)}
-                        className="text-xs font-bold text-brand hover:text-brand-dark transition-colors inline-flex items-center gap-1 flex-shrink-0"
-                      >
-                        <span>Inspect</span>
-                        <span>&rarr;</span>
-                      </button>
+                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-white bg-black/40 px-2.5 py-1 rounded-full border border-white/30 flex-shrink-0 backdrop-blur-xs shadow-sm">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#34D399]" />
+                        <span>Verified</span>
+                      </span>
                     </div>
                   </article>
                 </div>
@@ -255,10 +243,10 @@ export function TestimonialsSection() {
         <div className="mt-12 pt-8 border-t border-border/80 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white rounded-2xl p-5 sm:p-6 border shadow-xs">
           <div className="text-center sm:text-left">
             <h4 className="font-bold text-sm sm:text-base text-foreground">
-              Explore All 28 Verified Original Conversations &amp; Screenshots
+              Explore All Verified Customer Reviews &amp; Experiences
             </h4>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              Read authentic travel experiences across flights, visas, Europe, Maldives, and customized holiday packages.
+              Read authentic feedback from travellers across domestic tours, international packages, and visa services.
             </p>
           </div>
           <Link
@@ -270,14 +258,6 @@ export function TestimonialsSection() {
           </Link>
         </div>
       </Container>
-
-      {/* Lightbox for inspecting high-res original screenshot */}
-      <TestimonialLightbox
-        testimonials={featuredTestimonials}
-        currentIndex={lightboxIndex}
-        onClose={() => setLightboxIndex(null)}
-        onNavigate={(newIndex) => setLightboxIndex(newIndex)}
-      />
     </Section>
   )
 }

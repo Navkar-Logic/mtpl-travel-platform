@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { getWebsiteTestimonials } from "@/features/testimonials/data/testimonials";
@@ -24,14 +25,28 @@ export default function ReviewsPage() {
   return (
     <div className="flex flex-col w-full bg-[#F7F9F8]">
       {/* Section A: Page Hero */}
-      <section className="bg-[#063D2A] text-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+      <section className="bg-[#0A1626] text-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+        {/* Hero Background Image (100% Clear, Original colors) */}
+        <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+          <Image
+            src="/assets/testimonial-bg.png"
+            alt="Customer Reviews & Testimonials"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-100 scale-105"
+          />
+          {/* Subtle natural dark gradient for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+        </div>
+
         {/* Subtle decorative background gradient accents */}
         <div
-          className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#16A765]/15 blur-3xl pointer-events-none"
+          className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#16A765]/20 blur-3xl pointer-events-none z-0"
           aria-hidden="true"
         />
         <div
-          className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#16A765]/10 blur-2xl pointer-events-none"
+          className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#16A765]/15 blur-2xl pointer-events-none z-0"
           aria-hidden="true"
         />
 

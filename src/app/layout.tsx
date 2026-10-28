@@ -62,6 +62,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
         {children}
         <script
+          id="schema-travel-agency"
+          key="schema-travel-agency"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
