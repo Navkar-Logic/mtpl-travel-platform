@@ -46,3 +46,7 @@ next-env.d.ts
 
 # Media Storage (Public verified tour assets tracked for Git / Vercel deployment)
 /storage/media/private/
+
+# Large package archives
+assets/HOLIDAYS 2027.zip
+assets/MTPL_Complete_Packages.zip
