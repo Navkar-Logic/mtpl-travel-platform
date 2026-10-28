@@ -1,4 +1,4 @@
-import { getAllPackages } from '../src/features/packages/data/packages';
+import { getAllPackages, getPackagesByCategory } from '../src/features/packages/data/packages';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -20,7 +20,7 @@ function assert(condition: boolean, testName: string, details?: string) {
 
 // 1. Catalogue Count & Identification
 const allPkgs = getAllPackages();
-assert(allPkgs.length === 77, `Catalogue has exactly 77 verified packages (found ${allPkgs.length})`);
+assert(allPkgs.length === 93, `Catalogue has exactly 93 verified packages (found ${allPkgs.length})`);
 
 // 2. Slug & ID Uniqueness
 const slugs = new Set<string>();
@@ -41,16 +41,14 @@ assert(duplicateIds === 0, 'All package IDs are strictly unique');
 
 // 3. Pricing Standardization across all packages
 let startingPricesFound = 0;
-let nonPriceOnRequest = 0;
 let invalidWhatsAppPrices = 0;
 let invalidWhatsAppTitles = 0;
+let nationalNonQuote = 0;
+let intlUsdPriced = 0;
 
 for (const pkg of allPkgs) {
   if (pkg.priceDisplay.toLowerCase().includes('starting') || pkg.priceDisplay.includes('₹')) {
     startingPricesFound++;
-  }
-  if (!pkg.isPriceOnRequest || pkg.priceDisplay !== 'Price on Request') {
-    nonPriceOnRequest++;
   }
   if (pkg.whatsAppHref.includes('Starting') || pkg.whatsAppHref.includes('%E2%82%B9') || pkg.whatsAppHref.includes('₹')) {
     invalidWhatsAppPrices++;
@@ -60,10 +58,22 @@ for (const pkg of allPkgs) {
   if (!decodedHref.includes(pkg.title)) {
     invalidWhatsAppTitles++;
   }
+
+  // National packages must remain quote-based
+  if (pkg.category === 'national' || !['Bhutan', 'Nepal', 'Sri Lanka', 'Jordan', 'Cambodia', 'Dubai', 'Japan'].includes(pkg.destination)) {
+    if (!pkg.isPriceOnRequest || pkg.priceDisplay !== 'Price on Request') {
+      nationalNonQuote++;
+    }
+  } else if (!pkg.isPriceOnRequest) {
+    if (pkg.priceDisplay.includes('USD') && pkg.numericPrice && pkg.numericPrice > 0) {
+      intlUsdPriced++;
+    }
+  }
 }
 
 assert(startingPricesFound === 0, 'No package records have "Starting from" or unverified prices in priceDisplay');
-assert(nonPriceOnRequest === 0, 'All 77 packages have isPriceOnRequest=true and priceDisplay="Price on Request"');
+assert(nationalNonQuote === 0, 'All 67 national packages have isPriceOnRequest=true and priceDisplay="Price on Request"');
+assert(intlUsdPriced === 16, `All 16 new international packages have verified USD pricing (found ${intlUsdPriced})`);
 assert(invalidWhatsAppPrices === 0, 'No WhatsApp enquiry links contain starting prices or unverified currency figures');
 assert(invalidWhatsAppTitles === 0, 'All WhatsApp enquiry links reference the correct package title');
 
@@ -93,7 +103,7 @@ for (const pkg of allPkgs) {
   }
 }
 
-assert(emptyItineraries === 0, 'All 77 packages have a verified itinerary array');
+assert(emptyItineraries === 0, 'All 93 packages have a verified itinerary array');
 assert(missingDayTitles === 0, 'All itinerary days have non-empty verified route titles');
 assert(
   nonSequentialPkgs.length <= 5,
@@ -145,16 +155,15 @@ assert(previewContent.includes('Request a Quote'), 'PackagesPreview renders "Req
 assert(!previewContent.includes('|| "31 March 2027"'), 'PackagesPreview does not have hardcoded validity fallback');
 
 // 9. Classification & Category Tests
-const { getPackageCategory, getPackagesByCategory, INTERNATIONAL_DESTINATIONS } = require('../src/features/packages/data/packages');
 const nationalPkgs = getPackagesByCategory('national');
 const intlPkgs = getPackagesByCategory('international');
 
 assert(nationalPkgs.length === 67, `National packages count is exactly 67 (found ${nationalPkgs.length})`);
-assert(intlPkgs.length === 10, `International packages count is exactly 10 (found ${intlPkgs.length})`);
-assert(nationalPkgs.length + intlPkgs.length === 77, 'Total packages across categories equals 77');
+assert(intlPkgs.length === 26, `International packages count is exactly 26 (found ${intlPkgs.length})`);
+assert(nationalPkgs.length + intlPkgs.length === 93, 'Total packages across categories equals 93');
 
-const allIntlValid = intlPkgs.every((p: { destination: string }) => ['Bhutan', 'Nepal', 'Sri Lanka'].includes(p.destination));
-assert(allIntlValid, 'All 10 international packages belong to Bhutan, Nepal, or Sri Lanka');
+const allIntlValid = intlPkgs.every((p: { destination: string }) => ['Bhutan', 'Nepal', 'Sri Lanka', 'Jordan', 'Cambodia', 'Dubai', 'Japan'].includes(p.destination));
+assert(allIntlValid, 'All 26 international packages belong to verified international destinations (Bhutan, Nepal, Sri Lanka, Jordan, Cambodia, Dubai, Japan)');
 
 // 10. Redesigned Hero & Listing Checks
 const heroPath = path.resolve('src/components/packages/packages-hero.tsx');

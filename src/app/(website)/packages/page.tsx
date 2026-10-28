@@ -1,7 +1,6 @@
 import * as React from "react"
 import type { Metadata } from "next"
 
-import { PackagesHero } from "@/components/packages/packages-hero"
 import { PackagesGrid } from "@/components/packages/packages-grid"
 import { PlanningAssurance } from "@/components/packages/planning-assurance"
 import { getAllPackages } from "@/features/packages/data/packages"
@@ -19,7 +18,7 @@ export default function PackagesPage() {
   const allPackages = getAllPackages()
 
   return (
-    <div className="flex flex-col w-full bg-white">
+    <div className="flex flex-col w-full max-w-full bg-white overflow-x-clip">
       <React.Suspense
         fallback={
           <div className="py-20 text-center">

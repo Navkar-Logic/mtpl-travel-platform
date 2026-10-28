@@ -49,7 +49,7 @@ export function Hero() {
           </p>
           
           {/* Badges / Trust Markers */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-2 pb-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 pt-2 pb-2">
             <div className="flex items-center gap-2.5">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <span className="text-sm font-medium text-white tracking-wide">Premium Quality</span>

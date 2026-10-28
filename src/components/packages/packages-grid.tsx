@@ -21,6 +21,7 @@ import {
   RotateCcw,
   Info
 } from "lucide-react"
+import { getMediaUrl } from "@/lib/media"
 
 const PAGE_SIZE = 12
 
@@ -103,6 +104,8 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
   // Active pool based on selected category
   const activePool = selectedCategory === "international" ? internationalPackages : nationalPackages
   const otherPool = selectedCategory === "international" ? nationalPackages : internationalPackages
+  const isInternational = selectedCategory === "international"
+  const priceSymbol = isInternational ? "$" : "₹"
 
   // Dynamic Destination options scoped to the active category
   const destinationOptions = React.useMemo(() => {
@@ -151,10 +154,6 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
   const parsedMaxPrice = maxPrice.trim() !== "" ? parseFloat(maxPrice) : null
   const isPriceFilterActive = parsedMinPrice !== null || parsedMaxPrice !== null
 
-  // Check if any package in the active pool has a verified numeric price
-  const activePoolHasNumericPrices = React.useMemo(() => {
-    return activePool.some((p) => typeof p.numericPrice === "number" && !isNaN(p.numericPrice))
-  }, [activePool])
 
   // Filter packages within the active category
   const { filteredPackages, pricedPackages, quoteOnlyPackages } = React.useMemo(() => {
@@ -382,7 +381,7 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
     <section 
       ref={listTopRef} 
       id="packages-listing" 
-      className="bg-[#F8FAF9] pt-24 sm:pt-28 md:pt-[104px] pb-12 sm:pb-16 relative scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-[104px]"
+      className="bg-[#F8FAF9] pt-24 sm:pt-28 md:pt-[104px] pb-12 sm:pb-16 relative scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-[104px] w-full max-w-full overflow-x-clip"
     >
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* =========================================================================
@@ -409,66 +408,70 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
             </div>
           </div>
 
-          {/* Prominent Category Selector Cards (Streamlined Height for Above-the-Fold View) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+          {/* Prominent Category Selector Cards (Balanced, Proper Proportions) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
             {/* National Category Card */}
             <button
               type="button"
               onClick={() => handleCategoryChange("national")}
               aria-pressed={selectedCategory === "national"}
-              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 text-left transition-all duration-300 border cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand/20 ${
+              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl p-3 sm:p-4 text-left transition-all duration-300 border cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand/20 ${
                 selectedCategory === "national"
                   ? "bg-white border-brand ring-2 ring-brand shadow-[0_12px_28px_rgba(7,162,94,0.14)]"
                   : "bg-white/90 hover:bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-xs opacity-90 hover:opacity-100"
               }`}
             >
-              <div className="relative h-20 sm:h-24 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-3 bg-slate-900">
-                <Image
-                  src="/api/media/mtpl-royal-rajasthan-8n-9d.webp"
-                  alt="National Holidays across India"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                
-                {/* Active Indicator Badge */}
-                <div className="absolute top-2.5 right-2.5 z-10">
-                  {selectedCategory === "national" ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand text-white shadow-xs">
-                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                      <span>Active Selection</span>
+              <div className="flex items-center gap-3.5 sm:gap-4.5">
+                {/* Square Photo Display - Fully Visible, Controlled Proper Size */}
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 shrink-0 aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 shadow-sm">
+                  <Image
+                    src={getMediaUrl("/api/media/National-Category.webp")}
+                    alt="National Holidays across India"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent sm:hidden" />
+                  <div className="absolute bottom-1.5 left-2 sm:hidden text-white">
+                    <span className="text-[9px] font-bold tracking-wider uppercase text-emerald-300 block">
+                      INDIA
                     </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-black/60 text-white backdrop-blur-xs border border-white/20">
-                      Explore India
-                    </span>
-                  )}
-                </div>
-
-                <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-emerald-300 block leading-tight">
-                    NATIONAL
-                  </span>
-                  <div className="text-sm sm:text-base font-bold truncate leading-snug">
-                    Discover India
                   </div>
                 </div>
-              </div>
 
-              <div className="flex items-center justify-between gap-3">
-                <div className="min-w-0">
+                {/* Content & Details */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="text-[10px] font-extrabold tracking-widest uppercase text-emerald-700 bg-emerald-50 border border-emerald-200/90 px-2 py-0.5 rounded-md inline-block">
+                      NATIONAL
+                    </span>
+                    {selectedCategory === "national" ? (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-brand text-white shadow-xs shrink-0">
+                        <Check className="w-3 h-3 stroke-[2.5]" />
+                        <span>Active</span>
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-600 transition-colors shrink-0">
+                        Explore India
+                      </span>
+                    )}
+                  </div>
+
                   <h2 className="text-base sm:text-lg font-bold font-sans text-slate-900 group-hover:text-brand transition-colors truncate">
-                    National — Discover India
+                    Discover India
                   </h2>
-                  <p className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5 truncate">
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5 line-clamp-2 leading-relaxed">
                     Domestic holidays across Indian states and union territories
                   </p>
-                </div>
-                <div className="flex-shrink-0">
-                  <span className="inline-block text-xs font-bold text-brand bg-emerald-50 border border-emerald-200/90 px-2.5 py-1 rounded-xl">
-                    {nationalPackages.length} Packages
-                  </span>
+
+                  <div className="mt-2.5 sm:mt-3 flex items-center justify-between gap-2 pt-2 border-t border-slate-100/80">
+                    <span className="inline-block text-xs font-bold text-brand bg-emerald-50/80 border border-emerald-200/80 px-2.5 py-0.5 rounded-lg">
+                      {nationalPackages.length} Packages
+                    </span>
+                    <span className="text-xs font-semibold text-slate-400 group-hover:text-brand flex items-center gap-1 transition-colors">
+                      Browse <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </div>
                 </div>
               </div>
             </button>
@@ -478,59 +481,63 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
               type="button"
               onClick={() => handleCategoryChange("international")}
               aria-pressed={selectedCategory === "international"}
-              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 text-left transition-all duration-300 border cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand/20 ${
+              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl p-3 sm:p-4 text-left transition-all duration-300 border cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand/20 ${
                 selectedCategory === "international"
                   ? "bg-white border-brand ring-2 ring-brand shadow-[0_12px_28px_rgba(7,162,94,0.14)]"
                   : "bg-white/90 hover:bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-xs opacity-90 hover:opacity-100"
               }`}
             >
-              <div className="relative h-20 sm:h-24 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-3 bg-slate-900">
-                <Image
-                  src="/api/media/mtpl-bhutan-tour-via-bagdogra-6n-7d.webp"
-                  alt="International Holidays"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                
-                {/* Active Indicator Badge */}
-                <div className="absolute top-2.5 right-2.5 z-10">
-                  {selectedCategory === "international" ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand text-white shadow-xs">
-                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                      <span>Active Selection</span>
+              <div className="flex items-center gap-3.5 sm:gap-4.5">
+                {/* Square Photo Display - Fully Visible, Controlled Proper Size */}
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 shrink-0 aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 shadow-sm">
+                  <Image
+                    src={getMediaUrl("/api/media/International-Category.webp")}
+                    alt="International Holidays"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent sm:hidden" />
+                  <div className="absolute bottom-1.5 left-2 sm:hidden text-white">
+                    <span className="text-[9px] font-bold tracking-wider uppercase text-emerald-300 block">
+                      GLOBAL
                     </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-black/60 text-white backdrop-blur-xs border border-white/20">
-                      Explore the world
-                    </span>
-                  )}
-                </div>
-
-                <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-emerald-300 block leading-tight">
-                    INTERNATIONAL
-                  </span>
-                  <div className="text-sm sm:text-base font-bold truncate leading-snug">
-                    Explore the world
                   </div>
                 </div>
-              </div>
 
-              <div className="flex items-center justify-between gap-3">
-                <div className="min-w-0">
+                {/* Content & Details */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="text-[10px] font-extrabold tracking-widest uppercase text-emerald-700 bg-emerald-50 border border-emerald-200/90 px-2 py-0.5 rounded-md inline-block">
+                      INTERNATIONAL
+                    </span>
+                    {selectedCategory === "international" ? (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-brand text-white shadow-xs shrink-0">
+                        <Check className="w-3 h-3 stroke-[2.5]" />
+                        <span>Active</span>
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-600 transition-colors shrink-0">
+                        Explore the world
+                      </span>
+                    )}
+                  </div>
+
                   <h2 className="text-base sm:text-lg font-bold font-sans text-slate-900 group-hover:text-brand transition-colors truncate">
-                    International — Explore the world
+                    Explore the World
                   </h2>
-                  <p className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5 truncate">
-                    Curated holidays in Bhutan, Nepal, Sri Lanka with visa advice
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-light mt-0.5 line-clamp-2 leading-relaxed">
+                    Curated holidays in Bhutan, Nepal, Sri Lanka, Jordan, Cambodia & Japan
                   </p>
-                </div>
-                <div className="flex-shrink-0">
-                  <span className="inline-block text-xs font-bold text-brand bg-emerald-50 border border-emerald-200/90 px-2.5 py-1 rounded-xl">
-                    {internationalPackages.length} Packages
-                  </span>
+
+                  <div className="mt-2.5 sm:mt-3 flex items-center justify-between gap-2 pt-2 border-t border-slate-100/80">
+                    <span className="inline-block text-xs font-bold text-brand bg-emerald-50/80 border border-emerald-200/80 px-2.5 py-0.5 rounded-lg">
+                      {internationalPackages.length} Packages
+                    </span>
+                    <span className="text-xs font-semibold text-slate-400 group-hover:text-brand flex items-center gap-1 transition-colors">
+                      Browse <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                  </div>
                 </div>
               </div>
             </button>
@@ -735,7 +742,7 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
               <div className="pt-3.5">
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Price Range (₹ INR)
+                    {isInternational ? "Price Range ($ USD)" : "Price Range (₹ INR)"}
                   </label>
                   {(minPrice || maxPrice) && (
                     <button
@@ -752,47 +759,75 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
                   )}
                 </div>
 
+                {/* Quick Presets for International Packages */}
+                {isInternational && (
+                  <div className="flex flex-wrap gap-1.5 mb-2.5">
+                    {[
+                      { label: "All", min: "", max: "" },
+                      { label: "< $500", min: "", max: "500" },
+                      { label: "$500–$1k", min: "500", max: "1000" },
+                      { label: "$1k+", min: "1000", max: "" },
+                    ].map((preset) => {
+                      const isActive = minPrice === preset.min && maxPrice === preset.max
+                      return (
+                        <button
+                          key={preset.label}
+                          type="button"
+                          onClick={() => {
+                            setMinPrice(preset.min)
+                            setMaxPrice(preset.max)
+                            updateUrlParams({ minPrice: preset.min, maxPrice: preset.max, page: 1 })
+                          }}
+                          className={`text-[10.5px] px-2 py-0.5 rounded-lg font-medium transition-colors border ${
+                            isActive
+                              ? "bg-brand text-white border-brand shadow-xs"
+                              : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"
+                          }`}
+                        >
+                          {preset.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                )}
+
                 {/* Min & Max Inputs */}
                 <div className="grid grid-cols-2 gap-2 mb-2.5">
                   <div className="relative">
-                    <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">₹</span>
+                    <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">{priceSymbol}</span>
                     <input
                       type="text"
                       inputMode="numeric"
                       value={minPrice}
                       onChange={(e) => handleMinPriceChange(e.target.value)}
-                      placeholder="Min"
+                      placeholder={isInternational ? "Min ($200)" : "Min"}
                       className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-8.5 pl-6 pr-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand focus:bg-white"
                     />
                   </div>
                   <div className="relative">
-                    <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">₹</span>
+                    <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">{priceSymbol}</span>
                     <input
                       type="text"
                       inputMode="numeric"
                       value={maxPrice}
                       onChange={(e) => handleMaxPriceChange(e.target.value)}
-                      placeholder="Max"
+                      placeholder={isInternational ? "Max ($2,500)" : "Max"}
                       className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-8.5 pl-6 pr-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand focus:bg-white"
                     />
                   </div>
                 </div>
 
-                {/* Critical Information on Pricing Model */}
+                {/* Information on Pricing Model */}
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/70 text-[11px] text-slate-500 leading-relaxed">
                   <div className="flex items-start gap-1.5 font-semibold text-slate-700 mb-1">
                     <Info className="w-3.5 h-3.5 text-brand flex-shrink-0 mt-0.5" />
-                    <span>Enquiry-Based Pricing Model</span>
+                    <span>Verified Transparent Pricing</span>
                   </div>
-                  {!activePoolHasNumericPrices ? (
-                    <p>
-                      All {activePool.length} packages in this selection are quote-based (customized to travel dates &amp; group size). Numeric price filtering is unavailable for this selection.
-                    </p>
-                  ) : (
-                    <p>
-                      Packages with verified fixed scalar prices are filtered above. Quote-based packages remain accessible via direct inquiry.
-                    </p>
-                  )}
+                  <p>
+                    {isInternational
+                      ? "All 26 international packages display verified starting rates in USD ($) per person."
+                      : "All 67 national packages display verified starting rates in INR (₹) per person."}
+                  </p>
                 </div>
               </div>
             </div>
@@ -868,9 +903,9 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
 
                   {/* Search Query Chip */}
                   {searchQuery && (
-                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium">
-                      <span>Search: &ldquo;{searchQuery}&rdquo;</span>
-                      <button onClick={() => handleSearchChange("")} className="hover:text-red-500">
+                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium max-w-[200px] sm:max-w-xs">
+                      <span className="truncate">Search: &ldquo;{searchQuery}&rdquo;</span>
+                      <button onClick={() => handleSearchChange("")} className="hover:text-red-500 flex-shrink-0">
                         <X className="w-3 h-3" />
                       </button>
                     </span>
@@ -878,9 +913,9 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
 
                   {/* Destination Chip */}
                   {selectedDestination !== "All" && (
-                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium">
-                      <span>Destination: {selectedDestination}</span>
-                      <button onClick={() => handleDestinationChange("All")} className="hover:text-red-500">
+                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium max-w-[180px] sm:max-w-xs">
+                      <span className="truncate">Destination: {selectedDestination}</span>
+                      <button onClick={() => handleDestinationChange("All")} className="hover:text-red-500 flex-shrink-0">
                         <X className="w-3 h-3" />
                       </button>
                     </span>
@@ -895,7 +930,7 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
                           selectedDuration === "medium" ? "5–7 Days" : "8+ Days"
                         }
                       </span>
-                      <button onClick={() => handleDurationChange("All")} className="hover:text-red-500">
+                      <button onClick={() => handleDurationChange("All")} className="hover:text-red-500 flex-shrink-0">
                         <X className="w-3 h-3" />
                       </button>
                     </span>
@@ -903,9 +938,9 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
 
                   {/* Price Range Chip */}
                   {(minPrice || maxPrice) && (
-                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium">
-                      <span>
-                        Price: {minPrice ? `₹${minPrice}` : "₹0"} – {maxPrice ? `₹${maxPrice}` : "Any"}
+                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full text-[11px] font-medium max-w-[220px] sm:max-w-none">
+                      <span className="truncate">
+                        Price: {minPrice ? `${priceSymbol}${minPrice}` : `${priceSymbol}0`} – {maxPrice ? `${priceSymbol}${maxPrice}` : "Any"} {isInternational ? "USD" : ""}
                       </span>
                       <button
                         onClick={() => {
@@ -913,7 +948,7 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
                           setMaxPrice("")
                           updateUrlParams({ minPrice: "", maxPrice: "", page: 1 })
                         }}
-                        className="hover:text-red-500"
+                        className="hover:text-red-500 flex-shrink-0"
                       >
                         <X className="w-3 h-3" />
                       </button>
@@ -945,16 +980,16 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
             </div>
 
             {/* Results Status Header (Separation to grid: approximately 16–20 px -> mb-4) */}
-            <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-slate-600 mb-4">
-              <div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 px-1 text-xs text-slate-600 mb-4">
+              <div className="leading-relaxed">
                 Showing <strong className="text-slate-900 font-bold">{filteredPackages.length > 0 ? startIndex + 1 : 0}</strong>–
                 <strong className="text-slate-900 font-bold">{Math.min(startIndex + PAGE_SIZE, filteredPackages.length)}</strong> of{" "}
                 <strong className="text-slate-900 font-bold">{filteredPackages.length}</strong> verified{" "}
-                {selectedCategory === "national" ? "National Holidays across India" : "International Holidays"}
+                {selectedCategory === "national" ? "National Holidays" : "International Holidays"}
               </div>
 
               {totalPages > 1 && (
-                <div className="text-slate-500 text-xs font-medium">
+                <div className="text-slate-500 text-xs font-medium self-start sm:self-auto">
                   Page <span className="font-bold text-slate-900">{safeCurrentPage}</span> of{" "}
                   <span className="font-bold text-slate-900">{totalPages}</span>
                 </div>
@@ -1081,51 +1116,58 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
                 {/* Accessible Pagination */}
                 {totalPages > 1 && (
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 mt-8 border-t border-slate-200/80">
-                    <div className="text-xs text-slate-500 font-medium">
+                    <div className="text-xs text-slate-500 font-medium text-center sm:text-left">
                       Showing packages <span className="font-bold text-slate-900">{startIndex + 1}</span> to{" "}
                       <span className="font-bold text-slate-900">{Math.min(startIndex + PAGE_SIZE, filteredPackages.length)}</span> of{" "}
                       <span className="font-bold text-slate-900">{filteredPackages.length}</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
                       {/* Previous button */}
                       <button
                         type="button"
                         onClick={() => handlePageChange(safeCurrentPage - 1)}
                         disabled={safeCurrentPage === 1}
-                        className="h-9 px-3 rounded-xl border border-slate-200 text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 text-slate-700 bg-white"
+                        className="h-9 px-3.5 rounded-xl border border-slate-200 text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 text-slate-700 bg-white shadow-2xs"
                         aria-label="Previous page"
                       >
                         <ChevronLeft className="w-4 h-4" />
                         <span>Prev</span>
                       </button>
 
-                      {/* Page numbers */}
-                      {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => {
-                        const isCurrent = pageNum === safeCurrentPage
-                        return (
-                          <button
-                            key={pageNum}
-                            type="button"
-                            onClick={() => handlePageChange(pageNum)}
-                            aria-current={isCurrent ? "page" : undefined}
-                            className={`w-9 h-9 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                              isCurrent
-                                ? "bg-brand text-white shadow-2xs"
-                                : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80"
-                            }`}
-                          >
-                            {pageNum}
-                          </button>
-                        )
-                      })}
+                      {/* Mobile Current Page Indicator (visible only on phone screens) */}
+                      <div className="sm:hidden text-xs font-bold text-slate-700 px-3 py-1.5 bg-slate-100 rounded-xl">
+                        Page {safeCurrentPage} of {totalPages}
+                      </div>
+
+                      {/* Desktop / Tablet Page Numbers */}
+                      <div className="hidden sm:flex items-center gap-1.5">
+                        {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => {
+                          const isCurrent = pageNum === safeCurrentPage
+                          return (
+                            <button
+                              key={pageNum}
+                              type="button"
+                              onClick={() => handlePageChange(pageNum)}
+                              aria-current={isCurrent ? "page" : undefined}
+                              className={`w-9 h-9 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                                isCurrent
+                                  ? "bg-brand text-white shadow-2xs"
+                                  : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80"
+                              }`}
+                            >
+                              {pageNum}
+                            </button>
+                          )
+                        })}
+                      </div>
 
                       {/* Next button */}
                       <button
                         type="button"
                         onClick={() => handlePageChange(safeCurrentPage + 1)}
                         disabled={safeCurrentPage === totalPages}
-                        className="h-9 px-3 rounded-xl border border-slate-200 text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 text-slate-700 bg-white"
+                        className="h-9 px-3.5 rounded-xl border border-slate-200 text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 text-slate-700 bg-white shadow-2xs"
                         aria-label="Next page"
                       >
                         <span>Next</span>
@@ -1286,29 +1328,82 @@ export function PackagesGrid({ packages }: { packages: Package[] }) {
 
                 {/* 4. Numeric Price Range */}
                 <div>
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                    Price Range (₹ INR)
-                  </label>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                      {isInternational ? "Price Range ($ USD)" : "Price Range (₹ INR)"}
+                    </label>
+                    {(minPrice || maxPrice) && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMinPrice("")
+                          setMaxPrice("")
+                          updateUrlParams({ minPrice: "", maxPrice: "", page: 1 })
+                        }}
+                        className="text-[11px] font-semibold text-brand hover:underline"
+                      >
+                        Clear
+                      </button>
+                    )}
+                  </div>
+                  {isInternational && (
+                    <div className="flex flex-wrap gap-1.5 mb-2">
+                      {[
+                        { label: "All", min: "", max: "" },
+                        { label: "< $500", min: "", max: "500" },
+                        { label: "$500–$1k", min: "500", max: "1000" },
+                        { label: "$1k+", min: "1000", max: "" },
+                      ].map((preset) => {
+                        const isActive = minPrice === preset.min && maxPrice === preset.max
+                        return (
+                          <button
+                            key={preset.label}
+                            type="button"
+                            onClick={() => {
+                              setMinPrice(preset.min)
+                              setMaxPrice(preset.max)
+                              updateUrlParams({ minPrice: preset.min, maxPrice: preset.max, page: 1 })
+                            }}
+                            className={`text-[10.5px] px-2 py-0.5 rounded-lg font-medium border ${
+                              isActive
+                                ? "bg-brand text-white border-brand shadow-xs"
+                                : "bg-slate-50 text-slate-600 border-slate-200"
+                            }`}
+                          >
+                            {preset.label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )}
                   <div className="grid grid-cols-2 gap-2 mb-1.5">
-                    <input
-                      type="text"
-                      inputMode="numeric"
-                      value={minPrice}
-                      onChange={(e) => handleMinPriceChange(e.target.value)}
-                      placeholder="Min ₹"
-                      className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-9 px-2.5 text-xs"
-                    />
-                    <input
-                      type="text"
-                      inputMode="numeric"
-                      value={maxPrice}
-                      onChange={(e) => handleMaxPriceChange(e.target.value)}
-                      placeholder="Max ₹"
-                      className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-9 px-2.5 text-xs"
-                    />
+                    <div className="relative">
+                      <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">{priceSymbol}</span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={minPrice}
+                        onChange={(e) => handleMinPriceChange(e.target.value)}
+                        placeholder={isInternational ? "Min ($)" : "Min (₹)"}
+                        className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-9 pl-6 pr-2.5 text-xs"
+                      />
+                    </div>
+                    <div className="relative">
+                      <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">{priceSymbol}</span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={maxPrice}
+                        onChange={(e) => handleMaxPriceChange(e.target.value)}
+                        placeholder={isInternational ? "Max ($)" : "Max (₹)"}
+                        className="w-full bg-slate-50 border border-slate-200/90 rounded-xl h-9 pl-6 pr-2.5 text-xs"
+                      />
+                    </div>
                   </div>
                   <p className="text-[11px] text-slate-500 leading-normal">
-                    All catalogue packages are quote-based. Custom quotes are personalized to dates and hotel tiers.
+                    {isInternational
+                      ? "All 26 international packages display verified starting rates in USD ($) per person."
+                      : "All 67 national packages display verified starting rates in INR (₹) per person."}
                   </p>
                 </div>
 

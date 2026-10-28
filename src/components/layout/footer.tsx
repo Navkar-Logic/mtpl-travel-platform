@@ -74,7 +74,7 @@ export function Footer() {
               />
             </div>
             <div className="space-y-2.5">
-              <h3 className="text-base sm:text-lg font-semibold tracking-wide text-white whitespace-nowrap">
+              <h3 className="text-base sm:text-lg font-semibold tracking-wide text-white">
                 MISHRIKOTKAR TRAVELS PVT. LTD.
               </h3>
               <h4 className="text-base sm:text-lg font-semibold tracking-wide text-white">

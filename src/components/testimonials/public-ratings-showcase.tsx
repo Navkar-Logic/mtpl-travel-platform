@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Container } from "@/components/ui/container"
-import { Star, ExternalLink, ShieldCheck, Award, ThumbsUp, Users, MapPin, CheckCircle2 } from "lucide-react"
+import { Star, ExternalLink, ShieldCheck, Award, ThumbsUp, MapPin, CheckCircle2 } from "lucide-react"
 
 export function GoogleIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (

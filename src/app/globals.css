@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #17201C; /* Main text */

@@ -6,9 +6,11 @@ import Image from "next/image"
 
 import { getPackageBySlug, getAllPackages, getPackageTables, getPackageCategory } from "@/features/packages/data/packages"
 import { getPackagePriceDetails } from "@/features/packages/utils/package-pricing"
+import { getMediaUrl } from "@/lib/media"
 import { officeImages } from "@/config/office-images"
 import { PackageTables } from "@/components/packages/package-tables"
 import { PackageTermsModal } from "@/components/packages/package-terms-modal"
+import { PackageCallbackButton } from "@/components/packages/package-callback-button"
 import {
   Clock,
   MapPin,
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: pkg.shortDescription,
       images: [
         {
-          url: pkg.heroImage,
+          url: getMediaUrl(pkg.heroImage),
           width: 1200,
           height: 630,
           alt: pkg.title,
@@ -91,7 +93,7 @@ export default async function PackageDetailPage({ params }: Props) {
         {/* Cover Photograph */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={pkg.heroImage}
+            src={getMediaUrl(pkg.heroImage)}
             alt={pkg.title}
             fill
             priority
@@ -415,6 +417,8 @@ export default async function PackageDetailPage({ params }: Props) {
                   >
                     <Send className="w-4 h-4" /> Book / Request Exact Quote
                   </Link>
+
+                  <PackageCallbackButton packageSlug={pkg.slug} packageTitle={pkg.title} />
 
                   <a
                     href={pkg.whatsAppHref}

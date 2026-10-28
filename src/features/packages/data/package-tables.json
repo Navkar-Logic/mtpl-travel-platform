@@ -6422,5 +6422,1373 @@
         ]
       }
     ]
+  },
+  "mtpl-jordan-experience-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Option #1 (3-Star)",
+        "Option #2 (4-Star)",
+        "Option #3 (5-Star)",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Amman",
+          "2",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Petra",
+          "2",
+          "Petra Palace (Standard Room)",
+          "La Maison Hotel (Standard Room)",
+          "Hayat Zaman Resort (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Wadi Rum",
+          "1",
+          "Rahayeb Camp (Deluxe Tent)",
+          "Mazayen Camp (Deluxe Tent)",
+          "Memories Aicha Camp (Junior Luxury Tent)",
+          "Half Board (Dinner & Breakfast)"
+        ],
+        [
+          "Dead Sea",
+          "1",
+          "Grand East Hotel (4* Standard Room)",
+          "Dead Sea Spa Hotel (4* Standard Room)",
+          "Crown Plaza Resort (5* Standard Room)",
+          "Bed & Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — Individuals (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy / Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "2 Persons (Double Sharing)",
+            "$910 USD",
+            "$965 USD",
+            "$1,295 USD"
+          ],
+          [
+            "3 – 4 Persons",
+            "$835 USD",
+            "$885 USD",
+            "$1,220 USD"
+          ],
+          [
+            "Single Supplement",
+            "$185 USD",
+            "$220 USD",
+            "$510 USD"
+          ]
+        ]
+      },
+      {
+        "title": "Published Rate Guide — Groups (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "5 – 7 Persons",
+            "$1,065 USD",
+            "$1,110 USD",
+            "$1,445 USD"
+          ],
+          [
+            "8 – 9 Persons",
+            "$905 USD",
+            "$950 USD",
+            "$1,280 USD"
+          ],
+          [
+            "10 – 14 Persons",
+            "$805 USD",
+            "$855 USD",
+            "$1,190 USD"
+          ],
+          [
+            "15 – 17 Persons",
+            "$760 USD",
+            "$805 USD",
+            "$1,140 USD"
+          ],
+          [
+            "Single Room Supplement",
+            "$185 USD",
+            "$220 USD",
+            "$510 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jordan-family-holiday-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Option #1 (3-Star)",
+        "Option #2 (4-Star)",
+        "Option #3 (5-Star)",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Amman",
+          "2",
+          "Sparr Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Petra",
+          "1",
+          "Petra Palace (Standard Room)",
+          "La Maison Hotel (Standard Room)",
+          "The Old Village Resort (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Wadi Rum",
+          "1",
+          "Rahayeb Camp (Deluxe Tent)",
+          "Mazayen Camp (Standard Tent)",
+          "Memories Aicha Camp (Junior Luxury Tent)",
+          "Half Board (Dinner & Breakfast)"
+        ],
+        [
+          "Amman",
+          "2",
+          "Sparr Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — Individuals (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy / Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "2 Persons (Double Sharing)",
+            "$985 USD",
+            "$1,025 USD",
+            "$1,340 USD"
+          ],
+          [
+            "3 – 4 Persons",
+            "$890 USD",
+            "$930 USD",
+            "$1,250 USD"
+          ],
+          [
+            "Single Supplement",
+            "$155 USD",
+            "$200 USD",
+            "$380 USD"
+          ]
+        ]
+      },
+      {
+        "title": "Published Rate Guide — Groups (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "5 – 7 Persons",
+            "$1,135 USD",
+            "$1,170 USD",
+            "$1,490 USD"
+          ],
+          [
+            "8 – 9 Persons",
+            "$975 USD",
+            "$1,010 USD",
+            "$1,325 USD"
+          ],
+          [
+            "10 – 14 Persons",
+            "$875 USD",
+            "$910 USD",
+            "$1,230 USD"
+          ],
+          [
+            "Single Supplement",
+            "$155 USD",
+            "$200 USD",
+            "$380 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jordan-honeymoon-escape-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Option #1 (3-Star)",
+        "Option #2 (4-Star)",
+        "Option #3 (5-Star)",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Amman",
+          "1",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Petra",
+          "1",
+          "Petra Palace (Standard Room)",
+          "La Maison Hotel (Standard Room)",
+          "The Old Village Resort (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Wadi Rum",
+          "1",
+          "Rahayeb Camp (Deluxe Tent)",
+          "Mazayen Camp (Deluxe Tent)",
+          "Memories Aicha Camp (Junior Luxury Tent)",
+          "Half Board (Dinner & Breakfast)"
+        ],
+        [
+          "Dead Sea",
+          "1",
+          "Grand East Hotel (4* Standard Room)",
+          "Dead Sea Spa Hotel (4* Standard Room)",
+          "Crown Plaza Resort (5* Standard Room)",
+          "Bed & Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — Couple Tariff (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy Basis",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "2 Persons (Per Person Double Sharing)",
+            "$745 USD",
+            "$820 USD",
+            "$1,030 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jordan-treasures-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Option #1 (3-Star)",
+        "Option #2 (4-Star)",
+        "Option #3 (5-Star)",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Amman",
+          "2",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn Space (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Dead Sea",
+          "1",
+          "Grand East Hotel (4* Standard Room)",
+          "Dead Sea Spa (4* Standard Room)",
+          "Crown Plaza Resort (5* Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Petra",
+          "2",
+          "Petra Palace (Standard Room)",
+          "La Maison Hotel (Standard Room)",
+          "The Old Village (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Aqaba",
+          "1",
+          "Alena Hotel (4* Standard Room)",
+          "La Costa (4* Standard Room)",
+          "Grand Tala Bay (5* Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Amman",
+          "1",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — Individuals (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy / Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "2 Persons (Double Sharing)",
+            "$1,010 USD",
+            "$1,085 USD",
+            "$1,420 USD"
+          ],
+          [
+            "3 – 4 Persons",
+            "$900 USD",
+            "$980 USD",
+            "$1,310 USD"
+          ],
+          [
+            "Single Supplement",
+            "$210 USD",
+            "$270 USD",
+            "$515 USD"
+          ]
+        ]
+      },
+      {
+        "title": "Published Rate Guide — Groups (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "5 – 7 Persons",
+            "$1,185 USD",
+            "$1,250 USD",
+            "$1,585 USD"
+          ],
+          [
+            "8 – 9 Persons",
+            "$1,000 USD",
+            "$1,070 USD",
+            "$1,400 USD"
+          ],
+          [
+            "10 – 14 Persons",
+            "$890 USD",
+            "$955 USD",
+            "$1,290 USD"
+          ],
+          [
+            "Single Supplement",
+            "$210 USD",
+            "$270 USD",
+            "$515 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-magic-of-jordan-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Option #1 (3-Star)",
+        "Option #2 (4-Star)",
+        "Option #3 (5-Star)",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Amman",
+          "1",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Petra",
+          "1",
+          "Petra Palace Hotel (Standard Room)",
+          "La Maison Hotel (Standard Room)",
+          "Old Village Resort (Standard Room)",
+          "Bed & Breakfast"
+        ],
+        [
+          "Wadi Rum",
+          "1",
+          "Rahayeb Camp (Deluxe Tent)",
+          "Mazayen Camp (Deluxe Tent)",
+          "Memories Aicha Camp (Junior Luxury Tent)",
+          "Half Board (Dinner & Breakfast)"
+        ],
+        [
+          "Amman",
+          "1",
+          "Orchid Hotel (Standard Room)",
+          "Days Inn Hotel (Standard Room)",
+          "Bristol Hotel (Standard Room)",
+          "Bed & Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — Individuals (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy / Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "2 Persons (Double Sharing)",
+            "$770 USD",
+            "$790 USD",
+            "$1,000 USD"
+          ],
+          [
+            "3 – 4 Persons",
+            "$680 USD",
+            "$695 USD",
+            "$910 USD"
+          ],
+          [
+            "Single Supplement",
+            "$105 USD",
+            "$140 USD",
+            "$335 USD"
+          ]
+        ]
+      },
+      {
+        "title": "Published Rate Guide — Groups (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Group Size",
+          "Option #1 (3-Star)",
+          "Option #2 (4-Star)",
+          "Option #3 (5-Star)"
+        ],
+        "rows": [
+          [
+            "5 – 7 Persons",
+            "$840 USD",
+            "$860 USD",
+            "$1,075 USD"
+          ],
+          [
+            "8 – 9 Persons",
+            "$710 USD",
+            "$730 USD",
+            "$940 USD"
+          ],
+          [
+            "10 – 14 Persons",
+            "$630 USD",
+            "$650 USD",
+            "$860 USD"
+          ],
+          [
+            "Single Supplement",
+            "$105 USD",
+            "$140 USD",
+            "$335 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-phnom-penh-highlights-2n-3d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Selected Hotel",
+        "Room Type",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Hotel Sor",
+          "Deluxe Room",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "The ONRA Hotel",
+          "Deluxe Sunset Room",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Palace Gate Hotel & Resort by EHM",
+          "Royal Deluxe Room",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — USD Per Person (01 Oct 2026 - 01 Sept 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-14 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$256 USD",
+            "$211 USD",
+            "$160 USD",
+            "$149 USD",
+            "$133 USD",
+            "$39 USD"
+          ],
+          [
+            "4-Star Package",
+            "$266 USD",
+            "$221 USD",
+            "$170 USD",
+            "$159 USD",
+            "$143 USD",
+            "$39 USD"
+          ],
+          [
+            "5-Star Package",
+            "$311 USD",
+            "$266 USD",
+            "$215 USD",
+            "$204 USD",
+            "$188 USD",
+            "$99 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-siem-reap-heritage-experience-2n-3d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Selected Hotel",
+        "Room Type",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Dara Reang Sey Angkor Hotel",
+          "Superior Room",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "Somadevi Angkor Hotel & Resort",
+          "Superior Room",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Sokha Angkor Resort",
+          "Deluxe City View Room",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-12 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$234 USD",
+            "$188 USD",
+            "$146 USD",
+            "$142 USD",
+            "$125 USD",
+            "$28 USD"
+          ],
+          [
+            "4-Star Package",
+            "$254 USD",
+            "$208 USD",
+            "$166 USD",
+            "$162 USD",
+            "$145 USD",
+            "$50 USD"
+          ],
+          [
+            "5-Star Package",
+            "$322 USD",
+            "$276 USD",
+            "$234 USD",
+            "$230 USD",
+            "$213 USD",
+            "$118 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-siem-reap-mt-kulen-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Option",
+        "Category",
+        "City",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Dara Reang Sey Angkor",
+          "3-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ],
+        [
+          "Landing Gold by Amatak",
+          "3-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ],
+        [
+          "Regency Angkor",
+          "4-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ],
+        [
+          "Somadevi Angkor Resort",
+          "4-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ],
+        [
+          "Royal Angkor Resort",
+          "5-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ],
+        [
+          "Sokha Angkor Resort",
+          "5-Star Hotel",
+          "Siem Reap",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Hotel Option",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-12 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "Dara Reang Sey (3*)",
+            "$307 USD",
+            "$246 USD",
+            "$202 USD",
+            "$178 USD",
+            "$162 USD",
+            "$42 USD"
+          ],
+          [
+            "Landing Gold by Amatak (3*)",
+            "$322 USD",
+            "$261 USD",
+            "$217 USD",
+            "$193 USD",
+            "$177 USD",
+            "$58 USD"
+          ],
+          [
+            "Regency Angkor (4*)",
+            "$325 USD",
+            "$264 USD",
+            "$220 USD",
+            "$196 USD",
+            "$180 USD",
+            "$58 USD"
+          ],
+          [
+            "Somadevi Angkor (4*)",
+            "$332 USD",
+            "$271 USD",
+            "$227 USD",
+            "$203 USD",
+            "$187 USD",
+            "$66 USD"
+          ],
+          [
+            "Royal Angkor Resort (5*)",
+            "$355 USD",
+            "$294 USD",
+            "$250 USD",
+            "$226 USD",
+            "$210 USD",
+            "$91 USD"
+          ],
+          [
+            "Sokha Angkor Resort (5*)",
+            "$377 USD",
+            "$316 USD",
+            "$272 USD",
+            "$248 USD",
+            "$232 USD",
+            "$116 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-siem-reap-phnom-penh-culture-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Siem Reap Hotel",
+        "Phnom Penh Hotel",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Landing Gold by Amatak",
+          "Pacific Hotel",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "Regency Angkor / Somadevi",
+          "The ONRA / Ohana Hotel",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Sokha Angkor Resort",
+          "Palace Gate Hotel & Residence",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$427 USD",
+            "$356 USD",
+            "$286 USD",
+            "$275 USD",
+            "$74 USD"
+          ],
+          [
+            "4-Star Package",
+            "$441 USD",
+            "$369 USD",
+            "$299 USD",
+            "$288 USD",
+            "$77 USD"
+          ],
+          [
+            "5-Star Package",
+            "$529 USD",
+            "$457 USD",
+            "$387 USD",
+            "$376 USD",
+            "$175 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-siem-reap-phnom-penh-heritage-4n-5d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Siem Reap Hotel",
+        "Phnom Penh Hotel",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Kingdom Angkor / Smiling Hotel",
+          "Hotel Sor",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "Regency Angkor / Somadevi",
+          "The ONRA / Ohana Hotel",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Sokha Angkor Resort",
+          "Palace Gate Hotel & Residence",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (12 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-7 Pax",
+          "8-10 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$553 USD",
+            "$446 USD",
+            "$395 USD",
+            "$328 USD",
+            "$67 USD"
+          ],
+          [
+            "4-Star Package",
+            "$568 USD",
+            "$461 USD",
+            "$410 USD",
+            "$343 USD",
+            "$72 USD"
+          ],
+          [
+            "5-Star Package",
+            "$671 USD",
+            "$564 USD",
+            "$513 USD",
+            "$446 USD",
+            "$185 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-cambodia-discovery-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Phnom Penh Hotel",
+        "Koh Rong Island Resort",
+        "Siem Reap Hotel",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Pacific Hotel",
+          "Sok San Beach Resort",
+          "Dara Reang Sey Angkor",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "The ONRA Hotel",
+          "Scarlet Sails Resort",
+          "Somadevi Angkor Hotel",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "NagaWorld",
+          "Long Set Resort",
+          "Sokha Angkor Resort",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-12 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$542 USD",
+            "$449 USD",
+            "$391 USD",
+            "$353 USD",
+            "$327 USD",
+            "$125 USD"
+          ],
+          [
+            "4-Star Package",
+            "$557 USD",
+            "$464 USD",
+            "$406 USD",
+            "$368 USD",
+            "$342 USD",
+            "$136 USD"
+          ],
+          [
+            "5-Star Package",
+            "$664 USD",
+            "$571 USD",
+            "$513 USD",
+            "$475 USD",
+            "$449 USD",
+            "$249 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-classic-cambodia-journey-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Phnom Penh Hotel",
+        "Battambang Hotel",
+        "Siem Reap Hotel",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Hotel Sor",
+          "Classy Hotel & Spa",
+          "Dara Reang Sey Angkor",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "Ohana Phnom Penh",
+          "Classy Hotel & Spa",
+          "Somadevi Angkor Hotel",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Palace Gate Residence",
+          "Battambang Resort Hotel",
+          "Sokha Angkor Resort",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-12 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$789 USD",
+            "$606 USD",
+            "$499 USD",
+            "$423 USD",
+            "$370 USD",
+            "$109 USD"
+          ],
+          [
+            "4-Star Package",
+            "$824 USD",
+            "$641 USD",
+            "$534 USD",
+            "$458 USD",
+            "$405 USD",
+            "$137 USD"
+          ],
+          [
+            "5-Star Package",
+            "$979 USD",
+            "$796 USD",
+            "$689 USD",
+            "$613 USD",
+            "$560 USD",
+            "$296 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-phnom-penh-oudong-3n-4d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Selected Hotel",
+        "Room Type",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Package",
+          "Hotel Sor",
+          "Deluxe Room",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Package",
+          "Ohana Phnom Penh Palace Hotel",
+          "Deluxe Room",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Package",
+          "Palace Gate Hotel & Residence",
+          "King Suite",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide — High Season USD Per Person (01 Oct 2026 - 31 Mar 2027)",
+        "currency": "USD",
+        "headers": [
+          "Package Category",
+          "2 Pax",
+          "3-4 Pax",
+          "5-6 Pax",
+          "7-9 Pax",
+          "10-14 Pax",
+          "Single Sup."
+        ],
+        "rows": [
+          [
+            "3-Star Package",
+            "$296 USD",
+            "$238 USD",
+            "$189 USD",
+            "$172 USD",
+            "$155 USD",
+            "$58 USD"
+          ],
+          [
+            "4-Star Package",
+            "$311 USD",
+            "$253 USD",
+            "$204 USD",
+            "$187 USD",
+            "$170 USD",
+            "$58 USD"
+          ],
+          [
+            "5-Star Package",
+            "$379 USD",
+            "$320 USD",
+            "$272 USD",
+            "$254 USD",
+            "$237 USD",
+            "$149 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-wonders-of-dubai-5n-6d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Indicative Hotels",
+        "Occupancy",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Hotel",
+          "Ibis Styles / Citymax / Fortune Pearl or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Hotel",
+          "Hyatt Place / Millennium Central / Carlton Downtown or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Hotel",
+          "Mövenpick Grand / Swissôtel Al Ghurair / Crowne Plaza or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Hotel Category",
+          "Without Visa (pp)",
+          "With 30-day UAE Visa (pp)"
+        ],
+        "rows": [
+          [
+            "3-Star Hotel",
+            "$489 USD",
+            "$581 USD"
+          ],
+          [
+            "4-Star Hotel",
+            "$546 USD",
+            "$639 USD"
+          ],
+          [
+            "5-Star Hotel",
+            "$719 USD",
+            "$810 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-exclusive-dubai-abu-dhabi-6n-7d": {
+    "accommodations": {
+      "headers": [
+        "Hotel Category",
+        "Indicative Hotels",
+        "Occupancy",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "3-Star Hotel",
+          "Ibis Styles / Citymax / Fortune Pearl or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ],
+        [
+          "4-Star Hotel",
+          "Hyatt Place / Millennium Central / Carlton Downtown or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ],
+        [
+          "5-Star Hotel",
+          "Mövenpick Grand / Swissôtel Al Ghurair / Crowne Plaza or similar",
+          "Double / Twin Sharing",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide (in USD)",
+        "currency": "USD",
+        "headers": [
+          "Hotel Category",
+          "Without Visa (pp)",
+          "With 30-day UAE Visa (pp)"
+        ],
+        "rows": [
+          [
+            "3-Star Hotel",
+            "$638 USD",
+            "$730 USD"
+          ],
+          [
+            "4-Star Hotel",
+            "$707 USD",
+            "$799 USD"
+          ],
+          [
+            "5-Star Hotel",
+            "$937 USD",
+            "$1,029 USD"
+          ]
+        ]
+      }
+    ]
+  },
+  "mtpl-jewels-of-japan-cherry-blossom-7n-8d": {
+    "accommodations": {
+      "headers": [
+        "City / Destination",
+        "Nights",
+        "Hotel Selection (4-Star Category)",
+        "Room Standard",
+        "Meal Plan"
+      ],
+      "rows": [
+        [
+          "Tokyo",
+          "2",
+          "Shinagawa Prince Hotel *4 or similar",
+          "Standard Twin / Double",
+          "Daily Breakfast"
+        ],
+        [
+          "Hamamatsu",
+          "1",
+          "Grand Mercure Lake Hamana Resort & Spa *4 or similar",
+          "Standard Room / Onsen",
+          "Breakfast & Dinner"
+        ],
+        [
+          "Osaka",
+          "3",
+          "Hotel Monterey La Soeur Osaka *4 or similar",
+          "Standard Twin / Double",
+          "Daily Breakfast"
+        ],
+        [
+          "Kansai",
+          "1",
+          "Hotel Nikko Kansai Airport *4 or similar",
+          "Standard Room",
+          "Daily Breakfast"
+        ]
+      ]
+    },
+    "costTables": [
+      {
+        "title": "Published Rate Guide (Applicable for full payment in USD)",
+        "currency": "USD",
+        "headers": [
+          "Occupancy Category",
+          "Tariff (in USD)",
+          "Conditions"
+        ],
+        "rows": [
+          [
+            "Double / Twin / Triple Sharing",
+            "$2,400 USD",
+            "Per adult travelling (Min 30 adults group size)"
+          ],
+          [
+            "Single Room Supplement",
+            "$3,200 USD",
+            "Per person in private single room"
+          ],
+          [
+            "Child With Bed (2 - 10 Years)",
+            "$2,000 USD",
+            "Sharing room with 2 paying adults"
+          ],
+          [
+            "Child No Bed (2 - 10 Years)",
+            "$1,700 USD",
+            "Sharing existing bedding with 2 adults"
+          ],
+          [
+            "Infant (Below 2 Years)",
+            "Free of Charge",
+            "FOC (Attraction entrance costs direct if charged)"
+          ]
+        ]
+      }
+    ]
   }
 }

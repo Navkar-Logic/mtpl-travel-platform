@@ -105,7 +105,7 @@ export function ModernDropdown({
       {/* Floating Animated Dropdown Menu */}
       {isOpen && (
         <div 
-          className={`absolute ${align === "right" ? "right-0" : "left-0"} top-full mt-1.5 z-50 bg-white/98 backdrop-blur-xl rounded-2xl border border-slate-200/90 shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-1.5 min-w-[220px] sm:min-w-[240px] max-h-72 overflow-y-auto animate-in fade-in zoom-in-95 duration-150`}
+          className={`absolute ${align === "right" ? "right-0" : "left-0"} top-full mt-1.5 z-50 bg-white/98 backdrop-blur-xl rounded-2xl border border-slate-200/90 shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-1.5 w-full sm:w-auto min-w-[200px] sm:min-w-[240px] max-w-[calc(100vw-32px)] max-h-72 overflow-y-auto animate-in fade-in zoom-in-95 duration-150`}
         >
           <ul role="listbox" aria-label={label} className="space-y-0.5">
             {options.map((option) => {

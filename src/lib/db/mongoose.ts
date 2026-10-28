@@ -31,17 +31,24 @@ export async function connectToDatabase(): Promise<typeof mongoose> {
     return cached.conn;
   }
 
-  const uri = process.env.MONGODB_URI;
-  if (!uri) {
+  // If previous connection was closed or disconnected, clear stale promise to trigger a clean reconnect
+  if (mongoose.connection.readyState !== 1 && mongoose.connection.readyState !== 2) {
+    cached.conn = null;
+    cached.promise = null;
+  }
+
+  const rawUri = process.env.MONGODB_URI;
+  if (!rawUri) {
     throw new Error("Database configuration missing: MONGODB_URI environment variable is not defined.");
   }
+  const uri = rawUri.trim();
 
   // Reuse in-flight connection promise across concurrent requests
   if (!cached.promise) {
     const opts: mongoose.ConnectOptions = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s if DB is unreachable to avoid freezing requests
-      connectTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 4000,
+      connectTimeoutMS: 5000,
       maxPoolSize: 10,
     };
 

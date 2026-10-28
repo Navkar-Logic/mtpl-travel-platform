@@ -80,11 +80,11 @@ export function EnquiryCta() {
 
             <a 
               href={`tel:${siteConfig.contact.phones.primary.replace(/\s/g, '')}`}
-              className="group inline-flex items-center justify-center gap-2 text-base font-medium text-[#123D2E] hover:text-[#0E7443] px-4 py-2.5 rounded-full transition-colors duration-200"
+              className="group inline-flex items-center justify-center gap-2 text-sm sm:text-base font-medium text-[#123D2E] hover:text-[#0E7443] px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full transition-colors duration-200 text-center max-w-full flex-wrap sm:flex-nowrap"
             >
-              <Phone className="w-4 h-4 text-[#0E7443] transition-transform duration-200 group-hover:scale-110" />
+              <Phone className="w-4 h-4 text-[#0E7443] transition-transform duration-200 group-hover:scale-110 flex-shrink-0" />
               <span>
-                Or call us directly: <strong className="font-semibold">{siteConfig.contact.phones.primary}</strong>
+                Or call us directly: <strong className="font-semibold whitespace-nowrap">{siteConfig.contact.phones.primary}</strong>
               </span>
             </a>
           </div>

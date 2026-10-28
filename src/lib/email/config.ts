@@ -99,24 +99,104 @@ export function formatWhatsAppUrl(rawPhone: string): string | null {
   return `https://wa.me/${digits}`;
 }
 
-/**
- * Resolves local logo file on disk for Content-ID (CID) email embedding.
- * Safe fallback indicator if runtime assets are decoupled from repository.
- */
-export function getLogoAttachment(): {
+export interface EmailLogoAttachment {
   filename: string;
   path?: string;
   cid: string;
   exists: boolean;
-} {
-  const logoRelative = path.join("public", "assets", "mtpl-logo.png");
+}
+
+/**
+ * Resolves the primary MTPL desktop logo for white-header email rendering.
+ * Asset: public/assets/mtpl-desktop-logo.png
+ */
+export function getHeaderLogoAttachment(): EmailLogoAttachment {
+  const logoRelative = path.join("public", "assets", "mtpl-desktop-logo.png");
   const logoPath = path.resolve(process.cwd(), logoRelative);
   const exists = fs.existsSync(logoPath);
 
   return {
-    filename: "mtpl-logo.png",
+    filename: "mtpl-desktop-logo.png",
     path: exists ? logoPath : undefined,
-    cid: "mtpl-logo",
+    cid: "mtpl-desktop-logo",
     exists,
   };
 }
+
+/**
+ * Resolves the MTPL footer logo for inline MIME Content-ID email embedding.
+ * Asset: public/assets/mtpl-footer-logo.png
+ */
+export function getFooterLogoAttachment(): EmailLogoAttachment {
+  const logoRelative = path.join("public", "assets", "mtpl-footer-logo.png");
+  const logoPath = path.resolve(process.cwd(), logoRelative);
+  const exists = fs.existsSync(logoPath);
+
+  return {
+    filename: "mtpl-footer-logo.png",
+    path: exists ? logoPath : undefined,
+    cid: "mtpl-footer-logo",
+    exists,
+  };
+}
+
+/**
+ * Resolves both header and footer logo attachments for email transports.
+ * Attaches both files inline with matching Content-IDs (cid:mtpl-desktop-logo and cid:mtpl-footer-logo).
+ */
+export function getEmailLogoAttachments(): Array<{
+  filename: string;
+  path: string;
+  cid: string;
+}> {
+  const header = getHeaderLogoAttachment();
+  const footer = getFooterLogoAttachment();
+  const attachments: Array<{ filename: string; path: string; cid: string }> = [];
+
+  if (header.exists && header.path) {
+    attachments.push({
+      filename: header.filename,
+      path: header.path,
+      cid: header.cid,
+    });
+  }
+
+  if (footer.exists && footer.path) {
+    attachments.push({
+      filename: footer.filename,
+      path: footer.path,
+      cid: footer.cid,
+    });
+  }
+
+  return attachments;
+}
+
+/**
+ * Legacy compatibility resolver. Defaults to header logo attachment.
+ */
+export function getLogoAttachment(): EmailLogoAttachment {
+  return getHeaderLogoAttachment();
+}
+
+/**
+ * Returns a stable, email-compatible HTTPS hosted URL for the header logo.
+ * Uses the verified production domain canonical URL as the primary fallback.
+ */
+export function getHeaderLogoUrl(config?: EmailConfig): string {
+  if (config?.appUrl && !config.appUrl.includes("localhost") && !config.appUrl.includes("127.0.0.1")) {
+    return `${config.appUrl}/assets/mtpl-desktop-logo.png`;
+  }
+  return "https://www.mishrikotkartravels.com/assets/mtpl-desktop-logo.png";
+}
+
+/**
+ * Returns a stable, email-compatible HTTPS hosted URL for the footer logo.
+ */
+export function getFooterLogoUrl(config?: EmailConfig): string {
+  if (config?.appUrl && !config.appUrl.includes("localhost") && !config.appUrl.includes("127.0.0.1")) {
+    return `${config.appUrl}/assets/mtpl-footer-logo.png`;
+  }
+  return "https://www.mishrikotkartravels.com/assets/mtpl-footer-logo.png";
+}
+

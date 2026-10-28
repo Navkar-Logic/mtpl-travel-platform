@@ -19,7 +19,7 @@ export function getPackagePriceDetails(
   pkg: Package,
   tables: PackageTableData | null
 ): PackagePriceDetails {
-  // Detect if package is quoted in USD (e.g. Sri Lanka and other USD-denominated international tours)
+  // Detect if package is quoted in USD (e.g. Sri Lanka, Jordan, Cambodia, Dubai, Japan, and other USD-denominated international tours)
   const isUSD =
     Boolean(
       tables?.costTables?.some(
@@ -43,18 +43,39 @@ export function getPackagePriceDetails(
       )
     ) ||
     pkg.slug.includes("sri-lanka") ||
-    pkg.slug.includes("srilanka")
+    pkg.slug.includes("srilanka") ||
+    pkg.destination === "Jordan" ||
+    pkg.destination === "Cambodia" ||
+    pkg.destination === "Dubai" ||
+    pkg.destination === "Japan" ||
+    pkg.destination === "Bhutan" ||
+    pkg.destination === "Nepal" ||
+    pkg.category === "international" ||
+    Boolean(pkg.priceDisplay && (pkg.priceDisplay.includes("$") || pkg.priceDisplay.toUpperCase().includes("USD")))
 
   const currencyCode: "INR" | "USD" = isUSD ? "USD" : "INR"
-  const currencyPrefix = isUSD ? "USD " : "₹"
   const locale = isUSD ? "en-US" : "en-IN"
   const minThreshold = isUSD ? 50 : 1000
 
   const formatAmount = (val: number) => {
-    return `${currencyPrefix}${val.toLocaleString(locale)}`
+    return isUSD ? `$${val.toLocaleString(locale)} USD` : `₹${val.toLocaleString(locale)}`
   }
 
-  // 1. Check if cost tables contain verified 2-person tariff numbers
+  // 1. If package is International with a verified USD numeric price, prioritize USD price
+  if (isUSD && pkg.numericPrice && (!tables?.costTables?.some((t) => t.currency?.toUpperCase() === "USD"))) {
+    return {
+      hasPrice: true,
+      displayPrice: formatAmount(pkg.numericPrice),
+      subtext: pkg.pricingBasis || "Per person on 2 Pax double sharing",
+      startingPrice: pkg.numericPrice,
+      groupPrice: null,
+      pricingBasis: pkg.pricingBasis || "Per Person on 2 Pax Double Sharing",
+      currency: "USD",
+      source: "numeric_fixed",
+    }
+  }
+
+  // 2. Check if cost tables contain verified 2-person tariff numbers
   if (tables && tables.costTables && tables.costTables.length > 0) {
     let twoPaxMin = Infinity
     let twoPaxCategory = ""

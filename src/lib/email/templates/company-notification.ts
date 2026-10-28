@@ -2,348 +2,170 @@ import "server-only";
 import { escapeHtml, formatTelUrl, formatWhatsAppUrl } from "../config";
 import type { EmailConfig, EnquiryEmailData } from "../types";
 import type { RenderedEmail } from "./customer-confirmation";
+import {
+  renderBaseEmailHtml,
+  renderBaseEmailText,
+  EmailActionItem,
+  EmailDetailField,
+  EMAIL_PALETTE,
+} from "./base-template";
 
+/**
+ * Renders the internal admin notification email for comprehensive website holiday enquiries.
+ * Separates customer-provided travel plans from system audit metadata in a clean, legible hierarchy.
+ */
 export function renderCompanyNotificationEmail(
   data: EnquiryEmailData,
   config: EmailConfig,
   logoCidAvailable = true
 ): RenderedEmail {
-  const travelTypeDisplay = data.travelType ? `${data.travelType.toUpperCase()}` : "GENERAL";
+  const travelTypeDisplay = data.travelType ? data.travelType.toUpperCase() : "GENERAL";
   const subject = `[New Lead] #${data.reference} — ${travelTypeDisplay} Enquiry from ${data.fullName}`;
 
-  const logoSrc = logoCidAvailable
-    ? "cid:mtpl-logo"
-    : `${config.appUrl}/assets/mtpl-logo.png`;
-
-  const safeName = escapeHtml(data.fullName);
-  const safeCompany = data.companyName ? escapeHtml(data.companyName) : "Not specified";
-  const safeEmail = escapeHtml(data.email);
-  const safePhone = escapeHtml(data.phone);
-  const safeDestination = escapeHtml(data.destination || "Not specified");
-  const safeTravelType = escapeHtml(data.travelType || "General Enquiry");
-  const safeTravelDate = escapeHtml(data.travelDate || "Flexible");
-  const safeReturnDate = escapeHtml(data.returnDate || "Not specified");
-  const safeTravellers = data.travellers ? escapeHtml(data.travellers) : "Not specified";
-  const safeBudget = escapeHtml(data.budget || "Not specified");
-  const safeMessage = escapeHtml(data.message);
-  const safeSource = escapeHtml(data.source);
-  const safeRef = escapeHtml(data.reference);
-  const safeId = escapeHtml(data.id);
-
-  const telLink = formatTelUrl(data.phone);
-  const whatsappUrl = formatWhatsAppUrl(data.phone);
-  const mailtoLink = `mailto:${encodeURIComponent(data.email)}?subject=Re:%20Enquiry%20%23${encodeURIComponent(data.reference)}%20-%20Mishrikotkar%20Travels`;
-
   const submissionDate = data.createdAt ? new Date(data.createdAt) : new Date();
-  const formattedIstDate = submissionDate.toLocaleString("en-IN", {
-    timeZone: "Asia/Kolkata",
-    dateStyle: "medium",
-    timeStyle: "short",
-  }) + " (IST)";
+  const formattedIstDate =
+    submissionDate.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "medium",
+      timeStyle: "short",
+    }) + " (IST)";
 
+  // Format customer-provided travel details
+  const details: EmailDetailField[] = [
+    { label: "Customer Name", value: data.fullName },
+    ...(data.companyName?.trim() ? [{ label: "Company", value: data.companyName.trim() }] : []),
+    {
+      label: "Phone Number",
+      value: `<a href="${formatTelUrl(data.phone)}" style="color: #16A765; font-weight: 700; text-decoration: none;">${escapeHtml(data.phone)}</a>`,
+      rawHtml: true,
+    },
+    {
+      label: "Email Address",
+      value: `<a href="mailto:${escapeHtml(data.email)}" style="color: #16A765; text-decoration: none;">${escapeHtml(data.email)}</a>`,
+      rawHtml: true,
+    },
+    { label: "Travel Type", value: data.travelType || "General Enquiry" },
+    { label: "Destination", value: data.destination || "Not specified" },
+    { label: "Travel Date", value: data.travelDate || "Flexible" },
+    ...(data.returnDate ? [{ label: "Return Date", value: data.returnDate }] : []),
+    { label: "Travellers", value: data.travellers ? `${data.travellers} Person(s)` : "Not specified" },
+    { label: "Budget", value: data.budget || "Flexible / On Request" },
+    ...(data.packageSlug ? [{ label: "Package Slug", value: data.packageSlug }] : []),
+    { label: "Received At", value: formattedIstDate },
+    {
+      label: "Reference Code",
+      value: `<code style="background-color: #F0F4F2; padding: 2px 7px; border-radius: 4px; font-family: monospace; font-size: 13px; font-weight: 700; color: #063D2A; border: 1px solid #D6DFDB;">${escapeHtml(data.reference)}</code>`,
+      rawHtml: true,
+    },
+  ];
+
+  // Action Buttons
+  const actions: EmailActionItem[] = [];
+  const telLink = formatTelUrl(data.phone);
+  if (telLink) {
+    actions.push({
+      label: `Call ${data.phone}`,
+      url: telLink,
+      type: "primary",
+    });
+  }
+
+  const whatsappUrl = formatWhatsAppUrl(data.phone);
+  if (whatsappUrl) {
+    actions.push({
+      label: "WhatsApp Lead",
+      url: whatsappUrl,
+      type: "secondary",
+    });
+  }
+
+  if (data.email?.trim()) {
+    const mailtoSubject = encodeURIComponent(`Re: Enquiry #${data.reference} - Mishrikotkar Travels`);
+    actions.push({
+      label: "Reply by Email",
+      url: `mailto:${encodeURIComponent(data.email.trim())}?subject=${mailtoSubject}`,
+      type: "secondary",
+    });
+  }
+
+  // Customer Message Box + System Audit Metadata Block
   const policyVersion = data.consentDetails?.policyVersion || "2026.1";
-
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(subject)}</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f1f5f9;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #0f172a;
-      line-height: 1.6;
-    }
-    .wrapper {
-      width: 100%;
-      table-layout: fixed;
-      background-color: #f1f5f9;
-      padding: 24px 0;
-    }
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      overflow: hidden;
-    }
-    .header {
-      background-color: #0284c7;
-      padding: 20px 28px;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      color: #ffffff;
-    }
-    .header-sub {
-      font-size: 12px;
-      color: #e0f2fe;
-      margin-top: 2px;
-    }
-    .quick-actions {
-      background-color: #0f172a;
-      padding: 16px 28px;
-      text-align: center;
-    }
-    .action-btn {
-      display: inline-block;
-      padding: 10px 18px;
-      margin: 4px 6px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      color: #ffffff;
-    }
-    .btn-call { background-color: #0284c7; }
-    .btn-wa { background-color: #16a34a; }
-    .btn-mail { background-color: #475569; }
-    .content {
-      padding: 28px;
-    }
-    .section-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-    .tag-customer {
-      background-color: #dbeafe;
-      color: #1e40af;
-    }
-    .tag-system {
-      background-color: #f1f5f9;
-      color: #475569;
-    }
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 24px;
-    }
-    .data-table tr {
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .data-table td {
-      padding: 8px 6px;
-      font-size: 14px;
-      vertical-align: top;
-    }
-    .label-col {
-      width: 32%;
-      color: #64748b;
-      font-weight: 500;
-    }
-    .value-col {
-      color: #0f172a;
-      font-weight: 600;
-    }
-    .message-block {
-      background-color: #f8fafc;
-      border-left: 4px solid #0284c7;
-      padding: 14px 18px;
-      border-radius: 4px;
-      font-size: 14px;
-      color: #1e293b;
-      white-space: pre-wrap;
-      word-break: break-word;
-      margin: 12px 0 24px 0;
-    }
-    .audit-box {
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 16px;
-      margin-top: 16px;
-      font-size: 12px;
-    }
-    .audit-grid {
-      display: table;
-      width: 100%;
-    }
-    .audit-row {
-      display: table-row;
-    }
-    .audit-cell-label {
-      display: table-cell;
-      padding: 3px 0;
-      color: #64748b;
-      width: 40%;
-    }
-    .audit-cell-val {
-      display: table-cell;
-      padding: 3px 0;
-      color: #334155;
-      font-family: monospace;
-      font-size: 11px;
-    }
-    .footer {
-      background-color: #f8fafc;
-      padding: 18px 28px;
-      text-align: center;
-      border-top: 1px solid #e2e8f0;
-      font-size: 12px;
-      color: #94a3b8;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <div class="container">
-      <div class="header">
-        <div>
-          <h1 class="header-title">🔔 New Tour Enquiry #${safeRef}</h1>
-          <div class="header-sub">Submitted: ${formattedIstDate}</div>
-        </div>
-        <div>
-          <img src="${logoSrc}" alt="MTPL Logo" width="110" style="vertical-align:middle;">
-        </div>
+  const customContentHtml = `
+    <!-- Customer Message Block -->
+    <div style="margin: 20px 0; background-color: #FAFCFA; border: 1px solid ${EMAIL_PALETTE.border}; border-radius: 8px; padding: 16px 20px;">
+      <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: ${EMAIL_PALETTE.secondaryText}; margin-bottom: 6px;">
+        Customer Planning Notes / Message
       </div>
-
-      <!-- Quick Action Buttons directly connected to Customer Details -->
-      <div class="quick-actions">
-        <a href="${telLink}" class="action-btn btn-call">📞 Call Customer</a>
-        ${whatsappUrl ? `<a href="${whatsappUrl}" target="_blank" class="action-btn btn-wa">💬 WhatsApp Chat</a>` : ""}
-        <a href="${mailtoLink}" class="action-btn btn-mail">✉️ Reply Email</a>
-      </div>
-
-      <div class="content">
-        <!-- CUSTOMER-PROVIDED DETAILS -->
-        <div>
-          <span class="section-tag tag-customer">Customer-Provided Information</span>
-          <table class="data-table">
-            <tr>
-              <td class="label-col">Customer Name:</td>
-              <td class="value-col">${safeName}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Company Name:</td>
-              <td class="value-col">${safeCompany}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Phone Number:</td>
-              <td class="value-col">
-                <a href="${telLink}" style="color:#0284c7; text-decoration:none;">${safePhone}</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="label-col">Email Address:</td>
-              <td class="value-col">
-                <a href="${mailtoLink}" style="color:#0284c7; text-decoration:none;">${safeEmail}</a>
-              </td>
-            </tr>
-            <tr>
-              <td class="label-col">Travel Type:</td>
-              <td class="value-col">${safeTravelType}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Destination:</td>
-              <td class="value-col">${safeDestination}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Travel Dates:</td>
-              <td class="value-col">${safeTravelDate} ${data.returnDate ? `to ${safeReturnDate}` : ""}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Travellers:</td>
-              <td class="value-col">${safeTravellers}</td>
-            </tr>
-            <tr>
-              <td class="label-col">Budget:</td>
-              <td class="value-col">${safeBudget}</td>
-            </tr>
-          </table>
-
-          <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:#475569; margin-bottom:4px;">Customer Message:</div>
-          <div class="message-block">${safeMessage}</div>
-        </div>
-
-        <!-- SYSTEM-GENERATED METADATA -->
-        <div>
-          <span class="section-tag tag-system">System Metadata &amp; Audit Stamp</span>
-          <div class="audit-box">
-            <div class="audit-grid">
-              <div class="audit-row">
-                <div class="audit-cell-label">Enquiry Reference:</div>
-                <div class="audit-cell-val">#${safeRef}</div>
-              </div>
-              <div class="audit-row">
-                <div class="audit-cell-label">MongoDB ID:</div>
-                <div class="audit-cell-val">${safeId}</div>
-              </div>
-              <div class="audit-row">
-                <div class="audit-cell-label">Traffic Source:</div>
-                <div class="audit-cell-val">${safeSource}</div>
-              </div>
-              ${data.packageSlug ? `<div class="audit-row"><div class="audit-cell-label">Package Slug:</div><div class="audit-cell-val">${escapeHtml(data.packageSlug)}</div></div>` : ""}
-              ${data.destinationSlug ? `<div class="audit-row"><div class="audit-cell-label">Destination Slug:</div><div class="audit-cell-val">${escapeHtml(data.destinationSlug)}</div></div>` : ""}
-              ${data.offerSlug ? `<div class="audit-row"><div class="audit-cell-label">Offer Slug:</div><div class="audit-cell-val">${escapeHtml(data.offerSlug)}</div></div>` : ""}
-              ${data.serviceId ? `<div class="audit-row"><div class="audit-cell-label">Service ID:</div><div class="audit-cell-val">${escapeHtml(data.serviceId)}</div></div>` : ""}
-              <div class="audit-row">
-                <div class="audit-cell-label">Consent Verification:</div>
-                <div class="audit-cell-val" style="color:#16a34a; font-weight:bold;">5/5 Mandatory Declarations Verified</div>
-              </div>
-              <div class="audit-row">
-                <div class="audit-cell-label">Policy Version:</div>
-                <div class="audit-cell-val">${escapeHtml(policyVersion)}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer">
-        MTPL Internal Notification Service • Mishrikotkar Travels Pvt. Ltd. (Nagpur)
-      </div>
+      <p style="margin: 0; font-size: 14px; color: ${EMAIL_PALETTE.primaryText}; line-height: 1.6; white-space: pre-wrap;">
+        ${escapeHtml(data.message)}
+      </p>
     </div>
-  </div>
-</body>
-</html>`;
 
-  const text = `==================================================
-NEW TOUR ENQUIRY NOTIFICATION: #${data.reference}
-Submitted: ${formattedIstDate}
-==================================================
+    <!-- System Audit Stamp Block -->
+    <div style="margin: 20px 0; background-color: #F8FAF9; border: 1px dashed ${EMAIL_PALETTE.border}; border-radius: 8px; padding: 14px 18px;">
+      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: ${EMAIL_PALETTE.secondaryText}; margin-bottom: 6px;">
+        System Metadata &amp; Compliance Audit Stamp
+      </div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 12px; color: ${EMAIL_PALETTE.secondaryText};">
+        <tr>
+          <td style="padding: 3px 0; width: 40%;">Database Record ID:</td>
+          <td style="padding: 3px 0; font-family: monospace; color: ${EMAIL_PALETTE.primaryText};">${escapeHtml(data.id)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 0;">Acquisition Source:</td>
+          <td style="padding: 3px 0; color: ${EMAIL_PALETTE.primaryText};">${escapeHtml(data.source)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 0;">Mandatory Declarations:</td>
+          <td style="padding: 3px 0; color: #16A765; font-weight: 600;">5/5 Mandatory Declarations Verified</td>
+        </tr>
+        <tr>
+          <td style="padding: 3px 0;">Consent Policy Version:</td>
+          <td style="padding: 3px 0; color: ${EMAIL_PALETTE.primaryText};">v${escapeHtml(policyVersion)}</td>
+        </tr>
+      </table>
+    </div>
+  `;
 
-[CUSTOMER-PROVIDED DETAILS]
-- Name: ${data.fullName}
-- Company: ${data.companyName || "Not specified"}
-- Phone: ${data.phone}
-- Email: ${data.email}
-- Travel Type: ${data.travelType || "General Enquiry"}
-- Destination: ${data.destination || "Not specified"}
-- Travel Date: ${data.travelDate || "Flexible"}${data.returnDate ? ` to ${data.returnDate}` : ""}
-- Travellers: ${data.travellers || "Not specified"}
-- Budget: ${data.budget || "Not specified"}
+  const introMessage = "A new comprehensive travel enquiry has been submitted through the MTPL platform. Review the traveller's preferences below and initiate contact.";
 
-CUSTOMER MESSAGE:
-"${data.message}"
+  const nextStepsTitle = "Action Required";
+  const nextStepsText = "Please review the proposed travel dates, group size, and itinerary requirements, then reach out to the customer with an authoritative tariff estimate.";
 
-DIRECT CONTACT ACTIONS:
-- Call: ${telLink}
-${whatsappUrl ? `- WhatsApp: ${whatsappUrl}\n` : ""}- Email: ${mailtoLink}
+  const html = renderBaseEmailHtml(
+    {
+      subject,
+      badgeText: "NEW TRAVEL ENQUIRY",
+      title: "New Comprehensive Holiday Enquiry",
+      referenceCode: data.reference,
+      introMessage,
+      details,
+      customContentHtml,
+      actions,
+      nextStepsTitle,
+      nextStepsText,
+      recipientType: "admin",
+      headerLogoCid: logoCidAvailable ? "mtpl-desktop-logo" : undefined,
+      footerLogoCid: logoCidAvailable ? "mtpl-footer-logo" : undefined,
+    },
+    config
+  );
 
-[SYSTEM-GENERATED METADATA]
-- Reference: #${data.reference}
-- MongoDB ID: ${data.id}
-- Source: ${data.source}
-${data.packageSlug ? `- Package Slug: ${data.packageSlug}\n` : ""}- Consent Audit: 5/5 Declarations Verified
-- Policy Version: ${policyVersion}
-`;
+  const text = renderBaseEmailText(
+    {
+      subject,
+      badgeText: "NEW TRAVEL ENQUIRY",
+      title: "New Comprehensive Holiday Enquiry",
+      referenceCode: data.reference,
+      introMessage: `${introMessage}\n\nCustomer Message:\n${data.message}\n\nAudit Stamp: ID ${data.id} | Source: ${data.source} | Policy: v${policyVersion}`,
+      details,
+      actions,
+      nextStepsTitle,
+      nextStepsText,
+      recipientType: "admin",
+    },
+    config
+  );
 
   return { subject, html, text };
 }

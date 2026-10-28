@@ -20,7 +20,11 @@ export async function GET(
     }
 
     const storageKey = pkg.pdfDownloadKey;
-    if (!storageKey || storageKey.includes("/") || storageKey.includes("\\") || storageKey.includes("..")) {
+    if (!storageKey) {
+      return new NextResponse("Package document not found", { status: 404 });
+    }
+
+    if (storageKey.includes("/") || storageKey.includes("\\") || storageKey.includes("..")) {
       return new NextResponse("Invalid storage reference", { status: 400 });
     }
 

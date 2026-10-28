@@ -61,3 +61,9 @@ export interface EnquiryEmailDispatchResult {
   companyNotification: EmailSendResult;
   overallSuccess: boolean;
 }
+
+export type { LeadNotificationEmailData } from "./templates/lead-notification";
+export type { QuoteConfirmationEmailData } from "./templates/quote-confirmation";
+export type { FeedbackEmailData } from "./templates/feedback-notification";
+export type { RenderedEmail } from "./templates/customer-confirmation";
+export type { BaseEmailProps, EmailActionItem, EmailDetailField } from "./templates/base-template";

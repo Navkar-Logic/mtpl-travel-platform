@@ -5,22 +5,25 @@ import Image from "next/image"
 import Link from "next/link"
 import { Package } from "@/types/package"
 import { Clock, MapPin, Download, ArrowRight, MessageCircle, Calendar } from "lucide-react"
+import { getMediaUrl } from "@/lib/media"
 
 export function PackageCard({ pkg }: { pkg: Package }) {
-  const [imgSrc, setImgSrc] = React.useState(pkg.heroImage)
+  const [hasError, setHasError] = React.useState(false)
+  const imgSrc = hasError ? "/assets/package-fallback.webp" : getMediaUrl(pkg.heroImage)
 
   return (
     <div className="group flex flex-col h-full overflow-hidden rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(7,162,94,0.12)] hover:-translate-y-1.5 transition-all duration-500 relative">
       {/* Cover Image Container */}
       <div className="aspect-[16/10] bg-slate-900 relative overflow-hidden flex-shrink-0">
         <Image
+          key={pkg.heroImage}
           src={imgSrc}
           alt={pkg.title}
           fill
           unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
           className="object-cover group-hover:scale-105 transition-transform duration-700"
-          onError={() => setImgSrc("/assets/package-fallback.webp")}
+          onError={() => setHasError(true)}
         />
 
         {/* Ambient Subtle Vignette */}
@@ -111,8 +114,13 @@ export function PackageCard({ pkg }: { pkg: Package }) {
                 Price
               </span>
               <span className="text-sm sm:text-base font-bold text-brand tracking-tight">
-                Request a Quote
+                {pkg.isPriceOnRequest ? "Request a Quote" : pkg.priceDisplay}
               </span>
+              {!pkg.isPriceOnRequest && pkg.pricingBasis && (
+                <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium block truncate max-w-[200px]" title={pkg.pricingBasis}>
+                  {pkg.pricingBasis}
+                </span>
+              )}
             </div>
             <Link
               href={`/contact?package=${pkg.slug}`}

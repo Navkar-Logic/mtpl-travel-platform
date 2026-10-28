@@ -10,19 +10,24 @@ const trustItems = [
 
 export function TrustSection() {
   return (
-    <div className="relative z-30 -mt-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-white border border-slate-200/80 shadow-[0_10px_35px_rgb(0,0,0,0.04)] rounded-2xl px-6 py-5 sm:px-8 sm:py-6">
-        <div className="flex flex-wrap items-center justify-between gap-6 lg:gap-4 divide-y lg:divide-y-0 lg:divide-x divide-border/60">
+    <div className="relative z-30 -mt-6 sm:-mt-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-white border border-slate-200/80 shadow-[0_10px_35px_rgb(0,0,0,0.04)] rounded-2xl p-4 sm:p-5 lg:px-6 lg:py-5 overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 divide-slate-100 sm:gap-4 lg:gap-0 lg:divide-x lg:divide-slate-200/80">
           {trustItems.map((item, i) => (
-            <div key={item.title} className={`flex items-center gap-4 w-full lg:w-auto flex-1 ${i !== 0 ? 'pt-4 lg:pt-0 lg:pl-6 xl:pl-8' : ''}`}>
-              <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br from-[#A7F3C0]/35 to-[#4ADE80]/15 flex items-center justify-center text-brand">
+            <div 
+              key={item.title} 
+              className={`flex items-center gap-3.5 py-3 sm:py-0 w-full min-w-0 first:pt-0 last:pb-0 ${
+                i === 4 ? "sm:col-span-2 sm:max-w-md sm:mx-auto lg:col-span-1 lg:max-w-none lg:mx-0" : ""
+              } lg:px-3 xl:px-4 lg:first:pl-0 lg:last:pr-0`}
+            >
+              <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#A7F3C0]/35 to-[#4ADE80]/15 flex items-center justify-center text-brand">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d={item.icon} />
                 </svg>
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold tracking-tight text-foreground">{item.title}</span>
-                <span className="text-[11px] font-medium text-muted-foreground">{item.subtitle}</span>
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="text-sm font-bold tracking-tight text-foreground truncate">{item.title}</span>
+                <span className="text-[11px] sm:text-xs font-medium text-muted-foreground truncate">{item.subtitle}</span>
               </div>
             </div>
           ))}
@@ -31,3 +36,4 @@ export function TrustSection() {
     </div>
   )
 }
+

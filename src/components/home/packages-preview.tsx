@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { getFeaturedPackages } from "@/features/packages/data/packages"
 import { ArrowRight, Clock, Calendar } from "lucide-react"
+import { getMediaUrl } from "@/lib/media"
 
 export function PackagesPreview() {
   const featured = getFeaturedPackages(3)
@@ -65,7 +66,7 @@ export function PackagesPreview() {
             >
               <div className="group relative h-[500px] lg:h-[600px] rounded-3xl overflow-hidden bg-slate-900 shadow-xl">
                 <Image
-                  src={featured[0].heroImage}
+                  src={getMediaUrl(featured[0].heroImage)}
                   alt={featured[0].title}
                   fill
                   unoptimized
@@ -127,7 +128,7 @@ export function PackagesPreview() {
               >
                 <div className="group relative h-full min-h-[250px] lg:min-h-[284px] rounded-3xl overflow-hidden bg-slate-900 shadow-md hover:shadow-xl transition-shadow">
                   <Image
-                    src={pkg.heroImage}
+                    src={getMediaUrl(pkg.heroImage)}
                     alt={pkg.title}
                     fill
                     unoptimized

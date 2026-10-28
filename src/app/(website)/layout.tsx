@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { FloatingContactRail } from "@/components/layout/floating-contact-rail"
 
 export default function WebsiteLayout({
   children,
@@ -12,6 +13,8 @@ export default function WebsiteLayout({
       <Header />
       <main className="flex-1 flex flex-col">{children}</main>
       <Footer />
+      <FloatingContactRail />
     </>
   )
 }
+

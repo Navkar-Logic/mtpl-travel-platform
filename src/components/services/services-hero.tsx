@@ -28,33 +28,35 @@ export function ServicesHero() {
         <div className="max-w-4xl space-y-6 flex flex-col items-center w-full">
           
           <div className="flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] text-[#EEF8F3] uppercase">
-            <span className="bg-white/10 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-md">Our Expertise</span> 
+            <span className="bg-white/10 px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-md shadow-xs">
+              OUR EXPERTISE
+            </span> 
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-tight md:leading-[1.18] font-sans drop-shadow-2xl">
             Travel Services, <span className="text-gradient-brand-light italic">Taken Care Of.</span>
           </h1>
           
-          <p className="text-lg md:text-2xl leading-relaxed text-[#EEF8F3]/85 max-w-3xl font-light mx-auto">
-            From meticulously planned holidays to comprehensive corporate itineraries, MTPL provides professional, end-to-end travel assistance.
+          <p className="text-lg md:text-2xl leading-relaxed text-[#EEF8F3]/90 max-w-3xl font-light mx-auto">
+            From a simple flight booking to a complete international holiday, MTPL brings every aspect of your journey together through one professional travel desk.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 gap-y-2.5 pt-4 text-sm sm:text-base md:text-[17px] font-medium text-white/90 max-w-4xl tracking-wide">
-            <span>Air Ticketing</span>
-            <span className="text-white/40">•</span>
-            <span>Verified Hotel Stays</span>
-            <span className="text-white/40">•</span>
-            <span>Holiday Planning</span>
-            <span className="text-white/40">•</span>
-            <span>Luxury Cruises</span>
-            <span className="text-white/40">•</span>
-            <span>Visa &amp; Passport Support</span>
-            <span className="text-white/40">•</span>
-            <span>Foreign Exchange Assistance</span>
-            <span className="text-white/40">•</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-4 gap-y-2 pt-3 text-xs sm:text-sm md:text-base font-medium text-white/95 max-w-4xl tracking-wide">
+            <span>Flights</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Hotels</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Holidays</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Cruises</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Visa &amp; Passport</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Forex</span>
+            <span className="text-white/40 select-none">•</span>
             <span>Travel Insurance</span>
-            <span className="text-white/40">•</span>
-            <span>Corporate Travel</span>
+            <span className="text-white/40 select-none">•</span>
+            <span>Corporate &amp; Group Travel</span>
           </div>
           
         </div>

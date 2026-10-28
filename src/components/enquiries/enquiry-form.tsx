@@ -45,8 +45,19 @@ export function EnquiryForm() {
   const [success, setSuccess] = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)
 
+  const getMappedTravelType = React.useCallback((serviceName: string) => {
+    if (!serviceName) return ""
+    const s = serviceName.toLowerCase()
+    if (s.includes("corporate") || s.includes("group")) return "corporate"
+    if (s.includes("holiday") || s.includes("visa") || s.includes("passport")) return "holidays-visas"
+    if (s.includes("cruise")) return "international"
+    if (s.includes("flight") || s.includes("hotel")) return "domestic"
+    if (s.includes("forex") || s.includes("insurance")) return "other"
+    return ""
+  }, [])
+
   // Modern Dropdown State
-  const [selectedTravelType, setSelectedTravelType] = useState("")
+  const [selectedTravelType, setSelectedTravelType] = useState(() => getMappedTravelType(defaultService))
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -201,9 +212,13 @@ export function EnquiryForm() {
     setIsSubmitting(true)
 
     const rawData = Object.fromEntries(formData.entries())
+    let normalizedTravelType = selectedTravelType
+    if (normalizedTravelType === "cruises") normalizedTravelType = "international"
+    if (normalizedTravelType === "forex-insurance") normalizedTravelType = "other"
+
     const payload = {
       ...rawData,
-      travelType: selectedTravelType,
+      travelType: normalizedTravelType,
       consentAccepted: isTermsAccepted,
       declarations: {
         accuracyConfirmed: isTermsAccepted,

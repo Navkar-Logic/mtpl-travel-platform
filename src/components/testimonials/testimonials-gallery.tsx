@@ -48,9 +48,6 @@ export function TestimonialsGallery({ testimonials }: TestimonialsGalleryProps) 
     return testimonials.filter(t => t.type === selectedCategory)
   }, [testimonials, selectedCategory])
 
-  // Count verified ratings
-  const verifiedRatingCount = testimonials.filter(t => t.ratingStatus === "verified").length
-
   return (
     <>
       <div className="space-y-10">
