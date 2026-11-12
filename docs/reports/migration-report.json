@@ -1,0 +1,2721 @@
+{
+  "generatedAt": "2026-10-30T15:26:35.139Z",
+  "migrationName": "P2_0_PACKAGE_CATALOGUE_MIGRATION",
+  "version": "1.0.0",
+  "summary": {
+    "totalPackages": 93,
+    "nationalPackages": 67,
+    "internationalPackages": 26,
+    "totalMediaFiles": 186,
+    "subdirectoriesEncountered": [
+      "img"
+    ],
+    "pdfDocumentCount": 91,
+    "webpImageCount": 95,
+    "missingOptionalPdfs": [
+      "mtpl-wonders-of-dubai-5n-6d",
+      "mtpl-exclusive-dubai-abu-dhabi-6n-7d"
+    ]
+  },
+  "packages": [
+    {
+      "slug": "mtpl-amazing-andaman-4n-5d",
+      "title": "Glimpse Of Andaman",
+      "destination": "Andaman",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 33127,
+      "priceDisplay": "₹33,127",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-andaman-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-amazing-andaman-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-amazing-andaman-5n-6d",
+      "title": "Amazing Andaman",
+      "destination": "Andaman",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 42484,
+      "priceDisplay": "₹42,484",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-andaman-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-amazing-andaman-5n-6d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-amazing-andaman-6n-7d",
+      "title": "Islands Of Andaman",
+      "destination": "Andaman",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 47839,
+      "priceDisplay": "₹47,839",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-andaman-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-amazing-andaman-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-3-sisters-of-the-north-east-11n-12d",
+      "title": "3 Sisters Of The North East",
+      "destination": "Assam",
+      "category": "national",
+      "duration": "11 Nights / 12 Days",
+      "nights": 11,
+      "days": 12,
+      "numericPrice": 61113,
+      "priceDisplay": "₹61,113",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-3-sisters-of-the-north-east-11n-12d.webp",
+      "pdfDownloadKey": "mtpl-3-sisters-of-the-north-east-11n-12d.pdf",
+      "accommodationsRowCount": 7,
+      "costTablesCount": 1,
+      "itineraryDays": 12
+    },
+    {
+      "slug": "mtpl-heavenly-khasi-hills-4n-5d",
+      "title": "Heavenly Khasi Hills",
+      "destination": "Assam",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 20206,
+      "priceDisplay": "₹20,206",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-heavenly-khasi-hills-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-heavenly-khasi-hills-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-north-east-marvels-6n-7d",
+      "title": "North East Marvels",
+      "destination": "Assam",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 35840,
+      "priceDisplay": "₹35,840",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-north-east-marvels-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-north-east-marvels-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-bhutan-tour-via-bagdogra-4n-5d",
+      "title": "Short Trip To Bhutan",
+      "destination": "Bhutan",
+      "category": "international",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 475,
+      "priceDisplay": "$475 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-bhutan-tour-via-bagdogra-6n-7d",
+      "title": "Thunder Dragon 'Bhutan'",
+      "destination": "Bhutan",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 655,
+      "priceDisplay": "$655 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-bhutan-tour-via-bagdogra-8n-9d",
+      "title": "Bhutan Tour Via Bagdogra",
+      "destination": "Bhutan",
+      "category": "international",
+      "duration": "08 Nights / 09 Days",
+      "nights": 8,
+      "days": 9,
+      "numericPrice": 880,
+      "priceDisplay": "$880 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-bhutan-tour-via-bagdogra-8n-9d.webp",
+      "pdfDownloadKey": "mtpl-bhutan-tour-via-bagdogra-8n-9d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 9
+    },
+    {
+      "slug": "mtpl-amazing-himachal-ex-amritsar-5n-6d",
+      "title": "Amazing Himachal",
+      "destination": "Himachal Pradesh",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 26733,
+      "priceDisplay": "₹26,733",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-himachal-ex-amritsar-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-amazing-himachal-ex-amritsar-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-best-of-himachal-5n-6d",
+      "title": "Magical Manali",
+      "destination": "Himachal Pradesh",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 22893,
+      "priceDisplay": "₹22,893",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-best-of-himachal-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-best-of-himachal-5n-6d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-best-of-himachal-9n-10d",
+      "title": "Best Of Himachal",
+      "destination": "Himachal Pradesh",
+      "category": "national",
+      "duration": "09 Nights / 10 Days",
+      "nights": 9,
+      "days": 10,
+      "numericPrice": 41966,
+      "priceDisplay": "₹41,966",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-best-of-himachal-9n-10d.webp",
+      "pdfDownloadKey": "mtpl-best-of-himachal-9n-10d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 10
+    },
+    {
+      "slug": "mtpl-scenic-shimla-manali-ex-ixc-6n-7d",
+      "title": "Scenic Shimla Manali",
+      "destination": "Himachal Pradesh",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 27159,
+      "priceDisplay": "₹27,159",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-scenic-shimla-manali-ex-ixc-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-scenic-shimla-manali-ex-ixc-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-3-jewels-of-south-5n-6d",
+      "title": "3 Jewels Of South",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 32998,
+      "priceDisplay": "₹32,998",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-3-jewels-of-south-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-3-jewels-of-south-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-blissful-south-india-7n-8d",
+      "title": "Blissful South India",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 41773,
+      "priceDisplay": "₹41,773",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-blissful-south-india-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-blissful-south-india-7n-8d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-coffee-destinations-6n-7d",
+      "title": "Coffee Destinations",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 35973,
+      "priceDisplay": "₹35,973",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-coffee-destinations-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-coffee-destinations-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-discover-karnataka-6n-7d",
+      "title": "Discover Karnataka",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 52875,
+      "priceDisplay": "₹52,875",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-discover-karnataka-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-discover-karnataka-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-magical-south-india-6n-7d",
+      "title": "Magical South India",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 35735,
+      "priceDisplay": "₹35,735",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-magical-south-india-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-magical-south-india-6n-7d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-scenic-south-india-5n-6d",
+      "title": "Scenic South India",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 32845,
+      "priceDisplay": "₹32,845",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-scenic-south-india-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-scenic-south-india-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-serene-coorg-and-wayanad-4n-5d",
+      "title": "Serene Coorg And Wayanad",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 27203,
+      "priceDisplay": "₹27,203",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-serene-coorg-and-wayanad-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-serene-coorg-and-wayanad-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-short-trip-to-south-5n-6d",
+      "title": "Short Trip To South",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 32380,
+      "priceDisplay": "₹32,380",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-short-trip-to-south-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-short-trip-to-south-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-wonders-of-coorg-and-kabini-4n-5d",
+      "title": "Wonders Of Coorg And Kabini",
+      "destination": "Karnataka",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 42007,
+      "priceDisplay": "₹42,007",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-wonders-of-coorg-and-kabini-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-wonders-of-coorg-and-kabini-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-amazing-kashmir-with-katra-7n-8d",
+      "title": "Amazing Kashmir With Katra",
+      "destination": "Kashmir",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 48492,
+      "priceDisplay": "₹48,492",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-kashmir-with-katra-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-amazing-kashmir-with-katra-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-charismatic-kashmir-7n-8d",
+      "title": "Charismatic Kashmir",
+      "destination": "Kashmir",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 46492,
+      "priceDisplay": "₹46,492",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-charismatic-kashmir-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-charismatic-kashmir-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-glimpses-of-kashmir-valley-4n-5d",
+      "title": "Glimpses Of Kashmir Valley",
+      "destination": "Kashmir",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 28130,
+      "priceDisplay": "₹28,130",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-glimpses-of-kashmir-valley-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-glimpses-of-kashmir-valley-4n-5d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-heaven-on-earth-5n-6d",
+      "title": "Heaven On Earth",
+      "destination": "Kashmir",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 33309,
+      "priceDisplay": "₹33,309",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-heaven-on-earth-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-heaven-on-earth-5n-6d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-kashmir-unplugged-6n-7d",
+      "title": "Kashmir Unplugged",
+      "destination": "Kashmir",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 40489,
+      "priceDisplay": "₹40,489",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-kashmir-unplugged-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-kashmir-unplugged-6n-7d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-best-of-kerala-5n-6d",
+      "title": "Best Of Kerala",
+      "destination": "Kerala",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 22119,
+      "priceDisplay": "₹22,119",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-best-of-kerala-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-best-of-kerala-5n-6d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-karismatic-kerala-5n-6d",
+      "title": "Karismatic Kerela",
+      "destination": "Kerala",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 24709,
+      "priceDisplay": "₹24,709",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-karismatic-kerala-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-karismatic-kerala-5n-6d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-kolorful-kerala-7n-8d",
+      "title": "Kolorful Kerala",
+      "destination": "Kerala",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 32883,
+      "priceDisplay": "₹32,883",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-kolorful-kerala-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-kolorful-kerala-7n-8d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-splendid-wayanad-and-bekal-4n-5d",
+      "title": "Splendid Wayanad And Bekal",
+      "destination": "Kerala",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 26003,
+      "priceDisplay": "₹26,003",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-splendid-wayanad-and-bekal-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-splendid-wayanad-and-bekal-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-unexplored-kerala-4n-5d",
+      "title": "Unexplored Kerala",
+      "destination": "Kerala",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 17567,
+      "priceDisplay": "₹17,567",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-unexplored-kerala-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-unexplored-kerala-4n-5d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d",
+      "title": "Mesmeric Sojourn to Chhatrapati Sambhaji Nagar",
+      "destination": "Maharashtra",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 12198,
+      "priceDisplay": "₹12,198",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-shirdi-with-shani-shingnapur-2n-3d",
+      "title": "Shirdi With Shani Shingnapur",
+      "destination": "Maharashtra",
+      "category": "national",
+      "duration": "02 Nights / 03 Days",
+      "nights": 2,
+      "days": 3,
+      "numericPrice": 12709,
+      "priceDisplay": "₹12,709",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-shirdi-with-shani-shingnapur-2n-3d.webp",
+      "pdfDownloadKey": "mtpl-shirdi-with-shani-shingnapur-2n-3d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 1,
+      "itineraryDays": 3
+    },
+    {
+      "slug": "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d",
+      "title": "Shirdi With Shani Shingnapur (Ex Mum)",
+      "destination": "Maharashtra",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 20861,
+      "priceDisplay": "₹20,861",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-unlimited-maharashtra-5n-6d",
+      "title": "Unlimited Maharashtra",
+      "destination": "Maharashtra",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 39362,
+      "priceDisplay": "₹39,362",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-unlimited-maharashtra-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-unlimited-maharashtra-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-heritage-tour-of-central-india-5n-6d",
+      "title": "Heritage Tour Of Central India",
+      "destination": "Madhya Pradesh",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 30649,
+      "priceDisplay": "₹30,649",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-heritage-tour-of-central-india-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-heritage-tour-of-central-india-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-jungles-of-kanha-and-pench-4n-5d",
+      "title": "Jungles Of Kanha & Pench",
+      "destination": "Madhya Pradesh",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 43240,
+      "priceDisplay": "₹43,240",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-jungles-of-kanha-and-pench-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-jungles-of-kanha-and-pench-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d",
+      "title": "Wild Horizon Of Kanha & Bandhavgarh",
+      "destination": "Madhya Pradesh",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 39856,
+      "priceDisplay": "₹39,856",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-wilderness-of-madhya-pradesh-6n-7d",
+      "title": "Wilderness Of Madhya Pradesh",
+      "destination": "Madhya Pradesh",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 62225,
+      "priceDisplay": "₹62,225",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-wilderness-of-madhya-pradesh-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-wilderness-of-madhya-pradesh-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-best-of-nepal-5n-6d",
+      "title": "Best Of Nepal",
+      "destination": "Nepal",
+      "category": "international",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 385,
+      "priceDisplay": "$385 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-best-of-nepal-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-best-of-nepal-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-glimpse-of-nepal-5n-6d",
+      "title": "Glimpse Of Nepal",
+      "destination": "Nepal",
+      "category": "international",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 320,
+      "priceDisplay": "$320 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-glimpse-of-nepal-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-glimpse-of-nepal-5n-6d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-wonders-of-nepal-7n-8d",
+      "title": "Wonders Of Nepal",
+      "destination": "Nepal",
+      "category": "international",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 495,
+      "priceDisplay": "$495 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-wonders-of-nepal-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-wonders-of-nepal-7n-8d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-eastern-himalayas-7n-8d",
+      "title": "Eastern Himalayas",
+      "destination": "North East",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 52338,
+      "priceDisplay": "₹52,338",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-eastern-himalayas-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-eastern-himalayas-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-enchanting-north-east-7n-8d",
+      "title": "Enchanting North East",
+      "destination": "North East",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 53698,
+      "priceDisplay": "₹53,698",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-enchanting-north-east-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-enchanting-north-east-7n-8d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-hills-of-the-east-6n-7d",
+      "title": "Hills Of The East",
+      "destination": "North East",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 45170,
+      "priceDisplay": "₹45,170",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-hills-of-the-east-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-hills-of-the-east-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-north-east-sojourn-5n-6d",
+      "title": "North East Sojourn",
+      "destination": "North East",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 35036,
+      "priceDisplay": "₹35,036",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-north-east-sojourn-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-north-east-sojourn-5n-6d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-best-of-odisha-5n-6d",
+      "title": "Best Of Odisha",
+      "destination": "Odisha",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 26818,
+      "priceDisplay": "₹26,818",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-best-of-odisha-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-best-of-odisha-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-odisha-temple-tour-4n-5d",
+      "title": "Temple Tour Of Odisha",
+      "destination": "Odisha",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 21566,
+      "priceDisplay": "₹21,566",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-odisha-temple-tour-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-odisha-temple-tour-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-amazing-udaipur-3n-4d",
+      "title": "Amazing Udaipur",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 18096,
+      "priceDisplay": "₹18,096",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-amazing-udaipur-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-amazing-udaipur-3n-4d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-enchanting-gujarat-5n-6d",
+      "title": "Enchanting Gujarat",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 30680,
+      "priceDisplay": "₹30,680",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-enchanting-gujarat-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-enchanting-gujarat-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-forts-and-palaces-6n-7d",
+      "title": "Forts And Palaces",
+      "destination": "Rajasthan & Gujarat",
+      "category": "national",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 33890,
+      "priceDisplay": "₹33,890",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-forts-and-palaces-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-forts-and-palaces-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-golden-triangle-5n-6d",
+      "title": "Golden Triangle",
+      "destination": "Rajasthan & Gujarat",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 25544,
+      "priceDisplay": "₹25,544",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-golden-triangle-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-golden-triangle-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-golden-triangle-with-ranthambore-7n-8d",
+      "title": "Golden Triangle With Ranthambore",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 41589,
+      "priceDisplay": "₹41,589",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-golden-triangle-with-ranthambore-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-golden-triangle-with-ranthambore-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-golden-triangle-with-udaipur-7n-8d",
+      "title": "Golden Triangle With Udaipur",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 42003,
+      "priceDisplay": "₹42,003",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-golden-triangle-with-udaipur-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-golden-triangle-with-udaipur-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-jaipur-tour-with-ranthambore-4n-5d",
+      "title": "Jaipur With Ranthambore",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 29830,
+      "priceDisplay": "₹29,830",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-jaipur-tour-with-ranthambore-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-jaipur-tour-with-ranthambore-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-rann-of-kutch-2n-3d",
+      "title": "Rann Of Kutch",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "02 Nights / 03 Days",
+      "nights": 2,
+      "days": 3,
+      "numericPrice": 18339,
+      "priceDisplay": "₹18,339",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-rann-of-kutch-2n-3d.webp",
+      "pdfDownloadKey": "mtpl-rann-of-kutch-2n-3d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 4,
+      "itineraryDays": 3
+    },
+    {
+      "slug": "mtpl-rann-of-kutch-3n-4d",
+      "title": "Rann Of Kutch",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 27451,
+      "priceDisplay": "₹27,451",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-rann-of-kutch-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-rann-of-kutch-3n-4d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 4,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-royal-rajasthan-8n-9d",
+      "title": "Royal Rajasthan",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "08 Nights / 09 Days",
+      "nights": 8,
+      "days": 9,
+      "numericPrice": 44659,
+      "priceDisplay": "₹44,659",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-royal-rajasthan-8n-9d.webp",
+      "pdfDownloadKey": "mtpl-royal-rajasthan-8n-9d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 9
+    },
+    {
+      "slug": "mtpl-statue-of-unity-2n-3d",
+      "title": "Statue Of Unity",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "02 Nights / 03 Days",
+      "nights": 2,
+      "days": 3,
+      "numericPrice": 16378,
+      "priceDisplay": "₹16,378",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-statue-of-unity-2n-3d.webp",
+      "pdfDownloadKey": "mtpl-statue-of-unity-2n-3d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 2,
+      "itineraryDays": 3
+    },
+    {
+      "slug": "mtpl-statue-of-unity-3n-4d",
+      "title": "Statue Of Unity",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 24567,
+      "priceDisplay": "₹24,567",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-statue-of-unity-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-statue-of-unity-3n-4d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 2,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-statue-of-unity-with-ahmedabad-4n-5d",
+      "title": "Statue Of Unity With Ahmedabad",
+      "destination": "Gujarat",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 33768,
+      "priceDisplay": "₹33,768",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-statue-of-unity-with-ahmedabad-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-statue-of-unity-with-ahmedabad-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 2,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d",
+      "title": "Taj Mahal With Gems Of Rajasthan",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "11 Nights / 12 Days",
+      "nights": 11,
+      "days": 12,
+      "numericPrice": 61865,
+      "priceDisplay": "₹61,865",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.webp",
+      "pdfDownloadKey": "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.pdf",
+      "accommodationsRowCount": 6,
+      "costTablesCount": 1,
+      "itineraryDays": 12
+    },
+    {
+      "slug": "mtpl-ultimate-udaipur-with-mt-abu-4n-5d",
+      "title": "Ultimate Udaipur With Mt. Abu",
+      "destination": "Rajasthan",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 25481,
+      "priceDisplay": "₹25,481",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-ultimate-udaipur-with-mt-abu-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-ultimate-udaipur-with-mt-abu-4n-5d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-explore-sri-lanka-8n-9d-revised",
+      "title": "Explore Sri Lanka",
+      "destination": "Sri Lanka",
+      "category": "international",
+      "duration": "08 Nights / 09 Days",
+      "nights": 8,
+      "days": 9,
+      "numericPrice": 806,
+      "priceDisplay": "$806 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-explore-sri-lanka-8n-9d-revised.webp",
+      "pdfDownloadKey": "mtpl-explore-sri-lanka-8n-9d-revised.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 3,
+      "itineraryDays": 9
+    },
+    {
+      "slug": "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised",
+      "title": "Heritage & Beaches Of Sri Lanka",
+      "destination": "Sri Lanka",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 589,
+      "priceDisplay": "$589 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.webp",
+      "pdfDownloadKey": "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 3,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-scenic-srilanka-6n-7d-revised",
+      "title": "Scenic Sri Lanka",
+      "destination": "Sri Lanka",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 541,
+      "priceDisplay": "$541 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-scenic-srilanka-6n-7d-revised.webp",
+      "pdfDownloadKey": "mtpl-scenic-srilanka-6n-7d-revised.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 3,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-wonders-of-srilanka-7n-8d-revised",
+      "title": "Wonders Of Sri Lanka",
+      "destination": "Sri Lanka",
+      "category": "international",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 612,
+      "priceDisplay": "$612 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-wonders-of-srilanka-7n-8d-revised.webp",
+      "pdfDownloadKey": "mtpl-wonders-of-srilanka-7n-8d-revised.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 3,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-incredible-south-hills-7n-8d",
+      "title": "Incredible Hills Of South",
+      "destination": "Tamil Nadu",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 37632,
+      "priceDisplay": "₹37,632",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-incredible-south-hills-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-incredible-south-hills-7n-8d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-serene-tamil-nadu-7n-8d",
+      "title": "Serene Tamil Nadu",
+      "destination": "Tamil Nadu",
+      "category": "national",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 40451,
+      "priceDisplay": "₹40,451",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-serene-tamil-nadu-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-serene-tamil-nadu-7n-8d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-short-gateway-to-tamil-nadu-5n-6d",
+      "title": "Short Gateway To Tamil Nadu",
+      "destination": "Tamil Nadu",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 25891,
+      "priceDisplay": "₹25,891",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-short-gateway-to-tamil-nadu-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-short-gateway-to-tamil-nadu-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-spiritual-tamil-nadu-5n-6d",
+      "title": "Spiritual Tamilnadu",
+      "destination": "Tamil Nadu",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 29931,
+      "priceDisplay": "₹29,931",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-spiritual-tamil-nadu-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-spiritual-tamil-nadu-5n-6d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-the-best-of-hyderabad-3n-4d",
+      "title": "The Best Of Hyderabad",
+      "destination": "Telangana",
+      "category": "national",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 17231,
+      "priceDisplay": "₹17,231",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-the-best-of-hyderabad-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-the-best-of-hyderabad-3n-4d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-best-of-uttar-pradesh-5n-6d",
+      "title": "Best Of Uttar Pradesh",
+      "destination": "Uttar Pradesh",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 26865,
+      "priceDisplay": "₹26,865",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-best-of-uttar-pradesh-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-best-of-uttar-pradesh-5n-6d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-holy-triangle-of-uttar-pradesh-4n-5d",
+      "title": "Holy Triangle Of Uttar Pradesh",
+      "destination": "Uttar Pradesh",
+      "category": "national",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 25737,
+      "priceDisplay": "₹25,737",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-holy-triangle-of-uttar-pradesh-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-holy-triangle-of-uttar-pradesh-4n-5d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-trip-to-varansi-and-bodhgaya-5n-6d",
+      "title": "Trip To Varanasi And Bodhgaya",
+      "destination": "Uttar Pradesh",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 23599,
+      "priceDisplay": "₹23,599",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-trip-to-varansi-and-bodhgaya-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-trip-to-varansi-and-bodhgaya-5n-6d.pdf",
+      "accommodationsRowCount": 2,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-kolkata-with-sunderbans-5n-6d",
+      "title": "Kolkata With Sunderbans",
+      "destination": "West Bengal",
+      "category": "national",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 17796,
+      "priceDisplay": "₹17,796",
+      "currency": "INR",
+      "heroImage": "/api/media/mtpl-kolkata-with-sunderbans-5n-6d.webp",
+      "pdfDownloadKey": "mtpl-kolkata-with-sunderbans-5n-6d.pdf",
+      "accommodationsRowCount": 1,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-jordan-experience-6n-7d",
+      "title": "Jordan Experience",
+      "destination": "Jordan",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 910,
+      "priceDisplay": "$910 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-jordan-experience-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-jordan-experience-6n-7d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 2,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-jordan-family-holiday-6n-7d",
+      "title": "Jordan Family Holiday",
+      "destination": "Jordan",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 985,
+      "priceDisplay": "$985 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-jordan-family-holiday-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-jordan-family-holiday-6n-7d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 2,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-jordan-honeymoon-escape-4n-5d",
+      "title": "Jordan Honeymoon Escape",
+      "destination": "Jordan",
+      "category": "international",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 745,
+      "priceDisplay": "$745 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-jordan-honeymoon-escape-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-jordan-honeymoon-escape-4n-5d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-jordan-treasures-7n-8d",
+      "title": "Jordan Treasures",
+      "destination": "Jordan",
+      "category": "international",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 1010,
+      "priceDisplay": "$1,010 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-jordan-treasures-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-jordan-treasures-7n-8d.pdf",
+      "accommodationsRowCount": 5,
+      "costTablesCount": 2,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-magic-of-jordan-4n-5d",
+      "title": "Magic of Jordan",
+      "destination": "Jordan",
+      "category": "international",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 770,
+      "priceDisplay": "$770 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-magic-of-jordan-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-magic-of-jordan-4n-5d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 2,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-phnom-penh-highlights-2n-3d",
+      "title": "Phnom Penh Highlights",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "02 Nights / 03 Days",
+      "nights": 2,
+      "days": 3,
+      "numericPrice": 256,
+      "priceDisplay": "$256 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-phnom-penh-highlights-2n-3d.webp",
+      "pdfDownloadKey": "mtpl-phnom-penh-highlights-2n-3d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 3
+    },
+    {
+      "slug": "mtpl-siem-reap-heritage-experience-2n-3d",
+      "title": "Siem Reap Heritage Experience",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "02 Nights / 03 Days",
+      "nights": 2,
+      "days": 3,
+      "numericPrice": 234,
+      "priceDisplay": "$234 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-siem-reap-heritage-experience-2n-3d.webp",
+      "pdfDownloadKey": "mtpl-siem-reap-heritage-experience-2n-3d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 3
+    },
+    {
+      "slug": "mtpl-siem-reap-mt-kulen-3n-4d",
+      "title": "Siem Reap & Mt. Kulen",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 307,
+      "priceDisplay": "$307 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-siem-reap-mt-kulen-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-siem-reap-mt-kulen-3n-4d.pdf",
+      "accommodationsRowCount": 6,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-siem-reap-phnom-penh-culture-4n-5d",
+      "title": "Siem Reap & Phnom Penh Culture",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 427,
+      "priceDisplay": "$427 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-siem-reap-phnom-penh-culture-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-siem-reap-phnom-penh-culture-4n-5d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-siem-reap-phnom-penh-heritage-4n-5d",
+      "title": "Siem Reap & Phnom Penh Heritage",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "04 Nights / 05 Days",
+      "nights": 4,
+      "days": 5,
+      "numericPrice": 553,
+      "priceDisplay": "$553 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-siem-reap-phnom-penh-heritage-4n-5d.webp",
+      "pdfDownloadKey": "mtpl-siem-reap-phnom-penh-heritage-4n-5d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 5
+    },
+    {
+      "slug": "mtpl-cambodia-discovery-6n-7d",
+      "title": "Cambodia Discovery",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 542,
+      "priceDisplay": "$542 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-cambodia-discovery-6n-7d.webp",
+      "pdfDownloadKey": "mtpl-cambodia-discovery-6n-7d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-classic-cambodia-journey-7n-8d",
+      "title": "Classic Cambodia Journey",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 789,
+      "priceDisplay": "$789 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-classic-cambodia-journey-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-classic-cambodia-journey-7n-8d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    },
+    {
+      "slug": "mtpl-phnom-penh-oudong-3n-4d",
+      "title": "Phnom Penh & Oudong",
+      "destination": "Cambodia",
+      "category": "international",
+      "duration": "03 Nights / 04 Days",
+      "nights": 3,
+      "days": 4,
+      "numericPrice": 296,
+      "priceDisplay": "$296 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-phnom-penh-oudong-3n-4d.webp",
+      "pdfDownloadKey": "mtpl-phnom-penh-oudong-3n-4d.pdf",
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 4
+    },
+    {
+      "slug": "mtpl-wonders-of-dubai-5n-6d",
+      "title": "Wonders of Dubai",
+      "destination": "Dubai",
+      "category": "international",
+      "duration": "05 Nights / 06 Days",
+      "nights": 5,
+      "days": 6,
+      "numericPrice": 489,
+      "priceDisplay": "$489 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-wonders-of-dubai-5n-6d.webp",
+      "pdfDownloadKey": null,
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 6
+    },
+    {
+      "slug": "mtpl-exclusive-dubai-abu-dhabi-6n-7d",
+      "title": "Exclusive Dubai & Abu Dhabi",
+      "destination": "Dubai",
+      "category": "international",
+      "duration": "06 Nights / 07 Days",
+      "nights": 6,
+      "days": 7,
+      "numericPrice": 638,
+      "priceDisplay": "$638 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-exclusive-dubai-abu-dhabi-6n-7d.webp",
+      "pdfDownloadKey": null,
+      "accommodationsRowCount": 3,
+      "costTablesCount": 1,
+      "itineraryDays": 7
+    },
+    {
+      "slug": "mtpl-jewels-of-japan-cherry-blossom-7n-8d",
+      "title": "Jewels of Japan — Cherry Blossom Special 2027",
+      "destination": "Japan",
+      "category": "international",
+      "duration": "07 Nights / 08 Days",
+      "nights": 7,
+      "days": 8,
+      "numericPrice": 2400,
+      "priceDisplay": "$2,400 USD",
+      "currency": "USD",
+      "heroImage": "/api/media/mtpl-jewels-of-japan-cherry-blossom-7n-8d.webp",
+      "pdfDownloadKey": "mtpl-jewels-of-japan-cherry-blossom-7n-8d.pdf",
+      "accommodationsRowCount": 4,
+      "costTablesCount": 1,
+      "itineraryDays": 8
+    }
+  ],
+  "mediaInventory": [
+    {
+      "filename": "International-Category.webp",
+      "sizeBytes": 3179823,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-3-jewels-of-south-5n-6d.pdf",
+      "sizeBytes": 643650,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-3-jewels-of-south-5n-6d.webp",
+      "sizeBytes": 3610301,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-3-sisters-of-the-north-east-11n-12d.pdf",
+      "sizeBytes": 1026329,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-3-sisters-of-the-north-east-11n-12d.webp",
+      "sizeBytes": 2975446,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-4n-5d.pdf",
+      "sizeBytes": 871509,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-4n-5d.webp",
+      "sizeBytes": 2842185,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-5n-6d.pdf",
+      "sizeBytes": 932398,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-5n-6d.webp",
+      "sizeBytes": 3263757,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-6n-7d.pdf",
+      "sizeBytes": 912284,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-andaman-6n-7d.webp",
+      "sizeBytes": 3197666,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-himachal-ex-amritsar-5n-6d.pdf",
+      "sizeBytes": 732465,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-himachal-ex-amritsar-5n-6d.webp",
+      "sizeBytes": 3249061,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-kashmir-with-katra-7n-8d.pdf",
+      "sizeBytes": 849489,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-kashmir-with-katra-7n-8d.webp",
+      "sizeBytes": 3120493,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-amazing-udaipur-3n-4d.pdf",
+      "sizeBytes": 686283,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-amazing-udaipur-3n-4d.webp",
+      "sizeBytes": 2645598,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-himachal-5n-6d.pdf",
+      "sizeBytes": 635278,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-himachal-5n-6d.webp",
+      "sizeBytes": 3425364,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-himachal-9n-10d.pdf",
+      "sizeBytes": 785268,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-himachal-9n-10d.webp",
+      "sizeBytes": 3540001,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-kerala-5n-6d.pdf",
+      "sizeBytes": 615743,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-kerala-5n-6d.webp",
+      "sizeBytes": 2878334,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-nepal-5n-6d.pdf",
+      "sizeBytes": 704513,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-nepal-5n-6d.webp",
+      "sizeBytes": 2896575,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-odisha-5n-6d.pdf",
+      "sizeBytes": 702503,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-odisha-5n-6d.webp",
+      "sizeBytes": 3094058,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-best-of-uttar-pradesh-5n-6d.pdf",
+      "sizeBytes": 622662,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-best-of-uttar-pradesh-5n-6d.webp",
+      "sizeBytes": 2615318,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-4n-5d.pdf",
+      "sizeBytes": 1003741,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-4n-5d.webp",
+      "sizeBytes": 2839850,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-6n-7d.pdf",
+      "sizeBytes": 1013350,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-6n-7d.webp",
+      "sizeBytes": 2939257,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-8n-9d.pdf",
+      "sizeBytes": 1165462,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-bhutan-tour-via-bagdogra-8n-9d.webp",
+      "sizeBytes": 3048930,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-blissful-south-india-7n-8d.pdf",
+      "sizeBytes": 620104,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-blissful-south-india-7n-8d.webp",
+      "sizeBytes": 3443215,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-cambodia-discovery-6n-7d.pdf",
+      "sizeBytes": 2884842,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-cambodia-discovery-6n-7d.webp",
+      "sizeBytes": 2748280,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-charismatic-kashmir-7n-8d.pdf",
+      "sizeBytes": 832448,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-charismatic-kashmir-7n-8d.webp",
+      "sizeBytes": 2730039,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-classic-cambodia-journey-7n-8d.pdf",
+      "sizeBytes": 3086633,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-classic-cambodia-journey-7n-8d.webp",
+      "sizeBytes": 3177407,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-coffee-destinations-6n-7d.pdf",
+      "sizeBytes": 734410,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-coffee-destinations-6n-7d.webp",
+      "sizeBytes": 3029242,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-discover-karnataka-6n-7d.pdf",
+      "sizeBytes": 695458,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-discover-karnataka-6n-7d.webp",
+      "sizeBytes": 3191897,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-eastern-himalayas-7n-8d.pdf",
+      "sizeBytes": 860584,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-eastern-himalayas-7n-8d.webp",
+      "sizeBytes": 3277861,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-enchanting-gujarat-5n-6d.pdf",
+      "sizeBytes": 709137,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-enchanting-gujarat-5n-6d.webp",
+      "sizeBytes": 2783730,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-enchanting-north-east-7n-8d.pdf",
+      "sizeBytes": 866768,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-enchanting-north-east-7n-8d.webp",
+      "sizeBytes": 3390725,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-exclusive-dubai-abu-dhabi-6n-7d.webp",
+      "sizeBytes": 126002,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-explore-sri-lanka-8n-9d-revised.pdf",
+      "sizeBytes": 915371,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-explore-sri-lanka-8n-9d-revised.webp",
+      "sizeBytes": 3095610,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-forts-and-palaces-6n-7d.pdf",
+      "sizeBytes": 727776,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-forts-and-palaces-6n-7d.webp",
+      "sizeBytes": 2831512,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-glimpse-of-nepal-5n-6d.pdf",
+      "sizeBytes": 716166,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-glimpse-of-nepal-5n-6d.webp",
+      "sizeBytes": 2857232,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-glimpses-of-kashmir-valley-4n-5d.pdf",
+      "sizeBytes": 819428,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-glimpses-of-kashmir-valley-4n-5d.webp",
+      "sizeBytes": 2958214,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-golden-triangle-5n-6d.pdf",
+      "sizeBytes": 693068,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-golden-triangle-5n-6d.webp",
+      "sizeBytes": 2824408,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-golden-triangle-with-ranthambore-7n-8d.pdf",
+      "sizeBytes": 879677,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-golden-triangle-with-ranthambore-7n-8d.webp",
+      "sizeBytes": 3073621,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-golden-triangle-with-udaipur-7n-8d.pdf",
+      "sizeBytes": 808998,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-golden-triangle-with-udaipur-7n-8d.webp",
+      "sizeBytes": 2693110,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-heaven-on-earth-5n-6d.pdf",
+      "sizeBytes": 826154,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-heaven-on-earth-5n-6d.webp",
+      "sizeBytes": 2992828,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-heavenly-khasi-hills-4n-5d.pdf",
+      "sizeBytes": 736673,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-heavenly-khasi-hills-4n-5d.webp",
+      "sizeBytes": 3638362,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.pdf",
+      "sizeBytes": 1019090,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-heritage-and-beaches-of-srilanka-6n-7d-revised.webp",
+      "sizeBytes": 3448587,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-heritage-tour-of-central-india-5n-6d.pdf",
+      "sizeBytes": 656815,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-heritage-tour-of-central-india-5n-6d.webp",
+      "sizeBytes": 3134895,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-hills-of-the-east-6n-7d.pdf",
+      "sizeBytes": 859125,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-hills-of-the-east-6n-7d.webp",
+      "sizeBytes": 2976129,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-holy-triangle-of-uttar-pradesh-4n-5d.pdf",
+      "sizeBytes": 596841,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-holy-triangle-of-uttar-pradesh-4n-5d.webp",
+      "sizeBytes": 2577103,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-incredible-south-hills-7n-8d.pdf",
+      "sizeBytes": 614804,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-incredible-south-hills-7n-8d.webp",
+      "sizeBytes": 3247946,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jaipur-tour-with-ranthambore-4n-5d.pdf",
+      "sizeBytes": 701564,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jaipur-tour-with-ranthambore-4n-5d.webp",
+      "sizeBytes": 3173059,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jewels-of-japan-cherry-blossom-7n-8d.pdf",
+      "sizeBytes": 1579851,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jewels-of-japan-cherry-blossom-7n-8d.webp",
+      "sizeBytes": 366764,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jordan-experience-6n-7d.pdf",
+      "sizeBytes": 206561,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jordan-experience-6n-7d.webp",
+      "sizeBytes": 3218508,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jordan-family-holiday-6n-7d.pdf",
+      "sizeBytes": 206629,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jordan-family-holiday-6n-7d.webp",
+      "sizeBytes": 2707212,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jordan-honeymoon-escape-4n-5d.pdf",
+      "sizeBytes": 154935,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jordan-honeymoon-escape-4n-5d.webp",
+      "sizeBytes": 2624644,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jordan-treasures-7n-8d.pdf",
+      "sizeBytes": 249538,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jordan-treasures-7n-8d.webp",
+      "sizeBytes": 3123075,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-jungles-of-kanha-and-pench-4n-5d.pdf",
+      "sizeBytes": 705536,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-jungles-of-kanha-and-pench-4n-5d.webp",
+      "sizeBytes": 2923969,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-karismatic-kerala-5n-6d.pdf",
+      "sizeBytes": 612700,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-karismatic-kerala-5n-6d.webp",
+      "sizeBytes": 3264342,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-kashmir-unplugged-6n-7d.pdf",
+      "sizeBytes": 834074,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-kashmir-unplugged-6n-7d.webp",
+      "sizeBytes": 2975937,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-kolkata-with-sunderbans-5n-6d.pdf",
+      "sizeBytes": 602147,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-kolkata-with-sunderbans-5n-6d.webp",
+      "sizeBytes": 3207638,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-kolorful-kerala-7n-8d.pdf",
+      "sizeBytes": 761420,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-kolorful-kerala-7n-8d.webp",
+      "sizeBytes": 2977020,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-magic-of-jordan-4n-5d.pdf",
+      "sizeBytes": 179104,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-magic-of-jordan-4n-5d.webp",
+      "sizeBytes": 264254,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-magical-south-india-6n-7d.pdf",
+      "sizeBytes": 737085,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-magical-south-india-6n-7d.webp",
+      "sizeBytes": 3503754,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.pdf",
+      "sizeBytes": 633758,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-mesmeric-sojourn-to-aurangabad-3n-4d.webp",
+      "sizeBytes": 3279015,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-north-east-marvels-6n-7d.pdf",
+      "sizeBytes": 878627,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-north-east-marvels-6n-7d.webp",
+      "sizeBytes": 3453022,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-north-east-sojourn-5n-6d.pdf",
+      "sizeBytes": 825751,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-north-east-sojourn-5n-6d.webp",
+      "sizeBytes": 2867689,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-odisha-temple-tour-4n-5d.pdf",
+      "sizeBytes": 766054,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-odisha-temple-tour-4n-5d.webp",
+      "sizeBytes": 3423786,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-phnom-penh-highlights-2n-3d.pdf",
+      "sizeBytes": 3082225,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-phnom-penh-highlights-2n-3d.webp",
+      "sizeBytes": 301940,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-phnom-penh-oudong-3n-4d.pdf",
+      "sizeBytes": 3085747,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-phnom-penh-oudong-3n-4d.webp",
+      "sizeBytes": 3047952,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-rann-of-kutch-2n-3d.pdf",
+      "sizeBytes": 1207119,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-rann-of-kutch-2n-3d.webp",
+      "sizeBytes": 2681142,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-rann-of-kutch-3n-4d.pdf",
+      "sizeBytes": 1338799,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-rann-of-kutch-3n-4d.webp",
+      "sizeBytes": 3111511,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-royal-rajasthan-8n-9d.pdf",
+      "sizeBytes": 717869,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-royal-rajasthan-8n-9d.webp",
+      "sizeBytes": 2984004,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-scenic-shimla-manali-ex-ixc-6n-7d.pdf",
+      "sizeBytes": 644589,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-scenic-shimla-manali-ex-ixc-6n-7d.webp",
+      "sizeBytes": 3540885,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-scenic-south-india-5n-6d.pdf",
+      "sizeBytes": 615371,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-scenic-south-india-5n-6d.webp",
+      "sizeBytes": 3331225,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-scenic-srilanka-6n-7d-revised.pdf",
+      "sizeBytes": 923632,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-scenic-srilanka-6n-7d-revised.webp",
+      "sizeBytes": 2770215,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-serene-coorg-and-wayanad-4n-5d.pdf",
+      "sizeBytes": 687198,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-serene-coorg-and-wayanad-4n-5d.webp",
+      "sizeBytes": 3123977,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-serene-tamil-nadu-7n-8d.pdf",
+      "sizeBytes": 643978,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-serene-tamil-nadu-7n-8d.webp",
+      "sizeBytes": 2842369,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-shirdi-with-shani-shingnapur-2n-3d.pdf",
+      "sizeBytes": 681460,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-shirdi-with-shani-shingnapur-2n-3d.webp",
+      "sizeBytes": 3348331,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.pdf",
+      "sizeBytes": 708809,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-shirdi-with-shani-shingnapur-ex-mum-3n-4d.webp",
+      "sizeBytes": 2877786,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-short-gateway-to-tamil-nadu-5n-6d.pdf",
+      "sizeBytes": 639209,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-short-gateway-to-tamil-nadu-5n-6d.webp",
+      "sizeBytes": 3215950,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-short-trip-to-south-5n-6d.pdf",
+      "sizeBytes": 703998,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-short-trip-to-south-5n-6d.webp",
+      "sizeBytes": 3508867,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-siem-reap-heritage-experience-2n-3d.pdf",
+      "sizeBytes": 3050637,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-siem-reap-heritage-experience-2n-3d.webp",
+      "sizeBytes": 3018615,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-siem-reap-mt-kulen-3n-4d.pdf",
+      "sizeBytes": 3071414,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-siem-reap-mt-kulen-3n-4d.webp",
+      "sizeBytes": 467320,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-siem-reap-phnom-penh-culture-4n-5d.pdf",
+      "sizeBytes": 2661926,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-siem-reap-phnom-penh-culture-4n-5d.webp",
+      "sizeBytes": 321254,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-siem-reap-phnom-penh-heritage-4n-5d.pdf",
+      "sizeBytes": 2661187,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-siem-reap-phnom-penh-heritage-4n-5d.webp",
+      "sizeBytes": 374950,
+      "mimeType": "image/webp",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-spiritual-tamil-nadu-5n-6d.pdf",
+      "sizeBytes": 615615,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-spiritual-tamil-nadu-5n-6d.webp",
+      "sizeBytes": 3213434,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-splendid-wayanad-and-bekal-4n-5d.pdf",
+      "sizeBytes": 612281,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-splendid-wayanad-and-bekal-4n-5d.webp",
+      "sizeBytes": 2799767,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-2n-3d.pdf",
+      "sizeBytes": 1166664,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-2n-3d.webp",
+      "sizeBytes": 2782431,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-3n-4d.pdf",
+      "sizeBytes": 1192163,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-3n-4d.webp",
+      "sizeBytes": 2607847,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-with-ahmedabad-4n-5d.pdf",
+      "sizeBytes": 1185657,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-statue-of-unity-with-ahmedabad-4n-5d.webp",
+      "sizeBytes": 2978084,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.pdf",
+      "sizeBytes": 841038,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-taj-mahal-with-gems-of-rajasthan-11n-12d.webp",
+      "sizeBytes": 2888261,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-the-best-of-hyderabad-3n-4d.pdf",
+      "sizeBytes": 607113,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-the-best-of-hyderabad-3n-4d.webp",
+      "sizeBytes": 2972965,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-trip-to-varansi-and-bodhgaya-5n-6d.pdf",
+      "sizeBytes": 605089,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-trip-to-varansi-and-bodhgaya-5n-6d.webp",
+      "sizeBytes": 3119207,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-ultimate-udaipur-with-mt-abu-4n-5d.pdf",
+      "sizeBytes": 615505,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-ultimate-udaipur-with-mt-abu-4n-5d.webp",
+      "sizeBytes": 2905819,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-unexplored-kerala-4n-5d.pdf",
+      "sizeBytes": 609714,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-unexplored-kerala-4n-5d.webp",
+      "sizeBytes": 3188632,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-unlimited-maharashtra-5n-6d.pdf",
+      "sizeBytes": 645054,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-unlimited-maharashtra-5n-6d.webp",
+      "sizeBytes": 3156358,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.pdf",
+      "sizeBytes": 697944,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-wild-horizon-of-kanha-and-bandhavgarh-4n-5d.webp",
+      "sizeBytes": 3082016,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wilderness-of-madhya-pradesh-6n-7d.pdf",
+      "sizeBytes": 711448,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-wilderness-of-madhya-pradesh-6n-7d.webp",
+      "sizeBytes": 3195125,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wonders-of-coorg-and-kabini-4n-5d.pdf",
+      "sizeBytes": 680111,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-wonders-of-coorg-and-kabini-4n-5d.webp",
+      "sizeBytes": 3249312,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wonders-of-dubai-5n-6d.webp",
+      "sizeBytes": 2944965,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wonders-of-nepal-7n-8d.pdf",
+      "sizeBytes": 845686,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-wonders-of-nepal-7n-8d.webp",
+      "sizeBytes": 2802499,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "mtpl-wonders-of-srilanka-7n-8d-revised.pdf",
+      "sizeBytes": 901102,
+      "mimeType": "application/pdf",
+      "category": "documents"
+    },
+    {
+      "filename": "mtpl-wonders-of-srilanka-7n-8d-revised.webp",
+      "sizeBytes": 3065257,
+      "mimeType": "image/png",
+      "category": "images"
+    },
+    {
+      "filename": "National-Category.webp",
+      "sizeBytes": 3390853,
+      "mimeType": "image/png",
+      "category": "images"
+    }
+  ]
+}
