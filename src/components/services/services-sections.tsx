@@ -237,6 +237,7 @@ export function ServicesSections() {
                           <Image
                             src={service.iconSrc}
                             alt=""
+                            aria-hidden="true"
                             width={56}
                             height={56}
                             className="w-full h-full object-contain drop-shadow-md"

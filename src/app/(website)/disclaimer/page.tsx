@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { siteConfig } from "@/config/site"
+import { JsonLd, buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo"
 import {
   ShieldAlert,
   FileText,
@@ -23,14 +24,18 @@ import {
   CheckCircle2,
 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Website Disclaimer | Mishrikotkar Travels",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Website Disclaimer",
   description:
     "Official Website Disclaimer for Mishrikotkar Travels Pvt. Ltd. (MTPL) regarding travel facilitation, airline and hotel policies, pricing, visas, safaris, and third-party services.",
-  alternates: {
-    canonical: `${siteConfig.url}/disclaimer`,
+  path: "/disclaimer",
+  ogImage: {
+    url: "/assets/headers/header-about.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Website Disclaimer — Mishrikotkar Travels Pvt. Ltd.",
   },
-}
+})
 
 const tableOfContents = [
   { id: "section-1", label: "1. MTPL Acts as a Travel Facilitator" },
@@ -57,6 +62,13 @@ const tableOfContents = [
 export default function DisclaimerPage() {
   return (
     <div className="flex flex-col w-full bg-white">
+      <JsonLd
+        id="schema-disclaimer-breadcrumbs"
+        data={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Website Disclaimer", path: "/disclaimer" },
+        ])}
+      />
       {/* Editorial Hero Header */}
       <section
         className="bg-[#073B2D] pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden text-center"

@@ -11,7 +11,8 @@ export async function GET() {
       database: "mongodb",
       status: "connected",
     });
-  } catch {
+  } catch (error) {
+    console.error("[DB Health Check]", error);
     return NextResponse.json(
       {
         success: false,

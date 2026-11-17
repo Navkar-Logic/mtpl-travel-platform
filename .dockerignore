@@ -1,0 +1,27 @@
+.git
+.gitignore
+.next
+out
+node_modules
+npm-debug.log*
+*.log
+*.tsbuildinfo
+
+# Never copy local or production secrets into image build context
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Persistent media & large archival/doc folders stay outside the app container
+/storage
+/assets
+!public/assets
+!public/assets/**
+/backups
+/docs
+/scratch
+/coverage
+/.vscode
+/.idea
+

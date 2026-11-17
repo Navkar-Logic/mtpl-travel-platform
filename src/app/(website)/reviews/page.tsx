@@ -8,22 +8,48 @@ import { getWebsiteTestimonials } from "@/features/testimonials/data/testimonial
 import { ReviewsList } from "@/components/reviews/reviews-list";
 import { FeedbackForm } from "@/components/reviews/feedback-form";
 import { EnquiryCta } from "@/components/home/enquiry-cta";
+import {
+  JsonLd,
+  buildBreadcrumbSchema,
+  buildPageMetadata,
+  buildPageSchema,
+} from "@/lib/seo";
 import { MessageSquarePlus } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Customer Reviews & Feedback | Mishrikotkar Travels (MTPL)",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Customer Reviews & Feedback",
   description:
     "Read genuine, unedited customer experiences from travellers who explored India and international destinations with Mishrikotkar Travels Pvt. Ltd., and share your own feedback.",
-  alternates: {
-    canonical: "/reviews",
+  path: "/reviews",
+  ogImage: {
+    url: "/assets/headers/header-reviews.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Customer Reviews & Feedback for Mishrikotkar Travels (MTPL)",
   },
-};
+});
 
 export default function ReviewsPage() {
   const testimonials = getWebsiteTestimonials();
 
   return (
     <div className="flex flex-col w-full bg-[#F7F9F8]">
+      <JsonLd
+        id="schema-reviews-page"
+        data={[
+          buildPageSchema({
+            type: "CollectionPage",
+            title: "Customer Reviews & Testimonials | Mishrikotkar Travels (MTPL)",
+            description:
+              "Verified customer testimonials and feedback from families, corporate groups, and holiday travellers assisted by MTPL.",
+            path: "/reviews",
+          }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Customer Reviews", path: "/reviews" },
+          ]),
+        ]}
+      />
       {/* Section A: Page Hero */}
       <section className="bg-[#0A1626] text-white pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
         {/* Hero Background Image (100% Clear, Original colors) */}

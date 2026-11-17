@@ -25,6 +25,7 @@ export interface IPackageCostTable {
 
 export interface IPackage extends Document {
   packageId?: string;
+  sourceOrder?: number;
   slug: string;
   title: string;
   destination: string;
@@ -37,7 +38,7 @@ export interface IPackage extends Document {
   heroImage: string;
   pdfDownloadKey?: string;
   pdfOriginalFilename?: string;
-  numericPrice: number;
+  numericPrice?: number;
   priceDisplay: string;
   pricingBasis?: string;
   currency: PackageCurrency;
@@ -55,7 +56,7 @@ export interface IPackage extends Document {
   costTables: IPackageCostTable[];
   status: PackageStatus;
   createdBy?: string;
-  updatedBy?: string;
+  updatedBy?: string | null;
   seoTitle?: string;
   seoDescription?: string;
   createdAt: Date;
@@ -128,13 +129,17 @@ const PackageSchema = new Schema<IPackage>(
       trim: true,
       index: { sparse: true },
     },
+    sourceOrder: {
+      type: Number,
+      min: [0, "Source order cannot be negative"],
+      index: true,
+    },
     slug: {
       type: String,
       required: [true, "Package slug is required"],
       unique: true,
       trim: true,
       lowercase: true,
-      index: true,
     },
     title: {
       type: String,
@@ -198,9 +203,7 @@ const PackageSchema = new Schema<IPackage>(
     },
     numericPrice: {
       type: Number,
-      required: [true, "Numeric price is required"],
       min: [0, "Numeric price cannot be negative"],
-      default: 0,
     },
     priceDisplay: {
       type: String,
@@ -219,7 +222,6 @@ const PackageSchema = new Schema<IPackage>(
         values: ["INR", "USD"],
         message: "Currency must be either 'INR' or 'USD'",
       },
-      default: "INR",
     },
     isPriceOnRequest: {
       type: Boolean,

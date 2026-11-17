@@ -24,6 +24,42 @@ function inferMimeType(filePath: string): string {
   return 'application/octet-stream';
 }
 
+function detectBufferMimeType(buffer: Buffer, filePath: string): string {
+  if (buffer.length >= 12) {
+    // PNG: 89 50 4E 47 0D 0A 1A 0A
+    if (buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4e && buffer[3] === 0x47) {
+      return 'image/png';
+    }
+    // WebP: RIFF....WEBP (52 49 46 46 .... 57 45 42 50)
+    if (
+      buffer[0] === 0x52 &&
+      buffer[1] === 0x49 &&
+      buffer[2] === 0x46 &&
+      buffer[3] === 0x46 &&
+      buffer[8] === 0x57 &&
+      buffer[9] === 0x45 &&
+      buffer[10] === 0x42 &&
+      buffer[11] === 0x50
+    ) {
+      return 'image/webp';
+    }
+    // JPEG: FF D8 FF
+    if (buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
+      return 'image/jpeg';
+    }
+    // PDF: %PDF (25 50 44 46)
+    if (buffer[0] === 0x25 && buffer[1] === 0x50 && buffer[2] === 0x44 && buffer[3] === 0x46) {
+      return 'application/pdf';
+    }
+    // SVG: text signature
+    const headerStr = buffer.subarray(0, 100).toString('utf-8').trim();
+    if (headerStr.startsWith('<?xml') || headerStr.startsWith('<svg') || headerStr.includes('<svg')) {
+      return 'image/svg+xml';
+    }
+  }
+  return inferMimeType(filePath);
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ key: string }> }
@@ -96,7 +132,7 @@ export async function GET(
 
     // 4. File changed or not cached: read file buffer from disk
     const buffer = await fs.readFile(resolvedPath);
-    const mimeType = inferMimeType(resolvedPath);
+    const mimeType = detectBufferMimeType(buffer, resolvedPath);
     const sizeBytes = stat.size;
 
     // Save to in-memory cache (evict oldest if full)

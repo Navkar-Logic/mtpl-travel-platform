@@ -5,9 +5,11 @@ export type FileCategory = "images" | "documents" | "other";
 
 export interface IMediaAsset extends Document {
   storageKey: string;
+  relativePath?: string;
   originalFilename: string;
   mimeType: string;
   sizeBytes: number;
+  sha256?: string;
   category: FileCategory;
   visibility: FileVisibility;
   altText?: string;
@@ -21,8 +23,13 @@ const MediaAssetSchema = new Schema<IMediaAsset>(
       type: String,
       required: [true, "Storage key is required"],
       unique: true,
-      index: true,
       trim: true,
+    },
+    relativePath: {
+      type: String,
+      trim: true,
+      default: "",
+      index: true,
     },
     originalFilename: {
       type: String,
@@ -38,6 +45,11 @@ const MediaAssetSchema = new Schema<IMediaAsset>(
       type: Number,
       required: [true, "File size in bytes is required"],
       min: [0, "File size cannot be negative"],
+    },
+    sha256: {
+      type: String,
+      trim: true,
+      default: "",
     },
     category: {
       type: String,

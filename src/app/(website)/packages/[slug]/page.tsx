@@ -7,6 +7,7 @@ import Image from "next/image"
 import { getPackageBySlug, getAllPackages, getPackageTables, getPackageCategory } from "@/features/packages/data/packages"
 import { getPackagePriceDetails } from "@/features/packages/utils/package-pricing"
 import { getMediaUrl } from "@/lib/media"
+import { JsonLd, buildPackageDetailJsonLd, buildPageMetadata } from "@/lib/seo"
 import { officeImages } from "@/config/office-images"
 import { PackageTables } from "@/components/packages/package-tables"
 import { PackageTermsModal } from "@/components/packages/package-terms-modal"
@@ -50,28 +51,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pkg) {
     return {
       title: "Package Not Found",
+      robots: {
+        index: false,
+        follow: false,
+      },
     }
   }
 
-  return {
-    title: `${pkg.title} (${pkg.duration}) | MTPL Holiday Packages`,
-    description: pkg.shortDescription,
-    alternates: {
-      canonical: `/packages/${resolvedParams.slug}`,
+  const description =
+    pkg.shortDescription ||
+    pkg.overview ||
+    `Explore ${pkg.title} (${pkg.duration}) in ${pkg.destination} with Mishrikotkar Travels Pvt. Ltd. (MTPL).`
+
+  return buildPageMetadata({
+    title: `${pkg.title} (${pkg.duration})`,
+    description,
+    path: `/packages/${pkg.slug}`,
+    ogTitle: `${pkg.title} (${pkg.duration}) | Mishrikotkar Travels`,
+    ogDescription: description,
+    ogImage: {
+      url: getMediaUrl(pkg.heroImage),
+      width: 1200,
+      height: 630,
+      alt: `${pkg.title} — ${pkg.destination} Holiday Package`,
     },
-    openGraph: {
-      title: `${pkg.title} | MTPL Holiday Packages`,
-      description: pkg.shortDescription,
-      images: [
-        {
-          url: getMediaUrl(pkg.heroImage),
-          width: 1200,
-          height: 630,
-          alt: pkg.title,
-        },
-      ],
-    },
-  }
+  })
 }
 
 export default async function PackageDetailPage({ params }: Props) {
@@ -88,6 +92,10 @@ export default async function PackageDetailPage({ params }: Props) {
 
   return (
     <div className="flex flex-col w-full bg-white">
+      <JsonLd
+        id={`schema-package-${pkg.slug}`}
+        data={buildPackageDetailJsonLd(pkg, category, priceDetails)}
+      />
       {/* Modern Editorial Hero Header */}
       <div className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-900 min-h-[52vh] md:min-h-[58vh] flex flex-col justify-end">
         {/* Cover Photograph */}
@@ -317,7 +325,7 @@ export default async function PackageDetailPage({ params }: Props) {
               <section className="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 flex items-start gap-3.5 shadow-2xs">
                 <Calendar className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1">Seasonal Validity &amp; Terms</h4>
+                  <h3 className="text-sm font-bold text-slate-900 mb-1">Seasonal Validity &amp; Terms</h3>
                   <p className="text-slate-600 text-xs md:text-sm font-light leading-relaxed">
                     {pkg.validityNotice}. Peak surcharges may apply during national holidays, festive periods, and long weekends.
                   </p>
@@ -486,7 +494,7 @@ export default async function PackageDetailPage({ params }: Props) {
                     Itinerary Planning Desk
                   </span>
                 </div>
-                <h4 className="font-bold text-slate-900 font-sans text-sm mb-1">Looking for Custom Changes?</h4>
+                <h3 className="font-bold text-slate-900 font-sans text-sm mb-1">Looking for Custom Changes?</h3>
                 <p className="text-slate-600 text-xs font-light mb-3 leading-relaxed">
                   Talk to our holiday planners for hotel upgrades, multi-city flights, or corporate group departures.
                 </p>

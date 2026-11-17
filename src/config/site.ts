@@ -1,18 +1,25 @@
+const primarySiteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.NEXT_PUBLIC_APP_URL ||
+  "https://mishrikotkartravels.com"
+).replace(/\/+$/, "");
+
 export const siteConfig = {
   name: process.env.NEXT_PUBLIC_APP_NAME || "MTPL",
   publicBrandName: "MTPL",
   companyName: "MISHRIKOTKAR TRAVELS PVT LTD",
   established: 2006,
-  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  url: primarySiteUrl,
   domains: {
     booking: "mtpl.online",
     corporate: "mishrikotkartravels.com",
   },
   seo: {
-    defaultTitle: "Mishrikotkar Travels | Premium Travel Services",
+    defaultTitle: "Mishrikotkar Travels (MTPL) | IATA Travel Agency & Holiday Planners in Nagpur",
     titleTemplate: "%s | Mishrikotkar Travels",
-    defaultDescription: "Experience premium, personalized travel support and end-to-end assistance with Mishrikotkar Travels Pvt. Ltd. (MTPL).",
-    canonicalUrl: "https://www.mishrikotkartravels.com",
+    defaultDescription:
+      "Mishrikotkar Travels Pvt. Ltd. (MTPL) is an IATA-accredited travel agency in Nagpur offering domestic and international holiday packages, flight ticketing, hotels, visas, forex, and end-to-end travel assistance since 2006.",
+    canonicalUrl: primarySiteUrl,
   },
   contact: {
     primaryContact: "Tushar Mishrikotkar",

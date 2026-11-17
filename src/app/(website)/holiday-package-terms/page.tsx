@@ -3,22 +3,33 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
-import { siteConfig } from "@/config/site"
+import { JsonLd, buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo"
 import { Compass, ArrowLeft, ArrowRight } from "lucide-react"
 import { HolidayPackageTermsSection } from "@/components/packages/holiday-package-terms-section"
 
-export const metadata: Metadata = {
-  title: "Holiday Tour Package Terms, Client Declaration & Limitation of Liability | Mishrikotkar Travels",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Holiday Tour Package Terms, Client Declaration & Liability",
   description:
     "Official terms and conditions, client declaration, and limitation of liability governing holiday tour packages arranged or facilitated by Mishrikotkar Travels Pvt. Ltd. (MTPL).",
-  alternates: {
-    canonical: `${siteConfig.url}/holiday-package-terms`,
+  path: "/holiday-package-terms",
+  ogImage: {
+    url: "/assets/headers/header-packages.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Holiday Tour Package Terms — Mishrikotkar Travels Pvt. Ltd.",
   },
-}
+})
 
 export default function HolidayPackageTermsPage() {
   return (
     <div className="flex flex-col w-full bg-white">
+      <JsonLd
+        id="schema-holiday-terms-breadcrumbs"
+        data={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Holiday Tour Package Terms", path: "/holiday-package-terms" },
+        ])}
+      />
       {/* Editorial Hero Header */}
       <div className="bg-[#073B2D] pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden text-center">
         <div className="absolute inset-0 z-0">

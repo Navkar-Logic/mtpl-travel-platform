@@ -3,20 +3,32 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
-import { siteConfig } from "@/config/site"
+import { JsonLd, buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo"
 import { FileText, ArrowLeft, ArrowRight } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "General Booking Policy & Terms of Service | Mishrikotkar Travels",
-  description: "Comprehensive booking terms and service policy for air ticketing, hotels, safaris, and travel assistance by MTPL.",
-  alternates: {
-    canonical: `${siteConfig.url}/booking-policy`,
+export const metadata: Metadata = buildPageMetadata({
+  title: "General Booking Policy & Terms of Service",
+  description:
+    "Comprehensive booking terms and service policy for air ticketing, hotels, safaris, and travel assistance by Mishrikotkar Travels Pvt. Ltd. (MTPL).",
+  path: "/booking-policy",
+  ogImage: {
+    url: "/assets/headers/header-about.jpg",
+    width: 1200,
+    height: 630,
+    alt: "General Booking Policy & Terms of Service — MTPL",
   },
-}
+})
 
 export default function BookingPolicyPage() {
   return (
     <div className="flex flex-col w-full bg-white">
+      <JsonLd
+        id="schema-booking-policy-breadcrumbs"
+        data={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Booking Policy", path: "/booking-policy" },
+        ])}
+      />
       {/* Editorial Hero Header */}
       <div className="bg-[#073B2D] pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden text-center">
         <div className="absolute inset-0 z-0">
@@ -57,9 +69,9 @@ export default function BookingPolicyPage() {
             </Link>
             
             <div className="bg-[#E8F5ED] p-6 rounded-2xl border border-[#D0E7D9] mb-8">
-              <h3 className="text-base font-bold text-[#123D2E] mb-2 font-sans">
+              <h2 className="text-base font-bold text-[#123D2E] mb-2 font-sans">
                 Notice of Intermediary Role
-              </h3>
+              </h2>
               <p className="text-sm text-[#265344] leading-relaxed">
                 Mishrikotkar Travels Pvt. Ltd. (MTPL) primarily acts as a booking facilitator and intermediary for third-party travel and allied services. Actual performance of flights, accommodation, transport, wildlife safaris, visa issuance decisions, passport approvals, foreign exchange conversion, and insurance underwriting is strictly controlled by the respective independent service providers or competent statutory authorities.
               </p>

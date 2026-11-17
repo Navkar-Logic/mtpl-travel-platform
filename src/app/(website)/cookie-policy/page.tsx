@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { siteConfig } from "@/config/site"
+import { buildPageMetadata } from "@/lib/seo"
 import {
   Cookie,
   FileText,
@@ -17,18 +18,13 @@ import {
   CheckCircle2,
 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | Mishrikotkar Travels",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Cookie Policy",
   description:
     "Official Cookie Policy explaining technical storage, browser cookie practices, and user controls across the website of Mishrikotkar Travels Pvt. Ltd. (MTPL).",
-  robots: {
-    index: false,
-    follow: false,
-  },
-  alternates: {
-    canonical: `${siteConfig.url}/cookie-policy`,
-  },
-}
+  path: "/cookie-policy",
+  noIndex: true,
+})
 
 const tableOfContents = [
   { id: "section-1", label: "1. What Are Cookies & Storage?" },
@@ -241,10 +237,10 @@ export default function CookiePolicyPage() {
                   <div className="p-4 rounded-2xl bg-[#F7F9F8] border border-[#DCE7E1] space-y-1.5">
                     <span className="font-bold text-[#063D2A] text-xs uppercase tracking-wider block flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-[#16A765]" />
-                      Zero Analytics Telemetry
+                      Environment-Gated Analytics
                     </span>
                     <p className="text-xs text-slate-600 leading-relaxed">
-                      The Phase 1 public website does not run Google Analytics, Microsoft Clarity, Hotjar, or third-party session recorders.
+                      By default, third-party analytics scripts are disabled. When an official Google Analytics 4 Measurement ID is configured in production, pseudonymous engagement telemetry is measured via Google Tag Manager without recording personal enquiry inputs.
                     </p>
                   </div>
 
@@ -340,12 +336,12 @@ export default function CookiePolicyPage() {
                       <tr>
                         <td className="py-3 px-4 font-bold text-slate-900">Analytics &amp; Performance</td>
                         <td className="py-3 px-4">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">
-                            Not Used
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200/80">
+                            Conditional (GA4)
                           </span>
                         </td>
                         <td className="py-3 px-4">
-                          We do not track visitor browsing patterns, traffic funnels, or visitor demographics via third-party analytics scripts.
+                          Disabled by default. When an administrator supplies an authorized <code className="text-xs bg-slate-100 px-1 rounded">NEXT_PUBLIC_GA_MEASUREMENT_ID</code>, Google Analytics 4 collects pseudonymous page views and device metrics using first-party cookies (<code className="text-xs bg-slate-100 px-1 rounded">_ga</code>, <code className="text-xs bg-slate-100 px-1 rounded">_ga_*</code>).
                         </td>
                       </tr>
                       <tr>
@@ -504,13 +500,10 @@ export default function CookiePolicyPage() {
               </div>
               <div className="space-y-3 text-slate-700">
                 <p>
-                  Under relevant data protection guidelines—including the principles of India&apos;s <em>Digital Personal Data Protection Act, 2023 (DPDPA)</em>—consent is required for non-essential tracking and profiling technologies.
+                  Under relevant data protection guidelines—including India&apos;s <em>Digital Personal Data Protection Act, 2023 (DPDPA)</em> and international best practices—consent governs non-essential tracking technologies.
                 </p>
                 <p>
-                  Because MTPL does not load third-party marketing tags, analytics trackers, or commercial profiling cookies, we do not display an intrusive consent banner on your screen. By continuing to navigate our website, you acknowledge the standard, technical operation of our web pages.
-                </p>
-                <p className="text-xs text-slate-600">
-                  <em>Future Evolution:</em> If MTPL decides in future development phases to introduce performance analytics or commercial advertising pixels, a compliant consent management mechanism will be integrated and presented to visitors prior to the activation of those technologies.
+                  Because MTPL does not deploy cross-site advertising networks, commercial pixels, or behavioral profiling tools, commercial profiling cookies are never used. If Google Analytics 4 is activated in production, visitors may opt out at any time via browser settings or Google&apos;s official Analytics Opt-Out add-on. For international campaigns targeting jurisdictions subject to strict prior consent (such as the EU ePrivacy Directive/GDPR), an interactive consent banner should be configured before activating performance tracking in those markets.
                 </p>
               </div>
             </section>

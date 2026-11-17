@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { siteConfig } from "@/config/site"
+import { JsonLd, buildBreadcrumbSchema, buildPageMetadata } from "@/lib/seo"
 import {
   ShieldCheck,
   FileText,
@@ -18,14 +19,18 @@ import {
   Building2,
 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | Mishrikotkar Travels",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Terms & Conditions",
   description:
     "Official Terms and Conditions governing website usage, enquiries, itineraries, and travel facilitation services with Mishrikotkar Travels Pvt. Ltd. (MTPL).",
-  alternates: {
-    canonical: `${siteConfig.url}/terms-and-conditions`,
+  path: "/terms-and-conditions",
+  ogImage: {
+    url: "/assets/headers/header-about.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Terms & Conditions — Mishrikotkar Travels Pvt. Ltd.",
   },
-}
+})
 
 const tableOfContents = [
   { id: "section-a", label: "A. Introduction & Acceptance" },
@@ -52,6 +57,13 @@ const tableOfContents = [
 export default function TermsAndConditionsPage() {
   return (
     <div className="flex flex-col w-full bg-white">
+      <JsonLd
+        id="schema-terms-breadcrumbs"
+        data={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Terms & Conditions", path: "/terms-and-conditions" },
+        ])}
+      />
       {/* Restrained Legal Hero Header */}
       <section 
         className="bg-[#073B2D] pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden text-center"

@@ -74,7 +74,7 @@ export function Header() {
               {/* Mobile device logo */}
               <Image 
                 src="/assets/mtpl-logo.png" 
-                alt="MTPL Logo" 
+                alt="Mishrikotkar Travels (MTPL) Logo" 
                 width={170} 
                 height={46} 
                 className="h-8 sm:h-8.5 w-auto object-contain block md:hidden flex-shrink-0" 
@@ -84,7 +84,7 @@ export function Header() {
               {/* Tablet, Laptop and Desktop PC logo */}
               <Image 
                 src="/assets/mtpl-desktop-logo.png" 
-                alt="MTPL Desktop Logo" 
+                alt="Mishrikotkar Travels (MTPL) Desktop Logo" 
                 width={140} 
                 height={150} 
                 className="h-10 md:h-11 lg:h-12 w-auto object-contain hidden md:block flex-shrink-0" 

@@ -1,119 +1,92 @@
-# MTPL Travel Platform — Phase 2: Package Field Mapping Document
+# MTPL P2.0 — Package & Media Field Mapping Specification
 
-**Document:** `P2_PACKAGE_FIELD_MAPPING.md`  
-**Milestone:** Phase 2 — P2.0 (MongoDB Package Catalogue Foundation)  
-**Status:** Authoritative  
-**Source Datasets:**  
-1. `src/features/packages/data/packages.ts` (93 Package objects in `authoritativePackages`)  
-2. `src/features/packages/data/package-tables.json` (93 Accommodations & Cost Table mappings)  
-3. `storage/media/public/` (186 Physical Media Files + 1 Directory)  
-**Target Mongoose Model:** `src/models/package.ts` (`Package` collection in MongoDB)
+**Milestone:** Phase 2 — P2.0 (MongoDB Package Catalogue Foundation & Migration Preparation)  
+**Target Models:** [`PackageModel`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/src/models/package.ts) (`packages`), [`MediaAsset`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/src/models/media-asset.ts) (`mediaassets`), [`MigrationLedger`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/src/models/migration-ledger.ts) (`migrationledgers`)  
+**Migration Script:** [`scripts/migrate-packages-to-mongodb.ts`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/scripts/migrate-packages-to-mongodb.ts)
 
 ---
 
-## 1. Overview & Mapping Strategy
+## 1. Authoritative Source Inventory
 
-The purpose of this document is to define the exact 1:1 schema mapping from static TypeScript objects and JSON datasets to the production Mongoose `Package` model. 
+All catalogue data is sourced strictly from three authoritative sources:
 
-### Key Principles
-1. **Zero Data Loss:** Every single property in `packages.ts` and `package-tables.json` is preserved without truncation or normalization away of meaningful detail.
-2. **Deterministic Typing:** Strict type constraints, enums, and validations are applied in Mongoose without breaking legacy records.
-3. **Preservation of Table Order & Content:** Both header arrays and multi-dimensional row arrays in accommodation tables and tariff matrices are preserved verbatim.
-4. **Clean Decoupling:** Optional fields (such as Dubai PDFs which do not exist) remain strictly optional, preventing migration aborts or dummy value injections.
+1. **Package Metadata & Itineraries:** [`src/features/packages/data/packages.ts`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/src/features/packages/data/packages.ts) (`authoritativePackages` array + `getPackageCategory(pkg.destination)`) — **93 packages** (`67` national, `26` international across `24` destinations).
+2. **Accommodation & Cost Tables:** [`src/features/packages/data/package-tables.json`](file:///f:/Navkar%20Logic%20Client%20Projects/mtpl-travel-platform/src/features/packages/data/package-tables.json) — **93 keyed entries**, `93/93` with populated `accommodations.rows` and `costTables`, matching `1:1` with every package slug.
+3. **Physical Media Binaries:** Recursive scan of `storage/media/public/` — **186 physical files**:
+   - **91 PDF files** (`application/pdf`, `category: "documents"`)
+   - **95 image files** (`category: "images"`): **93 package hero images** + **2 category banners** (`National-Category.webp`, `International-Category.webp`), consisting of **88 `.webp`-named files with PNG bytes (`image/png`)** and **7 native WebP files (`image/webp`)**.
 
----
-
-## 2. Complete Field Mapping Table
-
-| Source Property (`packages.ts` / JSON) | Source Type | Target MongoDB Field (`src/models/package.ts`) | Target Mongoose Type | Required | Default / Transformation Logic | Notes |
-|---|---|---|---|:---:|---|---|
-| `id` | `string` | `packageId` | `String` | No | Preserved verbatim (e.g., `"pkg-andaman-001"`). Indexed. | Legacy catalogue identifier. |
-| `slug` | `string` | `slug` | `String` | **Yes** | Trimmed, lowercased, Unique index. | Primary public route key (`/packages/[slug]`). |
-| `title` | `string` | `title` | `String` | **Yes** | Trimmed. | Package display heading. |
-| `destination` | `string` | `destination` | `String` | **Yes** | Trimmed. Indexed. | Primary destination (e.g. `"Andaman"`, `"Jordan"`). |
-| `category` | `string` (`'national' \| 'international' \| undefined`) | `category` | `String` (enum: `['national', 'international']`) | **Yes** | If present: preserved. If absent: computed via `getPackageCategory(pkg)` (checks `INTERNATIONAL_DESTINATIONS`). Indexed. | 67 National, 26 International. |
-| `duration` | `string` | `duration` | `String` | **Yes** | Trimmed (e.g., `"04 Nights / 05 Days"`). | Canonical duration display string. |
-| `nights` | `number` | `nights` | `Number` | **Yes** | Min: `0`. | Numeric count of nights. |
-| `days` | `number` | `days` | `Number` | **Yes** | Min: `1`. | Numeric count of days. |
-| `shortDescription` | `string` | `shortDescription` | `String` | **Yes** | Trimmed. | Used in package cards and meta descriptions. |
-| `overview` | `string \| undefined` | `overview` | `String` | No | Trimmed. Default `""`. | Full package introduction text on detail page. |
-| `heroImage` | `string` | `heroImage` | `String` | **Yes** | Trimmed (e.g., `"/api/media/mtpl-amazing-andaman-4n-5d.webp"`). | Relative media endpoint URL. |
-| `pdfDownloadKey` | `string \| undefined` | `pdfDownloadKey` | `String` | No | Trimmed. Default `""`. | Key in `storage/media/public/` (e.g. `mtpl-amazing-andaman-4n-5d.pdf`). Optional for packages without PDFs. |
-| `pdfOriginalFilename` | `string \| undefined` | `pdfOriginalFilename` | `String` | No | Trimmed. Default `""`. | Source client filename (e.g. `MTPL_Amazing_Andaman_4N_5D.pdf`). |
-| `numericPrice` | `number \| undefined` | `numericPrice` | `Number` | **Yes** | Min: `0`. Preserved verbatim from source. | Numeric base price for filtering and sorting. |
-| `priceDisplay` | `string` | `priceDisplay` | `String` | **Yes** | Trimmed (e.g. `"₹33,127"`, `"$475 USD"`). | Formatted currency display string. |
-| `pricingBasis` | `string \| undefined` | `pricingBasis` | `String` | No | Trimmed. | Pricing explanation subtext (e.g., `"Per person on 2 Pax sharing"`). |
-| `isPriceOnRequest` | `boolean` | `isPriceOnRequest` | `Boolean` | **Yes** | Default: `false`. | Flag for bespoke, quotation-only tours. |
-| `currency` | Derived | `currency` | `String` (enum: `['INR', 'USD']`) | **Yes** | If `priceDisplay` or `pricingBasis` contains `USD` or `$`, or `category === 'international'`: `"USD"`. Otherwise: `"INR"`. | Explicit ISO-4217 currency tracking. |
-| `validityNotice` | `string \| undefined` | `validityNotice` | `String` | No | Trimmed. | Legal seasonal validity disclaimer. |
-| `validityDisplay` | `string \| undefined` | `validityDisplay` | `String` | No | Trimmed (e.g. `"31 March 2027"`). | Formatted validity date label. |
-| `validityStatus` | `'verified' \| 'confirmation_required'` | `validityStatus` | `String` (enum: `['verified', 'confirmation_required']`) | **Yes** | Default: `"verified"`. | Badge indicator status. |
-| `featured` | `boolean \| undefined` | `featured` | `Boolean` | **Yes** | Default: `false`. Indexed. | Curated homepage package selector. |
-| `highlights` | `string[] \| undefined` | `highlights` | `[String]` | **Yes** | Default: `[]`. | Sightseeing highlights array. |
-| `inclusions` | `string[] \| undefined` | `inclusions` | `[String]` | **Yes** | Default: `[]`. | "What's Included" bullet points. |
-| `exclusions` | `string[] \| undefined` | `exclusions` | `[String]` | **Yes** | Default: `[]`. | "What's Not Included" bullet points. |
-| `itinerary` | `ItineraryDay[]` | `itinerary` | `[ItineraryDaySchema]` | **Yes** | Array of `{ day: Number, title: String, description: String }`. | Preserves exact day numbers, titles, and text without reordering. |
-| `whatsAppHref` | `string` | `whatsAppHref` | `String` | No | Trimmed. | Pre-calculated WhatsApp inquiry link. |
-| `package-tables.json` -> `accommodations` | `AccommodationData \| null` | `accommodations` | `AccommodationSchema` | No | Subdocument: `{ headers: [String], rows: [[String]] }`. | Matrix of hotel options across categories and cities. |
-| `package-tables.json` -> `costTables` | `PackageCostTable[]` | `costTables` | `[CostTableSchema]` | **Yes** | Array of `{ title: String, currency: String, headers: [String], rows: [[String]] }`. Default: `[]`. | Multi-tier price breakdown matrices. |
-| *New Administrative* | N/A | `status` | `String` (enum: `['published', 'draft', 'archived']`) | **Yes** | Default: `"published"`. Indexed. | Publication workflow state for Phase 2 CMS. |
-| *New Administrative* | N/A | `createdBy` | `String` | No | Default: `"system-migration"`. | Author audit trail. |
-| *New Administrative* | N/A | `updatedBy` | `String` | No | Default: `null`. | Editor audit trail. |
-| *New SEO* | N/A | `seoTitle` | `String` | No | Trimmed. Default: `""`. | Optional custom SEO page title. |
-| *New SEO* | N/A | `seoDescription` | `String` | No | Trimmed. Default: `""`. | Optional custom SEO meta description. |
-| *Timestamps* | N/A | `createdAt`, `updatedAt` | `Date` | **Yes** | Managed by Mongoose `{ timestamps: true }`. | Document creation and update timestamps. |
+> [!IMPORTANT]
+> `scripts/extracted_package_prices.json` is historical extraction data only and is **not** used as an authoritative source.
 
 ---
 
-## 3. Subdocument Specifications
+## 2. Package Collection (`PackageModel`) Field Mapping
 
-### 3.1 Itinerary Day Subdocument (`ItineraryDaySchema`)
-```typescript
-{
-  day: { type: Number, required: true },
-  title: { type: String, required: true, trim: true },
-  description: { type: String, required: true, trim: true }
-}
-```
-*Note on Ordering:* The array order from `authoritativePackages` is strictly preserved. In particular, 5 packages with legacy source two-column itinerary layouts (`mtpl-3-sisters-of-the-north-east-11n-12d`, `mtpl-best-of-himachal-5n-6d`, `mtpl-best-of-himachal-9n-10d`, `mtpl-amazing-kashmir-with-katra-7n-8d`, `mtpl-wonders-of-nepal-7n-8d`) are ingested verbatim without automatic reordering.
-
-### 3.2 Accommodations Subdocument (`AccommodationSchema`)
-```typescript
-{
-  headers: [{ type: String, trim: true }],
-  rows: [[{ type: String, trim: true }]]
-}
-```
-*Note:* Accommodation headers typically span `['City', 'Nights', 'Category A', 'Category B', 'Category C', 'Meal Plan']`. Row cells contain hotel names or replacement strings. All nested arrays are preserved as arrays of strings.
-
-### 3.3 Cost Table Subdocument (`CostTableSchema`)
-```typescript
-{
-  title: { type: String, trim: true, default: "" },
-  currency: { type: String, trim: true, default: "" },
-  headers: [{ type: String, trim: true }],
-  rows: [[{ type: String, trim: true }]]
-}
-```
-*Note:* Supports both single tariff tables and multi-season tables (e.g. Sri Lanka revised tours with seasonal tariff bands).
-
----
-
-## 4. Omitted Fields & Normalization Notes
-
-1. **No Fields Omitted:** Every single field from `authoritativePackages` in `src/features/packages/data/packages.ts` and `src/features/packages/data/package-tables.json` is preserved in the target MongoDB schema.
-2. **Category Defaulting:** 77 existing packages do not have an explicit `category` key in their JSON definition because category was dynamically computed at runtime via `getPackageCategory()`. During migration, `category` is resolved and saved explicitly as `"national"` or `"international"` in MongoDB so that database indexes (`{ category: 1 }`) function with maximum efficiency.
-3. **Currency Ingestion:** `currency` is explicitly populated as `"INR"` or `"USD"` based on the package's display price and destination, eliminating the need for runtime string-parsing heuristics.
-4. **Missing PDFs Handled Gracefully:** `mtpl-wonders-of-dubai-5n-6d` and `mtpl-exclusive-dubai-abu-dhabi-6n-7d` have `pdfDownloadKey: ""` and `pdfOriginalFilename: ""`. They are migrated with empty strings or undefined, which the Mongoose schema permits.
+| Source Location | Source Field | MongoDB Field | Type | Required | Transformation / Preservation Rules |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `packages.ts` | `id` | `packageId` | `String` (sparse index) | No | Preserved trimmed string |
+| `packages.ts` (index) | Array index `0..92` | `sourceOrder` | `Number` (indexed) | No | Preserves original static display ordering for future DB queries |
+| `packages.ts` | `slug` | `slug` | `String` (`unique: true`, lowercase) | **Yes** | Normalized trimmed lowercase; canonical lookup key |
+| `packages.ts` | `title` | `title` | `String` | **Yes** | Preserved trimmed verbatim |
+| `packages.ts` | `destination` | `destination` | `String` (indexed) | **Yes** | Preserved trimmed verbatim |
+| `packages.ts` helper | `getPackageCategory(destination)` | `category` | `"national" \| "international"` (indexed) | **Yes** | Validated via explicit helper matching existing site routing |
+| `packages.ts` | `duration` | `duration` | `String` | **Yes** | Preserved trimmed string (e.g., `"5 Nights / 6 Days"`) |
+| `packages.ts` | `nights` | `nights` | `Number` (`min: 0`) | **Yes** | Integer nights count |
+| `packages.ts` | `days` | `days` | `Number` (`min: 1`) | **Yes** | Integer days count |
+| `packages.ts` | `shortDescription` | `shortDescription` | `String` | **Yes** | Preserved trimmed verbatim |
+| `packages.ts` | `overview` | `overview` | `String` | No | Preserved trimmed string; defaults to `""` |
+| `packages.ts` | `heroImage` | `heroImage` | `String` | **Yes** | Preserved path (e.g., `/api/media/<filename>.webp`); existence verified against physical media scan |
+| `packages.ts` | `pdfDownloadKey` | `pdfDownloadKey` | `String` | No | Preserved storage key (or `""` when package has no PDF); verified on disk when non-empty |
+| `packages.ts` | `pdfOriginalFilename` | `pdfOriginalFilename` | `String` | No | Preserved verbatim (including `.png` placeholder filenames on Dubai records) |
+| `packages.ts` | `numericPrice` | `numericPrice` | `Number` (`min: 0`) | No | Optional field (omitted when `undefined`, never coerced to `0`) |
+| `packages.ts` | `priceDisplay` | `priceDisplay` | `String` | **Yes** | Exact UI pricing badge text preserved verbatim (no currency conversion) |
+| `packages.ts` | `pricingBasis` | `pricingBasis` | `String` | No | Preserved trimmed pricing basis text; defaults to `""` |
+| Derived (`resolvePackageCurrency`) | `priceDisplay`, `pricingBasis`, `costTables[].currency` | `currency` | `"INR" \| "USD"` (no default) | **Yes** | Strictly required with **no default** (`default: "INR"` removed). Resolved from summary indicators (`$`/`USD` vs `₹`/`INR`), falling back to unique table currency only when summary has none. Missing or ambiguous values block migration. **Never** inferred from `category`. |
+| `packages.ts` | `isPriceOnRequest` | `isPriceOnRequest` | `Boolean` | No | Defaults to `false`; all 93 source packages are `false` |
+| `packages.ts` | `validityNotice` | `validityNotice` | `String` | No | Preserved trimmed notice; defaults to `""` |
+| `packages.ts` | `validityDisplay` | `validityDisplay` | `String` | No | Preserved trimmed `validityDisplay`; defaults to `""` |
+| `packages.ts` | `validityStatus` | `validityStatus` | `"verified" \| "confirmation_required"` | No | Preserved source `validityStatus`; defaults to `"verified"` |
+| `packages.ts` | `featured` | `featured` | `Boolean` (indexed) | No | Preserved boolean; defaults to `false` |
+| `packages.ts` | `highlights` | `highlights` | `String[]` | No | Preserved trimmed string array in original order |
+| `packages.ts` | `inclusions` | `inclusions` | `String[]` | No | Preserved trimmed string array in original order |
+| `packages.ts` | `exclusions` | `exclusions` | `String[]` | No | Preserved trimmed string array in original order |
+| `packages.ts` | `itinerary` | `itinerary` | `[{ day, title, description }]` | **Yes** | Must contain ≥ 1 entry. Stored in **exact source array order** with original `day` values (no sorting or renumbering). |
+| `packages.ts` | `whatsAppHref` | `whatsAppHref` | `String` | No | Preserved pre-filled WhatsApp deep link verbatim |
+| `package-tables.json` | `[slug].accommodations` | `accommodations` | `{ headers: string[], rows: string[][] } \| null` | No | Copied verbatim from `package-tables.json` |
+| `package-tables.json` | `[slug].costTables` | `costTables` | `[{ title, currency, headers, rows }]` | No | Copied verbatim from `package-tables.json` (preserving each table's declared `currency`) |
+| Migration lifecycle | — | `status` | `"published" \| "draft" \| "archived"` (indexed) | No | Set to `"published"` on initial migration |
+| Migration audit | — | `createdBy` / `updatedBy` | `String` / `String \| null` | No | `"system-migration"` / `null` |
+| Future CMS SEO | — | `seoTitle`, `seoDescription` | `String` | No | Initialized to `""` during P2.0 migration |
+| Mongoose timestamps | — | `createdAt`, `updatedAt` | `Date` | Auto | Managed automatically by Mongoose `timestamps: true` |
 
 ---
 
-## 5. Compound Indexes
+## 3. MediaAsset Collection (`MediaAsset`) Field Mapping
 
-To support high-performance filtering, search, and admin queries without scan bottlenecks:
-1. `{ slug: 1 }`: Unique index on package slug.
-2. `{ status: 1, category: 1, destination: 1 }`: Supports catalogue listing tabs and destination dropdowns.
-3. `{ status: 1, featured: 1 }`: Supports homepage `PackagesPreview` query.
-4. `{ status: 1, numericPrice: 1 }`: Supports price range filters and price sorting.
-5. `{ packageId: 1 }`: Sparse index for legacy ID lookups.
+Backfilled from physical binary inspection inside `storage/media/public/` without modifying, renaming, moving, or re-encoding any file on disk.
 
+| Source | MongoDB Field | Type | Required | Rule |
+| :--- | :--- | :--- | :--- | :--- |
+| Path relative to `storage/media/public` (POSIX `/`) | `storageKey` | `String` (`unique: true`) | **Yes** | Canonical key matching `/api/media/<storageKey>` |
+| Path relative to `storage/media` (POSIX `/`) | `relativePath` | `String` (indexed) | No | e.g. `public/<storageKey>` |
+| Basename on disk | `originalFilename` | `String` | **Yes** | Exact physical filename preserved (e.g. `.webp`) |
+| Binary magic bytes (`detectMimeTypeFromMagicBytes` + `validateFileContent`) | `mimeType` | `String` | **Yes** | True content MIME (`application/pdf`, `image/png`, `image/webp`, `image/jpeg`); unknown signatures **block** scan |
+| `buffer.length` / `stat.size` | `sizeBytes` | `Number` (`min: 0`) | **Yes** | Exact byte length |
+| SHA-256 of file bytes | `sha256` | `String` | No | Hex digest used for media verification and integrity tracking |
+| Content-derived category | `category` | `"images" \| "documents" \| "other"` | **Yes** | `"documents"` for PDFs, `"images"` for verified image binaries |
+| Public media directory | `visibility` | `"public" \| "private"` | **Yes** | `"public"` |
+| Matching package / banner lookup | `altText` | `String` (max `300`) | No | Human-readable alt text for hero images, category banners, or assets |
+
+---
+
+## 4. Documented Source Data Anomalies Preserved As-Is
+
+1. **Bhutan & Nepal Mixed Currencies (6 packages):**
+   All `3` Bhutan packages (`mtpl-bhutan-tour-via-bagdogra-4n-5d`, `mtpl-bhutan-tour-via-bagdogra-6n-7d`, `mtpl-bhutan-tour-via-bagdogra-8n-9d`) and all `3` Nepal packages (`mtpl-best-of-nepal-5n-6d`, `mtpl-glimpse-of-nepal-5n-6d`, `mtpl-wonders-of-nepal-7n-8d`) carry `USD` (`$`) summary pricing (`priceDisplay` / `pricingBasis`) while their `costTables` in `package-tables.json` declare `currency: "INR"`. Both are preserved verbatim without currency conversion and flagged in the migration audit report and ledger.
+2. **Dubai Optional PDF References (2 packages):**
+   `mtpl-wonders-of-dubai-5n-6d` (`pdfOriginalFilename: "Wonders Of Dubai.png"`) and `mtpl-exclusive-dubai-abu-dhabi-6n-7d` (`pdfOriginalFilename: "Dubai + Abu Dhabi.png"`) intentionally have `pdfDownloadKey: ""` and no `.pdf` file on disk. Preserved cleanly without fabricating synthetic PDFs.
+3. **Non-Sequential Legacy Itinerary Day Numbers (5 packages):**
+   `mtpl-3-sisters-of-the-north-east-11n-12d`, `mtpl-best-of-himachal-5n-6d`, `mtpl-best-of-himachal-9n-10d`, `mtpl-amazing-kashmir-with-katra-7n-8d`, and `mtpl-wonders-of-nepal-7n-8d` have legacy non-sequential `day` numbers (e.g., duplicates/gaps/out-of-order entries). The migration preserves both array index order and original `day` values verbatim.
+4. **88 `.webp`-Named Image Files with PNG Magic Bytes:**
+   `88` `.webp` image files physically begin with PNG magic bytes (`image/png`), while `7` begin with native RIFF/WEBP bytes (`image/webp`). No file is renamed, moved, or converted; `MediaAsset.mimeType` records the true content-detected MIME type.

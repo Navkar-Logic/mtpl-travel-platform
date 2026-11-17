@@ -34,9 +34,15 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: false,
-  outputFileTracingIncludes: {
-    '/api/**/*': ['./storage/media/**/*'],
-  },
+  output: "standalone",
+  poweredByHeader: false,
+  ...(process.env.VERCEL === "1"
+    ? {
+        outputFileTracingIncludes: {
+          '/api/**/*': ['./storage/media/**/*'],
+        },
+      }
+    : {}),
   images: {
     unoptimized: true,
   },

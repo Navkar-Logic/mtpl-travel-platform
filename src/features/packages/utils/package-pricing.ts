@@ -7,7 +7,7 @@ export type PackagePriceDetails = {
   startingPrice: number | null
   groupPrice: number | null
   pricingBasis: string
-  currency: "INR" | "USD"
+  currency: "INR" | "USD" | "unknown"
   source: "cost_table" | "numeric_fixed" | "on_request"
 }
 
@@ -19,7 +19,8 @@ export function getPackagePriceDetails(
   pkg: Package,
   tables: PackageTableData | null
 ): PackagePriceDetails {
-  // Detect if package is quoted in USD (e.g. Sri Lanka, Jordan, Cambodia, Dubai, Japan, and other USD-denominated international tours)
+  // Detect if package is quoted in USD strictly from cost-table headers/rows/currency or explicit priceDisplay
+  // Never infer USD solely from international category
   const isUSD =
     Boolean(
       tables?.costTables?.some(
@@ -42,27 +43,81 @@ export function getPackagePriceDetails(
         )
       )
     ) ||
-    pkg.slug.includes("sri-lanka") ||
-    pkg.slug.includes("srilanka") ||
-    pkg.destination === "Jordan" ||
-    pkg.destination === "Cambodia" ||
-    pkg.destination === "Dubai" ||
-    pkg.destination === "Japan" ||
-    pkg.destination === "Bhutan" ||
-    pkg.destination === "Nepal" ||
-    pkg.category === "international" ||
-    Boolean(pkg.priceDisplay && (pkg.priceDisplay.includes("$") || pkg.priceDisplay.toUpperCase().includes("USD")))
+    Boolean(
+      pkg.priceDisplay &&
+        (pkg.priceDisplay.includes("$") || pkg.priceDisplay.toUpperCase().includes("USD"))
+    )
 
-  const currencyCode: "INR" | "USD" = isUSD ? "USD" : "INR"
-  const locale = isUSD ? "en-US" : "en-IN"
-  const minThreshold = isUSD ? 50 : 1000
+  // Detect if package is quoted in INR strictly from cost-table headers/rows/currency or explicit priceDisplay
+  const isINR =
+    Boolean(
+      tables?.costTables?.some(
+        (t) =>
+          t.currency?.toUpperCase() === "INR" ||
+          t.title?.toUpperCase().includes("INR") ||
+          t.title?.includes("₹") ||
+          t.headers?.some((h) => h?.toUpperCase().includes("INR") || h?.includes("₹"))
+      )
+    ) ||
+    Boolean(
+      tables?.costTables?.some((t) =>
+        t.rows?.some((r) =>
+          r.some(
+            (c) =>
+              c &&
+              (c.includes("₹") ||
+                c.toUpperCase().includes("INR") ||
+                /\bRS\.?\b/i.test(c))
+          )
+        )
+      )
+    ) ||
+    Boolean(
+      pkg.priceDisplay &&
+        (pkg.priceDisplay.includes("₹") || pkg.priceDisplay.toUpperCase().includes("INR"))
+    )
 
-  const formatAmount = (val: number) => {
-    return isUSD ? `$${val.toLocaleString(locale)} USD` : `₹${val.toLocaleString(locale)}`
+  // Resolve authoritative currency: never silently default ambiguous or missing currency data to INR
+  let currencyCode: "INR" | "USD" | "unknown" = "unknown"
+  if (isUSD && !isINR) {
+    currencyCode = "USD"
+  } else if (isINR && !isUSD) {
+    currencyCode = "INR"
+  } else if (isUSD && isINR) {
+    // Preserve known discrepancy: 6 Bhutan & Nepal packages have USD priceDisplay with INR in cost tables
+    if (
+      pkg.numericPrice &&
+      pkg.priceDisplay &&
+      (pkg.priceDisplay.includes("$") || pkg.priceDisplay.toUpperCase().includes("USD"))
+    ) {
+      currencyCode = "USD"
+    } else {
+      currencyCode = "unknown"
+    }
+  } else {
+    currencyCode = "unknown"
   }
 
-  // 1. If package is International with a verified USD numeric price, prioritize USD price
-  if (isUSD && pkg.numericPrice && (!tables?.costTables?.some((t) => t.currency?.toUpperCase() === "USD"))) {
+  const isUSDResolved = currencyCode === "USD"
+  const locale = isUSDResolved ? "en-US" : "en-IN"
+  const minThreshold = isUSDResolved ? 50 : 1000
+
+  const formatAmount = (val: number) => {
+    if (currencyCode === "USD") {
+      return `$${val.toLocaleString(locale)} USD`
+    }
+    if (currencyCode === "INR") {
+      return `₹${val.toLocaleString(locale)}`
+    }
+    return `${val.toLocaleString()}`
+  }
+
+  // 1. If package has a verified USD numeric price and explicit USD priceDisplay, prioritize USD price
+  if (
+    currencyCode === "USD" &&
+    pkg.numericPrice &&
+    !tables?.costTables?.some((t) => t.currency?.toUpperCase() === "USD")
+  ) {
     return {
       hasPrice: true,
       displayPrice: formatAmount(pkg.numericPrice),

@@ -1,0 +1,116 @@
+# ==============================================================================
+# MTPL Travel Platform — Production Docker Compose (Hostinger VPS KVM 1)
+# ==============================================================================
+# Architecture:
+#   Internet -> Nginx (Host 80/443) -> web (127.0.0.1:3000) -> mongodb (private)
+#   Host persistent media at /srv/mtpl/media mounted into web container.
+#
+# Usage on VPS (Pulls pre-built image from registry; zero compilation on 1-vCPU VPS):
+#   docker compose --env-file .env.production -f docker-compose.prod.yml pull
+#   docker compose --env-file .env.production -f docker-compose.prod.yml up -d --no-build
+#
+# External Build (on CI runner or development machine):
+#   docker compose --env-file .env.production -f docker-compose.prod.yml build web
+# ==============================================================================
+
+services:
+  mongodb:
+    image: mongo:8
+    container_name: mtpl-mongodb-prod
+    restart: unless-stopped
+    # WiredTiger cache capped for 4 GB RAM VPS; listens only on private Docker bridge (NO host port published)
+    command:
+      - "mongod"
+      - "--wiredTigerCacheSizeGB"
+      - "${MONGO_WT_CACHE_GB:-0.5}"
+      - "--bind_ip_all"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_ROOT_USER:?Error - MONGO_ROOT_USER must be defined in .env.production}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ROOT_PASSWORD:?Error - MONGO_ROOT_PASSWORD must be defined in .env.production}"
+      MONGO_INITDB_DATABASE: "${MONGO_DATABASE:-mtpl_production}"
+      MONGO_APP_USER: "${MONGO_APP_USER:-mtpl_app}"
+      MONGO_APP_PASSWORD: "${MONGO_APP_PASSWORD:?Error - MONGO_APP_PASSWORD must be defined in .env.production}"    
+    volumes:
+      - mtpl_prod_mongodb_data:/data/db
+      - ./deploy/mongo/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+    networks:
+      - mtpl_private
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1024M
+        reservations:
+          memory: 384M
+
+  web:
+    image: "${MTPL_IMAGE:?Error - MTPL_IMAGE must be defined in .env.production with published image and tag}"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_ENVIRONMENT: "${NEXT_PUBLIC_ENVIRONMENT:-production}"
+        NEXT_PUBLIC_APP_NAME: "${NEXT_PUBLIC_APP_NAME:-MTPL}"
+        NEXT_PUBLIC_SITE_URL: "${NEXT_PUBLIC_SITE_URL:-https://mishrikotkartravels.com}"
+        NEXT_PUBLIC_APP_URL: "${NEXT_PUBLIC_APP_URL:-https://mishrikotkartravels.com}"
+    container_name: mtpl-web-prod
+    restart: unless-stopped
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    env_file:
+      - "${MTPL_ENV_FILE:-.env.production}"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      MEDIA_STORAGE_PROVIDER: local
+      MEDIA_STORAGE_ROOT: /srv/mtpl/media
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+    # Bind strictly to localhost; host Nginx terminates TLS and proxies to 127.0.0.1:3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - /srv/mtpl/media:/srv/mtpl/media
+      - mtpl_prod_app_storage:/app/storage
+    networks:
+      - mtpl_private
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health/db').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.80"
+          memory: 1536M
+        reservations:
+          memory: 512M
+
+networks:
+  mtpl_private:
+    name: mtpl_prod_private
+    driver: bridge
+
+volumes:
+  mtpl_prod_mongodb_data:
+    name: mtpl_prod_mongodb_data
+  mtpl_prod_app_storage:
+    name: mtpl_prod_app_storage

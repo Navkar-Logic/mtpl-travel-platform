@@ -65,6 +65,8 @@ export function renderBaseEmailHtml(
     ? `cid:${props.footerLogoCid}`
     : getFooterLogoUrl(config);
 
+  const siteUrl = (config?.appUrl || "https://mishrikotkartravels.com").replace(/\/+$/, "");
+
   const safeSubject = escapeHtml(props.subject);
   const safeTitle = escapeHtml(props.title);
   const safeBadge = props.badgeText ? escapeHtml(props.badgeText) : null;
@@ -225,7 +227,7 @@ export function renderBaseEmailHtml(
           <!-- 1. Pure White Header with Centered Desktop Logo -->
           <tr>
             <td class="header-cell" align="center" style="background-color: #FFFFFF; padding: 32px 24px 22px 24px; border-bottom: 1px solid ${EMAIL_PALETTE.divider}; text-align: center;">
-              <a href="https://www.mishrikotkartravels.com" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">
+              <a href="${siteUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none;">
                 <img src="${headerLogoSrc}" alt="Mishrikotkar Travels (MTPL)" width="100" height="110" style="display: block; margin: 0 auto; width: 100px; height: 110px; max-width: 100%; border: 0;" />
               </a>
             </td>
@@ -308,7 +310,7 @@ export function renderBaseEmailHtml(
             <td class="footer-cell" align="center" style="background-color: #FFFFFF; border-top: 1px solid ${EMAIL_PALETTE.divider}; padding: 30px 24px; text-align: center;">
               
               <!-- Footer Logo (CID Embedded) -->
-              <a href="https://www.mishrikotkartravels.com" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none; margin-bottom: 14px;">
+              <a href="${siteUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; text-decoration: none; margin-bottom: 14px;">
                 <img src="${footerLogoSrc}" alt="Mishrikotkar Travels Pvt. Ltd." width="360" height="169" style="display: block; margin: 0 auto; width: 360px; height: 169px; max-width: 100%; border: 0;" />
               </a>
 
@@ -335,11 +337,11 @@ export function renderBaseEmailHtml(
 
               <!-- Policy Links -->
               <p style="margin: 0; font-size: 11px; color: ${EMAIL_PALETTE.secondaryText}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                <a href="https://www.mishrikotkartravels.com" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Official Website</a>
+                <a href="${siteUrl}" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Official Website</a>
                 &bull;
-                <a href="https://www.mishrikotkartravels.com/privacy-policy" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Privacy Policy</a>
+                <a href="${siteUrl}/privacy-policy" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Privacy Policy</a>
                 &bull;
-                <a href="https://www.mishrikotkartravels.com/booking-policy" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Booking Policy</a>
+                <a href="${siteUrl}/booking-policy" target="_blank" rel="noopener noreferrer" style="color: ${EMAIL_PALETTE.secondaryText}; text-decoration: underline;">Booking Policy</a>
               </p>
 
             </td>
@@ -362,6 +364,7 @@ export function renderBaseEmailText(
 ): string {
   const primaryPhone = config?.supportPhone || "+91 7741006600";
   const supportEmail = config?.fromEmail || "support@mishrikotkartravels.com";
+  const siteUrl = (config?.appUrl || "https://mishrikotkartravels.com").replace(/\/+$/, "");
   const lines: string[] = [];
 
   // Header Banner
@@ -422,8 +425,8 @@ export function renderBaseEmailText(
   lines.push(`Primary Desk: ${primaryPhone} | Enquiry Desk: +91 8381006600`);
   lines.push(`Support Email: ${supportEmail}`);
   lines.push("Headquarters: 101, Shri Ganesh Apartments, Dharampeth, Nagpur - 440010, Maharashtra, India");
-  lines.push("Website: https://www.mishrikotkartravels.com");
-  lines.push("Privacy: https://www.mishrikotkartravels.com/privacy-policy");
+  lines.push(`Website: ${siteUrl}`);
+  lines.push(`Privacy: ${siteUrl}/privacy-policy`);
 
   return lines.join("\n").trim();
 }

@@ -11,8 +11,13 @@
 !.yarn/versions
 
 # environment & secrets
-.env
+.env*
 .env*.local
+.env.production
+
+# safe example templates
+!.env.example
+!.env.production.example
 
 # scratch & temporary files
 /scratch

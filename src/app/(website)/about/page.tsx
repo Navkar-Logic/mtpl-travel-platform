@@ -14,20 +14,46 @@ import { AboutAdvantage } from "@/components/about/about-advantage"
 import { IndustryPresence } from "@/components/about/industry-presence"
 import { MissionVisionApproach } from "@/components/about/mission-vision-approach"
 import { LeadershipAndTeam } from "@/components/about/leadership-and-team"
+import {
+  JsonLd,
+  buildBreadcrumbSchema,
+  buildPageMetadata,
+  buildPageSchema,
+} from "@/lib/seo"
 import { AboutCta } from "@/components/about/about-cta"
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About Us — IATA Travel Agency in Nagpur Since 2006",
   description:
-    "Based in Dharampeth, Nagpur, Mishrikotkar Travels Pvt. Ltd. (MTPL) is an IATA-accredited travel company specializing in corporate air ticketing, luxury FIT holidays, complex international travel and end-to-end travel assistance since 2006.",
-  alternates: {
-    canonical: "/about",
+    "Based in Dharampeth, Nagpur, Mishrikotkar Travels Pvt. Ltd. (MTPL) is an IATA-accredited travel company specializing in corporate air ticketing, luxury FIT holidays, complex international routing, and visa assistance since 2006.",
+  path: "/about",
+  ogImage: {
+    url: "/assets/headers/header-about.jpg",
+    width: 1200,
+    height: 630,
+    alt: "About Mishrikotkar Travels Pvt. Ltd. (MTPL)",
   },
-}
+})
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full">
+      <JsonLd
+        id="schema-about-page"
+        data={[
+          buildPageSchema({
+            type: "AboutPage",
+            title: "About Mishrikotkar Travels Pvt. Ltd. (MTPL)",
+            description:
+              "IATA-certified and TAAI-accredited travel agency in Dharampeth, Nagpur serving leisure and corporate travellers since 2006.",
+            path: "/about",
+          }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+          ]),
+        ]}
+      />
       {/* 1. Hero — strongest positioning first + 4 prominent positioning cards */}
       <AboutHero />
 

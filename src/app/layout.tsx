@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  JsonLd,
+  PRIMARY_SITE_URL,
+  buildCanonicalUrl,
+  buildOrganizationAndAgencyGraph,
+  resolvePrimaryAssetUrl,
+} from "@/lib/seo";
 import "./globals.css";
 
 // Unique, upscale geometric display font for high-impact titles & headings
@@ -27,29 +36,51 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const defaultOgImageUrl = resolvePrimaryAssetUrl(DEFAULT_OG_IMAGE_PATH);
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.seo.canonicalUrl),
+  metadataBase: new URL(PRIMARY_SITE_URL),
   title: {
     default: siteConfig.seo.defaultTitle,
     template: siteConfig.seo.titleTemplate,
   },
   description: siteConfig.seo.defaultDescription,
+  alternates: {
+    canonical: buildCanonicalUrl("/"),
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteConfig.seo.canonicalUrl,
+    url: buildCanonicalUrl("/"),
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
-    siteName: siteConfig.companyName,
+    siteName: "Mishrikotkar Travels Pvt. Ltd. (MTPL)",
+    images: [
+      {
+        url: defaultOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Mishrikotkar Travels Pvt. Ltd. (MTPL) — Travel, Taken Care Of.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
+    images: [defaultOgImageUrl],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -61,44 +92,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-full flex flex-col font-sans text-foreground bg-background">
         {children}
-        <script
-          id="schema-travel-agency"
-          key="schema-travel-agency"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "TravelAgency",
-              name: siteConfig.companyName,
-              alternateName: siteConfig.publicBrandName,
-              url: siteConfig.seo.canonicalUrl,
-              logo: `${siteConfig.seo.canonicalUrl}/assets/mtpl-logo.png`,
-              foundingDate: siteConfig.established.toString(),
-              description: "Mishrikotkar Travels Pvt. Ltd. (MTPL) is a Nagpur-based travel management company providing end-to-end travel assistance.",
-              contactPoint: [
-                {
-                  "@type": "ContactPoint",
-                  telephone: siteConfig.contact.phones.primary,
-                  contactType: "customer service",
-                  email: siteConfig.contact.email,
-                },
-                {
-                  "@type": "ContactPoint",
-                  telephone: siteConfig.contact.phones.alternate,
-                  contactType: "customer service",
-                }
-              ],
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "101, Shri Ganesh Apartments, Dharampeth",
-                addressLocality: "Nagpur",
-                postalCode: "440010",
-                addressRegion: "Maharashtra",
-                addressCountry: "IN",
-              },
-            }),
-          }}
+        <JsonLd
+          id="schema-mtpl-organization-agency"
+          data={buildOrganizationAndAgencyGraph()}
         />
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaMeasurementId)}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ${JSON.stringify(gaMeasurementId)});`}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   );

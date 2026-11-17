@@ -150,7 +150,7 @@ export function renderCustomerFeedbackConfirmationEmail(
   const actions: EmailActionItem[] = [
     {
       label: "Explore More Holiday Packages",
-      url: "https://www.mishrikotkartravels.com/packages",
+      url: `${config.appUrl || "https://mishrikotkartravels.com"}/packages`,
       type: "primary",
     },
     {

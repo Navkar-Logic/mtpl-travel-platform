@@ -19,7 +19,11 @@ export function getEmailConfig(): EmailConfig {
   const fromEmail = process.env.SMTP_FROM_EMAIL || siteConfig.contact.email;
   const notificationRecipient = process.env.ENQUIRY_NOTIFICATION_EMAIL || siteConfig.contact.email;
 
-  const appUrl = (process.env.NEXT_PUBLIC_APP_URL || siteConfig.url).replace(/\/$/, "");
+  const appUrl = (
+    process.env.NEXT_PUBLIC_APP_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    siteConfig.url
+  ).replace(/\/$/, "");
   const supportPhone = process.env.SUPPORT_PHONE || siteConfig.contact.phones.primary;
   const supportWhatsApp = process.env.SUPPORT_WHATSAPP || "918381006600";
 
@@ -187,7 +191,7 @@ export function getHeaderLogoUrl(config?: EmailConfig): string {
   if (config?.appUrl && !config.appUrl.includes("localhost") && !config.appUrl.includes("127.0.0.1")) {
     return `${config.appUrl}/assets/mtpl-desktop-logo.png`;
   }
-  return "https://www.mishrikotkartravels.com/assets/mtpl-desktop-logo.png";
+  return "https://mishrikotkartravels.com/assets/mtpl-desktop-logo.png";
 }
 
 /**
@@ -197,6 +201,6 @@ export function getFooterLogoUrl(config?: EmailConfig): string {
   if (config?.appUrl && !config.appUrl.includes("localhost") && !config.appUrl.includes("127.0.0.1")) {
     return `${config.appUrl}/assets/mtpl-footer-logo.png`;
   }
-  return "https://www.mishrikotkartravels.com/assets/mtpl-footer-logo.png";
+  return "https://mishrikotkartravels.com/assets/mtpl-footer-logo.png";
 }
 

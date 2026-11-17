@@ -1,219 +1,486 @@
 /**
- * MTPL Travel Platform — Phase 2: MongoDB Package Catalogue Migration Script
- * 
- * Safely and idempotently migrates the 93 static package definitions and 93 tariff/hotel
- * tables from code into MongoDB, backfilling MediaAsset metadata for all 186 physical files.
- * 
+ * MTPL Travel Platform — Phase 2 (P2.0): MongoDB Package Catalogue Migration Script
+ *
+ * Safely and idempotently prepares/migrates the 93 static package definitions,
+ * 93 accommodation/cost-table entries, and 186 physical media file metadata records
+ * into the local development MongoDB database (`mtpl_dev`) ONLY.
+ *
  * Usage:
- *   npx tsx scripts/migrate-packages-to-mongodb.ts --dry-run
- *   npx tsx scripts/migrate-packages-to-mongodb.ts --apply [--allow-remote]
- *   npx tsx scripts/migrate-packages-to-mongodb.ts --verify
- *   npx tsx scripts/migrate-packages-to-mongodb.ts --rollback [--allow-remote]
  *   npx tsx scripts/migrate-packages-to-mongodb.ts --report
+ *   npx tsx scripts/migrate-packages-to-mongodb.ts --dry-run
+ *   npx tsx scripts/migrate-packages-to-mongodb.ts --apply-local
+ *   npx tsx scripts/migrate-packages-to-mongodb.ts --verify
+ *   npx tsx scripts/migrate-packages-to-mongodb.ts --rollback-local
  */
 
 import * as fs from "node:fs";
 import * as path from "node:path";
 import crypto from "node:crypto";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import mongoose, { Connection, Model } from "mongoose";
 
-import { PackageModel } from "../src/models/package";
-import { MediaAsset } from "../src/models/media-asset";
-import { MigrationLedger, IMigrationLedger } from "../src/models/migration-ledger";
-import { authoritativePackages, getPackageCategory } from "../src/features/packages/data/packages";
+import {
+  PackageModel,
+  IPackage,
+  PackageCurrency,
+  PackageValidityStatus,
+} from "../src/models/package";
+import { MediaAsset, IMediaAsset, FileCategory } from "../src/models/media-asset";
+import {
+  MigrationLedger,
+  IMigrationLedger,
+  IMigrationChecksumSnapshot,
+  IDigestEntry,
+} from "../src/models/migration-ledger";
+import {
+  authoritativePackages,
+  getPackageCategory,
+} from "../src/features/packages/data/packages";
+import { Package, PackageTableData } from "../src/types/package";
 import { validateFileContent } from "../src/lib/storage/validation";
 
-// Load environment files
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
-const MIGRATION_NAME = "P2_0_PACKAGE_CATALOGUE_MIGRATION";
-const MIGRATION_VERSION = "1.0.0";
-const MEDIA_PUBLIC_DIR = path.resolve(process.cwd(), "storage/media/public");
-const BACKUP_DIR = path.resolve(process.cwd(), "storage/backups");
-const REPORTS_DIR = path.resolve(process.cwd(), "docs/reports");
+export const MIGRATION_NAME = "P2_0_PACKAGE_CATALOGUE_MIGRATION";
+export const MIGRATION_VERSION = "2.0.0";
+export const ALLOWED_LOCAL_DATABASE = "mtpl_dev";
+export const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "::1", "[::1]"]);
 
-interface CliArgs {
-  isDryRun: boolean;
-  isApply: boolean;
-  isVerify: boolean;
-  isRollback: boolean;
-  isReport: boolean;
-  allowRemote: boolean;
+export const MEDIA_ROOT_DIR = path.resolve(process.cwd(), "storage/media");
+export const MEDIA_PUBLIC_DIR = path.resolve(MEDIA_ROOT_DIR, "public");
+export const BACKUP_DIR = path.resolve(process.cwd(), "storage/backups");
+export const REPORTS_DIR = path.resolve(process.cwd(), "docs/reports");
+
+export type MigrationMode =
+  | "report"
+  | "dry-run"
+  | "apply-local"
+  | "verify"
+  | "rollback-local";
+
+const VALID_MODE_FLAGS: Record<string, MigrationMode> = {
+  "--report": "report",
+  "--dry-run": "dry-run",
+  "--apply-local": "apply-local",
+  "--verify": "verify",
+  "--rollback-local": "rollback-local",
+};
+
+const FORBIDDEN_FLAGS = new Set(["--apply", "--rollback", "--allow-remote"]);
+
+export interface ParsedCliArgs {
+  mode: MigrationMode;
 }
 
-function parseCliArgs(): CliArgs {
-  const argv = process.argv.slice(2);
-  const isApply = argv.includes("--apply");
-  const isVerify = argv.includes("--verify");
-  const isRollback = argv.includes("--rollback");
-  const isReport = argv.includes("--report");
-  const allowRemote = argv.includes("--allow-remote");
-  const isDryRun = argv.includes("--dry-run") || (!isApply && !isVerify && !isRollback && !isReport);
+export function parseCliArgs(argv: string[] = process.argv.slice(2)): ParsedCliArgs {
+  const modeFlags: MigrationMode[] = [];
 
-  return { isDryRun, isApply, isVerify, isRollback, isReport, allowRemote };
-}
-
-function redactUri(uri: string): string {
-  return uri.replace(/\/\/([^:]+):([^@]+)@/, "//$1:****@");
-}
-
-function computeInventoryHash(packagesData: unknown, tablesData: unknown, mediaList: string[]): string {
-  const hash = crypto.createHash("sha256");
-  hash.update(JSON.stringify(packagesData));
-  hash.update(JSON.stringify(tablesData));
-  hash.update(mediaList.sort().join(","));
-  return hash.digest("hex");
-}
-
-interface ParsedDatabaseTarget {
-  uri: string;
-  redactedUri: string;
-  isRemote: boolean;
-  databaseName: string;
-  host: string;
-}
-
-function resolveDatabaseTarget(): ParsedDatabaseTarget {
-  const rawUri = process.env.MONGODB_URI;
-  if (!rawUri) {
-    throw new Error("MONGODB_URI environment variable is not defined in .env.local or process.env.");
+  for (const arg of argv) {
+    if (FORBIDDEN_FLAGS.has(arg)) {
+      throw new Error(
+        `Forbidden migration flag '${arg}'. Remote overrides and unguarded '--apply'/'--rollback' flags are permanently disabled. Use '--report', '--dry-run', '--apply-local', '--verify', or '--rollback-local'.`
+      );
+    }
+    if (arg in VALID_MODE_FLAGS) {
+      modeFlags.push(VALID_MODE_FLAGS[arg]);
+      continue;
+    }
+    throw new Error(
+      `Unsupported argument '${arg}'. Allowed modes: --report, --dry-run, --apply-local, --verify, --rollback-local.`
+    );
   }
 
-  const isRemote = rawUri.startsWith("mongodb+srv://") || (!rawUri.includes("127.0.0.1") && !rawUri.includes("localhost"));
-  
-  // Parse target database name
-  let databaseName = "test";
-  let host = "unknown";
+  if (modeFlags.length > 1) {
+    throw new Error(
+      `Multiple migration modes supplied (${modeFlags.join(", ")}). Supply exactly one mode flag.`
+    );
+  }
+
+  return { mode: modeFlags[0] ?? "dry-run" };
+}
+
+export function redactUri(uri: string): string {
+  return uri.replace(/(mongodb(?:\+srv)?:\/\/)([^@]+)@/g, "$1****:****@");
+}
+
+export interface ValidatedLocalDatabaseTarget {
+  uri: string;
+  redactedUri: string;
+  host: string;
+  databaseName: string;
+}
+
+export function resolveLocalDatabaseTarget(
+  rawUri?: string,
+  env: NodeJS.ProcessEnv = process.env
+): ValidatedLocalDatabaseTarget {
+  if (env.NODE_ENV === "production" || env.NEXT_PUBLIC_ENVIRONMENT === "production") {
+    throw new Error(
+      "SAFETY BLOCK: Production environment detected (NODE_ENV or NEXT_PUBLIC_ENVIRONMENT is 'production'). P2.0 migration is restricted to local development only."
+    );
+  }
+
+  const candidateUri = rawUri !== undefined ? rawUri : env.MONGODB_URI;
+  if (!candidateUri || !candidateUri.trim()) {
+    throw new Error(
+      "MONGODB_URI is not defined. Local P2.0 migration requires an explicit local loopback connection string targeting database 'mtpl_dev'."
+    );
+  }
+
+  const trimmedUri = candidateUri.trim();
+
+  if (trimmedUri.startsWith("mongodb+srv://")) {
+    throw new Error(
+      "SAFETY BLOCK: mongodb+srv:// (MongoDB Atlas / remote SRV cluster) is strictly forbidden for P2.0 migration."
+    );
+  }
+
+  if (!trimmedUri.startsWith("mongodb://")) {
+    throw new Error("Invalid MongoDB URI scheme. Expected 'mongodb://' targeting local loopback.");
+  }
+
+  let parsed: URL;
   try {
-    const parsed = new URL(rawUri.replace(/^mongodb(\+srv)?:\/\//, "http://"));
-    host = parsed.host;
-    const pathDb = parsed.pathname.replace(/^\//, "").split("?")[0];
-    if (pathDb) databaseName = pathDb;
+    parsed = new URL(trimmedUri.replace(/^mongodb:\/\//, "http://"));
   } catch {
-    // Fallback if URL parsing fails on complex custom mongo URIs
+    throw new Error("Malformed MONGODB_URI connection string.");
+  }
+
+  // Handle replica-style comma-separated hosts if present after auth section
+  const withoutScheme = trimmedUri.slice("mongodb://".length);
+  const atIdx = withoutScheme.lastIndexOf("@");
+  const hostAndPath = atIdx >= 0 ? withoutScheme.slice(atIdx + 1) : withoutScheme;
+  const slashIdx = hostAndPath.indexOf("/");
+  if (slashIdx === -1) {
+    throw new Error(
+      "SAFETY BLOCK: MONGODB_URI must explicitly specify database '/mtpl_dev'. Silent fallback to 'test' is forbidden."
+    );
+  }
+
+  const rawHostsPart = hostAndPath.slice(0, slashIdx);
+  const rawDbPart = hostAndPath.slice(slashIdx + 1).split("?")[0]?.trim() || "";
+
+  if (!rawDbPart) {
+    throw new Error(
+      "SAFETY BLOCK: Database name is missing in MONGODB_URI. Silent fallback to 'test' is forbidden; exact database 'mtpl_dev' is required."
+    );
+  }
+
+  const hosts = rawHostsPart.split(",").map((h) => h.trim()).filter(Boolean);
+  if (hosts.length === 0) {
+    throw new Error("SAFETY BLOCK: No MongoDB host found in MONGODB_URI.");
+  }
+
+  for (const h of hosts) {
+    // Extract hostname cleanly supporting IPv6 bracket notation
+    const hostname = h.startsWith("[")
+      ? h.slice(0, h.indexOf("]") + 1).toLowerCase()
+      : h.split(":")[0].toLowerCase();
+
+    if (!LOOPBACK_HOSTS.has(hostname)) {
+      throw new Error(
+        `SAFETY BLOCK: Remote or non-loopback MongoDB host '${hostname}' rejected. Only local loopback hosts (127.0.0.1, localhost, ::1) are permitted.`
+      );
+    }
+  }
+
+  if (
+    rawDbPart.toLowerCase().includes("prod") ||
+    rawDbPart === "test" ||
+    rawDbPart !== ALLOWED_LOCAL_DATABASE
+  ) {
+    throw new Error(
+      `SAFETY BLOCK: Target database '${rawDbPart}' is not permitted. Only exact local development database '${ALLOWED_LOCAL_DATABASE}' is allowed.`
+    );
   }
 
   return {
-    uri: rawUri,
-    redactedUri: redactUri(rawUri),
-    isRemote,
-    databaseName,
-    host,
+    uri: trimmedUri,
+    redactedUri: redactUri(trimmedUri),
+    host: parsed.host,
+    databaseName: rawDbPart,
   };
 }
 
-async function connectDb(target: ParsedDatabaseTarget): Promise<void> {
-  console.log(`Connecting to: ${target.redactedUri}`);
-  console.log(`Target Host: ${target.host} | Target DB: "${target.databaseName}" | Mode: ${target.isRemote ? "☁️ Remote Cluster" : "🖥️ Local Instance"}`);
-
-  await mongoose.connect(target.uri, {
-    serverSelectionTimeoutMS: 8000,
-    connectTimeoutMS: 10000,
-  });
-
-  const activeDbName = mongoose.connection.db?.databaseName;
-  console.log(`✅ MongoDB Connection Established. Active DB: "${activeDbName}"\n`);
+export interface DetectedMimeInfo {
+  mimeType: "application/pdf" | "image/png" | "image/jpeg" | "image/webp";
+  category: FileCategory;
 }
 
-interface DiscoveredMediaFile {
-  filename: string;
+export function detectMimeTypeFromMagicBytes(
+  buffer: Buffer,
+  fileLabel: string
+): DetectedMimeInfo {
+  if (buffer.length >= 5 && buffer.subarray(0, 5).toString("ascii") === "%PDF-") {
+    return { mimeType: "application/pdf", category: "documents" };
+  }
+
+  if (
+    buffer.length >= 8 &&
+    buffer[0] === 0x89 &&
+    buffer[1] === 0x50 &&
+    buffer[2] === 0x4e &&
+    buffer[3] === 0x47 &&
+    buffer[4] === 0x0d &&
+    buffer[5] === 0x0a &&
+    buffer[6] === 0x1a &&
+    buffer[7] === 0x0a
+  ) {
+    return { mimeType: "image/png", category: "images" };
+  }
+
+  if (buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
+    return { mimeType: "image/jpeg", category: "images" };
+  }
+
+  if (
+    buffer.length >= 12 &&
+    buffer.subarray(0, 4).toString("ascii") === "RIFF" &&
+    buffer.subarray(8, 12).toString("ascii") === "WEBP"
+  ) {
+    return { mimeType: "image/webp", category: "images" };
+  }
+
+  throw new Error(
+    `BLOCKING MEDIA ERROR: Unrecognized or invalid binary signature for '${fileLabel}'. Supported signatures: PDF, PNG, JPEG, WebP.`
+  );
+}
+
+export interface DiscoveredMediaFile {
+  storageKey: string;
+  relativePath: string;
+  originalFilename: string;
   fullPath: string;
-  mimeType: string;
+  mimeType: DetectedMimeInfo["mimeType"];
   sizeBytes: number;
-  category: "images" | "documents";
+  sha256: string;
+  category: FileCategory;
+  visibility: "public";
   altText: string;
+  extensionMismatch: boolean;
 }
 
-function scanMediaInventory(): { files: DiscoveredMediaFile[]; subdirectories: string[] } {
-  if (!fs.existsSync(MEDIA_PUBLIC_DIR)) {
-    throw new Error(`Media directory not found at: ${MEDIA_PUBLIC_DIR}`);
+export interface MediaInventoryResult {
+  files: DiscoveredMediaFile[];
+  subdirectories: string[];
+  extensionMismatches: Array<{
+    storageKey: string;
+    extension: string;
+    detectedMimeType: string;
+  }>;
+}
+
+export function scanMediaInventory(
+  mediaPublicDir: string = MEDIA_PUBLIC_DIR,
+  mediaRootDir: string = MEDIA_ROOT_DIR
+): MediaInventoryResult {
+  if (!fs.existsSync(mediaPublicDir)) {
+    throw new Error(`Media directory not found: ${mediaPublicDir}`);
   }
 
-  const entries = fs.readdirSync(MEDIA_PUBLIC_DIR, { withFileTypes: true });
-  const subdirectories: string[] = [];
+  const rootStat = fs.lstatSync(mediaRootDir);
+  if (rootStat.isSymbolicLink()) {
+    throw new Error(`SECURITY BLOCK: Media root directory must not be a symlink: ${mediaRootDir}`);
+  }
+
+  const publicStat = fs.lstatSync(mediaPublicDir);
+  if (publicStat.isSymbolicLink() || !publicStat.isDirectory()) {
+    throw new Error(`SECURITY BLOCK: Media public directory must be a real directory: ${mediaPublicDir}`);
+  }
+
+  const realMediaRoot = fs.realpathSync(mediaRootDir);
+  const realPublicDir = fs.realpathSync(mediaPublicDir);
+
+  if (
+    realPublicDir !== realMediaRoot &&
+    !realPublicDir.startsWith(realMediaRoot + path.sep)
+  ) {
+    throw new Error(`SECURITY BLOCK: Media public directory escapes media root: ${realPublicDir}`);
+  }
+
   const files: DiscoveredMediaFile[] = [];
+  const subdirectories: string[] = [];
+  const seenStorageKeys = new Set<string>();
+  const seenRelativePaths = new Set<string>();
+  const extensionMismatches: Array<{
+    storageKey: string;
+    extension: string;
+    detectedMimeType: string;
+  }> = [];
 
-  for (const entry of entries) {
-    if (entry.isDirectory()) {
-      subdirectories.push(entry.name);
-      continue;
-    }
+  function walkDirectory(currentDir: string) {
+    const entries = fs.readdirSync(currentDir).sort((a, b) => a.localeCompare(b));
 
-    if (!entry.isFile()) continue;
+    for (const entryName of entries) {
+      const entryPath = path.join(currentDir, entryName);
+      const entryLstat = fs.lstatSync(entryPath);
 
-    const fullPath = path.resolve(MEDIA_PUBLIC_DIR, entry.name);
-    const stat = fs.statSync(fullPath);
-    const ext = path.extname(entry.name).toLowerCase();
+      if (entryLstat.isSymbolicLink()) {
+        throw new Error(`SECURITY BLOCK: Symlink rejected inside media directory: ${entryPath}`);
+      }
 
-    // Determine true MIME type from file magic bytes (Section 5 requirement)
-    const buffer = fs.readFileSync(fullPath);
-    let mimeType = "application/octet-stream";
-    let category: "images" | "documents" = "documents";
+      const resolvedRealPath = fs.realpathSync(entryPath);
+      if (!resolvedRealPath.startsWith(realPublicDir + path.sep)) {
+        throw new Error(
+          `SECURITY BLOCK: Path escapes media public boundary: ${entryPath} -> ${resolvedRealPath}`
+        );
+      }
 
-    if (buffer.length >= 4 && buffer.subarray(0, 4).toString("ascii") === "%PDF") {
-      mimeType = "application/pdf";
-      category = "documents";
-    } else if (buffer.length >= 8 && buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4e && buffer[3] === 0x47) {
-      // Note: 88 images have .webp extension but are binary PNGs
-      mimeType = "image/png";
-      category = "images";
-    } else if (
-      buffer.length >= 12 &&
-      buffer.subarray(0, 4).toString("ascii") === "RIFF" &&
-      buffer.subarray(8, 12).toString("ascii") === "WEBP"
-    ) {
-      mimeType = "image/webp";
-      category = "images";
-    } else if (buffer.length >= 3 && buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
-      mimeType = "image/jpeg";
-      category = "images";
-    } else {
-      if (ext === ".pdf") {
-        mimeType = "application/pdf";
-        category = "documents";
+      if (entryLstat.isDirectory()) {
+        const relDir = path
+          .relative(realPublicDir, resolvedRealPath)
+          .split(path.sep)
+          .join("/");
+        subdirectories.push(relDir);
+        walkDirectory(resolvedRealPath);
+        continue;
+      }
+
+      if (!entryLstat.isFile()) {
+        throw new Error(`BLOCKING MEDIA ERROR: Non-regular file object encountered: ${entryPath}`);
+      }
+
+      const storageKey = path
+        .relative(realPublicDir, resolvedRealPath)
+        .split(path.sep)
+        .join("/");
+      const relativePath = path
+        .relative(realMediaRoot, resolvedRealPath)
+        .split(path.sep)
+        .join("/");
+
+      if (seenStorageKeys.has(storageKey)) {
+        throw new Error(`Duplicate storageKey detected: '${storageKey}'`);
+      }
+      if (seenRelativePaths.has(relativePath)) {
+        throw new Error(`Duplicate relativePath detected: '${relativePath}'`);
+      }
+
+      const buffer = fs.readFileSync(resolvedRealPath);
+      const { mimeType, category } = detectMimeTypeFromMagicBytes(buffer, relativePath);
+
+      if (!validateFileContent(buffer, mimeType)) {
+        throw new Error(
+          `BLOCKING MEDIA ERROR: Content signature validation failed for '${relativePath}' as '${mimeType}'.`
+        );
+      }
+
+      const ext = path.extname(entryName).toLowerCase();
+      const expectedExtForMime: Record<string, string[]> = {
+        "application/pdf": [".pdf"],
+        "image/png": [".png"],
+        "image/jpeg": [".jpg", ".jpeg"],
+        "image/webp": [".webp"],
+      };
+      const extensionMismatch = !(expectedExtForMime[mimeType] || []).includes(ext);
+      if (extensionMismatch) {
+        extensionMismatches.push({
+          storageKey,
+          extension: ext,
+          detectedMimeType: mimeType,
+        });
+      }
+
+      const sha256 = crypto.createHash("sha256").update(buffer).digest("hex");
+
+      let altText = `${entryName} - MTPL Asset`;
+      if (storageKey === "National-Category.webp") {
+        altText = "National India Holiday Packages - Mishrikotkar Travels";
+      } else if (storageKey === "International-Category.webp") {
+        altText = "International World Holiday Packages - Mishrikotkar Travels";
       } else {
-        mimeType = "image/webp";
-        category = "images";
+        const matchingPkg = authoritativePackages.find(
+          (p) =>
+            p.heroImage === `/api/media/${storageKey}` ||
+            p.pdfDownloadKey === storageKey
+        );
+        if (matchingPkg) {
+          altText = `${matchingPkg.title} (${matchingPkg.duration}) - MTPL Curated Tour`;
+        }
       }
-    }
 
-    const isValidContent = validateFileContent(buffer, mimeType);
-    if (!isValidContent) {
-      console.warn(`⚠️ Warning: Content verification failed for media file: ${entry.name}`);
-    }
+      seenStorageKeys.add(storageKey);
+      seenRelativePaths.add(relativePath);
 
-    // Determine descriptive altText
-    let altText = `${entry.name} - MTPL Asset`;
-    if (entry.name === "National-Category.webp") {
-      altText = "National India Holiday Packages - Mishrikotkar Travels";
-    } else if (entry.name === "International-Category.webp") {
-      altText = "International World Holiday Packages - Mishrikotkar Travels";
-    } else {
-      const matchingPkg = authoritativePackages.find(
-        (p) => p.heroImage.includes(entry.name) || p.pdfDownloadKey === entry.name
-      );
-      if (matchingPkg) {
-        altText = `${matchingPkg.title} (${matchingPkg.duration}) - MTPL Curated Tour`;
-      }
+      files.push({
+        storageKey,
+        relativePath,
+        originalFilename: entryName,
+        fullPath: resolvedRealPath,
+        mimeType,
+        sizeBytes: entryLstat.size,
+        sha256,
+        category,
+        visibility: "public",
+        altText,
+        extensionMismatch,
+      });
     }
-
-    files.push({
-      filename: entry.name,
-      fullPath,
-      mimeType,
-      sizeBytes: stat.size,
-      category,
-      altText,
-    });
   }
 
-  return { files, subdirectories };
+  walkDirectory(realPublicDir);
+
+  return { files, subdirectories, extensionMismatches };
 }
 
-interface AssembledPackageDoc {
+export interface CurrencyResolution {
+  currency: PackageCurrency;
+  tableCurrencies: string[];
+  hasMixedCurrencyDiscrepancy: boolean;
+}
+
+/**
+ * Resolves package summary currency strictly from source pricing indicators.
+ * NEVER infers USD from `category === "international"`.
+ */
+export function resolvePackageCurrency(
+  pkg: Package,
+  tableData: PackageTableData | null
+): CurrencyResolution {
+  const summaryText = `${pkg.priceDisplay || ""} ${pkg.pricingBasis || ""}`.toUpperCase();
+  const hasUsdSummary = summaryText.includes("USD") || summaryText.includes("$");
+  const hasInrSummary = summaryText.includes("INR") || summaryText.includes("₹");
+
+  if (hasUsdSummary && hasInrSummary) {
+    throw new Error(
+      `Conflicting currency indicators in summary pricing for '${pkg.slug}': '${pkg.priceDisplay}' / '${pkg.pricingBasis}'`
+    );
+  }
+
+  const tableCurrencies = Array.from(
+    new Set(
+      (tableData?.costTables || [])
+        .map((t) => (t.currency || "").trim().toUpperCase())
+        .filter(Boolean)
+    )
+  );
+
+  let currency: PackageCurrency;
+  if (hasUsdSummary) {
+    currency = "USD";
+  } else if (hasInrSummary) {
+    currency = "INR";
+  } else if (tableCurrencies.length === 1 && (tableCurrencies[0] === "USD" || tableCurrencies[0] === "INR")) {
+    currency = tableCurrencies[0];
+  } else {
+    throw new Error(
+      `Cannot deterministically resolve currency from source fields for package '${pkg.slug}'.`
+    );
+  }
+
+  const hasMixedCurrencyDiscrepancy = tableCurrencies.some((tc) => tc !== currency);
+
+  return {
+    currency,
+    tableCurrencies,
+    hasMixedCurrencyDiscrepancy,
+  };
+}
+
+export interface AssembledPackageDoc {
   packageId: string;
+  sourceOrder: number;
   slug: string;
   title: string;
   destination: string;
@@ -226,14 +493,14 @@ interface AssembledPackageDoc {
   heroImage: string;
   pdfDownloadKey: string;
   pdfOriginalFilename: string;
-  numericPrice: number;
+  numericPrice?: number;
   priceDisplay: string;
   pricingBasis: string;
-  currency: "INR" | "USD";
+  currency: PackageCurrency;
   isPriceOnRequest: boolean;
   validityNotice: string;
   validityDisplay: string;
-  validityStatus: "verified" | "confirmation_required";
+  validityStatus: PackageValidityStatus;
   featured: boolean;
   highlights: string[];
   inclusions: string[];
@@ -244,518 +511,1388 @@ interface AssembledPackageDoc {
   costTables: { title: string; currency: string; headers: string[]; rows: string[][] }[];
   status: "published";
   createdBy: string;
+  updatedBy: null;
+  seoTitle: string;
+  seoDescription: string;
 }
 
-interface RawCostTable {
-  title?: string;
-  currency?: string;
-  headers?: string[];
-  rows?: Record<string, string>[];
+export type CatalogueDiscrepancies = {
+  mixedCurrencyPackages: Array<{
+    slug: string;
+    destination: string;
+    summaryCurrency: PackageCurrency;
+    priceDisplay: string;
+    costTableCurrencies: string[];
+  }>;
+  emptyPdfPackages: Array<{
+    slug: string;
+    title: string;
+    pdfOriginalFilename: string;
+  }>;
+  nonSequentialItineraryPackages: Array<{
+    slug: string;
+    days: number[];
+  }>;
+  extensionMimeMismatchCount: number;
+  extensionMimeMismatchesSample: Array<{
+    storageKey: string;
+    extension: string;
+    detectedMimeType: string;
+  }>;
+};
+
+export interface AssembledCatalogueResult {
+  packages: AssembledPackageDoc[];
+  discrepancies: CatalogueDiscrepancies;
 }
 
-function assemblePackageDocuments(): AssembledPackageDoc[] {
-  const tablesJsonPath = path.resolve(process.cwd(), "src/features/packages/data/package-tables.json");
-  const packageTablesData = JSON.parse(fs.readFileSync(tablesJsonPath, "utf-8"));
+export function loadPackageTables(): Record<string, PackageTableData> {
+  const tablesJsonPath = path.resolve(
+    process.cwd(),
+    "src/features/packages/data/package-tables.json"
+  );
+  return JSON.parse(fs.readFileSync(tablesJsonPath, "utf-8")) as Record<
+    string,
+    PackageTableData
+  >;
+}
 
+export function assemblePackageCatalogue(
+  mediaInventory?: MediaInventoryResult
+): AssembledCatalogueResult {
+  const packageTablesData = loadPackageTables();
+  const seenSlugs = new Set<string>();
   const docs: AssembledPackageDoc[] = [];
 
-  for (const pkg of authoritativePackages) {
-    const tableData = packageTablesData[pkg.slug] || null;
+  const mixedCurrencyPackages: CatalogueDiscrepancies["mixedCurrencyPackages"] = [];
+  const emptyPdfPackages: CatalogueDiscrepancies["emptyPdfPackages"] = [];
+  const nonSequentialItineraryPackages: CatalogueDiscrepancies["nonSequentialItineraryPackages"] = [];
 
-    // Resolve Category
+  const tableSlugs = new Set(Object.keys(packageTablesData));
+  const pkgSlugs = new Set(authoritativePackages.map((p) => p.slug));
+  const missingTables = [...pkgSlugs].filter((s) => !tableSlugs.has(s));
+  const orphanTables = [...tableSlugs].filter((s) => !pkgSlugs.has(s));
+
+  if (missingTables.length > 0 || orphanTables.length > 0) {
+    throw new Error(
+      `Source parity mismatch between packages.ts and package-tables.json. Missing tables: [${missingTables.join(", ")}], orphan tables: [${orphanTables.join(", ")}]`
+    );
+  }
+
+  for (let index = 0; index < authoritativePackages.length; index++) {
+    const pkg = authoritativePackages[index];
+    if (seenSlugs.has(pkg.slug)) {
+      throw new Error(`Duplicate package slug detected in authoritative source: '${pkg.slug}'`);
+    }
+    seenSlugs.add(pkg.slug);
+
+    const tableData = packageTablesData[pkg.slug] ?? null;
     const category = getPackageCategory(pkg);
+    const currencyResolution = resolvePackageCurrency(pkg, tableData);
 
-    // Resolve Currency deterministically
-    const hasUsdIndicators =
-      (pkg.priceDisplay && (pkg.priceDisplay.includes("$") || pkg.priceDisplay.toUpperCase().includes("USD"))) ||
-      (pkg.pricingBasis && (pkg.pricingBasis.includes("$") || pkg.pricingBasis.toUpperCase().includes("USD"))) ||
-      tableData?.costTables?.some((t: RawCostTable) => t.currency?.toUpperCase() === "USD" || t.title?.toUpperCase().includes("USD")) ||
-      category === "international";
+    if (currencyResolution.hasMixedCurrencyDiscrepancy) {
+      mixedCurrencyPackages.push({
+        slug: pkg.slug,
+        destination: pkg.destination,
+        summaryCurrency: currencyResolution.currency,
+        priceDisplay: pkg.priceDisplay,
+        costTableCurrencies: currencyResolution.tableCurrencies,
+      });
+    }
 
-    const currency: "INR" | "USD" = hasUsdIndicators ? "USD" : "INR";
+    if (!pkg.pdfDownloadKey) {
+      emptyPdfPackages.push({
+        slug: pkg.slug,
+        title: pkg.title,
+        pdfOriginalFilename: pkg.pdfOriginalFilename || "",
+      });
+    }
 
-    // Clean accommodations structure
+    const itinerary = (pkg.itinerary || []).map((it) => ({
+      day: it.day,
+      title: it.title.trim(),
+      description: it.description.trim(),
+    }));
+
+    const isSequential = itinerary.every((it, idx) => it.day === idx + 1);
+    if (!isSequential) {
+      nonSequentialItineraryPackages.push({
+        slug: pkg.slug,
+        days: itinerary.map((it) => it.day),
+      });
+    }
+
     const accommodations = tableData?.accommodations
       ? {
-          headers: tableData.accommodations.headers || [],
-          rows: tableData.accommodations.rows || [],
+          headers: [...(tableData.accommodations.headers || [])],
+          rows: (tableData.accommodations.rows || []).map((r) => [...r]),
         }
       : null;
 
-    // Clean costTables structure
-    const costTables = (tableData?.costTables || []).map((t: RawCostTable) => ({
-      title: t.title || "",
-      currency: t.currency || "",
-      headers: t.headers || [],
-      rows: t.rows || [],
+    const costTables = (tableData?.costTables || []).map((t) => ({
+      title: (t.title || "").trim(),
+      currency: (t.currency || "").trim(),
+      headers: [...(t.headers || [])],
+      rows: (t.rows || []).map((r) => [...r]),
     }));
 
+    if (mediaInventory) {
+      const diskKeySet = new Set(mediaInventory.files.map((f) => f.storageKey));
+      const heroKey = pkg.heroImage.replace("/api/media/", "").split("?")[0];
+      if (!diskKeySet.has(heroKey)) {
+        throw new Error(
+          `BLOCKING SOURCE ERROR: Package '${pkg.slug}' heroImage '${pkg.heroImage}' missing in physical media directory.`
+        );
+      }
+      if (pkg.pdfDownloadKey && !diskKeySet.has(pkg.pdfDownloadKey)) {
+        throw new Error(
+          `BLOCKING SOURCE ERROR: Package '${pkg.slug}' pdfDownloadKey '${pkg.pdfDownloadKey}' missing in physical media directory.`
+        );
+      }
+    }
+
     docs.push({
-      packageId: pkg.id || "",
-      slug: pkg.slug,
-      title: pkg.title,
-      destination: pkg.destination,
+      packageId: (pkg.id || "").trim(),
+      sourceOrder: index,
+      slug: pkg.slug.trim().toLowerCase(),
+      title: pkg.title.trim(),
+      destination: pkg.destination.trim(),
       category,
-      duration: pkg.duration,
+      duration: pkg.duration.trim(),
       nights: pkg.nights,
       days: pkg.days,
-      shortDescription: pkg.shortDescription,
-      overview: pkg.overview || "",
-      heroImage: pkg.heroImage,
-      pdfDownloadKey: pkg.pdfDownloadKey || "",
-      pdfOriginalFilename: pkg.pdfOriginalFilename || "",
-      numericPrice: pkg.numericPrice || 0,
-      priceDisplay: pkg.priceDisplay,
-      pricingBasis: pkg.pricingBasis || "",
-      currency,
+      shortDescription: pkg.shortDescription.trim(),
+      overview: (pkg.overview || "").trim(),
+      heroImage: pkg.heroImage.trim(),
+      pdfDownloadKey: (pkg.pdfDownloadKey || "").trim(),
+      pdfOriginalFilename: (pkg.pdfOriginalFilename || "").trim(),
+      ...(typeof pkg.numericPrice === "number" ? { numericPrice: pkg.numericPrice } : {}),
+      priceDisplay: pkg.priceDisplay.trim(),
+      pricingBasis: (pkg.pricingBasis || "").trim(),
+      currency: currencyResolution.currency,
       isPriceOnRequest: Boolean(pkg.isPriceOnRequest),
-      validityNotice: pkg.validityNotice || "",
-      validityDisplay: pkg.validityDisplay || "",
+      validityNotice: (pkg.validityNotice || "").trim(),
+      validityDisplay: (pkg.validityDisplay || "").trim(),
       validityStatus: pkg.validityStatus || "verified",
       featured: Boolean(pkg.featured),
-      highlights: pkg.highlights || [],
-      inclusions: pkg.inclusions || [],
-      exclusions: pkg.exclusions || [],
-      itinerary: (pkg.itinerary || []).map((it) => ({
-        day: it.day,
-        title: it.title,
-        description: it.description,
-      })),
-      whatsAppHref: pkg.whatsAppHref || "",
+      highlights: (pkg.highlights || []).map((h) => h.trim()),
+      inclusions: (pkg.inclusions || []).map((inc) => inc.trim()),
+      exclusions: (pkg.exclusions || []).map((exc) => exc.trim()),
+      itinerary,
+      whatsAppHref: (pkg.whatsAppHref || "").trim(),
       accommodations,
       costTables,
       status: "published",
       createdBy: "system-migration",
+      updatedBy: null,
+      seoTitle: "",
+      seoDescription: "",
     });
   }
 
-  return docs;
-}
-
-// -----------------------------------------------------------------------------
-// Command 1: DRY RUN
-// -----------------------------------------------------------------------------
-async function executeDryRun(target: ParsedDatabaseTarget): Promise<void> {
-  console.log("==================================================================");
-  console.log("MTPL Migration — Dry Run (Simulated Inspection & Zero Writes)");
-  console.log("==================================================================");
-
-  await connectDb(target);
-
-  const { files: mediaFiles, subdirectories } = scanMediaInventory();
-  const assembledPackages = assemblePackageDocuments();
-
-  console.log(`📦 Discovered Source Packages: ${assembledPackages.length}`);
-  console.log(`   - National Packages: ${assembledPackages.filter((p) => p.category === "national").length}`);
-  console.log(`   - International Packages: ${assembledPackages.filter((p) => p.category === "international").length}`);
-
-  console.log(`\n📁 Discovered Media Files: ${mediaFiles.length} files (plus ${subdirectories.length} directory: ${subdirectories.join(", ")})`);
-  const pdfCount = mediaFiles.filter((m) => m.category === "documents").length;
-  const webpCount = mediaFiles.filter((m) => m.category === "images").length;
-  console.log(`   - Document Assets (PDF): ${pdfCount}`);
-  console.log(`   - Image Assets (WebP/Image): ${webpCount}`);
-
-  // Inspect existing database collections
-  const existingPkgCount = await PackageModel.countDocuments();
-  const existingMediaCount = await MediaAsset.countDocuments();
-  const existingLedgerCount = await MigrationLedger.countDocuments({ migrationName: MIGRATION_NAME });
-
-  console.log(`\n🔍 Current Database Collection State:`);
-  console.log(`   - Existing 'packages' documents: ${existingPkgCount}`);
-  console.log(`   - Existing 'mediaassets' documents: ${existingMediaCount}`);
-  console.log(`   - Existing migration ledger records: ${existingLedgerCount}`);
-
-  // Inspect proposed package changes
-  let packagesToInsert = 0;
-  let packagesToUpdate = 0;
-  for (const pkg of assembledPackages) {
-    const existing = await PackageModel.findOne({ slug: pkg.slug }).select("slug title");
-    if (existing) {
-      packagesToUpdate++;
-    } else {
-      packagesToInsert++;
-    }
-  }
-
-  // Inspect proposed media changes
-  let mediaToInsert = 0;
-  let mediaToSkip = 0;
-  for (const m of mediaFiles) {
-    const existing = await MediaAsset.findOne({ storageKey: m.filename }).select("storageKey");
-    if (existing) {
-      mediaToSkip++;
-    } else {
-      mediaToInsert++;
-    }
-  }
-
-  console.log(`\n📊 Dry-Run Planned Execution Summary:`);
-  console.log(`   - Packages to be Inserted: ${packagesToInsert}`);
-  console.log(`   - Packages to be Updated: ${packagesToUpdate}`);
-  console.log(`   - MediaAssets to be Inserted: ${mediaToInsert}`);
-  console.log(`   - MediaAssets already in DB (to be skipped): ${mediaToSkip}`);
-  console.log(`\n✅ Dry-Run completed successfully. ZERO database writes and ZERO filesystem changes performed.\n`);
-
-  if (target.isRemote) {
-    console.log(`ℹ️ Notice: Target is a Remote MongoDB Cluster (${target.host}). To apply migration, execute:`);
-    console.log(`   npx tsx scripts/migrate-packages-to-mongodb.ts --apply --allow-remote\n`);
-  } else {
-    console.log(`ℹ️ To apply migration to local MongoDB, execute:`);
-    console.log(`   npx tsx scripts/migrate-packages-to-mongodb.ts --apply\n`);
-  }
-}
-
-// -----------------------------------------------------------------------------
-// Command 2: APPLY MIGRATION
-// -----------------------------------------------------------------------------
-async function executeApply(target: ParsedDatabaseTarget, allowRemote: boolean): Promise<void> {
-  console.log("==================================================================");
-  console.log("MTPL Migration — Live Apply Mode");
-  console.log("==================================================================");
-
-  // Safety Gate: Protect Remote Databases
-  if (target.isRemote && !allowRemote) {
-    console.error(`\n🛑 SAFETY HALT: Remote MongoDB Cluster Detected!`);
-    console.error(`Target Host: ${target.host} | Target DB: "${target.databaseName}"`);
-    console.error(`Writing to remote databases requires explicit operator consent.`);
-    console.error(`If this is intentional, re-run with:`);
-    console.error(`   npx tsx scripts/migrate-packages-to-mongodb.ts --apply --allow-remote\n`);
-    process.exit(1);
-  }
-
-  await connectDb(target);
-
-  const { files: mediaFiles } = scanMediaInventory();
-  const assembledPackages = assemblePackageDocuments();
-
-  // Create backup snapshot before executing any mutation
-  if (!fs.existsSync(BACKUP_DIR)) {
-    fs.mkdirSync(BACKUP_DIR, { recursive: true });
-  }
-
-  const timestamp = Date.now();
-  const backupSnapshotPath = path.resolve(BACKUP_DIR, `pre-migration-snapshot-${timestamp}.json`);
-
-  console.log("📸 Creating pre-migration database snapshot...");
-  const existingPackages = await PackageModel.find().lean();
-  const existingMedia = await MediaAsset.find().lean();
-
-  const backupData = {
-    timestamp: new Date().toISOString(),
-    targetHost: target.host,
-    targetDb: target.databaseName,
-    packageCount: existingPackages.length,
-    mediaCount: existingMedia.length,
-    packages: existingPackages,
-    media: existingMedia,
+  return {
+    packages: docs,
+    discrepancies: {
+      mixedCurrencyPackages,
+      emptyPdfPackages,
+      nonSequentialItineraryPackages,
+      extensionMimeMismatchCount: mediaInventory?.extensionMismatches.length ?? 0,
+      extensionMimeMismatchesSample: (mediaInventory?.extensionMismatches ?? []).slice(0, 10),
+    },
   };
+}
 
-  fs.writeFileSync(backupSnapshotPath, JSON.stringify(backupData, null, 2), "utf-8");
-  console.log(`✅ Pre-migration snapshot saved: ${backupSnapshotPath}\n`);
+function stableSortValue(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(stableSortValue);
+  }
+  if (value && typeof value === "object") {
+    const out: Record<string, unknown> = {};
+    for (const key of Object.keys(value as Record<string, unknown>).sort()) {
+      const v = (value as Record<string, unknown>)[key];
+      if (v !== undefined) {
+        out[key] = stableSortValue(v);
+      }
+    }
+    return out;
+  }
+  return value;
+}
 
-  // Initialize Migration Ledger
-  const inventoryHash = computeInventoryHash(authoritativePackages, {}, mediaFiles.map((m) => m.filename));
-  const ledger = new MigrationLedger({
+export function normalizePackageForDigest(doc: Record<string, unknown>): Record<string, unknown> {
+  return {
+    packageId: doc.packageId ?? "",
+    sourceOrder: doc.sourceOrder ?? null,
+    slug: String(doc.slug ?? "").trim().toLowerCase(),
+    title: String(doc.title ?? "").trim(),
+    destination: String(doc.destination ?? "").trim(),
+    category: doc.category,
+    duration: String(doc.duration ?? "").trim(),
+    nights: doc.nights,
+    days: doc.days,
+    shortDescription: String(doc.shortDescription ?? "").trim(),
+    overview: String(doc.overview ?? "").trim(),
+    heroImage: String(doc.heroImage ?? "").trim(),
+    pdfDownloadKey: String(doc.pdfDownloadKey ?? "").trim(),
+    pdfOriginalFilename: String(doc.pdfOriginalFilename ?? "").trim(),
+    numericPrice: typeof doc.numericPrice === "number" ? doc.numericPrice : null,
+    priceDisplay: String(doc.priceDisplay ?? "").trim(),
+    pricingBasis: String(doc.pricingBasis ?? "").trim(),
+    currency: doc.currency,
+    isPriceOnRequest: Boolean(doc.isPriceOnRequest),
+    validityNotice: String(doc.validityNotice ?? "").trim(),
+    validityDisplay: String(doc.validityDisplay ?? "").trim(),
+    validityStatus: doc.validityStatus ?? "verified",
+    featured: Boolean(doc.featured),
+    highlights: Array.isArray(doc.highlights) ? doc.highlights : [],
+    inclusions: Array.isArray(doc.inclusions) ? doc.inclusions : [],
+    exclusions: Array.isArray(doc.exclusions) ? doc.exclusions : [],
+    itinerary: Array.isArray(doc.itinerary)
+      ? doc.itinerary.map((d: Record<string, unknown>) => ({
+          day: d.day,
+          title: String(d.title ?? "").trim(),
+          description: String(d.description ?? "").trim(),
+        }))
+      : [],
+    whatsAppHref: String(doc.whatsAppHref ?? "").trim(),
+    accommodations: doc.accommodations
+      ? {
+          headers: (doc.accommodations as Record<string, unknown>).headers ?? [],
+          rows: (doc.accommodations as Record<string, unknown>).rows ?? [],
+        }
+      : null,
+    costTables: Array.isArray(doc.costTables)
+      ? doc.costTables.map((t: Record<string, unknown>) => ({
+          title: String(t.title ?? "").trim(),
+          currency: String(t.currency ?? "").trim(),
+          headers: Array.isArray(t.headers) ? t.headers : [],
+          rows: Array.isArray(t.rows) ? t.rows : [],
+        }))
+      : [],
+    status: doc.status ?? "published",
+    createdBy: doc.createdBy ?? "system-migration",
+    updatedBy: doc.updatedBy ?? null,
+    seoTitle: String(doc.seoTitle ?? "").trim(),
+    seoDescription: String(doc.seoDescription ?? "").trim(),
+  };
+}
+
+export function normalizeMediaForDigest(doc: Record<string, unknown>): Record<string, unknown> {
+  return {
+    storageKey: String(doc.storageKey ?? "").trim(),
+    relativePath: String(doc.relativePath ?? "").trim(),
+    originalFilename: String(doc.originalFilename ?? "").trim(),
+    mimeType: String(doc.mimeType ?? "").trim(),
+    sizeBytes: doc.sizeBytes,
+    sha256: String(doc.sha256 ?? "").trim(),
+    category: doc.category,
+    visibility: doc.visibility ?? "public",
+    altText: String(doc.altText ?? "").trim(),
+  };
+}
+
+export function computeCanonicalSha256(normalizedObj: unknown): string {
+  return crypto
+    .createHash("sha256")
+    .update(JSON.stringify(stableSortValue(normalizedObj)))
+    .digest("hex");
+}
+
+export function computeInventoryHash(
+  assembledPackages: AssembledPackageDoc[],
+  mediaFiles: DiscoveredMediaFile[]
+): string {
+  const pkgDigests = [...assembledPackages]
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .map((p) => `${p.slug}:${computeCanonicalSha256(normalizePackageForDigest(p as unknown as Record<string, unknown>))}`);
+  const mediaDigests = [...mediaFiles]
+    .sort((a, b) => a.storageKey.localeCompare(b.storageKey))
+    .map((m) => `${m.storageKey}:${computeCanonicalSha256(normalizeMediaForDigest(m as unknown as Record<string, unknown>))}`);
+  return crypto
+    .createHash("sha256")
+    .update(pkgDigests.join("|") + "::" + mediaDigests.join("|"))
+    .digest("hex");
+}
+
+export async function computeCollectionChecksums(
+  pkgModel: Model<IPackage>,
+  mediaModel: Model<IMediaAsset>
+): Promise<IMigrationChecksumSnapshot> {
+  const pkgs = await pkgModel.find().sort({ slug: 1 }).lean();
+  const media = await mediaModel.find().sort({ storageKey: 1 }).lean();
+
+  const packagesDigest = crypto
+    .createHash("sha256")
+    .update(
+      pkgs
+        .map((p) => `${p.slug}:${computeCanonicalSha256(normalizePackageForDigest(p as unknown as Record<string, unknown>))}`)
+        .join("|")
+    )
+    .digest("hex");
+
+  const mediaDigest = crypto
+    .createHash("sha256")
+    .update(
+      media
+        .map((m) => `${m.storageKey}:${computeCanonicalSha256(normalizeMediaForDigest(m as unknown as Record<string, unknown>))}`)
+        .join("|")
+    )
+    .digest("hex");
+
+  return {
+    packageCount: pkgs.length,
+    mediaCount: media.length,
+    packagesDigest,
+    mediaDigest,
+  };
+}
+
+export interface MigrationPlanAnalysis {
+  packagesToInsert: AssembledPackageDoc[];
+  packagesAlreadyMigrated: string[];
+  packageConflicts: Array<{ slug: string; reason: string }>;
+  mediaToInsert: DiscoveredMediaFile[];
+  mediaAlreadyMigrated: string[];
+  mediaConflicts: Array<{ storageKey: string; reason: string }>;
+}
+
+export async function analyzeMigrationPlan(
+  pkgModel: Model<IPackage>,
+  mediaModel: Model<IMediaAsset>,
+  assembledPackages: AssembledPackageDoc[],
+  mediaFiles: DiscoveredMediaFile[]
+): Promise<MigrationPlanAnalysis> {
+  const existingPackages = await pkgModel.find().lean();
+  const existingPkgBySlug = new Map(existingPackages.map((p) => [p.slug, p]));
+
+  const existingMedia = await mediaModel.find().lean();
+  const existingMediaByKey = new Map(existingMedia.map((m) => [m.storageKey, m]));
+
+  const packagesToInsert: AssembledPackageDoc[] = [];
+  const packagesAlreadyMigrated: string[] = [];
+  const packageConflicts: Array<{ slug: string; reason: string }> = [];
+
+  for (const pkg of assembledPackages) {
+    const existing = existingPkgBySlug.get(pkg.slug);
+    if (!existing) {
+      packagesToInsert.push(pkg);
+      continue;
+    }
+
+    const expectedHash = computeCanonicalSha256(
+      normalizePackageForDigest(pkg as unknown as Record<string, unknown>)
+    );
+    const existingHash = computeCanonicalSha256(
+      normalizePackageForDigest(existing as unknown as Record<string, unknown>)
+    );
+
+    if (expectedHash === existingHash) {
+      packagesAlreadyMigrated.push(pkg.slug);
+    } else {
+      packageConflicts.push({
+        slug: pkg.slug,
+        reason: `Existing package document '${pkg.slug}' differs from authoritative source (non-overwriting policy).`,
+      });
+    }
+  }
+
+  const mediaToInsert: DiscoveredMediaFile[] = [];
+  const mediaAlreadyMigrated: string[] = [];
+  const mediaConflicts: Array<{ storageKey: string; reason: string }> = [];
+
+  for (const media of mediaFiles) {
+    const existing = existingMediaByKey.get(media.storageKey);
+    if (!existing) {
+      mediaToInsert.push(media);
+      continue;
+    }
+
+    const expectedHash = computeCanonicalSha256(
+      normalizeMediaForDigest(media as unknown as Record<string, unknown>)
+    );
+    const existingHash = computeCanonicalSha256(
+      normalizeMediaForDigest(existing as unknown as Record<string, unknown>)
+    );
+
+    if (expectedHash === existingHash) {
+      mediaAlreadyMigrated.push(media.storageKey);
+    } else {
+      mediaConflicts.push({
+        storageKey: media.storageKey,
+        reason: `Existing MediaAsset '${media.storageKey}' differs from physical media inventory (non-overwriting policy).`,
+      });
+    }
+  }
+
+  return {
+    packagesToInsert,
+    packagesAlreadyMigrated,
+    packageConflicts,
+    mediaToInsert,
+    mediaAlreadyMigrated,
+    mediaConflicts,
+  };
+}
+
+export interface VerificationOutcome {
+  passedChecks: number;
+  failedChecks: number;
+  allPassed: boolean;
+  details: string[];
+}
+
+export async function verifyDatabaseAgainstSource(
+  pkgModel: Model<IPackage>,
+  mediaModel: Model<IMediaAsset>,
+  assembled: AssembledCatalogueResult,
+  mediaInventory: MediaInventoryResult,
+  silent: boolean = false
+): Promise<VerificationOutcome> {
+  let passedChecks = 0;
+  let failedChecks = 0;
+  const details: string[] = [];
+
+  function check(cond: boolean, message: string) {
+    if (cond) {
+      passedChecks++;
+      details.push(`[PASS] ${message}`);
+      if (!silent) console.log(`  [PASS] ${message}`);
+    } else {
+      failedChecks++;
+      details.push(`[FAIL] ${message}`);
+      if (!silent) console.error(`  [FAIL] ${message}`);
+    }
+  }
+
+  const dbPackages = await pkgModel.find().lean();
+  const dbMedia = await mediaModel.find().lean();
+
+  check(dbPackages.length === 93, `Total packages in DB is 93 (found: ${dbPackages.length})`);
+  check(
+    dbPackages.filter((p) => p.category === "national").length === 67,
+    `National packages count is 67 (found: ${dbPackages.filter((p) => p.category === "national").length})`
+  );
+  check(
+    dbPackages.filter((p) => p.category === "international").length === 26,
+    `International packages count is 26 (found: ${dbPackages.filter((p) => p.category === "international").length})`
+  );
+  check(
+    dbPackages.filter((p) => p.status === "published").length === 93,
+    `All 93 packages have status='published'`
+  );
+
+  // Content parity & zero silent drift against authoritative source
+  const dbPkgMap = new Map(dbPackages.map((p) => [p.slug, p]));
+  let exactPkgMatches = 0;
+  for (const src of assembled.packages) {
+    const dbDoc = dbPkgMap.get(src.slug);
+    if (!dbDoc) continue;
+    const hSrc = computeCanonicalSha256(normalizePackageForDigest(src as unknown as Record<string, unknown>));
+    const hDb = computeCanonicalSha256(normalizePackageForDigest(dbDoc as unknown as Record<string, unknown>));
+    if (hSrc === hDb) exactPkgMatches++;
+  }
+  check(exactPkgMatches === 93, `All 93 packages match source content digests verbatim (matched: ${exactPkgMatches})`);
+
+  check(dbMedia.length === 186, `MediaAsset collection contains 186 records (found: ${dbMedia.length})`);
+  const dbMediaMap = new Map(dbMedia.map((m) => [m.storageKey, m]));
+  let exactMediaMatches = 0;
+  for (const mf of mediaInventory.files) {
+    const dbDoc = dbMediaMap.get(mf.storageKey);
+    if (!dbDoc) continue;
+    const hSrc = computeCanonicalSha256(normalizeMediaForDigest(mf as unknown as Record<string, unknown>));
+    const hDb = computeCanonicalSha256(normalizeMediaForDigest(dbDoc as unknown as Record<string, unknown>));
+    if (hSrc === hDb) exactMediaMatches++;
+  }
+  check(exactMediaMatches === 186, `All 186 MediaAsset records match relativePath, SHA-256, and content MIME type (matched: ${exactMediaMatches})`);
+
+  const pngCount = dbMedia.filter((m) => m.mimeType === "image/png").length;
+  const webpCount = dbMedia.filter((m) => m.mimeType === "image/webp").length;
+  const pdfCount = dbMedia.filter((m) => m.mimeType === "application/pdf").length;
+  check(pdfCount === 91, `91 MediaAsset documents have content-detected mimeType='application/pdf' (found: ${pdfCount})`);
+  check(pngCount === 88, `88 '.webp' MediaAsset documents have content-detected mimeType='image/png' (found: ${pngCount})`);
+  check(webpCount === 7, `7 MediaAsset documents have content-detected mimeType='image/webp' (found: ${webpCount})`);
+
+  const dubaiNoPdf = dbPackages.filter(
+    (p) =>
+      (p.slug === "mtpl-wonders-of-dubai-5n-6d" ||
+        p.slug === "mtpl-exclusive-dubai-abu-dhabi-6n-7d") &&
+      (!p.pdfDownloadKey || p.pdfDownloadKey === "")
+  );
+  check(dubaiNoPdf.length === 2, `Both Dubai packages preserve empty optional pdfDownloadKey`);
+
+  return {
+    passedChecks,
+    failedChecks,
+    allPassed: failedChecks === 0,
+    details,
+  };
+}
+
+export interface ApplyCoreParams {
+  pkgModel: Model<IPackage>;
+  mediaModel: Model<IMediaAsset>;
+  ledgerModel: Model<IMigrationLedger>;
+  targetHost: string;
+  targetDatabase: string;
+  backupDir?: string;
+  silent?: boolean;
+  /** Test-only hook to deterministically simulate a mid-migration crash after N package inserts. */
+  simulateFailureAfterPackageInserts?: number;
+}
+
+export interface ApplyCoreResult {
+  status: "applied" | "already_migrated";
+  insertedPackages: number;
+  skippedPackages: number;
+  insertedMedia: number;
+  skippedMedia: number;
+  ownedPackages?: number;
+  ownedMedia?: number;
+  recoveredFromIncompleteLedgerCount?: number;
+  ledgerId?: string;
+  snapshotPath?: string;
+}
+
+function assertExactDigestSetMatch(
+  expectedKeys: string[],
+  digests: IDigestEntry[],
+  label: string
+): void {
+  const expectedSet = new Set(expectedKeys);
+  const digestSet = new Set(digests.map((d) => d.key));
+  if (
+    expectedKeys.length !== expectedSet.size ||
+    digests.length !== digestSet.size ||
+    expectedSet.size !== digestSet.size ||
+    [...expectedSet].some((k) => !digestSet.has(k))
+  ) {
+    throw new Error(
+      `INTEGRITY BLOCK: Stored ${label} digest set (${digestSet.size}) does not exactly match inserted document set (${expectedSet.size}).`
+    );
+  }
+}
+
+export function createReadOnlyModels(conn: Connection): {
+  pkgModel: Model<IPackage>;
+  mediaModel: Model<IMediaAsset>;
+  ledgerModel: Model<IMigrationLedger>;
+} {
+  const pkgSchema = PackageModel.schema.clone();
+  pkgSchema.set("autoCreate", false);
+  pkgSchema.set("autoIndex", false);
+
+  const mediaSchema = MediaAsset.schema.clone();
+  mediaSchema.set("autoCreate", false);
+  mediaSchema.set("autoIndex", false);
+
+  const ledgerSchema = MigrationLedger.schema.clone();
+  ledgerSchema.set("autoCreate", false);
+  ledgerSchema.set("autoIndex", false);
+
+  return {
+    pkgModel:
+      (conn.models.Package as Model<IPackage>) ||
+      conn.model<IPackage>("Package", pkgSchema),
+    mediaModel:
+      (conn.models.MediaAsset as Model<IMediaAsset>) ||
+      conn.model<IMediaAsset>("MediaAsset", mediaSchema),
+    ledgerModel:
+      (conn.models.MigrationLedger as Model<IMigrationLedger>) ||
+      conn.model<IMigrationLedger>("MigrationLedger", ledgerSchema),
+  };
+}
+
+export async function connectReadOnlyLocal(uri: string): Promise<Connection> {
+  return mongoose
+    .createConnection(uri, {
+      autoIndex: false,
+      autoCreate: false,
+      serverSelectionTimeoutMS: 8000,
+      connectTimeoutMS: 10000,
+    })
+    .asPromise();
+}
+
+export interface DryRunCoreResult {
+  packagesToInsert: number;
+  packagesAlreadyMatched: number;
+  packageConflicts: number;
+  mediaToInsert: number;
+  mediaAlreadyMatched: number;
+  mediaConflicts: number;
+  existingLedgerCount: number;
+  incompleteRunningLedgers: number;
+  failedLedgers: number;
+  rollingBackLedgers: number;
+  mixedCurrencyNoticeCount: number;
+}
+
+export async function executeDryRunCore(params: {
+  pkgModel: Model<IPackage>;
+  mediaModel: Model<IMediaAsset>;
+  ledgerModel: Model<IMigrationLedger>;
+  assembled?: AssembledCatalogueResult;
+  mediaInventory?: MediaInventoryResult;
+}): Promise<DryRunCoreResult> {
+  const mediaInventory = params.mediaInventory ?? scanMediaInventory();
+  const assembled = params.assembled ?? assemblePackageCatalogue(mediaInventory);
+
+  const plan = await analyzeMigrationPlan(
+    params.pkgModel,
+    params.mediaModel,
+    assembled.packages,
+    mediaInventory.files
+  );
+
+  const ledgers = await params.ledgerModel
+    .find({ migrationName: MIGRATION_NAME })
+    .select({ status: 1 })
+    .lean();
+
+  const incompleteRunningLedgers = ledgers.filter((l) => l.status === "running").length;
+  const failedLedgers = ledgers.filter((l) => l.status === "failed").length;
+  const rollingBackLedgers = ledgers.filter((l) => l.status === "rolling_back").length;
+
+  return {
+    packagesToInsert: plan.packagesToInsert.length,
+    packagesAlreadyMatched: plan.packagesAlreadyMigrated.length,
+    packageConflicts: plan.packageConflicts.length,
+    mediaToInsert: plan.mediaToInsert.length,
+    mediaAlreadyMatched: plan.mediaAlreadyMigrated.length,
+    mediaConflicts: plan.mediaConflicts.length,
+    existingLedgerCount: ledgers.length,
+    incompleteRunningLedgers,
+    failedLedgers,
+    rollingBackLedgers,
+    mixedCurrencyNoticeCount: assembled.discrepancies.mixedCurrencyPackages.length,
+  };
+}
+
+export async function executeApplyCore(params: ApplyCoreParams): Promise<ApplyCoreResult> {
+  const {
+    pkgModel,
+    mediaModel,
+    ledgerModel,
+    targetHost,
+    targetDatabase,
+    backupDir = BACKUP_DIR,
+    silent = false,
+    simulateFailureAfterPackageInserts,
+  } = params;
+
+  const activeRollback = await ledgerModel
+    .findOne({ migrationName: MIGRATION_NAME, status: "rolling_back" })
+    .lean();
+  if (activeRollback) {
+    throw new Error(
+      `ROLLBACK IN PROGRESS: Interrupted rollback ledger '${String(activeRollback._id)}' exists in '${targetDatabase}'. Resume and complete '--rollback-local' before running '--apply-local'.`
+    );
+  }
+
+  const mediaInventory = scanMediaInventory();
+  const assembled = assemblePackageCatalogue(mediaInventory);
+  const plan = await analyzeMigrationPlan(
+    pkgModel,
+    mediaModel,
+    assembled.packages,
+    mediaInventory.files
+  );
+
+  if (plan.packageConflicts.length > 0 || plan.mediaConflicts.length > 0) {
+    const conflictSummary = [
+      ...plan.packageConflicts.map((c) => `Package[${c.slug}]: ${c.reason}`),
+      ...plan.mediaConflicts.map((c) => `Media[${c.storageKey}]: ${c.reason}`),
+    ].join("; ");
+    throw new Error(
+      `CONFLICT ABORT: Migration halted because ${plan.packageConflicts.length} package(s) and ${plan.mediaConflicts.length} media record(s) already exist with different content. ZERO writes performed. Details: ${conflictSummary}`
+    );
+  }
+
+  const latestCompletedBoundary = await ledgerModel
+    .findOne({
+      migrationName: MIGRATION_NAME,
+      status: { $in: ["applied", "rolled_back"] },
+    })
+    .sort({ createdAt: -1 })
+    .lean();
+
+  const incompleteQuery: Record<string, unknown> = {
+    migrationName: MIGRATION_NAME,
+    status: { $in: ["running", "failed"] },
+  };
+  if (latestCompletedBoundary?.createdAt) {
+    incompleteQuery.createdAt = { $gt: latestCompletedBoundary.createdAt };
+  }
+
+  const priorCycleIncompleteLedgers = await ledgerModel
+    .find(incompleteQuery)
+    .sort({ createdAt: 1 })
+    .lean();
+
+  if (priorCycleIncompleteLedgers.length > 0 && !silent) {
+    console.warn(
+      `⚠️ Detected ${priorCycleIncompleteLedgers.length} prior incomplete/interrupted ledger record(s) in '${targetDatabase}'. Associating prior inserts into cohort ownership and resuming safely.`
+    );
+  }
+
+  if (
+    plan.packagesToInsert.length === 0 &&
+    plan.mediaToInsert.length === 0 &&
+    priorCycleIncompleteLedgers.length === 0
+  ) {
+    if (!silent) {
+      console.log(
+        `✅ Database '${targetDatabase}' is already migrated and matches source verbatim (93 packages, 186 media assets). No writes needed.`
+      );
+    }
+    return {
+      status: "already_migrated",
+      insertedPackages: 0,
+      skippedPackages: plan.packagesAlreadyMigrated.length,
+      insertedMedia: 0,
+      skippedMedia: plan.mediaAlreadyMigrated.length,
+      recoveredFromIncompleteLedgerCount: 0,
+    };
+  }
+
+  const preMigrationChecksums = await computeCollectionChecksums(pkgModel, mediaModel);
+  const existingPackages = await pkgModel.find().lean();
+  const existingMedia = await mediaModel.find().lean();
+
+  // Preserve exact baseline of records that existed BEFORE Attempt 1 of this cycle
+  const cyclePreExistingPkgSet = new Set<string>(
+    priorCycleIncompleteLedgers.length > 0
+      ? priorCycleIncompleteLedgers[0].preExistingPackageSlugs || []
+      : existingPackages.map((p) => p.slug)
+  );
+  const cyclePreExistingMediaSet = new Set<string>(
+    priorCycleIncompleteLedgers.length > 0
+      ? priorCycleIncompleteLedgers[0].preExistingMediaKeys || []
+      : existingMedia.map((m) => m.storageKey)
+  );
+
+  // Verify any prior attempt's recorded digests still match DB records cleanly before adopting them
+  const priorFailedPkgDigestMap = new Map<string, string>();
+  const priorFailedMediaDigestMap = new Map<string, string>();
+  for (const prev of priorCycleIncompleteLedgers) {
+    for (const d of prev.migratedPackageDigests || []) {
+      priorFailedPkgDigestMap.set(d.key, d.sha256);
+    }
+    for (const d of prev.migratedMediaDigests || []) {
+      priorFailedMediaDigestMap.set(d.key, d.sha256);
+    }
+  }
+
+  for (const [slug, prevDigest] of priorFailedPkgDigestMap.entries()) {
+    const dbDoc = existingPackages.find((p) => p.slug === slug);
+    if (!dbDoc) {
+      throw new Error(
+        `CONFLICT ABORT: Package '${slug}' inserted during prior incomplete attempt is missing in '${targetDatabase}'.`
+      );
+    }
+    const currentHash = computeCanonicalSha256(
+      normalizePackageForDigest(dbDoc as unknown as Record<string, unknown>)
+    );
+    if (currentHash !== prevDigest) {
+      throw new Error(
+        `CONFLICT ABORT: Package '${slug}' inserted during prior incomplete attempt was modified.`
+      );
+    }
+  }
+
+  for (const [storageKey, prevDigest] of priorFailedMediaDigestMap.entries()) {
+    const dbDoc = existingMedia.find((m) => m.storageKey === storageKey);
+    if (!dbDoc) {
+      throw new Error(
+        `CONFLICT ABORT: MediaAsset '${storageKey}' inserted during prior incomplete attempt is missing in '${targetDatabase}'.`
+      );
+    }
+    const currentHash = computeCanonicalSha256(
+      normalizeMediaForDigest(dbDoc as unknown as Record<string, unknown>)
+    );
+    if (currentHash !== prevDigest) {
+      throw new Error(
+        `CONFLICT ABORT: MediaAsset '${storageKey}' inserted during prior incomplete attempt was modified.`
+      );
+    }
+  }
+
+  const parentAttemptLedgerIds = priorCycleIncompleteLedgers.map((l) => String(l._id));
+
+  if (!fs.existsSync(backupDir)) {
+    fs.mkdirSync(backupDir, { recursive: true });
+  }
+  const snapshotPath = path.resolve(
+    backupDir,
+    `pre-migration-snapshot-${targetDatabase}-${Date.now()}.json`
+  );
+  fs.writeFileSync(
+    snapshotPath,
+    JSON.stringify(
+      {
+        timestamp: new Date().toISOString(),
+        targetHost,
+        targetDatabase,
+        preMigrationChecksums,
+        packages: existingPackages,
+        media: existingMedia,
+      },
+      null,
+      2
+    ),
+    "utf-8"
+  );
+
+  const inventoryHash = computeInventoryHash(assembled.packages, mediaInventory.files);
+  const ledger = await ledgerModel.create({
     migrationName: MIGRATION_NAME,
     version: MIGRATION_VERSION,
     status: "running",
+    targetHost,
+    targetDatabase,
     sourceInventoryHash: inventoryHash,
-    packageCount: assembledPackages.length,
-    mediaCount: mediaFiles.length,
+    packageCount: assembled.packages.length,
+    mediaCount: mediaInventory.files.length,
+    parentAttemptLedgerIds,
+    preExistingPackageSlugs: [...cyclePreExistingPkgSet],
+    preExistingMediaKeys: [...cyclePreExistingMediaSet],
     insertedPackageSlugs: [],
     updatedPackageSlugs: [],
+    skippedPackageSlugs: plan.packagesAlreadyMigrated,
     insertedMediaKeys: [],
-    preMigrationSnapshotPath: backupSnapshotPath,
+    skippedMediaKeys: plan.mediaAlreadyMigrated,
+    preMigrationSnapshotPath: snapshotPath,
+    preMigrationChecksums,
+    discrepancies: assembled.discrepancies,
   });
-  await ledger.save();
+
+  const insertedMediaKeys: string[] = [];
+  const insertedPackageSlugs: string[] = [];
 
   try {
-    // Stage 1: MediaAsset Metadata Backfill
-    console.log("🚀 Stage 1: Backfilling MediaAsset records...");
-    const insertedMediaKeys: string[] = [];
-    let mediaSkipped = 0;
-
-    for (const m of mediaFiles) {
-      const existing = await MediaAsset.findOne({ storageKey: m.filename });
-      if (existing) {
-        mediaSkipped++;
-        continue;
-      }
-
-      await MediaAsset.create({
-        storageKey: m.filename,
-        originalFilename: m.filename,
-        mimeType: m.mimeType,
-        sizeBytes: m.sizeBytes,
-        category: m.category,
-        visibility: "public",
-        altText: m.altText,
-      });
-      insertedMediaKeys.push(m.filename);
-    }
-    console.log(`✅ Stage 1 Complete: ${insertedMediaKeys.length} MediaAssets inserted, ${mediaSkipped} existing skipped.\n`);
-
-    // Stage 2: Ingest Packages
-    console.log("🚀 Stage 2: Ingesting Packages & Tariff Tables...");
-    const insertedPackageSlugs: string[] = [];
-    const updatedPackageSlugs: string[] = [];
-
-    for (const pkg of assembledPackages) {
-      const existing = await PackageModel.findOne({ slug: pkg.slug });
-      if (existing) {
-        await PackageModel.updateOne({ slug: pkg.slug }, { $set: pkg });
-        updatedPackageSlugs.push(pkg.slug);
+    for (const m of plan.mediaToInsert) {
+      const res = await mediaModel.updateOne(
+        { storageKey: m.storageKey },
+        {
+          $setOnInsert: {
+            storageKey: m.storageKey,
+            relativePath: m.relativePath,
+            originalFilename: m.originalFilename,
+            mimeType: m.mimeType,
+            sizeBytes: m.sizeBytes,
+            sha256: m.sha256,
+            category: m.category,
+            visibility: m.visibility,
+            altText: m.altText,
+          },
+        },
+        { upsert: true }
+      );
+      if (res.upsertedCount === 1) {
+        insertedMediaKeys.push(m.storageKey);
       } else {
-        await PackageModel.create(pkg);
-        insertedPackageSlugs.push(pkg.slug);
+        throw new Error(`Unexpected upsert conflict for MediaAsset '${m.storageKey}'.`);
       }
     }
-    console.log(`✅ Stage 2 Complete: ${insertedPackageSlugs.length} Packages inserted, ${updatedPackageSlugs.length} updated.\n`);
 
-    // Update Ledger to Applied
+    for (const pkg of plan.packagesToInsert) {
+      const res = await pkgModel.updateOne(
+        { slug: pkg.slug },
+        { $setOnInsert: pkg },
+        { upsert: true }
+      );
+      if (res.upsertedCount === 1) {
+        insertedPackageSlugs.push(pkg.slug);
+      } else {
+        throw new Error(`Unexpected upsert conflict for Package '${pkg.slug}'.`);
+      }
+
+      if (
+        typeof simulateFailureAfterPackageInserts === "number" &&
+        insertedPackageSlugs.length >= simulateFailureAfterPackageInserts
+      ) {
+        throw new Error(
+          `SIMULATED MID-MIGRATION FAILURE after ${insertedPackageSlugs.length} package inserts and ${insertedMediaKeys.length} media inserts.`
+        );
+      }
+    }
+
+    const postMigrationChecksums = await computeCollectionChecksums(pkgModel, mediaModel);
+    const allDbPackages = await pkgModel.find().lean();
+    const allDbMedia = await mediaModel.find().lean();
+    const dbPkgMap = new Map(allDbPackages.map((p) => [p.slug, p]));
+    const dbMediaMap = new Map(allDbMedia.map((m) => [m.storageKey, m]));
+
+    const migratedPackageDigests: IDigestEntry[] = [];
+    for (const slug of insertedPackageSlugs) {
+      const saved = dbPkgMap.get(slug);
+      if (!saved) {
+        throw new Error(`Inserted package '${slug}' missing during digest capture.`);
+      }
+      migratedPackageDigests.push({
+        key: slug,
+        sha256: computeCanonicalSha256(normalizePackageForDigest(saved as unknown as Record<string, unknown>)),
+      });
+    }
+
+    const migratedMediaDigests: IDigestEntry[] = [];
+    for (const storageKey of insertedMediaKeys) {
+      const saved = dbMediaMap.get(storageKey);
+      if (!saved) {
+        throw new Error(`Inserted MediaAsset '${storageKey}' missing during digest capture.`);
+      }
+      migratedMediaDigests.push({
+        key: storageKey,
+        sha256: computeCanonicalSha256(normalizeMediaForDigest(saved as unknown as Record<string, unknown>)),
+      });
+    }
+
+    // Build complete cohort ownership across all attempts in this cycle, excluding true pre-existing records
+    const priorOwnedPackageSlugs = plan.packagesAlreadyMigrated.filter(
+      (slug) => !cyclePreExistingPkgSet.has(slug)
+    );
+    const priorOwnedMediaKeys = plan.mediaAlreadyMigrated.filter(
+      (key) => !cyclePreExistingMediaSet.has(key)
+    );
+    const ownedPackageSlugs = [...priorOwnedPackageSlugs, ...insertedPackageSlugs];
+    const ownedMediaKeys = [...priorOwnedMediaKeys, ...insertedMediaKeys];
+
+    const ownedPackageDigests: IDigestEntry[] = [];
+    for (const slug of ownedPackageSlugs) {
+      const saved = dbPkgMap.get(slug);
+      if (!saved) {
+        throw new Error(`Owned package '${slug}' missing during cohort digest capture.`);
+      }
+      ownedPackageDigests.push({
+        key: slug,
+        sha256: computeCanonicalSha256(normalizePackageForDigest(saved as unknown as Record<string, unknown>)),
+      });
+    }
+
+    const ownedMediaDigests: IDigestEntry[] = [];
+    for (const storageKey of ownedMediaKeys) {
+      const saved = dbMediaMap.get(storageKey);
+      if (!saved) {
+        throw new Error(`Owned MediaAsset '${storageKey}' missing during cohort digest capture.`);
+      }
+      ownedMediaDigests.push({
+        key: storageKey,
+        sha256: computeCanonicalSha256(normalizeMediaForDigest(saved as unknown as Record<string, unknown>)),
+      });
+    }
+
+    assertExactDigestSetMatch(insertedPackageSlugs, migratedPackageDigests, "package");
+    assertExactDigestSetMatch(insertedMediaKeys, migratedMediaDigests, "media");
+    assertExactDigestSetMatch(ownedPackageSlugs, ownedPackageDigests, "cohort-owned package");
+    assertExactDigestSetMatch(ownedMediaKeys, ownedMediaDigests, "cohort-owned media");
+
+    const verification = await verifyDatabaseAgainstSource(
+      pkgModel,
+      mediaModel,
+      assembled,
+      mediaInventory,
+      silent
+    );
+
+    if (!verification.allPassed) {
+      throw new Error(
+        `Post-migration verification failed (${verification.failedChecks} failing checks).`
+      );
+    }
+
     ledger.status = "applied";
     ledger.appliedAt = new Date();
-    ledger.insertedMediaKeys = insertedMediaKeys;
     ledger.insertedPackageSlugs = insertedPackageSlugs;
-    ledger.updatedPackageSlugs = updatedPackageSlugs;
+    ledger.insertedMediaKeys = insertedMediaKeys;
+    ledger.ownedPackageSlugs = ownedPackageSlugs;
+    ledger.ownedMediaKeys = ownedMediaKeys;
+    ledger.postMigrationChecksums = postMigrationChecksums;
+    ledger.migratedPackageDigests = migratedPackageDigests;
+    ledger.migratedMediaDigests = migratedMediaDigests;
+    ledger.ownedPackageDigests = ownedPackageDigests;
+    ledger.ownedMediaDigests = ownedMediaDigests;
+    ledger.verificationResults = {
+      passedChecks: verification.passedChecks,
+      failedChecks: verification.failedChecks,
+      allPassed: verification.allPassed,
+      timestamp: new Date().toISOString(),
+    };
     await ledger.save();
 
-    console.log("🎉 Migration applied successfully! Running automatic post-migration verification...\n");
-    await executeVerify(target, ledger);
+    if (parentAttemptLedgerIds.length > 0) {
+      await ledgerModel.updateMany(
+        {
+          _id: { $in: parentAttemptLedgerIds },
+          status: "failed",
+        },
+        {
+          $set: {
+            supersededByLedgerId: String(ledger._id),
+          },
+        }
+      );
+      await ledgerModel.updateMany(
+        {
+          _id: { $in: parentAttemptLedgerIds },
+          status: "running",
+        },
+        {
+          $set: {
+            status: "failed",
+            supersededByLedgerId: String(ledger._id),
+            error: `Interrupted migration superseded after successful recovery in ledger ${String(ledger._id)}.`,
+          },
+        }
+      );
+    }
+
+    return {
+      status: "applied",
+      insertedPackages: insertedPackageSlugs.length,
+      skippedPackages: plan.packagesAlreadyMigrated.length,
+      insertedMedia: insertedMediaKeys.length,
+      skippedMedia: plan.mediaAlreadyMigrated.length,
+      ownedPackages: ownedPackageSlugs.length,
+      ownedMedia: ownedMediaKeys.length,
+      recoveredFromIncompleteLedgerCount: priorCycleIncompleteLedgers.length,
+      ledgerId: String(ledger._id),
+      snapshotPath,
+    };
   } catch (error) {
+    const partialPkgDigests: IDigestEntry[] = [];
+    for (const slug of insertedPackageSlugs) {
+      const saved = await pkgModel.findOne({ slug }).lean().catch(() => null);
+      if (saved) {
+        partialPkgDigests.push({
+          key: slug,
+          sha256: computeCanonicalSha256(normalizePackageForDigest(saved as unknown as Record<string, unknown>)),
+        });
+      }
+    }
+    const partialMediaDigests: IDigestEntry[] = [];
+    for (const storageKey of insertedMediaKeys) {
+      const saved = await mediaModel.findOne({ storageKey }).lean().catch(() => null);
+      if (saved) {
+        partialMediaDigests.push({
+          key: storageKey,
+          sha256: computeCanonicalSha256(normalizeMediaForDigest(saved as unknown as Record<string, unknown>)),
+        });
+      }
+    }
+
     ledger.status = "failed";
-    ledger.error = (error as Error).message;
+    ledger.insertedPackageSlugs = insertedPackageSlugs;
+    ledger.insertedMediaKeys = insertedMediaKeys;
+    ledger.migratedPackageDigests = partialPkgDigests;
+    ledger.migratedMediaDigests = partialMediaDigests;
+    ledger.error = error instanceof Error ? error.message : String(error);
     await ledger.save();
-    console.error(`❌ Migration failed: ${(error as Error).message}`);
     throw error;
   }
 }
 
-// -----------------------------------------------------------------------------
-// Command 3: VERIFY INTEGRITY
-// -----------------------------------------------------------------------------
-async function executeVerify(target: ParsedDatabaseTarget, existingLedger?: IMigrationLedger): Promise<boolean> {
-  console.log("==================================================================");
-  console.log("MTPL Migration — Verification & Integrity Engine");
-  console.log("==================================================================");
-
-  if (mongoose.connection.readyState !== 1) {
-    await connectDb(target);
-  }
-
-  let passedChecks = 0;
-  let failedChecks = 0;
-
-  function assertCheck(condition: boolean, title: string, details?: string) {
-    if (condition) {
-      console.log(`  [PASS] ${title}`);
-      passedChecks++;
-    } else {
-      console.error(`  [FAIL] ${title}`);
-      if (details) console.error(`         Details: ${details}`);
-      failedChecks++;
-    }
-  }
-
-  // 1. Total Package Counts
-  const totalCount = await PackageModel.countDocuments();
-  assertCheck(totalCount === 93, `Total packages in DB is exactly 93 (found: ${totalCount})`);
-
-  // 2. Category Counts
-  const nationalCount = await PackageModel.countDocuments({ category: "national" });
-  assertCheck(nationalCount === 67, `National packages count is exactly 67 (found: ${nationalCount})`);
-
-  const intlCount = await PackageModel.countDocuments({ category: "international" });
-  assertCheck(intlCount === 26, `International packages count is exactly 26 (found: ${intlCount})`);
-
-  // 3. Publication Status
-  const publishedCount = await PackageModel.countDocuments({ status: "published" });
-  assertCheck(publishedCount === 93, `All 93 packages have status='published' (found: ${publishedCount})`);
-
-  // 4. Currency Consistency
-  const inrCount = await PackageModel.countDocuments({ currency: "INR" });
-  const usdCount = await PackageModel.countDocuments({ currency: "USD" });
-  assertCheck(inrCount === 67, `All 67 national packages have currency='INR' (found: ${inrCount})`);
-  assertCheck(usdCount === 26, `All 26 international packages have currency='USD' (found: ${usdCount})`);
-
-  // 5. Media Resolution & Existence
-  const { files: mediaFiles } = scanMediaInventory();
-  const diskFileSet = new Set(mediaFiles.map((m) => m.filename));
-  const packagesInDb = await PackageModel.find().lean();
-
-  let missingHeroCovers = 0;
-  let missingPdfDocs = 0;
-  let missingTableRows = 0;
-  let nonSequentialItineraries = 0;
-
-  for (const pkg of packagesInDb) {
-    const heroKey = pkg.heroImage.replace("/api/media/", "").split("?")[0];
-    if (!diskFileSet.has(heroKey)) {
-      missingHeroCovers++;
-    }
-
-    if (pkg.pdfDownloadKey && pkg.pdfDownloadKey.trim().length > 0) {
-      if (!diskFileSet.has(pkg.pdfDownloadKey)) {
-        missingPdfDocs++;
-      }
-    }
-
-    // Verify Accommodations & Cost Tables
-    if (!pkg.accommodations || !pkg.accommodations.rows || pkg.accommodations.rows.length === 0) {
-      missingTableRows++;
-    }
-    if (!pkg.costTables || pkg.costTables.length === 0) {
-      missingTableRows++;
-    }
-
-    // Check itinerary continuity
-    for (let i = 0; i < pkg.itinerary.length; i++) {
-      if (pkg.itinerary[i].day !== i + 1) {
-        nonSequentialItineraries++;
-        break;
-      }
-    }
-  }
-
-  assertCheck(missingHeroCovers === 0, `All 93 package hero covers exist in storage/media/public (missing: ${missingHeroCovers})`);
-  assertCheck(missingPdfDocs === 0, `All non-empty PDF download keys exist on disk (missing: ${missingPdfDocs})`);
-  assertCheck(missingTableRows === 0, `All 93 packages have complete accommodation and cost table rows`);
-
-  // 6. MediaAsset Record Parity
-  const mediaAssetCount = await MediaAsset.countDocuments();
-  assertCheck(mediaAssetCount === 186, `MediaAsset collection has exactly 186 records matching disk files (found: ${mediaAssetCount})`);
-
-  // 7. Handled Anomalies Checked
-  const dubaiPkgsWithoutPdf = await PackageModel.find({
-    slug: { $in: ["mtpl-wonders-of-dubai-5n-6d", "mtpl-exclusive-dubai-abu-dhabi-6n-7d"] },
-  });
-  const bothDubaiPdfEmpty = dubaiPkgsWithoutPdf.every((p) => !p.pdfDownloadKey || p.pdfDownloadKey === "");
-  assertCheck(bothDubaiPdfEmpty, "Both Dubai packages have optional empty PDF keys handled safely");
-
-  assertCheck(
-    nonSequentialItineraries === 5,
-    `Source 2-column legacy itinerary day anomalies preserved faithfully (found: ${nonSequentialItineraries} packages)`
-  );
-
-  console.log(`\n========================================`);
-  console.log(`Verification Summary: ${passedChecks} Passed, ${failedChecks} Failed.`);
-  console.log(`========================================\n`);
-
-  const allPassed = failedChecks === 0;
-
-  if (existingLedger) {
-    existingLedger.verificationResults = {
-      passedChecks,
-      failedChecks,
-      allPassed,
-      timestamp: new Date().toISOString(),
-    };
-    await existingLedger.save();
-  }
-
-  return allPassed;
+export interface RollbackCoreResult {
+  deletedPackages: number;
+  deletedMedia: number;
+  totalCohortPackagesRemoved: number;
+  totalCohortMediaRemoved: number;
+  resumedInterruptedRollback: boolean;
+  ledgerId: string;
 }
 
-// -----------------------------------------------------------------------------
-// Command 4: ROLLBACK
-// -----------------------------------------------------------------------------
-async function executeRollback(target: ParsedDatabaseTarget, allowRemote: boolean): Promise<void> {
-  console.log("==================================================================");
-  console.log("MTPL Migration — Rollback Engine");
-  console.log("==================================================================");
+export async function executeRollbackCore(params: {
+  pkgModel: Model<IPackage>;
+  mediaModel: Model<IMediaAsset>;
+  ledgerModel: Model<IMigrationLedger>;
+  targetDatabase: string;
+  silent?: boolean;
+  /** Test-only hook to simulate mid-rollback failure after N package deletes. */
+  simulateFailureAfterPackageDeletes?: number;
+}): Promise<RollbackCoreResult> {
+  const {
+    pkgModel,
+    mediaModel,
+    ledgerModel,
+    targetDatabase,
+    silent = false,
+    simulateFailureAfterPackageDeletes,
+  } = params;
 
-  if (target.isRemote && !allowRemote) {
-    console.error(`\n🛑 SAFETY HALT: Remote MongoDB Cluster Detected!`);
-    console.error(`Rollback on remote database requires: --rollback --allow-remote\n`);
-    process.exit(1);
-  }
+  const resumingLedger = await ledgerModel
+    .findOne({
+      migrationName: MIGRATION_NAME,
+      status: "rolling_back",
+    })
+    .sort({ createdAt: -1 });
 
-  await connectDb(target);
-
-  const latestLedger = await MigrationLedger.findOne({
-    migrationName: MIGRATION_NAME,
-    status: "applied",
-  }).sort({ createdAt: -1 });
+  const latestLedger =
+    resumingLedger ??
+    (await ledgerModel
+      .findOne({
+        migrationName: MIGRATION_NAME,
+        status: "applied",
+      })
+      .sort({ createdAt: -1 }));
 
   if (!latestLedger) {
-    console.log("⚠️ No active 'applied' migration ledger found for this migration name.");
-    console.log("Rollback aborted: Nothing to safely roll back.\n");
-    return;
+    throw new Error(
+      `No active 'applied' or 'rolling_back' MigrationLedger found in '${targetDatabase}'. Rollback refused.`
+    );
   }
 
-  console.log(`Found active migration ledger from ${latestLedger.appliedAt?.toISOString() || latestLedger.createdAt.toISOString()}`);
-  console.log(`Packages inserted: ${latestLedger.insertedPackageSlugs.length}`);
-  console.log(`Packages updated: ${latestLedger.updatedPackageSlugs.length}`);
-  console.log(`MediaAssets inserted: ${latestLedger.insertedMediaKeys.length}`);
+  const resumedInterruptedRollback = latestLedger.status === "rolling_back";
 
-  // 1. Delete ONLY newly inserted packages
-  if (latestLedger.insertedPackageSlugs.length > 0) {
-    const delPkgRes = await PackageModel.deleteMany({
-      slug: { $in: latestLedger.insertedPackageSlugs },
-    });
-    console.log(`🗑️ Removed ${delPkgRes.deletedCount} inserted Package documents.`);
+  if (
+    latestLedger.targetDatabase &&
+    latestLedger.targetDatabase !== targetDatabase
+  ) {
+    throw new Error(
+      `Ledger targetDatabase mismatch: ledger records '${latestLedger.targetDatabase}', connected DB is '${targetDatabase}'. Rollback refused.`
+    );
   }
 
-  // 2. Delete ONLY newly inserted MediaAssets
-  if (latestLedger.insertedMediaKeys.length > 0) {
-    const delMediaRes = await MediaAsset.deleteMany({
-      storageKey: { $in: latestLedger.insertedMediaKeys },
-    });
-    console.log(`🗑️ Removed ${delMediaRes.deletedCount} inserted MediaAsset records.`);
-  }
+  const useCohortOwnership =
+    (latestLedger.ownedPackageSlugs && latestLedger.ownedPackageSlugs.length > 0) ||
+    (latestLedger.ownedMediaKeys && latestLedger.ownedMediaKeys.length > 0) ||
+    (latestLedger.parentAttemptLedgerIds && latestLedger.parentAttemptLedgerIds.length > 0);
 
-  // 3. Restore any updated packages from pre-migration snapshot if available
-  if (latestLedger.preMigrationSnapshotPath && fs.existsSync(latestLedger.preMigrationSnapshotPath)) {
-    const snapshotRaw = fs.readFileSync(latestLedger.preMigrationSnapshotPath, "utf-8");
-    const snapshot = JSON.parse(snapshotRaw);
-    if (snapshot.packages && Array.isArray(snapshot.packages) && snapshot.packages.length > 0) {
-      console.log(`🔄 Restoring ${snapshot.packages.length} pre-migration package records from snapshot...`);
-      for (const orig of snapshot.packages) {
-        await PackageModel.updateOne({ slug: orig.slug }, { $set: orig }, { upsert: true });
+  const targetPackageSlugs = useCohortOwnership
+    ? latestLedger.ownedPackageSlugs || []
+    : latestLedger.insertedPackageSlugs;
+  const targetPackageDigests = useCohortOwnership
+    ? latestLedger.ownedPackageDigests || []
+    : latestLedger.migratedPackageDigests || [];
+
+  const targetMediaKeys = useCohortOwnership
+    ? latestLedger.ownedMediaKeys || []
+    : latestLedger.insertedMediaKeys;
+  const targetMediaDigests = useCohortOwnership
+    ? latestLedger.ownedMediaDigests || []
+    : latestLedger.migratedMediaDigests || [];
+
+  assertExactDigestSetMatch(targetPackageSlugs, targetPackageDigests, "package");
+  assertExactDigestSetMatch(targetMediaKeys, targetMediaDigests, "media");
+
+  const pkgDigestMap = new Map(targetPackageDigests.map((e) => [e.key, e.sha256]));
+  const mediaDigestMap = new Map(targetMediaDigests.map((e) => [e.key, e.sha256]));
+
+  // Verify cross-attempt ownership & digest parity for all linked parent attempt ledgers
+  const parentIds = latestLedger.parentAttemptLedgerIds || [];
+  if (parentIds.length > 0) {
+    const parentLedgers = await ledgerModel
+      .find({ _id: { $in: parentIds } })
+      .lean();
+    for (const parent of parentLedgers) {
+      for (const d of parent.migratedPackageDigests || []) {
+        const cohortDigest = pkgDigestMap.get(d.key);
+        if (!cohortDigest || cohortDigest !== d.sha256) {
+          throw new Error(
+            `INTEGRITY BLOCK: Parent attempt ledger '${String(parent._id)}' package '${d.key}' missing or mismatched in cohort ownership digests.`
+          );
+        }
+      }
+      for (const d of parent.migratedMediaDigests || []) {
+        const cohortDigest = mediaDigestMap.get(d.key);
+        if (!cohortDigest || cohortDigest !== d.sha256) {
+          throw new Error(
+            `INTEGRITY BLOCK: Parent attempt ledger '${String(parent._id)}' media '${d.key}' missing or mismatched in cohort ownership digests.`
+          );
+        }
       }
     }
   }
 
-  latestLedger.status = "rolled_back";
-  latestLedger.rolledBackAt = new Date();
-  await latestLedger.save();
+  const alreadyDeletedPkgSet = new Set(latestLedger.rollbackDeletedPackageSlugs || []);
+  const alreadyDeletedMediaSet = new Set(latestLedger.rollbackDeletedMediaKeys || []);
 
-  console.log("\n✅ Rollback completed successfully. Database reverted to clean pre-migration state.\n");
+  // Integrity check BEFORE deleting: verify every present owned document matches recorded digest.
+  // Missing docs are allowed ONLY when resuming an already-started 'rolling_back' ledger.
+  for (const slug of targetPackageSlugs) {
+    const doc = await pkgModel.findOne({ slug }).lean();
+    if (!doc) {
+      if (resumedInterruptedRollback) {
+        alreadyDeletedPkgSet.add(slug);
+        continue;
+      }
+      throw new Error(
+        `ROLLBACK BLOCKED: Expected migrated package '${slug}' is missing from '${targetDatabase}'. External mutation detected; refusing rollback.`
+      );
+    }
+    const recordedHash = pkgDigestMap.get(slug);
+    if (!recordedHash) {
+      throw new Error(
+        `ROLLBACK BLOCKED: Missing recorded digest for package '${slug}' in MigrationLedger.`
+      );
+    }
+    const currentHash = computeCanonicalSha256(
+      normalizePackageForDigest(doc as unknown as Record<string, unknown>)
+    );
+    if (currentHash !== recordedHash) {
+      throw new Error(
+        `ROLLBACK BLOCKED: Package '${slug}' was modified after migration (post-migration edits would be lost). Refusing destructive rollback.`
+      );
+    }
+  }
+
+  for (const storageKey of targetMediaKeys) {
+    const doc = await mediaModel.findOne({ storageKey }).lean();
+    if (!doc) {
+      if (resumedInterruptedRollback) {
+        alreadyDeletedMediaSet.add(storageKey);
+        continue;
+      }
+      throw new Error(
+        `ROLLBACK BLOCKED: Expected migrated MediaAsset '${storageKey}' is missing from '${targetDatabase}'. External mutation detected; refusing rollback.`
+      );
+    }
+    const recordedHash = mediaDigestMap.get(storageKey);
+    if (!recordedHash) {
+      throw new Error(
+        `ROLLBACK BLOCKED: Missing recorded digest for MediaAsset '${storageKey}' in MigrationLedger.`
+      );
+    }
+    const currentHash = computeCanonicalSha256(
+      normalizeMediaForDigest(doc as unknown as Record<string, unknown>)
+    );
+    if (currentHash !== recordedHash) {
+      throw new Error(
+        `ROLLBACK BLOCKED: MediaAsset '${storageKey}' was modified after migration. Refusing destructive rollback.`
+      );
+    }
+  }
+
+  if (latestLedger.status === "applied") {
+    latestLedger.status = "rolling_back";
+    latestLedger.rollbackStartedAt = new Date();
+    await latestLedger.save();
+  }
+
+  let deletedPackages = 0;
+  let deletedMedia = 0;
+
+  try {
+    for (const slug of targetPackageSlugs) {
+      if (alreadyDeletedPkgSet.has(slug)) {
+        continue;
+      }
+      const delRes = await pkgModel.deleteOne({ slug });
+      if (delRes.deletedCount === 1) {
+        deletedPackages++;
+        alreadyDeletedPkgSet.add(slug);
+      }
+
+      if (
+        typeof simulateFailureAfterPackageDeletes === "number" &&
+        deletedPackages >= simulateFailureAfterPackageDeletes
+      ) {
+        throw new Error(
+          `SIMULATED MID-ROLLBACK FAILURE after deleting ${deletedPackages} package(s).`
+        );
+      }
+    }
+
+    for (const storageKey of targetMediaKeys) {
+      if (alreadyDeletedMediaSet.has(storageKey)) {
+        continue;
+      }
+      const delRes = await mediaModel.deleteOne({ storageKey });
+      if (delRes.deletedCount === 1) {
+        deletedMedia++;
+        alreadyDeletedMediaSet.add(storageKey);
+      }
+    }
+
+    latestLedger.rollbackDeletedPackageSlugs = [...alreadyDeletedPkgSet];
+    latestLedger.rollbackDeletedMediaKeys = [...alreadyDeletedMediaSet];
+    latestLedger.status = "rolled_back";
+    latestLedger.rolledBackAt = new Date();
+    latestLedger.error = "";
+    await latestLedger.save();
+
+    if (parentIds.length > 0) {
+      await ledgerModel.updateMany(
+        { _id: { $in: parentIds } },
+        {
+          $set: {
+            rolledBackByLedgerId: String(latestLedger._id),
+            rolledBackAt: latestLedger.rolledBackAt,
+          },
+        }
+      );
+    }
+  } catch (error) {
+    latestLedger.rollbackDeletedPackageSlugs = [...alreadyDeletedPkgSet];
+    latestLedger.rollbackDeletedMediaKeys = [...alreadyDeletedMediaSet];
+    latestLedger.error = error instanceof Error ? error.message : String(error);
+    await latestLedger.save();
+    throw error;
+  }
+
+  if (!silent) {
+    console.log(
+      `✅ Guarded rollback complete on '${targetDatabase}': removed ${deletedPackages} packages (${alreadyDeletedPkgSet.size} total cohort) and ${deletedMedia} MediaAssets (${alreadyDeletedMediaSet.size} total cohort) for ledger ${latestLedger._id}.`
+    );
+  }
+
+  return {
+    deletedPackages,
+    deletedMedia,
+    totalCohortPackagesRemoved: alreadyDeletedPkgSet.size,
+    totalCohortMediaRemoved: alreadyDeletedMediaSet.size,
+    resumedInterruptedRollback,
+    ledgerId: String(latestLedger._id),
+  };
 }
 
-// -----------------------------------------------------------------------------
-// Command 5: GENERATE REPORTS
-// -----------------------------------------------------------------------------
-async function executeReport(): Promise<void> {
-  console.log("==================================================================");
-  console.log("MTPL Migration — Generating Comprehensive Reports");
-  console.log("==================================================================");
-
+export async function generateAuditReports(): Promise<{
+  jsonReportPath: string;
+  markdownReportPath: string;
+}> {
   if (!fs.existsSync(REPORTS_DIR)) {
     fs.mkdirSync(REPORTS_DIR, { recursive: true });
   }
 
-  const { files: mediaFiles, subdirectories } = scanMediaInventory();
-  const assembledPackages = assemblePackageDocuments();
+  const mediaInventory = scanMediaInventory();
+  const assembled = assemblePackageCatalogue(mediaInventory);
 
   const jsonReportPath = path.resolve(REPORTS_DIR, "migration-report.json");
   const markdownReportPath = path.resolve(REPORTS_DIR, "MIGRATION_REPORT.md");
+
+  const nationalCount = assembled.packages.filter((p) => p.category === "national").length;
+  const intlCount = assembled.packages.filter((p) => p.category === "international").length;
+  const pdfCount = mediaInventory.files.filter((m) => m.category === "documents").length;
+  const imageFiles = mediaInventory.files.filter((m) => m.category === "images");
+  const pngMimeCount = mediaInventory.files.filter((m) => m.mimeType === "image/png").length;
+  const webpMimeCount = mediaInventory.files.filter((m) => m.mimeType === "image/webp").length;
+  const jpegMimeCount = mediaInventory.files.filter((m) => m.mimeType === "image/jpeg").length;
 
   const reportData = {
     generatedAt: new Date().toISOString(),
     migrationName: MIGRATION_NAME,
     version: MIGRATION_VERSION,
+    allowedTargetDatabase: ALLOWED_LOCAL_DATABASE,
+    sourceInventoryHash: computeInventoryHash(assembled.packages, mediaInventory.files),
     summary: {
-      totalPackages: assembledPackages.length,
-      nationalPackages: assembledPackages.filter((p) => p.category === "national").length,
-      internationalPackages: assembledPackages.filter((p) => p.category === "international").length,
-      totalMediaFiles: mediaFiles.length,
-      subdirectoriesEncountered: subdirectories,
-      pdfDocumentCount: mediaFiles.filter((m) => m.category === "documents").length,
-      webpImageCount: mediaFiles.filter((m) => m.category === "images").length,
-      missingOptionalPdfs: assembledPackages.filter((p) => !p.pdfDownloadKey).map((p) => p.slug),
+      totalPackages: assembled.packages.length,
+      nationalPackages: nationalCount,
+      internationalPackages: intlCount,
+      accommodationAndCostTableEntries: assembled.packages.length,
+      totalMediaFiles: mediaInventory.files.length,
+      subdirectoriesEncountered: mediaInventory.subdirectories,
+      pdfDocumentCount: pdfCount,
+      imageFileCount: imageFiles.length,
+      contentDetectedMimeCounts: {
+        "application/pdf": pdfCount,
+        "image/png": pngMimeCount,
+        "image/webp": webpMimeCount,
+        "image/jpeg": jpegMimeCount,
+      },
+      extensionMimeMismatchCount: mediaInventory.extensionMismatches.length,
     },
-    packages: assembledPackages.map((p) => ({
+    discrepancies: assembled.discrepancies,
+    packages: assembled.packages.map((p) => ({
+      sourceOrder: p.sourceOrder,
+      packageId: p.packageId,
       slug: p.slug,
       title: p.title,
       destination: p.destination,
@@ -763,104 +1900,226 @@ async function executeReport(): Promise<void> {
       duration: p.duration,
       nights: p.nights,
       days: p.days,
-      numericPrice: p.numericPrice,
+      numericPrice: p.numericPrice ?? null,
       priceDisplay: p.priceDisplay,
       currency: p.currency,
+      costTableCurrencies: p.costTables.map((t) => t.currency || ""),
       heroImage: p.heroImage,
       pdfDownloadKey: p.pdfDownloadKey || null,
+      pdfOriginalFilename: p.pdfOriginalFilename || null,
       accommodationsRowCount: p.accommodations?.rows?.length || 0,
       costTablesCount: p.costTables.length,
       itineraryDays: p.itinerary.length,
+      itineraryDayNumbers: p.itinerary.map((d) => d.day),
     })),
-    mediaInventory: mediaFiles.map((m) => ({
-      filename: m.filename,
+    mediaInventory: mediaInventory.files.map((m) => ({
+      storageKey: m.storageKey,
+      relativePath: m.relativePath,
+      originalFilename: m.originalFilename,
       sizeBytes: m.sizeBytes,
       mimeType: m.mimeType,
+      sha256: m.sha256,
       category: m.category,
+      extensionMismatch: m.extensionMismatch,
     })),
   };
 
   fs.writeFileSync(jsonReportPath, JSON.stringify(reportData, null, 2), "utf-8");
 
+  const destBreakdown = Object.entries(
+    assembled.packages.reduce((acc: Record<string, number>, p) => {
+      acc[p.destination] = (acc[p.destination] || 0) + 1;
+      return acc;
+    }, {})
+  )
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([dest, count]) => `- **${dest}:** ${count} package${count > 1 ? "s" : ""}`)
+    .join("\n");
+
   const markdownContent = `# MTPL Travel Platform — Package Migration Audit Report
 
 **Generated:** ${reportData.generatedAt}  
 **Migration Code:** \`${MIGRATION_NAME}\` (v${MIGRATION_VERSION})  
+**Authoritative Target Database:** \`${ALLOWED_LOCAL_DATABASE}\` (local loopback only)  
+**Source Inventory SHA-256:** \`${reportData.sourceInventoryHash}\`
 
 ---
 
-## 1. Executive Catalogue Summary
+## 1. Authoritative Source Inventory Summary
 
-| Metric | Source Inventory Count | Target Migration Expectation | Parity State |
-|---|:---:|:---:|:---:|
-| **Total Packages** | **93** | **93** | 100% Match |
-| **National Packages (India)** | **67** | **67** | 100% Match |
-| **International Packages** | **26** | **26** | 100% Match |
-| **Tariff & Hotel Table Mappings** | **93** | **93** | 100% Match |
-| **Physical Media Files** | **186** | **186** | 100% Match |
-| **PDF Brochures** | **91** | **91** | 100% Match |
-| **WebP Images** | **95** | **95** | 100% Match |
-| **Subdirectories in Media Root** | **1 (\`img\`)** | Ignored | Reconciled |
-
----
-
-## 2. Reconciled Discrepancy Note
-- **Reported 187 Items vs 186 Files:**  
-  The filesystem directory \`storage/media/public/\` contains **1 directory (\`img\`)** and **186 physical files**.  
-  186 Files = 91 PDF documents + 95 WebP images (93 package hero covers + 2 category headers: \`National-Category.webp\`, \`International-Category.webp\`).
-- **Missing Optional PDFs:**  
-  Only 2 packages (\`mtpl-wonders-of-dubai-5n-6d\` and \`mtpl-exclusive-dubai-abu-dhabi-6n-7d\`) have empty PDF download keys. Both are valid tours without client brochures.
+| Metric | Source Count | Expected Count | Status |
+|---|---:|---:|---|
+| Total Packages (\`packages.ts\`) | ${assembled.packages.length} | 93 | Match |
+| National Packages | ${nationalCount} | 67 | Match |
+| International Packages | ${intlCount} | 26 | Match |
+| Table Entries (\`package-tables.json\`) | ${assembled.packages.length} | 93 | Match |
+| Physical Media Files (\`storage/media/public/\`) | ${mediaInventory.files.length} | 186 | Match |
+| PDF Documents (\`application/pdf\`) | ${pdfCount} | 91 | Match |
+| Image Files (93 Hero + 2 Banners) | ${imageFiles.length} | 95 | Match |
+| Subdirectories Traversed | ${mediaInventory.subdirectories.length} (\`${mediaInventory.subdirectories.join(", ") || "none"}\`) | 1 (\`img\`, empty) | Reconciled |
 
 ---
 
-## 3. Destination Breakdown
+## 2. Content-Detected MIME Verification
 
-${Object.entries(
-  assembledPackages.reduce((acc: Record<string, number>, p) => {
-    acc[p.destination] = (acc[p.destination] || 0) + 1;
-    return acc;
-  }, {})
-)
-  .sort((a, b) => b[1] - a[1])
-  .map(([dest, count]) => `- **${dest}:** ${count} package${count > 1 ? "s" : ""}`)
+- **\`application/pdf\`:** ${pdfCount} files (verified via \`%PDF-\` header)
+- **\`image/png\`:** ${pngMimeCount} files (all stored with \`.webp\` filenames; filenames and bytes preserved, true MIME \`image/png\` recorded in \`MediaAsset\`)
+- **\`image/webp\`:** ${webpMimeCount} files (verified via \`RIFF....WEBP\` header)
+- **\`image/jpeg\`:** ${jpegMimeCount} files
+
+---
+
+## 3. Preserved Source Discrepancies (No Silent Conversion)
+
+### 3.1 Bhutan & Nepal Mixed Currency (6 Packages — For Manual Business Confirmation)
+Summary pricing is denominated in **USD**, while embedded tariff tables in \`package-tables.json\` declare **INR**:
+${assembled.discrepancies.mixedCurrencyPackages
+  .map((m) => `- \`${m.slug}\` (${m.destination}): summary \`${m.priceDisplay}\` (\`${m.summaryCurrency}\`) vs cost table currency \`${m.costTableCurrencies.join(", ")}\``)
+  .join("\n")}
+
+### 3.2 Dubai Optional Empty PDF References (2 Packages)
+Preserved with empty \`pdfDownloadKey: ""\` (no synthetic PDF keys generated):
+${assembled.discrepancies.emptyPdfPackages
+  .map((d) => `- \`${d.slug}\` (${d.title}): \`pdfOriginalFilename\` = \`${d.pdfOriginalFilename}\``)
+  .join("\n")}
+
+### 3.3 Legacy Two-Column Non-Sequential Itinerary Days (5 Packages)
+Preserved verbatim without renumbering or reordering:
+${assembled.discrepancies.nonSequentialItineraryPackages
+  .map((n) => `- \`${n.slug}\`: \`[${n.days.join(", ")}]\``)
   .join("\n")}
 
 ---
 
-## 4. Reports Generated
-- Machine-readable JSON: \`${jsonReportPath}\`
-- Human-readable Markdown: \`${markdownReportPath}\`
+## 4. Destination Breakdown
+
+${destBreakdown}
 `;
 
   fs.writeFileSync(markdownReportPath, markdownContent, "utf-8");
-
-  console.log(`✅ JSON Report generated at: ${jsonReportPath}`);
-  console.log(`✅ Markdown Report generated at: ${markdownReportPath}\n`);
+  return { jsonReportPath, markdownReportPath };
 }
 
-// -----------------------------------------------------------------------------
-// MAIN CLI RUNNER
-// -----------------------------------------------------------------------------
-async function main() {
-  const args = parseCliArgs();
-  const target = resolveDatabaseTarget();
+async function runCli() {
+  const { mode } = parseCliArgs();
+
+  if (mode === "report") {
+    console.log("==================================================================");
+    console.log("MTPL P2.0 Migration — Source Inventory & Audit Report");
+    console.log("==================================================================");
+    const { jsonReportPath, markdownReportPath } = await generateAuditReports();
+    console.log(`✅ JSON report written: ${jsonReportPath}`);
+    console.log(`✅ Markdown report written: ${markdownReportPath}`);
+    console.log("ℹ️ ZERO database connections or writes performed.");
+    return;
+  }
+
+  const target = resolveLocalDatabaseTarget();
+  console.log(`Target Host: ${target.host} | Target DB: "${target.databaseName}" | Mode: --${mode}`);
+
+  const mediaInventory = scanMediaInventory();
+  const assembled = assemblePackageCatalogue(mediaInventory);
+
+  if (mode === "dry-run" || mode === "verify") {
+    const readOnlyConn = await connectReadOnlyLocal(target.uri);
+    try {
+      const activeDbName = readOnlyConn.db?.databaseName;
+      if (activeDbName !== ALLOWED_LOCAL_DATABASE) {
+        throw new Error(
+          `SAFETY BLOCK: Connected DB '${activeDbName}' does not match required '${ALLOWED_LOCAL_DATABASE}'.`
+        );
+      }
+
+      const { pkgModel, mediaModel, ledgerModel } = createReadOnlyModels(readOnlyConn);
+
+      if (mode === "dry-run") {
+        console.log("==================================================================");
+        console.log("MTPL P2.0 Migration — Strictly Read-Only Dry Run (Zero Writes)");
+        console.log("==================================================================");
+        const summary = await executeDryRunCore({
+          pkgModel,
+          mediaModel,
+          ledgerModel,
+          assembled,
+          mediaInventory,
+        });
+        console.log(`Source packages validated : ${assembled.packages.length} (67 national, 26 international)`);
+        console.log(`Source media validated    : ${mediaInventory.files.length} (91 PDFs, 88 PNG-in-WebP, 7 WebP)`);
+        console.log(`Mixed currency notices    : ${summary.mixedCurrencyNoticeCount} (Bhutan/Nepal USD summary vs INR tables)`);
+        console.log(`Packages to insert        : ${summary.packagesToInsert}`);
+        console.log(`Packages already matched  : ${summary.packagesAlreadyMatched}`);
+        console.log(`Package conflicts         : ${summary.packageConflicts}`);
+        console.log(`MediaAssets to insert     : ${summary.mediaToInsert}`);
+        console.log(`MediaAssets already match : ${summary.mediaAlreadyMatched}`);
+        console.log(`MediaAsset conflicts      : ${summary.mediaConflicts}`);
+        console.log(`Existing ledger entries   : ${summary.existingLedgerCount}`);
+        if (
+          summary.incompleteRunningLedgers > 0 ||
+          summary.failedLedgers > 0 ||
+          summary.rollingBackLedgers > 0
+        ) {
+          console.warn(
+            `⚠️ Incomplete/active ledgers detected: ${summary.incompleteRunningLedgers} running, ${summary.failedLedgers} failed, ${summary.rollingBackLedgers} rolling_back.`
+          );
+        }
+        if (summary.packageConflicts > 0 || summary.mediaConflicts > 0) {
+          console.error("⚠️ Conflicts detected — '--apply-local' would abort safely without overwriting.");
+          process.exitCode = 1;
+        } else {
+          console.log("✅ Read-only dry-run complete. ZERO collections created, ZERO indexes modified, ZERO database/snapshot writes.");
+        }
+        return;
+      }
+
+      const outcome = await verifyDatabaseAgainstSource(
+        pkgModel,
+        mediaModel,
+        assembled,
+        mediaInventory
+      );
+      if (!outcome.allPassed) {
+        process.exitCode = 1;
+      }
+      return;
+    } finally {
+      await readOnlyConn.close();
+    }
+  }
+
+  await mongoose.connect(target.uri, {
+    serverSelectionTimeoutMS: 8000,
+    connectTimeoutMS: 10000,
+  });
 
   try {
-    if (args.isReport) {
-      await executeReport();
-    } else if (args.isVerify) {
-      await executeVerify(target);
-    } else if (args.isRollback) {
-      await executeRollback(target, args.allowRemote);
-    } else if (args.isApply) {
-      await executeApply(target, args.allowRemote);
-    } else {
-      // Default: Dry Run
-      await executeDryRun(target);
+    const activeDbName = mongoose.connection.db?.databaseName;
+    if (activeDbName !== ALLOWED_LOCAL_DATABASE) {
+      throw new Error(
+        `SAFETY BLOCK: Connected DB '${activeDbName}' does not match required '${ALLOWED_LOCAL_DATABASE}'.`
+      );
     }
-  } catch (error) {
-    console.error("❌ Process aborted with error:", error);
-    process.exit(1);
+
+    if (mode === "apply-local") {
+      const res = await executeApplyCore({
+        pkgModel: PackageModel,
+        mediaModel: MediaAsset,
+        ledgerModel: MigrationLedger,
+        targetHost: target.host,
+        targetDatabase: target.databaseName,
+      });
+      console.log("Apply result:", res);
+      return;
+    }
+
+    if (mode === "rollback-local") {
+      await executeRollbackCore({
+        pkgModel: PackageModel,
+        mediaModel: MediaAsset,
+        ledgerModel: MigrationLedger,
+        targetDatabase: target.databaseName,
+      });
+      return;
+    }
   } finally {
     if (mongoose.connection.readyState !== 0) {
       await mongoose.disconnect();
@@ -868,4 +2127,14 @@ async function main() {
   }
 }
 
-main();
+const isDirectExecution =
+  typeof require !== "undefined" &&
+  typeof module !== "undefined" &&
+  require.main === module;
+
+if (isDirectExecution) {
+  runCli().catch((err) => {
+    console.error("❌ Migration error:", err instanceof Error ? err.message : String(err));
+    process.exit(1);
+  });
+}

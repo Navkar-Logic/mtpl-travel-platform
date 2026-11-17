@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { siteConfig } from "@/config/site"
+import { buildPageMetadata } from "@/lib/seo"
 import {
   ShieldCheck,
   Lock,
@@ -17,18 +18,13 @@ import {
   ExternalLink,
 } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Mishrikotkar Travels",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Privacy Policy",
   description:
     "Official Privacy Policy describing how personal information is collected, used, stored, and protected across the website and enquiry channels of Mishrikotkar Travels Pvt. Ltd. (MTPL).",
-  robots: {
-    index: false,
-    follow: false,
-  },
-  alternates: {
-    canonical: `${siteConfig.url}/privacy-policy`,
-  },
-}
+  path: "/privacy-policy",
+  noIndex: true,
+})
 
 const tableOfContents = [
   { id: "section-a", label: "A. Introduction & Purpose" },
@@ -447,7 +443,8 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm">
                   <li><strong>Strictly Necessary Technical Cookies:</strong> Temporary technical cookies and session storage used exclusively for fundamental routing, form state persistence, Next.js page transitions, and server security.</li>
-                  <li><strong>No Third-Party Advertising Pixels:</strong> We do not load third-party ad networks, tracking pixels, or cross-site commercial cookies on this website.</li>
+                  <li><strong>No Third-Party Advertising Pixels:</strong> We do not load third-party ad networks, marketing pixels, or cross-site commercial profiling cookies on this website.</li>
+                  <li><strong>Performance Analytics (Environment Gated):</strong> When an authorized Google Analytics 4 Measurement ID is configured in production environment variables, pseudonymous aggregate metrics (such as page visits, referring source, and session duration) are processed via Google Tag Manager. No form inputs, phone numbers, or traveller enquiry details are ever shared with analytics providers. If no measurement ID is configured, analytics scripts are completely omitted from the website.</li>
                   <li><strong>Self-Hosted Fonts:</strong> Typography is bundled and served locally from our Next.js application build via <code className="text-xs bg-slate-100 px-1 rounded text-slate-800">next/font/google</code>, ensuring that no visitor IP addresses are transmitted to Google font servers during browsing.</li>
                 </ul>
                 <p>
